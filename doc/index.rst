@@ -128,6 +128,12 @@ Paraview
 
    paraview.md
    Paraview_Hopper.md
+   
+General
+^^^^^^^
+.. toctree::
+   :maxdepth: 1
+
    singularity-markdown-version.md
    haskell.md
    X11_forwarding.md
