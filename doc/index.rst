@@ -72,7 +72,7 @@ R
 
    R_usage.md
    R_at_CARC)
-..   Parallel_R_with_Future.ipynb)
+   Parallel_R_with_Future.ipynb
    Gurobi%20optimizer%20with%20R.md
 
 Machine Learning
@@ -82,8 +82,8 @@ Machine Learning
 
    Tensorflow_documentation.md
    PyTorch_1.9_Xena.md
-..   PyTorch_Classifier_Xena%20.ipynb
-..   multiGPU_tensorflow_tutorial.ipynb
+   PyTorch_Classifier_Xena%20.ipynb
+   multiGPU_tensorflow_tutorial.ipynb
    parallel_jupyterhub_with_dask_and_scikit-learn.md
 
 Bioinformatics
@@ -132,5 +132,5 @@ Paraview
    haskell.md
    X11_forwarding.md
    spark.md
-..   CuPy_on_CARC.ipynb
+   CuPy_on_CARC.ipynb
    install_perl_libraries.md
