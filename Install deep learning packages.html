@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Installing Deep Learning Library in Xena &mdash; CARC QuickBytes 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=2709fde1"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CARC QuickBytes
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="linux_intro.html">Linux Tutorial</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="logging_in.html">Logging in</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ssh_keygen_config.html">SSH keys and config file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transfer_data.html">Transferring data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pbs-torque.html">PBS/TORQUE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pbs_scripts2.html">Example PBS Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="submitting_jobs.html">Submitting jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="checking_on_running_jobs.html">Checking on running jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="module_management.html">Managing software models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Intro_to_slurm.html">Slurm Workload Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pbs2slurm.html">Conversion of PBS script to Slurm script</a></li>
+<li class="toctree-l1"><a class="reference internal" href="slurm_accounting.html">Introduction to Slurm Accounting at CARC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="running_matlab_jobs.html">Running MATLAB Jobs at CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html">Parallel MATLAB Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html#how-matlab-parallel-works-behind-the-scenes">How MATLAB Parallel Works Behind the Scenes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html#setting-your-ip-address">Setting your IP Address</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html#monitoring-matlab-jobs">Monitoring MATLAB Jobs</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Conda_JupyterHub.html">Using Custom Conda Python Environments in JupyterHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="julia_with_jupyterhub.html">Julia with Jupyter Hub</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="anaconda_general_intro.html">Anaconda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="anaconda_intro.html">Anaconda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="anaconda_pip_channels.html">Installing with pip and adding channels</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="R_usage.html">R Programming in HPC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Tensorflow_documentation.html">Introduction to Tensorflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html">Setting Up PyTorch using Xena</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html#navigate-to-the-pytorch1-9-k40-compatible-directory">Navigate to the PyTorch1.9-K40-Compatible directory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html#activate-the-conda-environment">Activate the Conda Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html#pip-installation">Pip installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="GATK_QuickByte.html">Parallel genomic variant calling with Genome Analysis Toolkit (GATK)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genome_evaluation.html">Reference genome evaluation with QUAST and BUSCO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="psmc_quickbyte.html">Pairwise Sequentially Markovian Coalescent (PSMC)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Stacks_quickbyte.html">Running Stacks on CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Metabarcoding.html">Metabarcoding Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Beast_at_CARC.html">BEAST at CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="msprime_quickbyte.html">Running Population Genetic Simulations with MSPrime</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="orca_wheeler_taos.html">Using Orca on Wheeler and Taos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alphafold.html">Alphafold</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alphafold.html#alphafold-w-localcolabfold">Alphafold w/ LocalColabFold:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alphafold.html#alphafold-w-singularity-image">Alphafold w/ Singularity Image:</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html">Download the SimCov Source Code from GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html#build-simcov-from-source">Build SimCov from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html#configure-simcov">Configure SimCov</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html#submit-a-simcov-job">Submit a SimCov Job</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mpiCASA.html">Using CASA on CARC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="paraview.html">How to: Remote Visualization using ParaView in parallel.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Paraview_Hopper.html">Remote Visualization using ParaView in parallel.</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="singularity-markdown-version.html">Docker and Singularity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singularity-markdown-version.html#singularity">Singularity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singularity-markdown-version.html#version-issues">Version Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="haskell.html">Haskell at CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X11_forwarding.html">X11 Forwarding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spark.html">Spark</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CARC QuickBytes</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Installing Deep Learning Library in Xena</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/Install deep learning packages.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="installing-deep-learning-library-in-xena">
+<h1>Installing Deep Learning Library in Xena<a class="headerlink" href="#installing-deep-learning-library-in-xena" title="Link to this heading"></a></h1>
+<p>This step by step tutorial will guide you through installing deep learning and Machine learning tools in the Xena Server.</p>
+<section id="setting-up-the-conda-environment-for-installation">
+<h2>Setting up the conda environment for installation<a class="headerlink" href="#setting-up-the-conda-environment-for-installation" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p>Firstly load the Anaconda module to use the conda command.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> module load anaconda3
+</pre></div>
+</div>
+</li>
+<li><p>Create the Conda Environment with a name.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> conda create --name &lt;env_name&gt; python==3.6
+</pre></div>
+</div>
+</li>
+<li><p>Verify the installation of the environment.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> conda info --envs	
+</pre></div>
+</div>
+</li>
+<li><p>Load the environment.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> source activate &lt;env_name&gt; 
+</pre></div>
+</div>
+</li>
+<li><p>Install the deep learning Packages (you can install one of these or as per your need)</p>
+<p>a.  <strong>Tensorflow</strong>: Install GPU version of the 	tensorflow for better performance</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  conda install -c anaconda tensorflow-gpu
+</pre></div>
+</div>
+<p>b.  <strong>Keras</strong>  GPU Version</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  conda install -c anaconda keras-gpu  
+</pre></div>
+</div>
+<p>c.   <strong>Pytorch</strong> Non-GPU Version</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> conda install pytorch torchvision -c pytorch
+</pre></div>
+</div>
+<p>d.   <strong>Pytorch</strong> GPU Version</p>
+<p>First make sure that you have Python 3.7 installed in your current environment.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> conda create -n &lt;env_name&gt; python==3.7
+</pre></div>
+</div>
+<p>Next, activate your environment as per step 4 above.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> source activate &lt;env_name&gt;
+</pre></div>
+</div>
+<p>Finally, install the following packages:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> conda install /projects/shared/pytorch/PyTorch1.5-K40-Compatible/pytorch-1.5.0-py3.7_cuda10.1.243_cudnn7.6.3_0.tar.bz2
+ conda install cudatoolkit=10.1.243
+</pre></div>
+</div>
+<p>To verify that the K40s are available to your pytorch run the following python code:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> import torch
+ from torch import nn, tensor
+ from torch.cuda import device_count
+ device = torch.device(&#39;cuda&#39; if torch.cuda.is_available() else &#39;cpu&#39;)
+ x=torch.rand(5,3)
+ print(x)
+ print(&quot;Is GPU Available?&quot;,torch.cuda.is_available(),&quot; CUDA device count:&quot;, torch.cuda.device_count(), &quot;current_device:&quot;,torch.cuda.current_device())
+ x = torch.tensor([1, 2, 3], device=device)
+ y = torch.tensor([1,4,9]).to(device)
+ print(x,y)
+ print(x+y)
+</pre></div>
+</div>
+<p>Expected Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> tensor([[0.3220, 0.2174, 0.1226],
+ 		[0.7249, 0.8111, 0.8414],
+ 		[0.5974, 0.5169, 0.5242],
+ 		[0.1436, 0.5150, 0.5688],
+ 		[0.3298, 0.1289, 0.5349]])
+ Is GPU Available? True  CUDA device count: 1  current_device: 0
+ tensor([1, 2, 3], device=&#39;cuda:0&#39;) tensor([1, 4, 9], device=&#39;cuda:0&#39;)
+ tensor([ 2, 6, 12], device=&#39;cuda:0&#39;)
+</pre></div>
+</div>
+</li>
+<li><p>Install additional Machine Learning packages</p>
+<p>i.  <strong>OpenCV</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  conda install -c conda-forge opencv 
+</pre></div>
+</div>
+<p>ii. <strong>numpy,pandas, matpotlib , scikit-learn</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  conda install numpy pandas matplotlib scikit-learn 
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

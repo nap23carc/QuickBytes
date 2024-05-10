@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Using Orca on Wheeler and Taos &mdash; CARC QuickBytes 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=2709fde1"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Alphafold" href="alphafold.html" />
+    <link rel="prev" title="Running Population Genetic Simulations with MSPrime" href="msprime_quickbyte.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CARC QuickBytes
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="linux_intro.html">Linux Tutorial</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="logging_in.html">Logging in</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ssh_keygen_config.html">SSH keys and config file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transfer_data.html">Transferring data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pbs-torque.html">PBS/TORQUE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pbs_scripts2.html">Example PBS Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="submitting_jobs.html">Submitting jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="checking_on_running_jobs.html">Checking on running jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="module_management.html">Managing software models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Intro_to_slurm.html">Slurm Workload Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pbs2slurm.html">Conversion of PBS script to Slurm script</a></li>
+<li class="toctree-l1"><a class="reference internal" href="slurm_accounting.html">Introduction to Slurm Accounting at CARC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="running_matlab_jobs.html">Running MATLAB Jobs at CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html">Parallel MATLAB Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html#how-matlab-parallel-works-behind-the-scenes">How MATLAB Parallel Works Behind the Scenes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html#setting-your-ip-address">Setting your IP Address</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html#monitoring-matlab-jobs">Monitoring MATLAB Jobs</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Conda_JupyterHub.html">Using Custom Conda Python Environments in JupyterHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="julia_with_jupyterhub.html">Julia with Jupyter Hub</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="anaconda_general_intro.html">Anaconda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="anaconda_intro.html">Anaconda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="anaconda_pip_channels.html">Installing with pip and adding channels</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="R_usage.html">R Programming in HPC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Tensorflow_documentation.html">Introduction to Tensorflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html">Setting Up PyTorch using Xena</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html#navigate-to-the-pytorch1-9-k40-compatible-directory">Navigate to the PyTorch1.9-K40-Compatible directory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html#activate-the-conda-environment">Activate the Conda Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html#pip-installation">Pip installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="GATK_QuickByte.html">Parallel genomic variant calling with Genome Analysis Toolkit (GATK)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genome_evaluation.html">Reference genome evaluation with QUAST and BUSCO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="psmc_quickbyte.html">Pairwise Sequentially Markovian Coalescent (PSMC)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Stacks_quickbyte.html">Running Stacks on CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Metabarcoding.html">Metabarcoding Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Beast_at_CARC.html">BEAST at CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="msprime_quickbyte.html">Running Population Genetic Simulations with MSPrime</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Using Orca on Wheeler and Taos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#submitting-an-orca-script-on-wheeler">Submitting an Orca script on Wheeler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#submitting-on-orca-script-on-taos">Submitting on Orca script on Taos</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="alphafold.html">Alphafold</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alphafold.html#alphafold-w-localcolabfold">Alphafold w/ LocalColabFold:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alphafold.html#alphafold-w-singularity-image">Alphafold w/ Singularity Image:</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html">Download the SimCov Source Code from GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html#build-simcov-from-source">Build SimCov from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html#configure-simcov">Configure SimCov</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html#submit-a-simcov-job">Submit a SimCov Job</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mpiCASA.html">Using CASA on CARC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="paraview.html">How to: Remote Visualization using ParaView in parallel.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Paraview_Hopper.html">Remote Visualization using ParaView in parallel.</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="singularity-markdown-version.html">Docker and Singularity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singularity-markdown-version.html#singularity">Singularity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singularity-markdown-version.html#version-issues">Version Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="haskell.html">Haskell at CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X11_forwarding.html">X11 Forwarding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spark.html">Spark</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CARC QuickBytes</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Using Orca on Wheeler and Taos</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/orca_wheeler_taos.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="using-orca-on-wheeler-and-taos">
+<h1>Using Orca on Wheeler and Taos<a class="headerlink" href="#using-orca-on-wheeler-and-taos" title="Link to this heading"></a></h1>
+<section id="submitting-an-orca-script-on-wheeler">
+<h2>Submitting an Orca script on Wheeler<a class="headerlink" href="#submitting-an-orca-script-on-wheeler" title="Link to this heading"></a></h2>
+<p>Wheeler uses PBS (<strong>P</strong>ortable <strong>B</strong>atch <strong>S</strong>ystem) to submit jobs to the queue for execution. Below is an example script that can be used on Wheeler named <code class="docutils literal notranslate"><span class="pre">orca_submission.pbs</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/bash</span>
+
+<span class="c1">## Setup your qsub flags here requesting resources.</span>
+<span class="c1">#PBS -l walltime=10:00:00</span>
+<span class="c1">#PBS -l nodes=1:ppn=8</span>
+<span class="c1">#PBS -N my_orca_job</span>
+<span class="c1">#PBS -M &lt;YourNetID&gt;@unm.edu</span>
+<span class="c1">#PBS -m bae</span>
+
+<span class="c1">## Change to the submission directory </span>
+<span class="c1">## and load the Orca software module</span>
+<span class="nb">cd</span><span class="w"> </span><span class="nv">$PBS_O_WORKDIR</span>
+module<span class="w"> </span>load<span class="w"> </span>orca/4.0.1
+
+<span class="c1">## Set your input file for Orca</span>
+<span class="nv">input_file</span><span class="o">=</span>my_orca_input.inp
+
+<span class="c1"># Orca needs the full path when running in parallel</span>
+<span class="nv">full_orca_path</span><span class="o">=</span><span class="k">$(</span>which<span class="w"> </span>orca<span class="k">)</span>
+
+<span class="c1"># Run Orca</span>
+<span class="nv">$full_orca_path</span><span class="w"> </span><span class="nv">$input_file</span>
+</pre></div>
+</div>
+<p>Now you can simply submit your Orca job to the queue with <code class="docutils literal notranslate"><span class="pre">qsub</span> <span class="pre">orca_submission.pbs</span></code>.</p>
+</section>
+<section id="submitting-on-orca-script-on-taos">
+<h2>Submitting on Orca script on Taos<a class="headerlink" href="#submitting-on-orca-script-on-taos" title="Link to this heading"></a></h2>
+<p>Taos uses Slurm (<strong>S</strong>imple <strong>L</strong>inux <strong>U</strong>tility for <strong>R</strong>esource <strong>M</strong>anagement) to submit jobs and manage resources. Slurm provides greater control over resource management and utilization which means one has to be more explicit in their submission script. Specifically, it is necessary to request sufficient memory for your task when submitting your job. Below is a sample script for submitting an Orca job on Taos named <code class="docutils literal notranslate"><span class="pre">orca_submission.sh</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/bash</span>
+
+<span class="c1">## Set your slurm flags here requesting resources.</span>
+<span class="c1">#SBATCH --job-name=orca_test</span>
+<span class="c1">#SBATCH --output=test.out</span>
+<span class="c1">#SBATCH --ntasks=8</span>
+<span class="c1">#SBATCH --cpus-per-task=1</span>
+<span class="c1">## This depends on which queue you have access to.</span>
+<span class="c1">#SBATCH --partition=my_partition</span>
+<span class="c1">#SBATCH --mem-per-cpu=6GB</span>
+<span class="c1">#SBATCH --mail-type=begin        # send email when job begins</span>
+<span class="c1">#SBATCH --mail-type=end          # send email when job ends</span>
+<span class="c1">#SBATCH --mail-type=fail         # send email if job fails</span>
+<span class="c1">#SBATCH --mail-user=&lt;YourNetID&gt;@unm.edu</span>
+
+module<span class="w"> </span>load<span class="w"> </span>openmpi-3.1.5-gcc-5.4.0-f6ikvl6
+module<span class="w"> </span>load<span class="w"> </span>orca/4.2.1
+
+<span class="c1">## Set your input and output file names</span>
+<span class="nv">input_file</span><span class="o">=</span>my_orca_input.inp
+<span class="nv">output_file</span><span class="o">=</span>my_orca_output.log
+<span class="nv">prefix</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="nv">$input_file</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-f1<span class="w"> </span>-d<span class="s2">&quot;.&quot;</span><span class="k">)</span>
+
+<span class="c1"># Set the scratch directory path</span>
+<span class="nv">scratch_dir</span><span class="o">=</span>/taos/scratch/<span class="nv">$USER</span>/
+
+<span class="c1"># Set the input and output paths on the scratch file system</span>
+mkdir<span class="w"> </span><span class="nv">$scratch_dir$prefix</span>
+<span class="nv">TEMP_DIR</span><span class="o">=</span><span class="nv">$scratch_dir$prefix</span>
+<span class="nv">output_scratch_path</span><span class="o">=</span><span class="nv">$TEMP_DIR</span>/<span class="nv">$output_file</span>
+<span class="nv">input_scratch_path</span><span class="o">=</span><span class="nv">$TEMP_DIR</span>/<span class="nv">$input_file</span>
+
+<span class="c1"># Create directory for additional files</span>
+mkdir<span class="w"> </span><span class="nv">$SLURM_SUBMIT_DIR</span>/<span class="nv">$prefix</span>
+<span class="nv">add_files_dir</span><span class="o">=</span><span class="nv">$SLURM_SUBMIT_DIR</span>/<span class="nv">$prefix</span>
+
+<span class="c1"># Copy the input file from the submission directory to the scratch directory</span>
+cp<span class="w"> </span><span class="nv">$SLURM_SUBMIT_DIR</span>/<span class="nv">$input_file</span><span class="w"> </span><span class="nv">$TEMP_DIR</span>/
+
+<span class="c1"># Orca needs the full path when running in parallel</span>
+<span class="nv">full_orca_path</span><span class="o">=</span><span class="k">$(</span>which<span class="w"> </span>orca<span class="k">)</span>
+
+<span class="c1"># Run Orca</span>
+<span class="nv">$full_orca_path</span><span class="w"> </span><span class="nv">$input_scratch_path</span><span class="w"> </span>&gt;<span class="w"> </span><span class="nv">$output_scratch_path</span>
+
+<span class="c1"># Orca finished so copy the output file on scratch to the submission directory and clean the scratch directory</span>
+cp<span class="w"> </span><span class="nv">$output_scratch_path</span><span class="w"> </span><span class="nv">$SLURM_SUBMIT_DIR</span>/<span class="nv">$output_file</span>
+cp<span class="w"> </span><span class="nv">$TEMP_DIR</span>/<span class="nv">$prefix</span>*<span class="w"> </span><span class="nv">$add_files_dir</span>
+rm<span class="w"> </span><span class="nv">$TEMP_DIR</span>
+</pre></div>
+</div>
+<p>Now you can simply submit your job to the queue with <code class="docutils literal notranslate"><span class="pre">sbatch</span> <span class="pre">orca_submission.sh</span></code>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="msprime_quickbyte.html" class="btn btn-neutral float-left" title="Running Population Genetic Simulations with MSPrime" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="alphafold.html" class="btn btn-neutral float-right" title="Alphafold" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

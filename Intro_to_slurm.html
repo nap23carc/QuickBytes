@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Slurm Workload Manager &mdash; CARC QuickBytes 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=2709fde1"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Conversion of PBS script to Slurm script" href="pbs2slurm.html" />
+    <link rel="prev" title="Managing software models" href="module_management.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CARC QuickBytes
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="linux_intro.html">Linux Tutorial</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="logging_in.html">Logging in</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ssh_keygen_config.html">SSH keys and config file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transfer_data.html">Transferring data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pbs-torque.html">PBS/TORQUE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pbs_scripts2.html">Example PBS Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="submitting_jobs.html">Submitting jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="checking_on_running_jobs.html">Checking on running jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="module_management.html">Managing software models</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Slurm Workload Manager</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#slurm-commands">Slurm Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#slurm-job-submission">Slurm Job Submission</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pbs2slurm.html">Conversion of PBS script to Slurm script</a></li>
+<li class="toctree-l1"><a class="reference internal" href="slurm_accounting.html">Introduction to Slurm Accounting at CARC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="running_matlab_jobs.html">Running MATLAB Jobs at CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html">Parallel MATLAB Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html#how-matlab-parallel-works-behind-the-scenes">How MATLAB Parallel Works Behind the Scenes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html#setting-your-ip-address">Setting your IP Address</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html#monitoring-matlab-jobs">Monitoring MATLAB Jobs</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Conda_JupyterHub.html">Using Custom Conda Python Environments in JupyterHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="julia_with_jupyterhub.html">Julia with Jupyter Hub</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="anaconda_general_intro.html">Anaconda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="anaconda_intro.html">Anaconda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="anaconda_pip_channels.html">Installing with pip and adding channels</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="R_usage.html">R Programming in HPC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Tensorflow_documentation.html">Introduction to Tensorflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html">Setting Up PyTorch using Xena</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html#navigate-to-the-pytorch1-9-k40-compatible-directory">Navigate to the PyTorch1.9-K40-Compatible directory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html#activate-the-conda-environment">Activate the Conda Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html#pip-installation">Pip installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="GATK_QuickByte.html">Parallel genomic variant calling with Genome Analysis Toolkit (GATK)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genome_evaluation.html">Reference genome evaluation with QUAST and BUSCO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="psmc_quickbyte.html">Pairwise Sequentially Markovian Coalescent (PSMC)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Stacks_quickbyte.html">Running Stacks on CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Metabarcoding.html">Metabarcoding Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Beast_at_CARC.html">BEAST at CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="msprime_quickbyte.html">Running Population Genetic Simulations with MSPrime</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="orca_wheeler_taos.html">Using Orca on Wheeler and Taos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alphafold.html">Alphafold</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alphafold.html#alphafold-w-localcolabfold">Alphafold w/ LocalColabFold:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alphafold.html#alphafold-w-singularity-image">Alphafold w/ Singularity Image:</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html">Download the SimCov Source Code from GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html#build-simcov-from-source">Build SimCov from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html#configure-simcov">Configure SimCov</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html#submit-a-simcov-job">Submit a SimCov Job</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mpiCASA.html">Using CASA on CARC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="paraview.html">How to: Remote Visualization using ParaView in parallel.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Paraview_Hopper.html">Remote Visualization using ParaView in parallel.</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="singularity-markdown-version.html">Docker and Singularity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singularity-markdown-version.html#singularity">Singularity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singularity-markdown-version.html#version-issues">Version Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="haskell.html">Haskell at CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X11_forwarding.html">X11 Forwarding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spark.html">Spark</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CARC QuickBytes</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Slurm Workload Manager</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/Intro_to_slurm.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="slurm-workload-manager">
+<h1>Slurm Workload Manager<a class="headerlink" href="#slurm-workload-manager" title="Link to this heading"></a></h1>
+<p>Slurm is a resource manager and job scheduler designed for scheduling and allocating resources as per user job requirements.  Slurm is an open source software originally created by the Livermore Computing Center.</p>
+<section id="slurm-commands">
+<h2>Slurm Commands<a class="headerlink" href="#slurm-commands" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">sinfo</span></code> provides  information regarding resources that are available from server.
+Example :</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>user@taos:~$ sinfo
+PARTITION AVAIL  TIMELIMIT  NODES  STATE NODELIST
+normal*      up 2-00:00:00      2   mix   taos[01,09]
+normal*      up 2-00:00:00      1   alloc taos02
+normal*      up 2-00:00:00      6   idle  taos[03-08]
+</pre></div>
+</div>
+<p>From the output above we can see that one node (taos02) is allocated under a normal partition. Similarly, we can see that two nodes (taos01 and taos09) are in a mixed state meaning multiple users have resources allocated on the same node. The final line in the output shows that all other nodes (taos03-08) are currently idle.</p>
+<p><code class="docutils literal notranslate"><span class="pre">sinfo</span> <span class="pre">–N</span> <span class="pre">–l</span></code> provides more detailed information about individuals nodes including CPU count, memory, temporary disk space and so on.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    user@taos:~$ sinfo -N -l
+    Tue Feb 19 19:08:16 2019
+    NODELIST   NODES PARTITION       STATE CPUS    S:C:T MEMORY TMP_DISK WEIGHT AVAIL_FE REASON
+    taos01         1   normal*       mixed   80   2:20:2 386868   690861     10   (null) none
+    taos02         1   normal*   allocated   40   2:10:2  64181   309479      1   (null) none
+    taos03         1   normal*        idle   40   2:10:2  64181   309479      1   (null) none
+    taos04         1   normal*        idle   40   2:10:2  64181   358607      1   (null) none
+    taos05         1   normal*        idle   40   2:10:2  64181   309479      1   (null) none
+    taos06         1   normal*        idle   40   2:10:2  64181   309479      1   (null) none
+    taos07         1   normal*        idle   40   2:10:2  64181   309479      1   (null) none
+    taos08         1   normal*        idle   40   2:10:2  64181   309479      1   (null) none
+    taos09         1   normal*       mixed   40   2:10:2 103198  6864803     20   (null) none
+</pre></div>
+</div>
+<p>More information regarding <code class="docutils literal notranslate"><span class="pre">sinfo</span></code> can be found by typing <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">sinfo</span></code> at the command prompt while logged in to Taos.</p>
+<p><code class="docutils literal notranslate"><span class="pre">squeue</span></code> provides information regarding currently running jobs and the resources allocated to those jobs.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    user@taos:~$ squeue
+    JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+    22632    normal BinPacke username PD       0:00      1 (Resources)
+    22548    normal    minia username  R 1-07:30:18      1 taos09
+    22562    normal unicycle username  R   22:34:59      1 taos02
+    22567    normal   sspace username  R   22:00:50      1 taos01
+    22576    normal  megahit username  R    7:22:53      1 taos09
+</pre></div>
+</div>
+<p>The output from <code class="docutils literal notranslate"><span class="pre">squeue</span></code>shows you the JobID, the type of partition, the name of the job, which user owns the job, the total elapsed time of the job, how many nodes are allocated to that job, and which nodes those are.</p>
+<p>To cancel a job, you can use <code class="docutils literal notranslate"><span class="pre">scancel</span> <span class="pre">&lt;JOBID&gt;</span></code> where <code class="docutils literal notranslate"><span class="pre">&lt;JOBID&gt;</span></code> refers to the JobID assigned to your job by Slurm.</p>
+</section>
+<section id="slurm-job-submission">
+<h2>Slurm Job Submission<a class="headerlink" href="#slurm-job-submission" title="Link to this heading"></a></h2>
+<p>To submit a job in slurm you do so by submitting a shell script that outlines the resources you are requesting from the scheduler, the software needed for your job, and the commands you wish to run. The beginning of your submission scrip usually contains the #Hashbang specifying which interpreter should be used for the rest of the script, in this case we are using a <code class="docutils literal notranslate"><span class="pre">bash</span></code> shell as indicated by the code <code class="docutils literal notranslate"><span class="pre">#!/bin/bash</span></code>. The next portion of your submission script tells Slurm what resources you are requesting and is always preceeded by <code class="docutils literal notranslate"><span class="pre">#SBATCH</span></code> followed by flags for various parameters detailed below.</p>
+<p>Example of a Slurm submission script : <code class="docutils literal notranslate"><span class="pre">slurm_submission.sh</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="c1">#!/bin/bash</span>
+    <span class="c1">#</span>
+    <span class="c1">#SBATCH --job-name=demo</span>
+    <span class="c1">#SBATCH --output=result.txt</span>
+    <span class="c1">#</span>
+    <span class="c1">#SBATCH --ntasks=4</span>
+    <span class="c1">#SBATCH --time=00:10:00</span>
+    <span class="c1">#SBATCH --mem-per-cpu=100</span>
+    <span class="c1">#SBATCH --partition=partition_name</span>
+
+    <span class="n">srun</span> <span class="n">hostname</span>
+    <span class="n">srun</span> <span class="n">sleep</span>
+</pre></div>
+</div>
+<p>The above script is requesting from the scheduler an allocation of 4 nodes for 10 minutes with 100MB of ram per CPU. Note that we are requesting resources for four tasks, <code class="docutils literal notranslate"><span class="pre">--ntasks=4</span></code>, but not four nodes specifically. The default behavior of the scheduler is to provide one node per task, but this can be changed with the <code class="docutils literal notranslate"><span class="pre">--cpus-per-task</span></code> flag. Once the scheduler allocates the requested resources the job starts to run and the commands not preceeded by <code class="docutils literal notranslate"><span class="pre">#SBATCH</span></code> are interpreted and executed. The script first executes the <code class="docutils literal notranslate"><span class="pre">srun</span> <span class="pre">hostname</span></code> followed by <code class="docutils literal notranslate"><span class="pre">srun</span> <span class="pre">sleep</span></code> command.</p>
+<p>The arguments <code class="docutils literal notranslate"><span class="pre">–-job-name</span></code> and <code class="docutils literal notranslate"><span class="pre">–-output</span></code> correspond to name of the job you are submitting and the name of the output file where the any output not defined by the program being executed is saved. For example, anything printed to <code class="docutils literal notranslate"><span class="pre">stdout</span></code> will be saved in your <code class="docutils literal notranslate"><span class="pre">--output</span></code> file.</p>
+<p>Of note here is the <code class="docutils literal notranslate"><span class="pre">--partition=partition_name</span></code> (or <code class="docutils literal notranslate"><span class="pre">-p</span> <span class="pre">partition_name</span></code>) command. This command specifies which partition, or queue, to submit your job to. If you are a member of a specific partition you likely are aware of the name of your partition, however you can see which partition you have access to with the <code class="docutils literal notranslate"><span class="pre">sinfo</span></code> command. If you leave this blank you will be submitted to the default or community partition.</p>
+<p>To submit the job you execute the <code class="docutils literal notranslate"><span class="pre">sbatch</span></code> command followed by the name of your submission script, for example:</p>
+<p><code class="docutils literal notranslate"><span class="pre">sbatch</span> <span class="pre">submission.sh</span></code></p>
+<p>Once you execute the above command the job is queued until the requested resources are available for to be allocated to your job.</p>
+<p>Once your job is submitted you can use <code class="docutils literal notranslate"><span class="pre">sstat</span></code> command to see information about memory usage, CPU usage, and other metrics related to the jobs you own.</p>
+<p>Below is an example of a Slurm submission script that runs a small python program that takes an integer as an argument, creates a random number matrix with the dimensions defined by the integer you provided, then inverts that matrix and writes it to a CSV file.</p>
+<p>Below is our small python program named <code class="docutils literal notranslate"><span class="pre">demo.py</span></code> that we will be invoking.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Import Libraries
+import numpy
+from numpy import linspace
+from numpy.random import rand
+from numpy.linalg import inv
+import argparse
+
+
+# define command line inputs
+parser = argparse.ArgumentParser()
+parser.add_argument(&quot;matrix&quot;, type=int, help=&#39;provide single integer for matrix&#39;)
+args = parser.parse_args()
+#define our matrix inverse function
+
+def matinv(x):
+        mat = rand(x, x)
+        b = inv(mat)
+        return b
+out = matinv(args.matrix)
+numpy.savetxt(&quot;%d.csv&quot; % args.matrix, out, delimiter=&quot;,&quot;)
+</pre></div>
+</div>
+<p>Below is the Slurm submission script to submit our python program named <code class="docutils literal notranslate"><span class="pre">submission_python.sh</span></code>. This job can be submitted by typing <code class="docutils literal notranslate"><span class="pre">sbatch</span> <span class="pre">submission_python.sh</span></code> at the command prompt. Note the <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span></code> command that loads the software environment that contains the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> package necessary to run our program.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#!/bin/bash
+#
+#SBATCH --job-name=demo
+#SBATCH --output=result.txt
+#
+#SBATCH --ntasks=4
+#SBATCH --time=10:00
+#SBATCH --mem-per-cpu=100
+#SBATCH --partition=ceti
+
+module load anaconda3
+python demo.py 34
+</pre></div>
+</div>
+<p>This brief tutorial should provide the basics necessary for submitting jobs to the Slurm Workload Manager on CARC machines.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="module_management.html" class="btn btn-neutral float-left" title="Managing software models" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pbs2slurm.html" class="btn btn-neutral float-right" title="Conversion of PBS script to Slurm script" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

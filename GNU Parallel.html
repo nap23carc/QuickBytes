@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GNU Parallel &mdash; CARC QuickBytes 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=2709fde1"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CARC QuickBytes
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="linux_intro.html">Linux Tutorial</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="logging_in.html">Logging in</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ssh_keygen_config.html">SSH keys and config file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transfer_data.html">Transferring data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pbs-torque.html">PBS/TORQUE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pbs_scripts2.html">Example PBS Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="submitting_jobs.html">Submitting jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="checking_on_running_jobs.html">Checking on running jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="module_management.html">Managing software models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Intro_to_slurm.html">Slurm Workload Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pbs2slurm.html">Conversion of PBS script to Slurm script</a></li>
+<li class="toctree-l1"><a class="reference internal" href="slurm_accounting.html">Introduction to Slurm Accounting at CARC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="running_matlab_jobs.html">Running MATLAB Jobs at CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html">Parallel MATLAB Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html#how-matlab-parallel-works-behind-the-scenes">How MATLAB Parallel Works Behind the Scenes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html#setting-your-ip-address">Setting your IP Address</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html#monitoring-matlab-jobs">Monitoring MATLAB Jobs</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Conda_JupyterHub.html">Using Custom Conda Python Environments in JupyterHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="julia_with_jupyterhub.html">Julia with Jupyter Hub</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="anaconda_general_intro.html">Anaconda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="anaconda_intro.html">Anaconda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="anaconda_pip_channels.html">Installing with pip and adding channels</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="R_usage.html">R Programming in HPC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Tensorflow_documentation.html">Introduction to Tensorflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html">Setting Up PyTorch using Xena</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html#navigate-to-the-pytorch1-9-k40-compatible-directory">Navigate to the PyTorch1.9-K40-Compatible directory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html#activate-the-conda-environment">Activate the Conda Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html#pip-installation">Pip installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="GATK_QuickByte.html">Parallel genomic variant calling with Genome Analysis Toolkit (GATK)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genome_evaluation.html">Reference genome evaluation with QUAST and BUSCO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="psmc_quickbyte.html">Pairwise Sequentially Markovian Coalescent (PSMC)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Stacks_quickbyte.html">Running Stacks on CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Metabarcoding.html">Metabarcoding Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Beast_at_CARC.html">BEAST at CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="msprime_quickbyte.html">Running Population Genetic Simulations with MSPrime</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="orca_wheeler_taos.html">Using Orca on Wheeler and Taos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alphafold.html">Alphafold</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alphafold.html#alphafold-w-localcolabfold">Alphafold w/ LocalColabFold:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alphafold.html#alphafold-w-singularity-image">Alphafold w/ Singularity Image:</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html">Download the SimCov Source Code from GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html#build-simcov-from-source">Build SimCov from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html#configure-simcov">Configure SimCov</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html#submit-a-simcov-job">Submit a SimCov Job</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mpiCASA.html">Using CASA on CARC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="paraview.html">How to: Remote Visualization using ParaView in parallel.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Paraview_Hopper.html">Remote Visualization using ParaView in parallel.</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="singularity-markdown-version.html">Docker and Singularity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singularity-markdown-version.html#singularity">Singularity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singularity-markdown-version.html#version-issues">Version Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="haskell.html">Haskell at CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X11_forwarding.html">X11 Forwarding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spark.html">Spark</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CARC QuickBytes</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">GNU Parallel</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/GNU Parallel.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="gnu-parallel">
+<h1>GNU Parallel<a class="headerlink" href="#gnu-parallel" title="Link to this heading"></a></h1>
+<p>GNU parallel enables us to run as many jobs in parallel instead of sequentially thus saving lots of time. Unlike creating a queue for exectution of processes in a sequential run, GNU parallel tends to maximally parallize the execution over available processors in an embarassingly parallel fashion.</p>
+<p>For example, a parallel command to change formats of all files with csv extension to .txt using gnu-parallel is presented.
+module load image-magick-7.0.5-9-gcc-4.8.5-python2-xzyy5cz
+$find . -name “*csv” | parallel -I% –max-args 1 convert % %.txt</p>
+<p>Here the command finds all the files with .csv extension first and parallely converts them to txt format .</p>
+<p>Similarly, parallel can also used to compressed as many files and decompress them.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> $parallel gzip ::: *.txt
+ $parallel gunzip ::: *.gz
+</pre></div>
+</div>
+<p>Tha above two commands can be used to zip and unzip image files with .jpg exptesion over given path.</p>
+<section id="matlab-implementation-of-gnu-parallel">
+<h2>Matlab Implementation of GNU Parallel<a class="headerlink" href="#matlab-implementation-of-gnu-parallel" title="Link to this heading"></a></h2>
+<p>GNU Parallel takes many different arguments, but here we will use only two, –arg-file and {}. –arg-file precedes an input file name, “msizes”, and {} is replaced with each line of the input file. A different copy of Matlab is run simultaneously, with each line of the input file replacing {} in each copy. This is Matlab in high-throughput mode (on a single node). Here is the new “parallel matlab” command:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>parallel --arg-file msizes ‘matlab –nojvm –nodisplay –r “msize={};program”&#39; &gt;/dev/null 
+</pre></div>
+</div>
+<p>Single quotes are required around the Matlab portion of the parallel Matlab command. The actual Matlab code is enclosed in double quotes. The contents of the input file, msizes, is:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1
+2
+3
+4
+</pre></div>
+</div>
+<p>This creates four files: 1.csv, 2.csv, 3.csv, and 4.csv. The contents of the files are, e.g., 1.csv:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>0.81472
+</pre></div>
+</div>
+<p>3.csv:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>0.81472,0.91338,0.2785
+0.90579,0.63236,0.54688
+0.12699,0.09754,0.95751
+</pre></div>
+</div>
+<p>So far, the command has run Matlab in high-throughput mode on only a single node, a node that you are currently logged into. This is not how Matlab should typically be run at CARC, since it is not taking advantage of the Center’s large-scale resources. To run Matlab in high-throughput mode on massively-parallel or cluster machines, it is necessary to use a PBS batch script on the head node of a CARC machine, and have the script run Matlab for you. Use of a PBS batch script allows you to run on many nodes at the same time. Before we use a PBS batch script we will need to make some changes to the program.m and parallel Matlab command. The program.m now reads:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>%generate a matrix of random numbers of dimension msize x msize
+rmatrix=rand(msize);
+%create an output file name based on msize and write the random matrix to it
+fname=num2str(msize);
+process=num2str(pid);
+fname=strcat(process,&#39;.&#39;,fname,&#39;.csv&#39;);
+csvwrite(fname,rmatrix);
+quit
+</pre></div>
+</div>
+<p>The parent process id is now prepended to the file name. This is helpful because there will now be multiple output files, and they must all have unique names. The command to run Matlab is now:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>parallel -j0 --arg-file msizes &#39;matlab -nojvm -nodisplay -r &quot;msize={};pid=$PPID;program&quot;&#39; &gt;/dev/null
+</pre></div>
+</div>
+<p>The $PPID (parent process id#) is input to program.m as the pid variable. The -j0 flag ensures that as many cores as possible on the node are used. Running this command (just as an example, without the PBS batch file) would produce output files:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    18778.1.csv 18778.2.csv 18778.3.csv 18778.4.csv.
+</pre></div>
+</div>
+<p>The contents are the same as before. The command (with some PBS specific modifications) can now be inserted into a PBS batch script in order to run on more than one node, i.e. in high throughput mode.
+High-Throughput Mode</p>
+<p>To generalize the command to run on CARC machines and allow the use of multiple nodes on those machines, a PBS batch script is necessary. This will allocate nodes and the cores on each node to execute the parallel Matlab command. A sample PBS script reads:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#PBS -l nodes=4:ppn=2
+#PBS -l walltime=00:10:00
+#PBS -N matlab_test
+#PBS -S /bin/bash
+cd $PBS_O_WORKDIR
+source /etc/profile.d/modules.sh
+module load matlab
+module load gnu-parallel
+PROCS=$(cat $PBS_NODEFILE | wc -l)
+nname=`hostname -s`
+echo starting Matlab jobs at `date`
+parallel -j0 --sshloginfile $PBS_NODEFILE --workdir $PBS_O_WORKDIR --env PATH --arg-file msizes &#39;matlab -nojvm -nodisplay -r &quot;msize={};pid=$$;program&quot; &gt;/dev/null&#39;
+echo finished Matlab jobs at `date`
+</pre></div>
+</div>
+<p>The essential portion for running Matlab in high-throughput mode is embodied in the first line, “nodes=4:ppn=2”. It is very important to remember to allocate the correct number of cores with this line. Use this equation to calculate the number of cores you are allocating: nodes x ppn = number of cores allocated. But since you must also match the number of lines of input in msizes (which determines the number of Matlab processes run) to the number of cores allocated, the equation should really be: nodes x ppn = number of cores allocated = number of lines of input = number of Matlab processes run. If you run more Matlab processes than the number of cores you allocate, the job will run much more slowly, e.g. allocating 8 cores and running 9 Matlab jobs will cause the overall job to take twice as long as when running 8 Matlab jobs. Running fewer Matlab jobs than the number of cores allocated leaves cores unused (and unusable by other users for the duration of your job) and so wastes resources. You always want the number of cores allocated to equal the number of Matlab jobs run (which is the number of lines in the file msizes). The scripts can be modified of course, but this principle should always be kept in mind. Also keep in mind also that the “ppn” in the first line of the PBS script will vary from machine to machine, and you will get an error if it is incorrectly specified, i.e. some machines have more cores per node than others. For a list of CARC resources and information on numbers of processors/node, see Systems. Here are the contents of program.m:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>%generate a matrix of random numbers of dimension msize x msize
+rmatrix=rand(msize);
+%create a unique output name based on the node hostname, process id#,
+%and msize and write the random matrix to it
+[~,hname]=system(&#39;hostname&#39;);
+fname=num2str(msize);
+process=num2str(pid);
+fname=strcat(hname,&#39;.&#39;,process,&#39;.&#39;,fname,&#39;.csv&#39;);
+csvwrite(fname,rmatrix);
+quit
+</pre></div>
+</div>
+<p>Here are the contents of msizes:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8
+</pre></div>
+</div>
+<p>The PBS script above allocates 8 cores from a machine with 2 cores per node. You’ll notice there have been some changes to the parallel Matlab command now that it is being used in a PBS script. It now reads:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>parallel -j0 --sshloginfile $PBS_NODEFILE --workdir $PBS_O_WORKDIR --env PATH --arg-file msizes &#39;matlab -nojvm -nodisplay -r &quot;msize={};pid=$$;program&quot; &gt;/dev/null&#39;
+</pre></div>
+</div>
+<p>You’ll notice that a number of flags have been added. The flag “–sshloginfile $PBS_NODEFILE” gives the parallel command the hostnames of all the nodes that the PBS script has allocated for the job. (The names of the nodes are contained in the PBS environment variable $PBS_NODEFILE.) The flag “–workdir $PBS_O_WORKDIR” uses another PBS environment variable to force Matlab to run in the directory where the PBS script was run. The flag “–env PATH” makes sure all the Matlab processes have the same environment variables as the PBS script has when it is running, e.g. those variables loaded with “module” commands. Notice how this variable does not get a dollar sign ($) in front of it. GNU parallel understands this particular flag without the dollar sign. The rest of the command remains the same.
+Submitting the Job</p>
+<p>To run this job, save the PBS script to a file, e.g. mtest_pbs. Submit the job to the PBS batch scheduler by typing: qsub mtests_pbs. You should get, in this example, 8 output files containing random numbers. Each file will have a matrix of random numbers of size 1x1, 2x2, 3x3, …, and 8x8. There should also be a .o and .e file, e.g. matlab_test.e27704. This will contain the standard output and standard error of your job, including messages from both Matlab and the PBS queuing system. Due to the way the software works, sometimes Matlab’s error output will actually go into the .o file. The error output of PBS will always go to the .e file.</p>
+</section>
+<section id="example-of-running-embarassingly-parallel-jobs-in-python-with-parallel">
+<h2>Example of running embarassingly parallel jobs in python with parallel<a class="headerlink" href="#example-of-running-embarassingly-parallel-jobs-in-python-with-parallel" title="Link to this heading"></a></h2>
+<p>The usage of gnu-parallel for python tasks is similar to that of matlab. Following are the sample codes showing implementation of gnu-parallel for python tasks.</p>
+<section id="code-for-pbs-script">
+<h3>Code for PBS script<a class="headerlink" href="#code-for-pbs-script" title="Link to this heading"></a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#!/bin/bash
+#PBS -N Gnu_parallel_test
+#PBS -l nodes=2:ppn=4
+#PBS -l walltime=01:00:00
+
+
+# load GNU-parallel module
+module load parallel-20170322-intel-18.0.2-4pa2ap6
+
+# load anaconda python
+module load anaconda
+
+# activate python environment
+source activate numpy_py3   #you need to have numpy_py3 environment with numpy installed. Refer to Anaconda quickbytes. 
+
+# change to directory PBS script was submitted. 
+cd $PBS_O_WORKDIR
+
+# set jobs per node, which is core per node for galles
+JOBSPERNODE=8
+
+/usr/bin/time -o time.log parallel --joblog logfile --wd $PBS_O_WORKDIR -j $JOBSPERNODE --sshloginfile $PBS_NODEFILE --env PATH -a mat_in python matrix_inv.py
+</pre></div>
+</div>
+</section>
+<section id="code-for-matrix-inv-py-file">
+<h3>code for matrix_inv.py file<a class="headerlink" href="#code-for-matrix-inv-py-file" title="Link to this heading"></a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Import Libraries
+import numpy
+from numpy import linspace
+from numpy.random import rand
+from numpy.linalg import inv
+import timeit
+import argparse
+
+
+# define command line inputs
+parser = argparse.ArgumentParser()
+parser.add_argument(&quot;matrix&quot;, type=int, help=&#39;provide single integer for matrix&#39;)
+args = parser.parse_args()
+#define our matrix inverse function
+
+def matinv(x):
+        mat = rand(x, x)
+        b = inv(mat)
+        return b
+out = matinv(args.matrix)
+numpy.savetxt(&quot;%d.csv&quot; % args.matrix, out, delimiter=&quot;,&quot;)
+</pre></div>
+</div>
+</section>
+<section id="the-contents-of-mat-in-looks-like">
+<h3>The Contents of mat_in looks like<a class="headerlink" href="#the-contents-of-mat-in-looks-like" title="Link to this heading"></a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1000
+2000
+3000
+4000
+5000
+6000
+7000
+8000
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

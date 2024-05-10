@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome to CARC’s QuickBytes! &mdash; CARC QuickBytes 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=2709fde1"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Linux Tutorial" href="linux_intro.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            CARC QuickBytes
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="linux_intro.html">Linux Tutorial</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="logging_in.html">Logging in</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ssh_keygen_config.html">SSH keys and config file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transfer_data.html">Transferring data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pbs-torque.html">PBS/TORQUE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pbs_scripts2.html">Example PBS Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="submitting_jobs.html">Submitting jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="checking_on_running_jobs.html">Checking on running jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="module_management.html">Managing software models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Intro_to_slurm.html">Slurm Workload Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pbs2slurm.html">Conversion of PBS script to Slurm script</a></li>
+<li class="toctree-l1"><a class="reference internal" href="slurm_accounting.html">Introduction to Slurm Accounting at CARC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="running_matlab_jobs.html">Running MATLAB Jobs at CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html">Parallel MATLAB Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html#how-matlab-parallel-works-behind-the-scenes">How MATLAB Parallel Works Behind the Scenes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html#setting-your-ip-address">Setting your IP Address</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html#monitoring-matlab-jobs">Monitoring MATLAB Jobs</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Conda_JupyterHub.html">Using Custom Conda Python Environments in JupyterHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="julia_with_jupyterhub.html">Julia with Jupyter Hub</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="anaconda_general_intro.html">Anaconda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="anaconda_intro.html">Anaconda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="anaconda_pip_channels.html">Installing with pip and adding channels</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="R_usage.html">R Programming in HPC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Tensorflow_documentation.html">Introduction to Tensorflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html">Setting Up PyTorch using Xena</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html#navigate-to-the-pytorch1-9-k40-compatible-directory">Navigate to the PyTorch1.9-K40-Compatible directory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html#activate-the-conda-environment">Activate the Conda Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html#pip-installation">Pip installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="GATK_QuickByte.html">Parallel genomic variant calling with Genome Analysis Toolkit (GATK)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genome_evaluation.html">Reference genome evaluation with QUAST and BUSCO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="psmc_quickbyte.html">Pairwise Sequentially Markovian Coalescent (PSMC)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Stacks_quickbyte.html">Running Stacks on CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Metabarcoding.html">Metabarcoding Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Beast_at_CARC.html">BEAST at CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="msprime_quickbyte.html">Running Population Genetic Simulations with MSPrime</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="orca_wheeler_taos.html">Using Orca on Wheeler and Taos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alphafold.html">Alphafold</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alphafold.html#alphafold-w-localcolabfold">Alphafold w/ LocalColabFold:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alphafold.html#alphafold-w-singularity-image">Alphafold w/ Singularity Image:</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html">Download the SimCov Source Code from GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html#build-simcov-from-source">Build SimCov from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html#configure-simcov">Configure SimCov</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html#submit-a-simcov-job">Submit a SimCov Job</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mpiCASA.html">Using CASA on CARC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="paraview.html">How to: Remote Visualization using ParaView in parallel.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Paraview_Hopper.html">Remote Visualization using ParaView in parallel.</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="singularity-markdown-version.html">Docker and Singularity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singularity-markdown-version.html#singularity">Singularity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singularity-markdown-version.html#version-issues">Version Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="haskell.html">Haskell at CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X11_forwarding.html">X11 Forwarding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spark.html">Spark</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">CARC QuickBytes</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Welcome to CARC’s QuickBytes!</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="welcome-to-carc-s-quickbytes">
+<h1>Welcome to CARC’s QuickBytes!<a class="headerlink" href="#welcome-to-carc-s-quickbytes" title="Link to this heading"></a></h1>
+<section id="linux-introduction">
+<h2>Linux introduction<a class="headerlink" href="#linux-introduction" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="linux_intro.html">Linux Tutorial</a></li>
+</ul>
+</div>
+</section>
+<section id="running-jobs">
+<h2>Running jobs<a class="headerlink" href="#running-jobs" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="logging_in.html">Logging in</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ssh_keygen_config.html">SSH keys and config file</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ssh_keygen_config.html#ssh-key-generation">SSH key generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ssh_keygen_config.html#ssh-config-file">SSH config file</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="transfer_data.html">Transferring data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="transfer_data.html#where-is-your-data">Where is your data?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transfer_data.html#graphical-user-interface-gui-options">Graphical User Interface (GUI) options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transfer_data.html#command-line-interface-cli-options">Command-line interface (CLI) options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pbs-torque.html">PBS/TORQUE</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pbs-torque.html#pbs-batch-scripts">PBS Batch Scripts</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pbs_scripts2.html">Example PBS Scripts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pbs_scripts2.html#pbs-hello-world">PBS Hello World:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pbs_scripts2.html#multi-processor-example-script">Multi-processor example script:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pbs_scripts2.html#multi-node-example-script">Multi-node example script:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="submitting_jobs.html">Submitting jobs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="submitting_jobs.html#submitting-the-pbs-script-to-the-batch-scheduler">Submitting the PBS Script to the Batch Scheduler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="submitting_jobs.html#interactive-pbs-jobs">Interactive PBS Jobs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="checking_on_running_jobs.html">Checking on running jobs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="checking_on_running_jobs.html#checking-on-the-status-of-your-job">Checking on the status of your Job:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="checking_on_running_jobs.html#determining-which-nodes-your-job-is-using">Determining which nodes your Job is using:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="checking_on_running_jobs.html#viewing-output-and-error-files">Viewing Output and Error Files:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="module_management.html">Managing software models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="module_management.html#modules">Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module_management.html#using-modules-for-setting-application-environments">Using modules for setting application environments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Intro_to_slurm.html">Slurm Workload Manager</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Intro_to_slurm.html#slurm-commands">Slurm Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Intro_to_slurm.html#slurm-job-submission">Slurm Job Submission</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pbs2slurm.html">Conversion of PBS script to Slurm script</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pbs2slurm.html#conversion-of-pbs-to-slurm">Conversion of PBS to Slurm</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="slurm_accounting.html">Introduction to Slurm Accounting at CARC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="slurm_accounting.html#what-is-slurm-accounting">What is Slurm accounting?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="slurm_accounting.html#accounting-commands">Accounting Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="slurm_accounting.html#choosing-an-account-to-associate-with-a-job">Choosing an account to associate with a job</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="applications-software">
+<h2>Applications software<a class="headerlink" href="#applications-software" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+</div>
+<section id="matlab">
+<h3>MATLAB<a class="headerlink" href="#matlab" title="Link to this heading"></a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="running_matlab_jobs.html">Running MATLAB Jobs at CARC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="running_matlab_jobs.html#matlab">MATLAB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="running_matlab_jobs.html#batch-mode">Batch mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="running_matlab_jobs.html#submitting-a-job-with-batch-mode">Submitting a job with batch mode</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html">Parallel MATLAB Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html#how-matlab-parallel-works-behind-the-scenes">How MATLAB Parallel Works Behind the Scenes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ParallelMatlabServer.html#matlab-parallel-server-client-configuration">MATLAB Parallel Server Client Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html#setting-your-ip-address">Setting your IP Address</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ParallelMatlabServer.html#validating-the-configuration">Validating the Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ParallelMatlabServer.html#writing-parallel-matlab-code">Writing Parallel Matlab Code</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html#monitoring-matlab-jobs">Monitoring MATLAB Jobs</a></li>
+</ul>
+</div>
+</section>
+<section id="jupyterhub">
+<h3>JupyterHub<a class="headerlink" href="#jupyterhub" title="Link to this heading"></a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Conda_JupyterHub.html">Using Custom Conda Python Environments in JupyterHub</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Conda_JupyterHub.html#in-terminal">In Terminal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Conda_JupyterHub.html#on-jupyterhub">On JupyterHub</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="julia_with_jupyterhub.html">Julia with Jupyter Hub</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="julia_with_jupyterhub.html#setup">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="julia_with_jupyterhub.html#selecting-julia-in-jupyterhub">Selecting Julia in JupyterHub</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="conda">
+<h3>Conda<a class="headerlink" href="#conda" title="Link to this heading"></a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="anaconda_general_intro.html">Anaconda</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="anaconda_general_intro.html#what-is-anaconda">What is Anaconda?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="anaconda_intro.html">Anaconda</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="anaconda_intro.html#what-is-anaconda">What is Anaconda?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="anaconda_intro.html#creating-a-new-conda-environment">Creating a new conda environment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="anaconda_pip_channels.html">Installing with pip and adding channels</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="anaconda_pip_channels.html#installing-packages-with-pip">Installing packages with pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="anaconda_pip_channels.html#performance-with-conda-versus-pip">Performance with Conda versus Pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="anaconda_pip_channels.html#adding-package-repositories-channels">Adding package repositories (channels)</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="r">
+<h3>R<a class="headerlink" href="#r" title="Link to this heading"></a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="R_usage.html">R Programming in HPC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="R_usage.html#what-is-r">What is R?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="R_usage.html#how-to-run-r">How to run R?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="R_usage.html#running-a-sample-script-example-r">Running a sample script example.R</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="machine-learning">
+<h3>Machine Learning<a class="headerlink" href="#machine-learning" title="Link to this heading"></a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Tensorflow_documentation.html">Introduction to Tensorflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html">Setting Up PyTorch using Xena</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="PyTorch_1.9_Xena.html#ssh-in-to-xena">SSH in to Xena</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PyTorch_1.9_Xena.html#create-the-condarc-file">Create the Condarc File</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html#navigate-to-the-pytorch1-9-k40-compatible-directory">Navigate to the PyTorch1.9-K40-Compatible directory</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="PyTorch_1.9_Xena.html#create-the-conda-environment">Create the Conda Environment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html#activate-the-conda-environment">Activate the Conda Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html#pip-installation">Pip installation</a></li>
+</ul>
+</div>
+</section>
+<section id="bioinformatics">
+<h3>Bioinformatics<a class="headerlink" href="#bioinformatics" title="Link to this heading"></a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="GATK_QuickByte.html">Parallel genomic variant calling with Genome Analysis Toolkit (GATK)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="GATK_QuickByte.html#table-of-contents">Table of Contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GATK_QuickByte.html#preliminary-stuff">Preliminary stuff</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GATK_QuickByte.html#the-pipeline">The Pipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GATK_QuickByte.html#scatter-gather-parallel">Scatter-gather Parallel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GATK_QuickByte.html#sample-pbs-script">Sample PBS Script</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GATK_QuickByte.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GATK_QuickByte.html#citations">Citations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="genome_evaluation.html">Reference genome evaluation with QUAST and BUSCO</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="genome_evaluation.html#assessing-contiguity-with-quast">Assessing contiguity with QUAST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="genome_evaluation.html#assessing-completeness-with-busco">Assessing completeness with BUSCO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="genome_evaluation.html#citations">Citations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="psmc_quickbyte.html">Pairwise Sequentially Markovian Coalescent (PSMC)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="psmc_quickbyte.html#installation-and-setup">Installation and setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="psmc_quickbyte.html#generating-input">Generating input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="psmc_quickbyte.html#running-psmc">Running PSMC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="psmc_quickbyte.html#citations">Citations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Stacks_quickbyte.html">Running Stacks on CARC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Stacks_quickbyte.html#preliminaries">Preliminaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Stacks_quickbyte.html#reference-based-assembly">Reference Based Assembly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Stacks_quickbyte.html#denovo-assembly">DeNovo Assembly</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Metabarcoding.html">Metabarcoding Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Metabarcoding.html#different-pipelines">Different pipelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Metabarcoding.html#steps-for-each-pipeline">Steps for each pipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Metabarcoding.html#data-for-tutorial">Data for tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Metabarcoding.html#qiime2-using-dada2-pipeline">QIIME2 (using DADA2) pipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Metabarcoding.html#mothur-pipeline">Mothur pipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Metabarcoding.html#usearch">USEARCH</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Beast_at_CARC.html">BEAST at CARC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Beast_at_CARC.html#generating-beast-imput-files-beauti">Generating BEAST imput files: BEAUti</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Beast_at_CARC.html#running-beast-on-wheeler">Running BEAST on Wheeler</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="msprime_quickbyte.html">Running Population Genetic Simulations with MSPrime</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="msprime_quickbyte.html#how-msprime-works">How msprime Works</a></li>
+<li class="toctree-l2"><a class="reference internal" href="msprime_quickbyte.html#how-to-run-msprime">How to run msprime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="msprime_quickbyte.html#running-msprime-replicates-on-carc">Running MSPrime replicates on CARC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="msprime_quickbyte.html#case-study-divergence-between-connected-islands">Case study: Divergence between connected islands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="msprime_quickbyte.html#citation">Citation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="computational-chemistry">
+<h3>Computational Chemistry<a class="headerlink" href="#computational-chemistry" title="Link to this heading"></a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="orca_wheeler_taos.html">Using Orca on Wheeler and Taos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="orca_wheeler_taos.html#submitting-an-orca-script-on-wheeler">Submitting an Orca script on Wheeler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="orca_wheeler_taos.html#submitting-on-orca-script-on-taos">Submitting on Orca script on Taos</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="alphafold.html">Alphafold</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alphafold.html#alphafold-w-localcolabfold">Alphafold w/ LocalColabFold:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alphafold.html#alphafold-w-singularity-image">Alphafold w/ Singularity Image:</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="alphafold.html#choose-your-alphafold-version">Choose your alphafold version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alphafold.html#running-alphafold">Running Alphafold</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alphafold.html#run">Run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alphafold.html#output">Output</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="computational-immunology">
+<h3>Computational Immunology<a class="headerlink" href="#computational-immunology" title="Link to this heading"></a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html">Download the SimCov Source Code from GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html#build-simcov-from-source">Build SimCov from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html#configure-simcov">Configure SimCov</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html#submit-a-simcov-job">Submit a SimCov Job</a></li>
+</ul>
+</div>
+</section>
+<section id="astronomy">
+<h3>Astronomy<a class="headerlink" href="#astronomy" title="Link to this heading"></a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mpiCASA.html">Using CASA on CARC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mpiCASA.html#a-bit-about-casa">A Bit About CASA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mpiCASA.html#getting-some-data-to-play-with">Getting Some Data to Play With</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mpiCASA.html#getting-set-up">Getting Set Up</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="paraview">
+<h3>Paraview<a class="headerlink" href="#paraview" title="Link to this heading"></a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="paraview.html">How to: Remote Visualization using ParaView in parallel.</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="paraview.html#overview-paraview-connection-and-documentation">Overview: Paraview Connection and Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="paraview.html#method-1-client-server-mode-gibbs-direct-connection">Method 1: Client - Server Mode (Gibbs Direct Connection)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="paraview.html#method-2-client-server-mode-wheeler-reverse-connection">Method 2: Client - Server Mode (Wheeler: Reverse Connection)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Paraview_Hopper.html">Remote Visualization using ParaView in parallel.</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Paraview_Hopper.html#hopper-cluster-connection">Hopper Cluster Connection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Paraview_Hopper.html#paraview-executables">ParaView executables</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="general">
+<h3>General<a class="headerlink" href="#general" title="Link to this heading"></a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="singularity-markdown-version.html">Docker and Singularity</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="singularity-markdown-version.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="singularity-markdown-version.html#what-is-docker">What is Docker?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="singularity-markdown-version.html#what-is-singularity">What is Singularity?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="singularity-markdown-version.html#installing-docker">Installing Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="singularity-markdown-version.html#running-docker">Running Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="singularity-markdown-version.html#creating-a-docker-image">Creating a Docker Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="singularity-markdown-version.html#commit-customised-container-to-image-file">Commit customised container to image file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="singularity-markdown-version.html#running-commands-using-the-docker-image">Running Commands using the Docker Image</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="singularity-markdown-version.html#singularity">Singularity</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="singularity-markdown-version.html#converting-docker-images-to-singularty-images">Converting Docker Images to Singularty Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="singularity-markdown-version.html#running-a-singularity-image-at-carc">Running a Singularity Image at CARC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="singularity-markdown-version.html#mapping-directories">Mapping Directories</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="singularity-markdown-version.html#version-issues">Version Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="haskell.html">Haskell at CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X11_forwarding.html">X11 Forwarding</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="X11_forwarding.html#on-a-mac">On a Mac</a></li>
+<li class="toctree-l2"><a class="reference internal" href="X11_forwarding.html#on-a-pc">On a PC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="X11_forwarding.html#step-by-step-example-of-x11-forwarding-with-matlab">Step by Step Example of X11 forwarding with MATLAB</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="spark.html">Spark</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="spark.html#the-basic-spark-model">The Basic Spark Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spark.html#the-canonical-simple-example-word-count-in-python">The Canonical Simple Example: Word count in Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spark.html#running-spark-at-carc">Running Spark at CARC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spark.html#simple-carc-spark-examples">Simple CARC Spark Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spark.html#a-more-involved-example">A More Involved Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spark.html#setting-up-a-full-python-spark-environment-using-anaconda">Setting up a Full Python/Spark environment using Anaconda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spark.html#visualization-of-data-from-python">Visualization of Data from Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spark.html#more-information">More Information</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="linux_intro.html" class="btn btn-neutral float-right" title="Linux Tutorial" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

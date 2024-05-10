@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Linux Tutorial &mdash; CARC QuickBytes 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=2709fde1"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Logging in" href="logging_in.html" />
+    <link rel="prev" title="Welcome to CARC’s QuickBytes!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CARC QuickBytes
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Linux Tutorial</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="logging_in.html">Logging in</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ssh_keygen_config.html">SSH keys and config file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transfer_data.html">Transferring data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pbs-torque.html">PBS/TORQUE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pbs_scripts2.html">Example PBS Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="submitting_jobs.html">Submitting jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="checking_on_running_jobs.html">Checking on running jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="module_management.html">Managing software models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Intro_to_slurm.html">Slurm Workload Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pbs2slurm.html">Conversion of PBS script to Slurm script</a></li>
+<li class="toctree-l1"><a class="reference internal" href="slurm_accounting.html">Introduction to Slurm Accounting at CARC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="running_matlab_jobs.html">Running MATLAB Jobs at CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html">Parallel MATLAB Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html#how-matlab-parallel-works-behind-the-scenes">How MATLAB Parallel Works Behind the Scenes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html#setting-your-ip-address">Setting your IP Address</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html#monitoring-matlab-jobs">Monitoring MATLAB Jobs</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Conda_JupyterHub.html">Using Custom Conda Python Environments in JupyterHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="julia_with_jupyterhub.html">Julia with Jupyter Hub</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="anaconda_general_intro.html">Anaconda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="anaconda_intro.html">Anaconda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="anaconda_pip_channels.html">Installing with pip and adding channels</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="R_usage.html">R Programming in HPC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Tensorflow_documentation.html">Introduction to Tensorflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html">Setting Up PyTorch using Xena</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html#navigate-to-the-pytorch1-9-k40-compatible-directory">Navigate to the PyTorch1.9-K40-Compatible directory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html#activate-the-conda-environment">Activate the Conda Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html#pip-installation">Pip installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="GATK_QuickByte.html">Parallel genomic variant calling with Genome Analysis Toolkit (GATK)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genome_evaluation.html">Reference genome evaluation with QUAST and BUSCO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="psmc_quickbyte.html">Pairwise Sequentially Markovian Coalescent (PSMC)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Stacks_quickbyte.html">Running Stacks on CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Metabarcoding.html">Metabarcoding Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Beast_at_CARC.html">BEAST at CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="msprime_quickbyte.html">Running Population Genetic Simulations with MSPrime</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="orca_wheeler_taos.html">Using Orca on Wheeler and Taos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alphafold.html">Alphafold</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alphafold.html#alphafold-w-localcolabfold">Alphafold w/ LocalColabFold:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alphafold.html#alphafold-w-singularity-image">Alphafold w/ Singularity Image:</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html">Download the SimCov Source Code from GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html#build-simcov-from-source">Build SimCov from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html#configure-simcov">Configure SimCov</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html#submit-a-simcov-job">Submit a SimCov Job</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mpiCASA.html">Using CASA on CARC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="paraview.html">How to: Remote Visualization using ParaView in parallel.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Paraview_Hopper.html">Remote Visualization using ParaView in parallel.</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="singularity-markdown-version.html">Docker and Singularity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singularity-markdown-version.html#singularity">Singularity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singularity-markdown-version.html#version-issues">Version Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="haskell.html">Haskell at CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X11_forwarding.html">X11 Forwarding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spark.html">Spark</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CARC QuickBytes</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Linux Tutorial</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/linux_intro.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="linux-tutorial">
+<h1>Linux Tutorial<a class="headerlink" href="#linux-tutorial" title="Link to this heading"></a></h1>
+<p>The goal of this tutorial is to familiarize you with the minimal set of commands needed to effectively negotiate the Unix operating system and file management system in an X11 windowing environment such as cygwin. At the end of this tutorial you will find a list of more advanced tools that you may wish to explore as you become familiar with Unix and its various flavors. These include the text editors vi and emacs, plotting packages (xmgr, gnuplot, xgrace), and image/file display packages (ghostscript, for postscript; acroread, for PDF files; and xv, for displaying .gif, .jpeg, and other image formats.)</p>
+<p>In this tutorial, we use the generic term Unix to refer to any operating system (OS) based on the original Unix OS developed in the 1970s (1969 is typically cited as the year that Unix was “born.”) Although numerous flavors and variants of the OS have appeared in the intervening years, they are all based on the same underlying design, and preserve a core set of commands in common. What this means is that if you are familiar with any contemporary Unix-like system, you will be able to immediately work on any other Unix-like system, and it will be very easy for you to come up to speed on the idiosyncrasies of the new environment. Examples of Unix-based systems that you may have heard of include Linux, SGI IRIX, Mac OS X, Sun Solaris, and SunOS.</p>
+<p>This tutorial provides step-by-step instructions for exploring the Unix-like operating systems running on UNM IT and CARC machines, such as <a class="reference external" href="http://linux.unm.edu">linux.unm.edu</a> and <a class="reference external" href="http://wheeler.alliance.unm.edu">wheeler.alliance.unm.edu</a>.</p>
+<p>Commands that you should enter at the prompt (also file, directory, and application names) will appear as a code block, while names of files will appear in <strong>bold</strong>. You may wish to take a look at the IT documentation for Linux and X Windows available at <a class="reference external" href="http://it.unm.edu/quickrefs/unix.html">http://it.unm.edu/quickrefs/unix.html</a>. Numerous “cheat sheets” for Linux and for editors such as vi (see below) can also be found online.</p>
+<p>NOTE: The program that interprets your commands on a Unix-based computer is called the shell. Shells come in different varieties, such as csh (C shell), tsch (Tenex C shell), ksh (Korn shell), and bash (Bourne-Again Shell). Many of the basic commands are the same across shells, but there are also some important differences.</p>
+<ol class="arabic simple">
+<li><p>Begin by ssh-ing into <a class="reference external" href="http://wheeler.alliance.unm.edu">wheeler.alliance.unm.edu</a> from an XTerm. Type in your username, followed by your wheeler password. (Note: you can also ssh into IT Linux machines by connecting to <a class="reference external" href="http://linux.unm.edu">linux.unm.edu</a> and using your UNM IT password (different from your CARC wheeler password).</p></li>
+<li><p>Note that when you login to a Unix machine, there is always a prompt. The default prompt is <code class="docutils literal notranslate"><span class="pre">$</span></code>, but sometimes it will appear as the machine name, followed by a number which tells you how many commands you have entered up to that point in the session, e.g. <code class="docutils literal notranslate"><span class="pre">username&#64;wheeler-sn:~$</span></code>, <code class="docutils literal notranslate"><span class="pre">username&#64;xena:~$</span></code> or <code class="docutils literal notranslate"><span class="pre">username&#64;gibbs:~$</span></code>. All commands in Unix are issued sequentially, each at a new prompt (there are ways to combine commands, but we won’t worry about this for now).</p></li>
+<li><p>If your password is new, you should change it immediately to one that is known only to you. If you have not done so already, type <code class="docutils literal notranslate"><span class="pre">passwd</span></code> at the Unix prompt, and follow the instructions. You can change your password as often as you like in this fashion.</p></li>
+<li><p>Verify your username by typing <code class="docutils literal notranslate"><span class="pre">whoami</span></code>. This command is useful in computer labs if you come across an unoccupied terminal that appears to be in use, and would like to know who is logged in. Also, it gives you an idea of the current user load on the machine.</p></li>
+<li><p>See who else is using the machine you are on by typing <code class="docutils literal notranslate"><span class="pre">who</span></code>.</p></li>
+<li><p>Reality check: type <code class="docutils literal notranslate"><span class="pre">date</span></code>.</p></li>
+<li><p>Check that you are in your home directory by typing <code class="docutils literal notranslate"><span class="pre">pwd</span></code> (print working directory).</p></li>
+<li><p>Create a new directory called Lab1 by using the mkdir command: <code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">Lab1</span></code>.</p></li>
+<li><p>Type <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">Lab1</span></code> (change directory) to move to this directory.</p></li>
+<li><p>Create two subdirectories, take1 and take2, and change directories to take1. (NOTE: Any files or directories that you create remain on the Linux filesystem until you specifically choose to delete them. For example, if you login to <a class="reference external" href="http://linux.unm.edu">linux.unm.edu</a> from a second XTerm while still connected via the first, you will be able to see (and manipulate) all of your directories and files stored on the filesystem.)</p></li>
+<li><p>Brief text editor review. Two editors that are commonly used in the Unix environment are <strong>vi</strong> and <strong>emacs</strong>. <strong>emacs</strong> is more sophisticated, but requires more effort to master. If you want to try it out, type <code class="docutils literal notranslate"><span class="pre">emacs</span></code> at the Unix prompt, and follow the instructions to work through the tutorial. For right now, we will use <strong>vi</strong>. (Note: there are a number of useful online quick-references for vi. See, for example: <a class="reference external" href="http://it.unm.edu/quickrefs/vi.html">http://it.unm.edu/quickrefs/vi.html</a>).<br />
+To invoke the editor, type <code class="docutils literal notranslate"><span class="pre">vi</span> <span class="pre">&lt;filename&gt;</span></code>. (The notation “<filename>” just means “any filename you like.” For example, you might type <code class="docutils literal notranslate"><span class="pre">vi</span> <span class="pre">genomes.txt</span></code>). Note that in Unix, long filenames are deprecated; it is customary to use the suffix <strong>.txt</strong> to denote plain text files, and filenames may not include spaces. In lieu of spaces, it is common to use the underscore character “_”, or strategically placed capitals, thus: <strong>MyLongFilename.txt</strong>. Once you are in the editor, you can use the following commands indicated in <strong>boldface</strong> to differentiate commands within the editor versus those at the command prompt:<br />
+<strong>i</strong> to insert text at cursor location. type <strong>i</strong> and then type your text; hit <strong><Esc></strong> (the “Esc” key on your keyboard) to stop entering text<br />
+<strong>a</strong> to add text at location of cursor (<strong><Esc></strong> to end text entry)<br />
+<strong>o</strong> to open a new line and begin inserting text (<strong><Esc></strong> to end text entry).<br />
+If you are not sure what state <strong>vi</strong> is in, it’s always safe to type <strong><Esc></strong> to reset.<br />
+<strong>j</strong> to move down a line<br />
+<strong>k</strong> to move up a line<br />
+<strong>D</strong> to delete from cursor location to end of line<br />
+<strong>dd</strong> to delete entire line<br />
+<strong>:</strong> to get into editor mode. From here you can type <strong>w</strong> (followed by the <strong>Enter</strong> key) to write your file (this will overwrite whatever file you said you were editing when you invoked <strong>vi</strong>),<br />
+<strong>q</strong> to quit <strong>vi</strong>; and <strong>q!</strong> to exit without writing over your file. Another very useful editor-mode command is to type <strong>u</strong> at the colon; this undoes your last command in case you made a mess of your editing.<br />
+Type <strong><number>G</strong> in text-entry mode to go to line number <strong><number></strong>. <strong>$</strong> refers to the last line in your file, so <strong>$G</strong> will take you to the last line in your<br />
+Also in text entry mode, type <strong><Ctrl>-G</strong> (this is the <strong>Ctrl</strong> key on your keyboard, held down at the same time as the <strong>G</strong> key) to find out what line you are at.</p></li>
+<li><p>Now that you are an expert at editing, create a new file called <strong>junk.txt</strong> containing the single line “Hello World.” You may use <strong>vi</strong> or the Unix editor of your choice in order to do this.</p></li>
+<li><p>Copy <strong>junk.txt</strong> to <strong>junk2.txt</strong> using the <code class="docutils literal notranslate"><span class="pre">cp</span></code> command: <code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">junk.txt</span> <span class="pre">junk2.txt</span></code>.</p></li>
+<li><p>Edit <strong>junk2.txt</strong> and add the line: “Now is the time for all good men to come to the aid of their PARTY.” (Yes, PARTY should be capitalized).</p></li>
+<li><p>Save the file and exit to the Unix prompt by typing :<code class="docutils literal notranslate"><span class="pre">wq</span></code>.</p></li>
+<li><p>Check which file contains the word party by doing a case-insensitive <code class="docutils literal notranslate"><span class="pre">grep</span></code>; <code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">grep</span> <span class="pre">-i</span> <span class="pre">party</span> <span class="pre">*.txt</span></code>. The asterisk is a wild-card character that matches both <strong>junk</strong> and <strong>junk2</strong>.</p></li>
+<li><p>Do a <code class="docutils literal notranslate"><span class="pre">pwd</span></code>; then get a listing of the files in the current directory by typing <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">.</span></code> where ‘.’ is a shorthand for “the current directory.”</p></li>
+<li><p>See how much space is left on the disk where your directory resides by typing <code class="docutils literal notranslate"><span class="pre">df</span></code> .</p></li>
+<li><p>Type <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">ls</span></code> to access the Unix on-line manual page for the <code class="docutils literal notranslate"><span class="pre">ls</span></code> command. Find the option that will produce a long listing, and re-type the <code class="docutils literal notranslate"><span class="pre">ls</span></code> command using this option.</p></li>
+<li><p>One of the most important features of Unix is the ability to re-direct output. You can re-direct the output of your <code class="docutils literal notranslate"><span class="pre">ls</span></code> command to a file named <strong>list.txt</strong> by typing <code class="docutils literal notranslate"><span class="pre">&gt;</span> <span class="pre">list.txt</span></code> on the same line as the <code class="docutils literal notranslate"><span class="pre">ls</span></code> command, and immediately afterwards. Try this now.</p></li>
+<li><p>Make sure that your re-direction worked by typing <code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">list.txt</span></code> to look at the contents of <strong>list.txt</strong>.</p></li>
+<li><p>Another useful tool is the <code class="docutils literal notranslate"><span class="pre">diff</span></code> command, which allows you to compare the contents of two files, line by line. Do a <code class="docutils literal notranslate"><span class="pre">diff</span> <span class="pre">junk.txt</span> <span class="pre">junk2.txt</span></code>.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code> symbol allows you to append output to the end of a file. Repeat the <code class="docutils literal notranslate"><span class="pre">diff</span></code> command, followed by <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span> <span class="pre">list.txt</span></code> to append the output of <code class="docutils literal notranslate"><span class="pre">diff</span></code> to the <strong>list.txt</strong> file. Use <code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">list.txt</span></code> to verify that the results are what you expected.</p></li>
+<li><p>Move <strong>junk2.txt</strong> one directory up by typing <code class="docutils literal notranslate"><span class="pre">mv</span> <span class="pre">junk2.txt</span> <span class="pre">..</span></code> where “..’ is shorthand for “one directory up from where I am now.”</p></li>
+<li><p>Jump to your home directory by typing <code class="docutils literal notranslate"><span class="pre">cd</span></code> without any arguments.</p></li>
+<li><p>Go back to directory <strong>take1</strong> by typing <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">Lab1/take1</span></code>.</p></li>
+<li><p>Now go back to your home directory by typing <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">../..</span></code></p></li>
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">man</span></code> page for <code class="docutils literal notranslate"><span class="pre">ls</span></code> again to find out how to display hidden (‘dot’) files, and do a long listing, including dotfiles, in your home directory.</p></li>
+<li><p>Change to directory <strong>Lab1</strong>, and remove directory <strong>take2</strong> by typing by <code class="docutils literal notranslate"><span class="pre">rmdir</span> <span class="pre">take2</span></code>.</p></li>
+<li><p>Now try to remove directory <strong>take1</strong> in the same way.</p></li>
+<li><p>The reason <strong>take1</strong> could not be removed is that it still has a file in it. Change directories to <strong>take1</strong> and do a <code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">junk.txt</span></code>. Notice the different command for removing a file vs. removing a directory.</p></li>
+<li><p>Go back up one directory and remove directory <strong>take1</strong>.</p></li>
+<li><p>Change to your home directory and remove directory <strong>Lab1</strong>.</p></li>
+<li><p>To logout, type <code class="docutils literal notranslate"><span class="pre">exit</span></code> at the prompt. You can kill any jobs executing before you logout, or they will get killed automatically when you logout. Note that Unix is a much more robust OS than Windows. There is virtually no way that you, as an ordinary user, can crash the operating system while others are using it. This is one of the many reasons why you will want to learn to use (and master) the Unix operating system environment, and why it is used on supercomputers and clusters at centers around the world.</p></li>
+</ol>
+<p>Congratulations! You’ve survived the Unix tutorial. Here is a list of some particularly useful X windows tools included on many (not necessarily all, however) Unix installations. These are listed according to the Unix command used to invoke them. At your leisure, please take the time to explore some of them, and see that the appropriate GUI (Graphical User Interface) comes up correctly when they are invoked. Many of these applications are self-explanatory; simply start them up and try them out.</p>
+<p><code class="docutils literal notranslate"><span class="pre">xmgr</span></code>: plotting program<br />
+<code class="docutils literal notranslate"><span class="pre">gnuplot</span></code> plotting program<br />
+<code class="docutils literal notranslate"><span class="pre">xwd</span></code>: X window dump (man xwd).<br />
+<code class="docutils literal notranslate"><span class="pre">xv</span></code> Useful visualizer that can handle a wide range of graphics formats, and convert between them (.rgb, .xwd, .tiff, etc.).<br />
+<code class="docutils literal notranslate"><span class="pre">xgrace</span></code>: more advanced (sophisticated) plotting program<br />
+<code class="docutils literal notranslate"><span class="pre">ghostview</span></code>: postscript previewer.<br />
+<code class="docutils literal notranslate"><span class="pre">acroread</span></code>: Acrobat (PDF) previewer.<br />
+<code class="docutils literal notranslate"><span class="pre">LaTeX:</span></code>: Scientific text formatting language, including previewing package. Far superior to Word for heavily mathematical documents. A LaTeX tutorial/reference book such as the one by Leslie Lamport is useful for getting started.<br />
+<code class="docutils literal notranslate"><span class="pre">vi</span></code>: Standard Unix line-editor. An introduction to vi was included as part of this Lab; see online reference there.<br />
+<code class="docutils literal notranslate"><span class="pre">emacs,</span> <span class="pre">xemacs</span></code>: A highly flexible editing environment, with special editing modes for particular file types (.F Fortran source code, .tex LaTeX files, etc.), facilities for multiple buffers, and much, much more. See Learning GNU Emacs (O’Reilly and Associates) or the emacs online help for a detailed tutorial.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to CARC’s QuickBytes!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="logging_in.html" class="btn btn-neutral float-right" title="Logging in" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

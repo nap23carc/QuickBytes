@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Running MATLAB Jobs at CARC &mdash; CARC QuickBytes 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=2709fde1"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Parallel MATLAB Server" href="ParallelMatlabServer.html" />
+    <link rel="prev" title="Introduction to Slurm Accounting at CARC" href="slurm_accounting.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CARC QuickBytes
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="linux_intro.html">Linux Tutorial</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="logging_in.html">Logging in</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ssh_keygen_config.html">SSH keys and config file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transfer_data.html">Transferring data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pbs-torque.html">PBS/TORQUE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pbs_scripts2.html">Example PBS Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="submitting_jobs.html">Submitting jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="checking_on_running_jobs.html">Checking on running jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="module_management.html">Managing software models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Intro_to_slurm.html">Slurm Workload Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pbs2slurm.html">Conversion of PBS script to Slurm script</a></li>
+<li class="toctree-l1"><a class="reference internal" href="slurm_accounting.html">Introduction to Slurm Accounting at CARC</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Running MATLAB Jobs at CARC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#matlab">MATLAB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#batch-mode">Batch mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#submitting-a-job-with-batch-mode">Submitting a job with batch mode</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html">Parallel MATLAB Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html#how-matlab-parallel-works-behind-the-scenes">How MATLAB Parallel Works Behind the Scenes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html#setting-your-ip-address">Setting your IP Address</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html#monitoring-matlab-jobs">Monitoring MATLAB Jobs</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Conda_JupyterHub.html">Using Custom Conda Python Environments in JupyterHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="julia_with_jupyterhub.html">Julia with Jupyter Hub</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="anaconda_general_intro.html">Anaconda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="anaconda_intro.html">Anaconda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="anaconda_pip_channels.html">Installing with pip and adding channels</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="R_usage.html">R Programming in HPC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Tensorflow_documentation.html">Introduction to Tensorflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html">Setting Up PyTorch using Xena</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html#navigate-to-the-pytorch1-9-k40-compatible-directory">Navigate to the PyTorch1.9-K40-Compatible directory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html#activate-the-conda-environment">Activate the Conda Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html#pip-installation">Pip installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="GATK_QuickByte.html">Parallel genomic variant calling with Genome Analysis Toolkit (GATK)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genome_evaluation.html">Reference genome evaluation with QUAST and BUSCO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="psmc_quickbyte.html">Pairwise Sequentially Markovian Coalescent (PSMC)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Stacks_quickbyte.html">Running Stacks on CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Metabarcoding.html">Metabarcoding Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Beast_at_CARC.html">BEAST at CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="msprime_quickbyte.html">Running Population Genetic Simulations with MSPrime</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="orca_wheeler_taos.html">Using Orca on Wheeler and Taos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alphafold.html">Alphafold</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alphafold.html#alphafold-w-localcolabfold">Alphafold w/ LocalColabFold:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alphafold.html#alphafold-w-singularity-image">Alphafold w/ Singularity Image:</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html">Download the SimCov Source Code from GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html#build-simcov-from-source">Build SimCov from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html#configure-simcov">Configure SimCov</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html#submit-a-simcov-job">Submit a SimCov Job</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mpiCASA.html">Using CASA on CARC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="paraview.html">How to: Remote Visualization using ParaView in parallel.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Paraview_Hopper.html">Remote Visualization using ParaView in parallel.</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="singularity-markdown-version.html">Docker and Singularity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singularity-markdown-version.html#singularity">Singularity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singularity-markdown-version.html#version-issues">Version Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="haskell.html">Haskell at CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X11_forwarding.html">X11 Forwarding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spark.html">Spark</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CARC QuickBytes</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Running MATLAB Jobs at CARC</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/running_matlab_jobs.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="running-matlab-jobs-at-carc">
+<h1>Running MATLAB Jobs at CARC<a class="headerlink" href="#running-matlab-jobs-at-carc" title="Link to this heading"></a></h1>
+<section id="matlab">
+<h2>MATLAB<a class="headerlink" href="#matlab" title="Link to this heading"></a></h2>
+<p>MATLAB is a powerful software environment and language especially for matrix manipulation and calculations, whence the name __MAT__rix__LAB__oratory. if you are unfamiliar with MATLAB please visit there website for more information at this <a class="reference external" href="https://www.mathworks.com/products/matlab.html">link</a>. For a list of which versions of MATLAB are available on a certain system use the command <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">avail</span> <span class="pre">matlab</span></code> on the head node. MATLAB is installed on all CARC systems, however, it can only be accessed on the compute nodes and is not available on the head node. In order to run MATLAB jobs at CARC it is necessary to call the MATLAB software in batch mode to run on a script/program supplied by the user.</p>
+</section>
+<section id="batch-mode">
+<h2>Batch mode<a class="headerlink" href="#batch-mode" title="Link to this heading"></a></h2>
+<p>Many users are likely familiar with using the MATLAB GUI to run their code either in the interactive console or by launching a script. However, it is often useful to run a Matlab program from the command line in batch mode, as though it were a shell script. MATLAB can be run non-interactively using a built in function called batch mode. All MATLAB jobs should be run using batch mode when using CARC systems.</p>
+</section>
+<section id="submitting-a-job-with-batch-mode">
+<h2>Submitting a job with batch mode<a class="headerlink" href="#submitting-a-job-with-batch-mode" title="Link to this heading"></a></h2>
+<p>Say you have a small program named <code class="docutils literal notranslate"><span class="pre">my_program.m</span></code> that generates a 3x3 matrix of random numbers and writes the results to a .csv file. Your code for such a program might look like this:</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">%generate a matrix of random numbers of dimension 3x3</span>
+<span class="n">rmatrix</span><span class="p">=</span><span class="nb">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="n">fname</span><span class="p">=</span><span class="s">&#39;randnums.csv&#39;</span><span class="p">;</span>
+<span class="n">csvwrite</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span><span class="n">rmatrix</span><span class="p">);</span>
+<span class="n">quit</span>
+</pre></div>
+</div>
+<p>This program can be submitted using batch mode with the command <code class="docutils literal notranslate"><span class="pre">matlab</span> <span class="pre">-r</span> <span class="pre">my_program</span></code>. In this command the <code class="docutils literal notranslate"><span class="pre">-r</span></code> flag is telling MATLAB to run your script <code class="docutils literal notranslate"><span class="pre">my_program.m</span></code> in batch mode. Notice that when calling a script with batch mode you leave off the extension <code class="docutils literal notranslate"><span class="pre">.m</span></code>. This command works if you are running on a local machine, however, when running jobs at CARC you need to submit your job to the job scheduler using a PBS script. For those unfamiliar with PBS scripts explanations and example scripts can be found <a class="reference external" href="http://carc.unm.edu/user-support/using-carc-systems/running-jobs/sample-pbs-scripts.html">here</a>. To submit our MATLAB program to the Wheeler job scheduler we would put our batch command in a PBS script similar to the one below:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+
+<span class="c1"># Commands specific to the job scheduler requesting resources, naming your job, and setting up email alerts regarding job status.</span>
+<span class="c1">#PBS -l walltime=1:00:00</span>
+<span class="c1">#PBS -l nodes=1:ppn=8</span>
+<span class="c1">#PBS -N my_matlab_job</span>
+<span class="c1">#PBS -m abe</span>
+<span class="c1">#PBS -M my_email.@unm.edu</span>
+
+<span class="c1"># Change to the directory that you submitted your PBS script from.</span>
+<span class="nb">cd</span><span class="w"> </span><span class="nv">$PBS_O_WORKDIR</span>
+
+<span class="c1"># Loading the MATLAB software module. The specific module name is system dependent.</span>
+module<span class="w"> </span>load<span class="w"> </span>matlab/R2017a
+
+<span class="c1"># Calling MATLAB in batch mode to run your program. </span>
+matlab<span class="w"> </span>-nojvm<span class="w"> </span>-nodisplay<span class="w"> </span>-r<span class="w"> </span>my_program<span class="w"> </span>&gt;<span class="w"> </span>/dev/null
+</pre></div>
+</div>
+<p>There are a couple of additions to our batch mode command when calling MATLAB on our program.  The <code class="docutils literal notranslate"><span class="pre">-nojvm</span></code> flag turns off Java Virtual Machine since this is only necessary when running the MATLAB GUI. The <code class="docutils literal notranslate"><span class="pre">-nodisplay</span></code> turns off all graphical output from MATLAB since we do not support visual display at CARC.  Remember that the <code class="docutils literal notranslate"><span class="pre">-r</span></code> flag is telling MATLAB to run in batch mode, it must immediately precede the name of your program, “my_program” in this case. At the end of our command we then redirect what would normally be written to <code class="docutils literal notranslate"><span class="pre">stdout</span></code>, or your MATLAB console when running interactively, to a special file called <code class="docutils literal notranslate"><span class="pre">null</span></code>. We do this because MATLAB normally writes all output to <code class="docutils literal notranslate"><span class="pre">stdout</span></code> which is stored in memory (RAM). If your program generates enough output to <code class="docutils literal notranslate"><span class="pre">stdout</span></code> this can overload local memory and crash the compute node that your program is running on. If you wish to keep what is printed to <code class="docutils literal notranslate"><span class="pre">stdout</span></code> you can redirect to a file instead using the following syntax and replacing the name with whatever you would like to call your file:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>matlab<span class="w"> </span>-nojvm<span class="w"> </span>-nodisplay<span class="w"> </span>-r<span class="w"> </span>my_program<span class="w"> </span>&gt;<span class="w"> </span>my_program.output
+</pre></div>
+</div>
+<p>Now that you have your program and your PBS script you can submit your job to the job scheduler using the <code class="docutils literal notranslate"><span class="pre">qsub</span></code> command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>qsub<span class="w"> </span>my_matlab_job.pbs
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="slurm_accounting.html" class="btn btn-neutral float-left" title="Introduction to Slurm Accounting at CARC" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ParallelMatlabServer.html" class="btn btn-neutral float-right" title="Parallel MATLAB Server" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

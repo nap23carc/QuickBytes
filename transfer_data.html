@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Transferring data &mdash; CARC QuickBytes 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=2709fde1"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="PBS/TORQUE" href="pbs-torque.html" />
+    <link rel="prev" title="SSH keys and config file" href="ssh_keygen_config.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CARC QuickBytes
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="linux_intro.html">Linux Tutorial</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="logging_in.html">Logging in</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ssh_keygen_config.html">SSH keys and config file</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Transferring data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#where-is-your-data">Where is your data?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#graphical-user-interface-gui-options">Graphical User Interface (GUI) options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#command-line-interface-cli-options">Command-line interface (CLI) options</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#secure-copy-scp">Secure Copy (SCP)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#remote-sync-rsync">Remote Sync (RSYNC)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#babar-copy-bbcp">BaBar Copy (BBCP)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pbs-torque.html">PBS/TORQUE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pbs_scripts2.html">Example PBS Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="submitting_jobs.html">Submitting jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="checking_on_running_jobs.html">Checking on running jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="module_management.html">Managing software models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Intro_to_slurm.html">Slurm Workload Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pbs2slurm.html">Conversion of PBS script to Slurm script</a></li>
+<li class="toctree-l1"><a class="reference internal" href="slurm_accounting.html">Introduction to Slurm Accounting at CARC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="running_matlab_jobs.html">Running MATLAB Jobs at CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html">Parallel MATLAB Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html#how-matlab-parallel-works-behind-the-scenes">How MATLAB Parallel Works Behind the Scenes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html#setting-your-ip-address">Setting your IP Address</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html#monitoring-matlab-jobs">Monitoring MATLAB Jobs</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Conda_JupyterHub.html">Using Custom Conda Python Environments in JupyterHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="julia_with_jupyterhub.html">Julia with Jupyter Hub</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="anaconda_general_intro.html">Anaconda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="anaconda_intro.html">Anaconda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="anaconda_pip_channels.html">Installing with pip and adding channels</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="R_usage.html">R Programming in HPC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Tensorflow_documentation.html">Introduction to Tensorflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html">Setting Up PyTorch using Xena</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html#navigate-to-the-pytorch1-9-k40-compatible-directory">Navigate to the PyTorch1.9-K40-Compatible directory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html#activate-the-conda-environment">Activate the Conda Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html#pip-installation">Pip installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="GATK_QuickByte.html">Parallel genomic variant calling with Genome Analysis Toolkit (GATK)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genome_evaluation.html">Reference genome evaluation with QUAST and BUSCO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="psmc_quickbyte.html">Pairwise Sequentially Markovian Coalescent (PSMC)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Stacks_quickbyte.html">Running Stacks on CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Metabarcoding.html">Metabarcoding Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Beast_at_CARC.html">BEAST at CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="msprime_quickbyte.html">Running Population Genetic Simulations with MSPrime</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="orca_wheeler_taos.html">Using Orca on Wheeler and Taos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alphafold.html">Alphafold</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alphafold.html#alphafold-w-localcolabfold">Alphafold w/ LocalColabFold:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alphafold.html#alphafold-w-singularity-image">Alphafold w/ Singularity Image:</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html">Download the SimCov Source Code from GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html#build-simcov-from-source">Build SimCov from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html#configure-simcov">Configure SimCov</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html#submit-a-simcov-job">Submit a SimCov Job</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mpiCASA.html">Using CASA on CARC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="paraview.html">How to: Remote Visualization using ParaView in parallel.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Paraview_Hopper.html">Remote Visualization using ParaView in parallel.</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="singularity-markdown-version.html">Docker and Singularity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singularity-markdown-version.html#singularity">Singularity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singularity-markdown-version.html#version-issues">Version Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="haskell.html">Haskell at CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X11_forwarding.html">X11 Forwarding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spark.html">Spark</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CARC QuickBytes</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Transferring data</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/transfer_data.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="transferring-data">
+<h1>Transferring data<a class="headerlink" href="#transferring-data" title="Link to this heading"></a></h1>
+<section id="where-is-your-data">
+<h2>Where is your data?<a class="headerlink" href="#where-is-your-data" title="Link to this heading"></a></h2>
+<p>Your home directory, <code class="docutils literal notranslate"><span class="pre">/users/your-user-name/</span></code>, is shared across all CARC machines, meaning that once your data has been uploaded to your home directory it is accessible regardless of which machine you are logged in to. Refer to our documentation page on CARC for details on CARC systems.</p>
+</section>
+<section id="graphical-user-interface-gui-options">
+<h2>Graphical User Interface (GUI) options<a class="headerlink" href="#graphical-user-interface-gui-options" title="Link to this heading"></a></h2>
+<p>There are several options available for data transfer that employ a GUI for ease of use. Several options are listed below and are linked to the homepage for the software with documentation on how to use it.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://filezilla-project.org/">FileZilla</a></p></li>
+<li><p><a class="reference external" href="https://winscp.net/eng/index.php">WinSCP</a></p></li>
+<li><p><a class="reference external" href="https://fetchsoftworks.com/">Fetch</a></p></li>
+<li><p><a class="reference external" href="https://cyberduck.io/">CyberDuck</a></p></li>
+</ul>
+<p>FileZilla is available for both Windows and Unix systems, whereas WinSCP is Windows only, and Fetch is MacOS only. GUI-based programs are very user friendly and well-suited to those that are less comfortable in Linux Command-line interface. Unfortunately, the programs listed above, and other GUI-based programs, employ File Transfer Protocol (FTP), which has a relatively low transfer speed and is suitable for smaller file sizes.</p>
+</section>
+<section id="command-line-interface-cli-options">
+<h2>Command-line interface (CLI) options<a class="headerlink" href="#command-line-interface-cli-options" title="Link to this heading"></a></h2>
+<p>For larger files it is recommended you use one of several programs implemented in a command-line interface. These programs have several benefits over their GUI-based counterparts, including higher transfer speeds and the ability to continue a transfer if it is interrupted without having to restart from the beginning. Below are several popular options with example commands and links for more advanced usage.</p>
+<section id="secure-copy-scp">
+<h3>Secure Copy (SCP)<a class="headerlink" href="#secure-copy-scp" title="Link to this heading"></a></h3>
+<p>Transfer from local machine to CARC:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>scp<span class="w"> </span>/your-file<span class="w"> </span>your-username@wheeler.alliance.unm.edu:target-directory/
+</pre></div>
+</div>
+<p>Transfer from CARC to local machine:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>scp<span class="w"> </span>your-username@wheeler.alliance.unm.edu:your-file<span class="w"> </span>/target-directory/
+</pre></div>
+</div>
+</section>
+<section id="remote-sync-rsync">
+<h3>Remote Sync (RSYNC)<a class="headerlink" href="#remote-sync-rsync" title="Link to this heading"></a></h3>
+<p>Transfer from local machine to CARC</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rsync<span class="w"> </span>-vhatP<span class="w"> </span>/your-file<span class="w"> </span>your-username@wheeler.alliance.unm.edu:target-directory
+</pre></div>
+</div>
+<p>Transfer from CARC to local machine</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rsync<span class="w"> </span>-vhatP<span class="w"> </span>your-username@wheeler.alliance.unm.edu:your-file<span class="w"> </span>/target-directory/
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">-vhatP</span></code> flag are instructions to rsync print out the progress of the transfer verbosely and human-readable.</p>
+</section>
+<section id="babar-copy-bbcp">
+<h3>BaBar Copy (BBCP)<a class="headerlink" href="#babar-copy-bbcp" title="Link to this heading"></a></h3>
+<p>Transfer from local machine to CARC</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bbcp<span class="w"> </span>/your-file<span class="w"> </span>your-username@wheeler.alliance.unm.edu:target-directory/
+</pre></div>
+</div>
+<p>Transfer from CARC to local machine</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bbcp<span class="w"> </span>your-username@wheeler.alliance.unm.edu:your-file<span class="w"> </span>/target-directory/
+</pre></div>
+</div>
+<p>As you can see, the syntax for using the various programs is very similar, however, the options for advanced usage are unique to each program. The examples provided above are for very basic data transfers, but you should refer to the links provided, or for the CLI options use the command <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">programname</span></code>, in order to optimize each for maximum data transfer efficiency and speed. The necessity for transfer optimization increases as file size increases.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ssh_keygen_config.html" class="btn btn-neutral float-left" title="SSH keys and config file" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pbs-torque.html" class="btn btn-neutral float-right" title="PBS/TORQUE" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

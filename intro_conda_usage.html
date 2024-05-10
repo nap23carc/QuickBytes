@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Working with Conda &mdash; CARC QuickBytes 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=2709fde1"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CARC QuickBytes
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="linux_intro.html">Linux Tutorial</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="logging_in.html">Logging in</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ssh_keygen_config.html">SSH keys and config file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transfer_data.html">Transferring data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pbs-torque.html">PBS/TORQUE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pbs_scripts2.html">Example PBS Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="submitting_jobs.html">Submitting jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="checking_on_running_jobs.html">Checking on running jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="module_management.html">Managing software models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Intro_to_slurm.html">Slurm Workload Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pbs2slurm.html">Conversion of PBS script to Slurm script</a></li>
+<li class="toctree-l1"><a class="reference internal" href="slurm_accounting.html">Introduction to Slurm Accounting at CARC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="running_matlab_jobs.html">Running MATLAB Jobs at CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html">Parallel MATLAB Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html#how-matlab-parallel-works-behind-the-scenes">How MATLAB Parallel Works Behind the Scenes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html#setting-your-ip-address">Setting your IP Address</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html#monitoring-matlab-jobs">Monitoring MATLAB Jobs</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Conda_JupyterHub.html">Using Custom Conda Python Environments in JupyterHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="julia_with_jupyterhub.html">Julia with Jupyter Hub</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="anaconda_general_intro.html">Anaconda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="anaconda_intro.html">Anaconda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="anaconda_pip_channels.html">Installing with pip and adding channels</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="R_usage.html">R Programming in HPC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Tensorflow_documentation.html">Introduction to Tensorflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html">Setting Up PyTorch using Xena</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html#navigate-to-the-pytorch1-9-k40-compatible-directory">Navigate to the PyTorch1.9-K40-Compatible directory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html#activate-the-conda-environment">Activate the Conda Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html#pip-installation">Pip installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="GATK_QuickByte.html">Parallel genomic variant calling with Genome Analysis Toolkit (GATK)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genome_evaluation.html">Reference genome evaluation with QUAST and BUSCO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="psmc_quickbyte.html">Pairwise Sequentially Markovian Coalescent (PSMC)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Stacks_quickbyte.html">Running Stacks on CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Metabarcoding.html">Metabarcoding Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Beast_at_CARC.html">BEAST at CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="msprime_quickbyte.html">Running Population Genetic Simulations with MSPrime</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="orca_wheeler_taos.html">Using Orca on Wheeler and Taos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alphafold.html">Alphafold</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alphafold.html#alphafold-w-localcolabfold">Alphafold w/ LocalColabFold:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alphafold.html#alphafold-w-singularity-image">Alphafold w/ Singularity Image:</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html">Download the SimCov Source Code from GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html#build-simcov-from-source">Build SimCov from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html#configure-simcov">Configure SimCov</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html#submit-a-simcov-job">Submit a SimCov Job</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mpiCASA.html">Using CASA on CARC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="paraview.html">How to: Remote Visualization using ParaView in parallel.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Paraview_Hopper.html">Remote Visualization using ParaView in parallel.</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="singularity-markdown-version.html">Docker and Singularity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singularity-markdown-version.html#singularity">Singularity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singularity-markdown-version.html#version-issues">Version Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="haskell.html">Haskell at CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X11_forwarding.html">X11 Forwarding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spark.html">Spark</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CARC QuickBytes</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Working with Conda</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/intro_conda_usage.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="working-with-conda">
+<h1>Working with Conda<a class="headerlink" href="#working-with-conda" title="Link to this heading"></a></h1>
+<section id="using-conda-to-create-a-new-environment">
+<h2>Using Conda to create a new environment<a class="headerlink" href="#using-conda-to-create-a-new-environment" title="Link to this heading"></a></h2>
+<p>Let’s start by logging in to Wheeler and create an empty environment. After creating a new environment we will then install Python 2.7 our newly created environment and explore what Conda is doing. To do this we must first load the module for Anaconda, in this case we will be using Anaconda3 which uses Python 3 by default. If you know that you are going to be using a lot of code written in Python 2 then you can load Anaconda instead of Anaconda3.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>anaconda3
+$<span class="w"> </span>conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>py-2.7
+Solving<span class="w"> </span>environment:<span class="w"> </span><span class="k">done</span>
+
+<span class="c1">## Package Plan ##</span>
+
+<span class="w">  </span>environment<span class="w"> </span>location:<span class="w"> </span>/users/yourusername/.conda/envs/py-2.7
+
+
+Proceed<span class="w"> </span><span class="o">([</span>y<span class="o">]</span>/n<span class="o">)</span>?
+
+Preparing<span class="w"> </span>transaction:<span class="w"> </span><span class="k">done</span>
+Verifying<span class="w"> </span>transaction:<span class="w"> </span><span class="k">done</span>
+Executing<span class="w"> </span>transaction:<span class="w"> </span><span class="k">done</span>
+<span class="c1">#</span>
+<span class="c1"># To activate this environment, use</span>
+<span class="c1">#</span>
+<span class="c1">#     $ conda activate MyFirstEnvironment</span>
+<span class="c1">#</span>
+<span class="c1"># To deactivate an active environment, use</span>
+<span class="c1">#</span>
+<span class="c1">#     $ conda deactivate</span>
+</pre></div>
+</div>
+<p>We now have a new Conda environment that we can populate with whatever software we require for the analyses we wish to run.</p>
+</section>
+<section id="installing-packages-with-conda">
+<h2>Installing packages with Conda<a class="headerlink" href="#installing-packages-with-conda" title="Link to this heading"></a></h2>
+<p>Now that we have our empty environment let’s install Python 2.7 in it. Make sure you have the Anaconda3 module loaded and then type the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>conda<span class="w"> </span>install<span class="w"> </span>--name<span class="w"> </span>py-2.7<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">2</span>.7
+</pre></div>
+</div>
+<p>You should see the following print to <code class="docutils literal notranslate"><span class="pre">stdout</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">## Package Plan ##</span>
+
+<span class="w">  </span>environment<span class="w"> </span>location:<span class="w"> </span>/users/yourusername/.conda/envs/py-2.7
+
+<span class="w">  </span>added<span class="w"> </span>/<span class="w"> </span>updated<span class="w"> </span>specs:
+<span class="w">    </span>-<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">2</span>.7
+
+
+The<span class="w"> </span>following<span class="w"> </span>packages<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>downloaded:
+
+<span class="w">    </span>package<span class="w">                    </span><span class="p">|</span><span class="w">            </span>build
+<span class="w">    </span>---------------------------<span class="p">|</span>-----------------
+<span class="w">    </span>pip-10.0.1<span class="w">                 </span><span class="p">|</span><span class="w">           </span>py27_0<span class="w">         </span><span class="m">1</span>.7<span class="w"> </span>MB
+<span class="w">    </span>certifi-2018.8.24<span class="w">          </span><span class="p">|</span><span class="w">           </span>py27_1<span class="w">         </span><span class="m">139</span><span class="w"> </span>KB
+<span class="w">    </span>python-2.7.15<span class="w">              </span><span class="p">|</span><span class="w">       </span>h1571d57_0<span class="w">        </span><span class="m">12</span>.1<span class="w"> </span>MB
+<span class="w">    </span>setuptools-40.2.0<span class="w">          </span><span class="p">|</span><span class="w">           </span>py27_0<span class="w">         </span><span class="m">585</span><span class="w"> </span>KB
+<span class="w">    </span>wheel-0.31.1<span class="w">               </span><span class="p">|</span><span class="w">           </span>py27_0<span class="w">          </span><span class="m">62</span><span class="w"> </span>KB
+<span class="w">    </span>tk-8.6.8<span class="w">                   </span><span class="p">|</span><span class="w">       </span>hbc83047_0<span class="w">         </span><span class="m">3</span>.1<span class="w"> </span>MB
+<span class="w">    </span>readline-7.0<span class="w">               </span><span class="p">|</span><span class="w">       </span>h7b6447c_5<span class="w">         </span><span class="m">392</span><span class="w"> </span>KB
+<span class="w">    </span>------------------------------------------------------------
+<span class="w">                                           </span>Total:<span class="w">        </span><span class="m">18</span>.1<span class="w"> </span>MB
+
+The<span class="w"> </span>following<span class="w"> </span>NEW<span class="w"> </span>packages<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>INSTALLED:
+
+<span class="w">    </span>ca-certificates:<span class="w"> </span><span class="m">2018</span>.03.07-0
+<span class="w">    </span>certifi:<span class="w">         </span><span class="m">2018</span>.8.24-py27_1
+<span class="w">    </span>libedit:<span class="w">         </span><span class="m">3</span>.1.20170329-h6b74fdf_2
+<span class="w">    </span>libffi:<span class="w">          </span><span class="m">3</span>.2.1-hd88cf55_4
+<span class="w">    </span>libgcc-ng:<span class="w">       </span><span class="m">8</span>.2.0-hdf63c60_1
+<span class="w">    </span>libstdcxx-ng:<span class="w">    </span><span class="m">8</span>.2.0-hdf63c60_1
+<span class="w">    </span>ncurses:<span class="w">         </span><span class="m">6</span>.1-hf484d3e_0
+<span class="w">    </span>openssl:<span class="w">         </span><span class="m">1</span>.0.2p-h14c3975_0
+<span class="w">    </span>pip:<span class="w">             </span><span class="m">10</span>.0.1-py27_0
+<span class="w">    </span>python:<span class="w">          </span><span class="m">2</span>.7.15-h1571d57_0
+<span class="w">    </span>readline:<span class="w">        </span><span class="m">7</span>.0-h7b6447c_5
+<span class="w">    </span>setuptools:<span class="w">      </span><span class="m">40</span>.2.0-py27_0
+<span class="w">    </span>sqlite:<span class="w">          </span><span class="m">3</span>.24.0-h84994c4_0
+<span class="w">    </span>tk:<span class="w">              </span><span class="m">8</span>.6.8-hbc83047_0
+<span class="w">    </span>wheel:<span class="w">           </span><span class="m">0</span>.31.1-py27_0
+<span class="w">    </span>zlib:<span class="w">            </span><span class="m">1</span>.2.11-ha838bed_2
+
+Proceed<span class="w"> </span><span class="o">([</span>y<span class="o">]</span>/n<span class="o">)</span>?
+
+
+Downloading<span class="w"> </span>and<span class="w"> </span>Extracting<span class="w"> </span>Packages
+pip-10.0.1<span class="w">           </span><span class="p">|</span><span class="w">  </span><span class="m">1</span>.7<span class="w"> </span>MB<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="c1">####################################### | 100%</span>
+certifi-2018.8.24<span class="w">    </span><span class="p">|</span><span class="w">  </span><span class="m">139</span><span class="w"> </span>KB<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="c1">####################################### | 100%</span>
+python-2.7.15<span class="w">        </span><span class="p">|</span><span class="w"> </span><span class="m">12</span>.1<span class="w"> </span>MB<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="c1">####################################### | 100%</span>
+setuptools-40.2.0<span class="w">    </span><span class="p">|</span><span class="w">  </span><span class="m">585</span><span class="w"> </span>KB<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="c1">####################################### | 100%</span>
+wheel-0.31.1<span class="w">         </span><span class="p">|</span><span class="w">   </span><span class="m">62</span><span class="w"> </span>KB<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="c1">####################################### | 100%</span>
+tk-8.6.8<span class="w">             </span><span class="p">|</span><span class="w">  </span><span class="m">3</span>.1<span class="w"> </span>MB<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="c1">####################################### | 100%</span>
+readline-7.0<span class="w">         </span><span class="p">|</span><span class="w">  </span><span class="m">392</span><span class="w"> </span>KB<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="c1">####################################### | 100%</span>
+Preparing<span class="w"> </span>transaction:<span class="w"> </span><span class="k">done</span>
+Verifying<span class="w"> </span>transaction:<span class="w"> </span><span class="k">done</span>
+Executing<span class="w"> </span>transaction:<span class="w"> </span><span class="k">done</span>
+</pre></div>
+</div>
+<p>Now our py-2.7 environment actually has something in it that we can use. There are other ways to install packages in an environment, but they all use the <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code> command. You can do what we did above and specify which environment you want to install in to, or you can activate the environment first and then install the package, as shown below:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>py-2.7
+<span class="o">(</span>py-2.7<span class="o">)</span>$<span class="w"> </span>conda<span class="w"> </span>install<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">2</span>.7
+</pre></div>
+</div>
+<p>You will notice that the name of the currently active environment now precedes your command prompt.<br />
+We can also save time by installing our packages while we create our environment by listing the packages we want installed after the name of the environment we are creating, as shown below:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>py-2.7<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">2</span>.7
+</pre></div>
+</div>
+<p>These all accomplish the same goal of populating an environment with software, but what exactly is a Conda environment and what is it doing?</p>
+</section>
+<section id="what-is-a-conda-environment">
+<h2>What is a Conda environment?<a class="headerlink" href="#what-is-a-conda-environment" title="Link to this heading"></a></h2>
+<p>What Conda does when it creates an environment is generate an isolated directory where software packages are installed, then, upon activation of that environment, it prepends our <code class="docutils literal notranslate"><span class="pre">PATH</span></code> to direct the computer to search in that environment directory first. To help visualize and understand what Conda is doing when it is creating an environment let’s run a couple of Bash commands. Run the following commands, <code class="docutils literal notranslate"><span class="pre">which</span> <span class="pre">python</span></code>, <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">--version</span></code>, and <code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">$PATH</span></code> while you have the anaconda3 module loaded, but no environment activated. You should see the following print to <code class="docutils literal notranslate"><span class="pre">stdout</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>anaconda3
+$<span class="w"> </span>which<span class="w"> </span>python
+/opt/local/anaconda3/5.2.0/bin/python
+$<span class="w"> </span>python<span class="w"> </span>--version
+Python<span class="w"> </span><span class="m">3</span>.6.5<span class="w"> </span>::<span class="w"> </span>Anaconda,<span class="w"> </span>Inc.
+$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$PATH</span>
+/opt/local/anaconda3/5.2.0/bin:/users/yourusername/bin
+</pre></div>
+</div>
+<p>You can see that we are using Python version 3.6.5 distributed by Anaconda which is located in the Anaconda <code class="docutils literal notranslate"><span class="pre">root</span></code> directory. You can also see that at the beginning of our <code class="docutils literal notranslate"><span class="pre">PATH</span></code> is that <code class="docutils literal notranslate"><span class="pre">root</span></code> directory. Now let’s activate our py-2.7 environment and see how things change.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">source</span><span class="w"> </span>activate<span class="w"> </span>py-2.7
+<span class="o">(</span>py-2.7<span class="o">)</span>$<span class="w"> </span>which<span class="w"> </span>python
+~/.conda/envs/py-2.7/bin/python
+<span class="o">(</span>py-2.7<span class="o">)</span>$<span class="w"> </span>python<span class="w"> </span>--version
+Python<span class="w"> </span><span class="m">2</span>.7.15<span class="w"> </span>::<span class="w"> </span>Anaconda,<span class="w"> </span>Inc.
+<span class="o">(</span>py-2.7<span class="o">)</span>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$PATH</span>
+/users/yourusername/.conda/envs/py-2.7/bin:/opt/local/anaconda3/5.2.0/bin:/users/yourusername/bin
+</pre></div>
+</div>
+<p>As you can see we are now accessing Python version 2.7.15 distributed by Anaconda which is installed in the py-2.7 environment directory located in our home directory. By comparing the <code class="docutils literal notranslate"><span class="pre">PATH</span></code> before and after activating our environment you can see that Conda prepends our <code class="docutils literal notranslate"><span class="pre">PATH</span></code> to direct to your environment. This is fundamentally how Conda controls and manages environments. Once you deactivate an environment your <code class="docutils literal notranslate"><span class="pre">PATH</span></code> variable returns to its previous state.</p>
+<p>For more information on managing Conda environments please visit the Conda help documentation at this <a class="reference external" href="https://conda.io/docs/user-guide/tasks/manage-environments.html">link</a>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

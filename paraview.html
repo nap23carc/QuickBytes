@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to: Remote Visualization using ParaView in parallel. &mdash; CARC QuickBytes 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=2709fde1"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Remote Visualization using ParaView in parallel." href="Paraview_Hopper.html" />
+    <link rel="prev" title="Using CASA on CARC" href="mpiCASA.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CARC QuickBytes
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="linux_intro.html">Linux Tutorial</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="logging_in.html">Logging in</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ssh_keygen_config.html">SSH keys and config file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transfer_data.html">Transferring data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pbs-torque.html">PBS/TORQUE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pbs_scripts2.html">Example PBS Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="submitting_jobs.html">Submitting jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="checking_on_running_jobs.html">Checking on running jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="module_management.html">Managing software models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Intro_to_slurm.html">Slurm Workload Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pbs2slurm.html">Conversion of PBS script to Slurm script</a></li>
+<li class="toctree-l1"><a class="reference internal" href="slurm_accounting.html">Introduction to Slurm Accounting at CARC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="running_matlab_jobs.html">Running MATLAB Jobs at CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html">Parallel MATLAB Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html#how-matlab-parallel-works-behind-the-scenes">How MATLAB Parallel Works Behind the Scenes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html#setting-your-ip-address">Setting your IP Address</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html#monitoring-matlab-jobs">Monitoring MATLAB Jobs</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Conda_JupyterHub.html">Using Custom Conda Python Environments in JupyterHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="julia_with_jupyterhub.html">Julia with Jupyter Hub</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="anaconda_general_intro.html">Anaconda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="anaconda_intro.html">Anaconda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="anaconda_pip_channels.html">Installing with pip and adding channels</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="R_usage.html">R Programming in HPC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Tensorflow_documentation.html">Introduction to Tensorflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html">Setting Up PyTorch using Xena</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html#navigate-to-the-pytorch1-9-k40-compatible-directory">Navigate to the PyTorch1.9-K40-Compatible directory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html#activate-the-conda-environment">Activate the Conda Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html#pip-installation">Pip installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="GATK_QuickByte.html">Parallel genomic variant calling with Genome Analysis Toolkit (GATK)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genome_evaluation.html">Reference genome evaluation with QUAST and BUSCO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="psmc_quickbyte.html">Pairwise Sequentially Markovian Coalescent (PSMC)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Stacks_quickbyte.html">Running Stacks on CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Metabarcoding.html">Metabarcoding Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Beast_at_CARC.html">BEAST at CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="msprime_quickbyte.html">Running Population Genetic Simulations with MSPrime</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="orca_wheeler_taos.html">Using Orca on Wheeler and Taos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alphafold.html">Alphafold</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alphafold.html#alphafold-w-localcolabfold">Alphafold w/ LocalColabFold:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alphafold.html#alphafold-w-singularity-image">Alphafold w/ Singularity Image:</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html">Download the SimCov Source Code from GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html#build-simcov-from-source">Build SimCov from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html#configure-simcov">Configure SimCov</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html#submit-a-simcov-job">Submit a SimCov Job</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mpiCASA.html">Using CASA on CARC</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">How to: Remote Visualization using ParaView in parallel.</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview-paraview-connection-and-documentation">Overview: Paraview Connection and Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#method-1-client-server-mode-gibbs-direct-connection">Method 1: Client - Server Mode (Gibbs Direct Connection)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#terminal-1-ssh-to-gibbs">Terminal 1: SSH to Gibbs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#loading-paraview-module-5-9-1-in-gibbs">Loading ParaView Module 5.9.1 in Gibbs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#run-paraview-pvserver-on-compute-nodes">Run ParaView PVServer on Compute Nodes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#terminal-2-ssh-tunnel-to-a-gibbs-compute-node">Terminal 2: SSH Tunnel to a Gibbs Compute node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opening-paraview-5-9-1-and-setup-server-configuration">Opening ParaView 5.9.1 and Setup Server Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#method-2-client-server-mode-wheeler-reverse-connection">Method 2: Client - Server Mode (Wheeler: Reverse Connection)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#terminal-1-ssh-to-wheeler">Terminal 1: SSH to Wheeler</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#load-paraview-module">Load ParaView Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#run-paraview-pvserver-on-the-compute-nodes">Run ParaView PVServer on the Compute Nodes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#opening-paraview-5-4-1-and-setup-server-configuration">Opening ParaView 5.4.1 and Setup Server Configuration</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Paraview_Hopper.html">Remote Visualization using ParaView in parallel.</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="singularity-markdown-version.html">Docker and Singularity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singularity-markdown-version.html#singularity">Singularity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singularity-markdown-version.html#version-issues">Version Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="haskell.html">Haskell at CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X11_forwarding.html">X11 Forwarding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spark.html">Spark</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CARC QuickBytes</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">How to: Remote Visualization using ParaView in parallel.</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/paraview.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="how-to-remote-visualization-using-paraview-in-parallel">
+<h1>How to: Remote Visualization using ParaView in parallel.<a class="headerlink" href="#how-to-remote-visualization-using-paraview-in-parallel" title="Link to this heading"></a></h1>
+<p>ParaView is an open-source, multi-platform data analysis and visualization application. ParaView users can quickly build visualizations to analyze their data using qualitative and quantitative techniques. The data exploration can be done interactively in 3D or programmatically using ParaView’s batch processing capabilities.</p>
+<p>ParaView was developed to analyze extremely large datasets using distributed memory computing resources. It can be run on supercomputers to analyze datasets of petascale size.</p>
+<section id="overview-paraview-connection-and-documentation">
+<h2>Overview: Paraview Connection and Documentation<a class="headerlink" href="#overview-paraview-connection-and-documentation" title="Link to this heading"></a></h2>
+<p>The process to connecto to ParaView is, in one terminal you will ask Wheeler or Gibbs to give you compute nodes, where you will run the ParaView server. Once the ParaView server is listening for connections, you will open an ssh tunnel in another terminal window (This process is from your local computer to one of the compute nodes you were assigned). Then, you will tell the ParaView client on your computer to connect to the tunnel and so to the compute nodes at CARC, where it will perform the rendering.</p>
+<p>**<em>NOTE: Be sure that the ParaView version installed on your local computer matches the same one that is installed on ether Wheeler or Gibbs cluster. Gibbs’s ParaView version is 5.9.1, Wheeler’s version is 5.11.0-RC1 and for Hopper Cluster Information, <a class="reference external" href="https://github.com/UNM-CARC/QuickBytes/blob/master/Paraview_Hopper.md">click here.</a></em></p>
+<ul class="simple">
+<li><p>Downloads: https://www.paraview.org/download/</p></li>
+<li><p>ParaView 5.9.1 Guide: https://docs.paraview.org/en/v5.9.1/</p></li>
+<li><p>Paraview 5.11.0-RC1 Guide: https://docs.paraview.org/en/v5.11.0/UsersGuide/index.html</p></li>
+<li><p>Wiki Page: https://www.paraview.org/Wiki/ParaView</p></li>
+</ul>
+</section>
+<section id="method-1-client-server-mode-gibbs-direct-connection">
+<h2>Method 1: Client - Server Mode (Gibbs Direct Connection)<a class="headerlink" href="#method-1-client-server-mode-gibbs-direct-connection" title="Link to this heading"></a></h2>
+<p>The most common approach to use ParaView on Gibbs is through the Client-Server mode support by ParaView, which requires an installation of ParaView on your local computer. This is a two-step process, requesting a compute node via SSH and opening an SSH tunnel to Gibbs’s service node.</p>
+<p>The following examples assume you are using the Gibbs cluster.</p>
+<section id="terminal-1-ssh-to-gibbs">
+<h3>Terminal 1: SSH to Gibbs<a class="headerlink" href="#terminal-1-ssh-to-gibbs" title="Link to this heading"></a></h3>
+<p>Accessing Gibbs and requesting one nodes with four cores. <em>NOTE: Wait until Gibbs assigns you a compute node.</em></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh<span class="w"> </span>username@gibbs.alliance.unm.edu
+
+qsub<span class="w"> </span>-I<span class="w"> </span>-l<span class="w"> </span><span class="nv">nodes</span><span class="o">=</span><span class="m">1</span>:ppn<span class="o">=</span><span class="m">4</span>
+</pre></div>
+</div>
+<section id="loading-paraview-module-5-9-1-in-gibbs">
+<h4>Loading ParaView Module 5.9.1 in Gibbs<a class="headerlink" href="#loading-paraview-module-5-9-1-in-gibbs" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>module<span class="w"> </span>load<span class="w"> </span>paraview-5.9.1-gcc-10.2.0-enwua53
+</pre></div>
+</div>
+</section>
+<section id="run-paraview-pvserver-on-compute-nodes">
+<h4>Run ParaView PVServer on Compute Nodes<a class="headerlink" href="#run-paraview-pvserver-on-compute-nodes" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mpiexec<span class="w"> </span>-np<span class="w"> </span><span class="m">4</span><span class="w"> </span>pvserver<span class="w"> </span>--mpi<span class="w"> </span>--use-offscreen-rendering<span class="w"> </span>--server-port<span class="o">=</span><span class="m">11111</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="terminal-2-ssh-tunnel-to-a-gibbs-compute-node">
+<h3>Terminal 2: SSH Tunnel to a Gibbs Compute node<a class="headerlink" href="#terminal-2-ssh-tunnel-to-a-gibbs-compute-node" title="Link to this heading"></a></h3>
+<p><em>Note: this step is from your local computer to Gibbs’s compute node.</em></p>
+<p>Make sure to replace the “compute_node_name” from the bash command below to one of the compute nodes you were assigned by qsub. Example “gibbs18” or “gibbs20”.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh<span class="w"> </span>-L<span class="w"> </span><span class="m">11111</span>:compute_node_name:11111<span class="w"> </span>username@gibbs.alliance.unm.edu
+</pre></div>
+</div>
+</section>
+<section id="opening-paraview-5-9-1-and-setup-server-configuration">
+<h3>Opening ParaView 5.9.1 and Setup Server Configuration<a class="headerlink" href="#opening-paraview-5-9-1-and-setup-server-configuration" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>File –&gt; Connect</p></li>
+<li><p>On the “Choose Server Configuration” window:</p></li>
+</ol>
+<ul class="simple">
+<li><p>Click on “Add Server”</p></li>
+<li><p>Name: Gibbs</p></li>
+<li><p>Server Type: “Client / Server”</p></li>
+<li><p>Port: 11111</p></li>
+</ul>
+<ol class="arabic simple" start="3">
+<li><p>Click on “Configure”</p></li>
+<li><p>Startup Type: Manual</p></li>
+<li><p>Click on “Save”</p></li>
+</ol>
+<p><em>Note: To Verify, Client - Server setup, go to “View” and select “Memory Inspector”</em></p>
+<p>NOTE: When you are finished make sure to end the interactive job on the compute nodes. You can do this by exiting “Exit” the compute node or the qdel command on the cluster head node.</p>
+</section>
+</section>
+<section id="method-2-client-server-mode-wheeler-reverse-connection">
+<h2>Method 2: Client - Server Mode (Wheeler: Reverse Connection)<a class="headerlink" href="#method-2-client-server-mode-wheeler-reverse-connection" title="Link to this heading"></a></h2>
+<p>This process allows you to connect to wheeler service node. This process requires to know your localhost IP address “local_host_IP”. Check your firewall setting if you are having firewall connectivity issues.</p>
+<section id="terminal-1-ssh-to-wheeler">
+<h3>Terminal 1: SSH to Wheeler<a class="headerlink" href="#terminal-1-ssh-to-wheeler" title="Link to this heading"></a></h3>
+<p>Accessing Wheeler and requesting 2 nodes with 8 cores each.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh<span class="w"> </span>username@wheeler.alliance.unm.edu
+qsub<span class="w"> </span>-I<span class="w"> </span>-l<span class="w"> </span><span class="nv">nodes</span><span class="o">=</span><span class="m">2</span>:ppn<span class="o">=</span><span class="m">8</span>
+</pre></div>
+</div>
+<p>NOTE: Wait until wheeler assigns you two compute nodes.</p>
+<section id="load-paraview-module">
+<h4>Load ParaView Module<a class="headerlink" href="#load-paraview-module" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>module<span class="w"> </span>load<span class="w"> </span>paraview/5.11.0-RC1
+</pre></div>
+</div>
+</section>
+<section id="run-paraview-pvserver-on-the-compute-nodes">
+<h4>Run ParaView PVServer on the Compute Nodes<a class="headerlink" href="#run-paraview-pvserver-on-the-compute-nodes" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mpiexec<span class="w"> </span>-np<span class="w"> </span><span class="m">16</span><span class="w"> </span>pvserver<span class="w"> </span>--mpi<span class="w"> </span>--force-offscreen-rendering<span class="w"> </span>--rc<span class="w"> </span>--client-host<span class="o">=</span>local_host_IP
+</pre></div>
+</div>
+</section>
+</section>
+<section id="opening-paraview-5-4-1-and-setup-server-configuration">
+<h3>Opening ParaView 5.4.1 and Setup Server Configuration<a class="headerlink" href="#opening-paraview-5-4-1-and-setup-server-configuration" title="Link to this heading"></a></h3>
+<p><em>Note: To Verify, Client - Server setup, go to “View” and select “Memory Inspector”</em></p>
+<ol class="arabic simple">
+<li><p>File –&gt; Connect</p></li>
+<li><p>On the “Choose Server Configuration” window:</p></li>
+</ol>
+<ul class="simple">
+<li><p>Click on “Add Server”</p></li>
+<li><p>Name: Wheeler RC</p></li>
+<li><p>Server Type: “Client / Server (Reverse Connection)”</p></li>
+<li><p>Port: 11111</p></li>
+</ul>
+<ol class="arabic simple" start="3">
+<li><p>Click on “Configure”</p></li>
+<li><p>Startup Type: Manual</p></li>
+<li><p>Click on “Save”</p></li>
+</ol>
+<p>NOTE: When you are finished make sure to end the interactive job on the compute nodes. You can do this by exiting “Exit” the compute node or the qdel command on the cluster head node.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="mpiCASA.html" class="btn btn-neutral float-left" title="Using CASA on CARC" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Paraview_Hopper.html" class="btn btn-neutral float-right" title="Remote Visualization using ParaView in parallel." accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

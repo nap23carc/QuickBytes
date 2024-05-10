@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Docker and Singularity &mdash; CARC QuickBytes 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=2709fde1"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Haskell at CARC" href="haskell.html" />
+    <link rel="prev" title="Remote Visualization using ParaView in parallel." href="Paraview_Hopper.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CARC QuickBytes
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="linux_intro.html">Linux Tutorial</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="logging_in.html">Logging in</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ssh_keygen_config.html">SSH keys and config file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transfer_data.html">Transferring data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pbs-torque.html">PBS/TORQUE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pbs_scripts2.html">Example PBS Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="submitting_jobs.html">Submitting jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="checking_on_running_jobs.html">Checking on running jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="module_management.html">Managing software models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Intro_to_slurm.html">Slurm Workload Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pbs2slurm.html">Conversion of PBS script to Slurm script</a></li>
+<li class="toctree-l1"><a class="reference internal" href="slurm_accounting.html">Introduction to Slurm Accounting at CARC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="running_matlab_jobs.html">Running MATLAB Jobs at CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html">Parallel MATLAB Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html#how-matlab-parallel-works-behind-the-scenes">How MATLAB Parallel Works Behind the Scenes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html#setting-your-ip-address">Setting your IP Address</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html#monitoring-matlab-jobs">Monitoring MATLAB Jobs</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Conda_JupyterHub.html">Using Custom Conda Python Environments in JupyterHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="julia_with_jupyterhub.html">Julia with Jupyter Hub</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="anaconda_general_intro.html">Anaconda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="anaconda_intro.html">Anaconda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="anaconda_pip_channels.html">Installing with pip and adding channels</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="R_usage.html">R Programming in HPC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Tensorflow_documentation.html">Introduction to Tensorflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html">Setting Up PyTorch using Xena</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html#navigate-to-the-pytorch1-9-k40-compatible-directory">Navigate to the PyTorch1.9-K40-Compatible directory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html#activate-the-conda-environment">Activate the Conda Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html#pip-installation">Pip installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="GATK_QuickByte.html">Parallel genomic variant calling with Genome Analysis Toolkit (GATK)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genome_evaluation.html">Reference genome evaluation with QUAST and BUSCO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="psmc_quickbyte.html">Pairwise Sequentially Markovian Coalescent (PSMC)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Stacks_quickbyte.html">Running Stacks on CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Metabarcoding.html">Metabarcoding Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Beast_at_CARC.html">BEAST at CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="msprime_quickbyte.html">Running Population Genetic Simulations with MSPrime</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="orca_wheeler_taos.html">Using Orca on Wheeler and Taos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alphafold.html">Alphafold</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alphafold.html#alphafold-w-localcolabfold">Alphafold w/ LocalColabFold:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alphafold.html#alphafold-w-singularity-image">Alphafold w/ Singularity Image:</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html">Download the SimCov Source Code from GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html#build-simcov-from-source">Build SimCov from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html#configure-simcov">Configure SimCov</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html#submit-a-simcov-job">Submit a SimCov Job</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mpiCASA.html">Using CASA on CARC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="paraview.html">How to: Remote Visualization using ParaView in parallel.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Paraview_Hopper.html">Remote Visualization using ParaView in parallel.</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Docker and Singularity</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-docker">What is Docker?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-singularity">What is Singularity?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installing-docker">Installing Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#running-docker">Running Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-a-docker-image">Creating a Docker Image</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pulling-an-existing-base-docker-image">Pulling an existing base docker image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#customizing-the-docker-image">Customizing the docker image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-installing-the-party-r-package">Example: Installing the “party” R package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#commit-customised-container-to-image-file">Commit customised container to image file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#running-commands-using-the-docker-image">Running Commands using the Docker Image</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#singularity">Singularity</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#converting-docker-images-to-singularty-images">Converting Docker Images to Singularty Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#running-a-singularity-image-at-carc">Running a Singularity Image at CARC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mapping-directories">Mapping Directories</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#version-issues">Version Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="haskell.html">Haskell at CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X11_forwarding.html">X11 Forwarding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spark.html">Spark</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CARC QuickBytes</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Docker and Singularity</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/singularity-markdown-version.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="docker-and-singularity">
+<h1>Docker and Singularity<a class="headerlink" href="#docker-and-singularity" title="Link to this heading"></a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
+<p>Have you ever installed software on your own system to process data, but then find it is not so easy to setup the same environment on a CARC cluster when you want to process larger data sets? CARC staff will work with you to get your software running, but occasionally we run across fundamental incompatibilities. Docker allows us to circumvent those incompatibilities.</p>
+<p>Docker and Singularity are free tools that allow you to run software with dependencies on its environment that are difficult to satisfy natively on the CARC clusters. For example, your software might depend on a particular flavor of linux that differs from the one installed on the cluster you want to use. Perhaps your software needs to make global changes to the operating system that are incompatible with the needs of the center or other users. Docker allows us to deploy software with these requirements.</p>
+<p>In this guide you will learn how to setup your software to run in a docker container, and how to convert the container to singularity and run it at CARC. The R software package party.</p>
+</section>
+<section id="what-is-docker">
+<h2>What is Docker?<a class="headerlink" href="#what-is-docker" title="Link to this heading"></a></h2>
+<p>Docker allows you to setup a virtual environment for your program that you can configure however you like. You can choose the underlying operating system (so long as it is linux based), install any packages you need, and make any other changes the root user could make. The custom OS environment is stored in a docker image file that can be loaded by any docker installation. Docker has online repositories with many pre-built images available to download.</p>
+<p>When loaded, a docker image provides a container that allows the software to have complete control of its environment without effecting the host operating system.</p>
+<p>If you have used a virtual machine (such as virtualbox, or vmware) the description of docker images will sound familiar. The main difference is that docker just containerizes the environment but still uses the host operating system’s kernel. This means there is very little performance impact.</p>
+</section>
+<section id="what-is-singularity">
+<h2>What is Singularity?<a class="headerlink" href="#what-is-singularity" title="Link to this heading"></a></h2>
+<p>Singularity is able to convert and run docker images into a secure form suitable for multiuser machines such as the CARC clusters.</p>
+</section>
+<section id="installing-docker">
+<h2>Installing Docker<a class="headerlink" href="#installing-docker" title="Link to this heading"></a></h2>
+<p>Docker runs on Microsoft Windows, Apple OS X, and Linux. All the systems at CARC are linux based so you will need to create and configure a linux based docker container. OS X and Linux will allow you to do this. Windows 10 can as well but you need to install the Windows Subsystem for Linux and a linux distribution.</p>
+<p>Docker can be downloaded from www.docker.com.</p>
+</section>
+<section id="running-docker">
+<h2>Running Docker<a class="headerlink" href="#running-docker" title="Link to this heading"></a></h2>
+<p>To start docker under Windows or OS X just launch the program like you would any other. To start the docker daemon under linux enter:</p>
+<p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">start</span> <span class="pre">docker</span></code></p>
+</section>
+<section id="creating-a-docker-image">
+<h2>Creating a Docker Image<a class="headerlink" href="#creating-a-docker-image" title="Link to this heading"></a></h2>
+<section id="pulling-an-existing-base-docker-image">
+<h3>Pulling an existing base docker image<a class="headerlink" href="#pulling-an-existing-base-docker-image" title="Link to this heading"></a></h3>
+<p>For this example we are going to use an existing docker image that has the CentOS linux distribution preconfigured. We could just as easily use Ubuntu by replacing “centos” with “ubuntu” below.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>pull<span class="w"> </span>centos
+Using<span class="w"> </span>default<span class="w"> </span>tag:<span class="w"> </span>latest<span class="w"> </span>Trying<span class="w"> </span>to<span class="w"> </span>pull
+repository<span class="w"> </span>docker.io/library/centos<span class="w"> </span>...
+latest:<span class="w"> </span>Pulling<span class="w"> </span>from<span class="w"> </span>docker.io/library/centos
+a02a4930cb5d:<span class="w"> </span>Pull<span class="w"> </span><span class="nb">complete</span>
+Digest:sha256:184e5f35598e333bfa7de10d8fb1cebb5ee4df5bc0f970bf2b1e7c7345136426
+Status:<span class="w"> </span>Downloaded<span class="w"> </span>newer<span class="w"> </span>image<span class="w"> </span><span class="k">for</span><span class="w"> </span>docker.io/centos:latest
+</pre></div>
+</div>
+<p>We can now issue a command that runs inside the docker container and returns output. Below we run the <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-la</span></code> command to get a file listing inside the container.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="n">centos</span> <span class="n">ls</span>
+<span class="n">anaconda</span><span class="o">-</span><span class="n">post</span><span class="o">.</span><span class="n">log</span>
+<span class="nb">bin</span>
+<span class="n">dev</span>
+<span class="n">etc</span>
+<span class="n">home</span>
+<span class="n">lib</span>
+<span class="n">lib64</span>
+<span class="n">media</span>
+<span class="n">mnt</span>
+<span class="n">opt</span>
+<span class="n">proc</span>
+<span class="n">root</span>
+<span class="n">run</span>
+<span class="n">sbin</span>
+<span class="n">srv</span>
+<span class="n">sys</span>
+<span class="n">tmp</span>
+<span class="n">usr</span>
+<span class="n">var</span>
+</pre></div>
+</div>
+</section>
+<section id="customizing-the-docker-image">
+<h3>Customizing the docker image<a class="headerlink" href="#customizing-the-docker-image" title="Link to this heading"></a></h3>
+<p>Now we can install the program we need inside the docker container and any dependencies it needs. It is convenient to do this interactively inside the container. Configuring the container in interactive mode allows us to do everything we need to do before saving the changes to a docker image. If we issued commands one-by-one with run we would lose the state of the container after each command.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">it</span> <span class="n">centos</span>
+
+<span class="p">[</span><span class="n">root</span><span class="nd">@a264d0f7b8c9</span> <span class="o">/</span><span class="p">]</span><span class="c1">#</span>
+</pre></div>
+</div>
+<p>The long string after <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> is the name of the container we are running in. Notice it is not the same name as the docker image.</p>
+<p>In a new terminal we can list the running docker containers and see that our container is running.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">container</span> <span class="nb">list</span>
+<span class="n">CONTAINER</span> <span class="n">ID</span>  <span class="n">IMAGE</span>   <span class="n">COMMAND</span>      <span class="n">CREATED</span>             <span class="n">STATUS</span>  		<span class="n">PORTS</span>  <span class="n">NAMES</span>
+<span class="n">a264d0f7b8c9</span>  <span class="n">centos</span>  <span class="s2">&quot;/bin/bash&quot;</span>  <span class="n">About</span> <span class="n">a</span> <span class="n">minute</span> <span class="n">ago</span>  <span class="n">Up</span> <span class="n">About</span> <span class="n">a</span> <span class="n">minute</span>  <span class="n">striking_mahavira</span>
+</pre></div>
+</div>
+</section>
+<section id="example-installing-the-party-r-package">
+<h3>Example: Installing the “party” R package<a class="headerlink" href="#example-installing-the-party-r-package" title="Link to this heading"></a></h3>
+<p>As an example, we will install party. Party is an R package for recursive partitioning. It produces regression trees for machine learning. But you can install whatever tools you wish. This is the beauty of docker, it gives you control over your environment.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">root</span><span class="nd">@a264d0f7b8c9</span> <span class="o">/</span><span class="p">]</span><span class="c1"># yum update </span>
+<span class="p">[</span><span class="n">root</span><span class="nd">@a264d0f7b8c9</span> <span class="o">/</span><span class="p">]</span><span class="c1"># yum -y install epel-release </span>
+<span class="p">[</span><span class="n">root</span><span class="nd">@a264d0f7b8c9</span> <span class="o">/</span><span class="p">]</span><span class="c1"># yum install R</span>
+</pre></div>
+</div>
+<p>Once R has finished installing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">root</span><span class="nd">@a264d0f7b8c9</span> <span class="o">/</span><span class="p">]</span><span class="c1"># R</span>
+
+<span class="n">R</span> <span class="n">version</span> <span class="mf">3.5.0</span> <span class="p">(</span><span class="mi">2018</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">23</span><span class="p">)</span> <span class="o">--</span> <span class="s2">&quot;Joy in Playing&quot;</span>
+<span class="n">Copyright</span> <span class="p">(</span><span class="n">C</span><span class="p">)</span> <span class="mi">2018</span> <span class="n">The</span> <span class="n">R</span> <span class="n">Foundation</span> <span class="k">for</span> <span class="n">Statistical</span> <span class="n">Computing</span>
+<span class="n">Platform</span><span class="p">:</span> <span class="n">x86_64</span><span class="o">-</span><span class="n">pc</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">gnu</span> <span class="p">(</span><span class="mi">64</span><span class="o">-</span><span class="n">bit</span><span class="p">)</span>
+
+<span class="n">R</span> <span class="ow">is</span> <span class="n">free</span> <span class="n">software</span> <span class="ow">and</span> <span class="n">comes</span> <span class="k">with</span> <span class="n">ABSOLUTELY</span> <span class="n">NO</span> <span class="n">WARRANTY</span><span class="o">.</span>
+<span class="n">You</span> <span class="n">are</span> <span class="n">welcome</span> <span class="n">to</span> <span class="n">redistribute</span> <span class="n">it</span> <span class="n">under</span> <span class="n">certain</span> <span class="n">conditions</span><span class="o">.</span>
+<span class="n">Type</span> <span class="s1">&#39;license()&#39;</span> <span class="ow">or</span> <span class="s1">&#39;licence()&#39;</span> <span class="k">for</span> <span class="n">distribution</span> <span class="n">details</span><span class="o">.</span>
+
+<span class="n">Natural</span> <span class="n">language</span> <span class="n">support</span> <span class="n">but</span> <span class="n">running</span> <span class="ow">in</span> <span class="n">an</span> <span class="n">English</span> <span class="n">locale</span>
+
+<span class="n">R</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">collaborative</span> <span class="n">project</span> <span class="k">with</span> <span class="n">many</span> <span class="n">contributors</span><span class="o">.</span>
+<span class="n">Type</span> <span class="s1">&#39;contributors()&#39;</span> <span class="k">for</span> <span class="n">more</span> <span class="n">information</span> <span class="ow">and</span>
+<span class="s1">&#39;citation()&#39;</span> <span class="n">on</span> <span class="n">how</span> <span class="n">to</span> <span class="n">cite</span> <span class="n">R</span> <span class="ow">or</span> <span class="n">R</span> <span class="n">packages</span> <span class="ow">in</span> <span class="n">publications</span><span class="o">.</span>
+
+<span class="n">Type</span> <span class="s1">&#39;demo()&#39;</span> <span class="k">for</span> <span class="n">some</span> <span class="n">demos</span><span class="p">,</span> <span class="s1">&#39;help()&#39;</span> <span class="k">for</span> <span class="n">on</span><span class="o">-</span><span class="n">line</span> <span class="n">help</span><span class="p">,</span> <span class="ow">or</span>
+<span class="s1">&#39;help.start()&#39;</span> <span class="k">for</span> <span class="n">an</span> <span class="n">HTML</span> <span class="n">browser</span> <span class="n">interface</span> <span class="n">to</span> <span class="n">help</span><span class="o">.</span>
+<span class="n">Type</span> <span class="s1">&#39;q()&#39;</span> <span class="n">to</span> <span class="n">quit</span> <span class="n">R</span><span class="o">.</span>
+
+<span class="o">&gt;</span><span class="n">install</span><span class="o">.</span><span class="n">packages</span><span class="p">(</span><span class="s2">&quot;party&quot;</span><span class="p">,</span><span class="n">deps</span><span class="o">=</span><span class="n">YES</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="commit-customised-container-to-image-file">
+<h2>Commit customised container to image file<a class="headerlink" href="#commit-customised-container-to-image-file" title="Link to this heading"></a></h2>
+<p>Once party has finished installing, our Docker container is ready. Now we need to commit those changes to a docker image file so we can load the image that has R and party installed for future use.</p>
+<p>Exit R:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">root</span><span class="nd">@a264d0f7b8c9</span> <span class="o">/</span><span class="p">]</span><span class="c1"># &gt; quit()</span>
+</pre></div>
+</div>
+<p>Exit the docker container:</p>
+<p>In general:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[root@a264d0f7b8c9 /]# exit
+$ sudo docker commit
+</pre></div>
+</div>
+<p>For our example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[root@a264d0f7b8c9 /]# exit
+$ sudo docker commit a264d0f7b8c9 r_party
+</pre></div>
+</div>
+<p>Now we have a docker image saved.</p>
+</section>
+<section id="running-commands-using-the-docker-image">
+<h2>Running Commands using the Docker Image<a class="headerlink" href="#running-commands-using-the-docker-image" title="Link to this heading"></a></h2>
+<p>Now that we have a docker image we can run it on our own machines as before with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="n">r_party</span> <span class="n">ls</span>
+</pre></div>
+</div>
+<p>But now we can also execute R commands such as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="n">r_party</span> <span class="n">Rscript</span>
+</pre></div>
+</div>
+<p>For our party example we can write the following R script and save it to a file called test_party.R:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>library(&quot;party&quot;)
+set.seed(290875)
+### honest (i.e., out-of-bag) cross-classification of
+### true vs. predicted classes
+data(&quot;mammoexp&quot;, package = &quot;TH.data&quot;)
+table(mammoexp$ME, predict(cforest(ME ~ ., data = mammoexp,
+control = cforest_unbiased(ntree = 50)),
+OOB = TRUE))
+### fit forest to censored response
+if (require(&quot;TH.data&quot;) &amp;&amp; require(&quot;survival&quot;)) {
+data(&quot;GBSG2&quot;, package = &quot;TH.data&quot;)
+bst &lt;- cforest(Surv(time, cens) ~ ., data = GBSG2,
+control = cforest_unbiased(ntree = 50))
+### estimate conditional Kaplan-Meier curves
+treeresponse(bst, newdata = GBSG2[1:2,], OOB = TRUE)
+party:::prettytree(bst@ensemble[[1]], names(bst@data@get(&quot;input&quot;)))
+</pre></div>
+</div>
+<p>And run it using the docker image with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ docker run -v &lt; path to test_party.R folder &gt; :/mnt r_party Rscript /mnt/test_party.R
+</pre></div>
+</div>
+</section>
+</section>
+<section id="singularity">
+<h1>Singularity<a class="headerlink" href="#singularity" title="Link to this heading"></a></h1>
+<section id="converting-docker-images-to-singularty-images">
+<h2>Converting Docker Images to Singularty Images<a class="headerlink" href="#converting-docker-images-to-singularty-images" title="Link to this heading"></a></h2>
+<p>Once we are happy with the docker image we created we will convert it to a singularity image so we can use it on the CARC clusters.</p>
+<p>We do the conversion by using a docker image provided to us that contains the necessary tools:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ docker pull singularityware/docker2singularity
+$ docker run -v /var/run/docker.sock:/var/run/docker.sock -v /tmp:/output --privileged -t --rm singularityware/docker2singularity r_party
+</pre></div>
+</div>
+<p>This will produce a singularity image in the /tmp directory that we can upload to a CARC cluster using our favorite file transfer program.</p>
+</section>
+<section id="running-a-singularity-image-at-carc">
+<h2>Running a Singularity Image at CARC<a class="headerlink" href="#running-a-singularity-image-at-carc" title="Link to this heading"></a></h2>
+<p>First login to a CARC cluster head node.</p>
+<p>Next we will load the singularity module:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ module load singularity-2.4.1-intel-17.0.4-sjwoqj4 $
+</pre></div>
+</div>
+<p>The syntax for executing Singularity images are similar to those we used for docker:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ singularity exec r_party.simg Rscript test_party.R
+</pre></div>
+</div>
+</section>
+<section id="mapping-directories">
+<h2>Mapping Directories<a class="headerlink" href="#mapping-directories" title="Link to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ singularity -B $PBS_O_WORKDIR:/mnt exec r_party.simg Rscript test_party.R
+</pre></div>
+</div>
+<p>The Above command maps the directory that that PBS script was submitted from, <code class="docutils literal notranslate"><span class="pre">$PBS_O_WORKDIR</span></code>, to the <code class="docutils literal notranslate"><span class="pre">/mnt</span></code> location within the <code class="docutils literal notranslate"><span class="pre">r_party.simg</span></code> singularity image and then executes the <code class="docutils literal notranslate"><span class="pre">test_party.R</span></code> script.</p>
+</section>
+</section>
+<section id="version-issues">
+<h1>Version Issues<a class="headerlink" href="#version-issues" title="Link to this heading"></a></h1>
+<p>If you recieve the following when you try to execute your singularity image there may be a mismatch between the version you used to create the image and the singularity version you loaded at CARC.</p>
+<p>ERROR  : Failed to mount image in (read only): Invalid argument</p>
+<p>ABORT  : Retval = 255</p>
+<p>We have several modules with different singularity versions. Enter the following command to see them all:
+<code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">avail</span> <span class="pre">singularity</span></code></p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Paraview_Hopper.html" class="btn btn-neutral float-left" title="Remote Visualization using ParaView in parallel." accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="haskell.html" class="btn btn-neutral float-right" title="Haskell at CARC" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checking on running jobs &mdash; CARC QuickBytes 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=2709fde1"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CARC QuickBytes
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="linux_intro.html">Linux Tutorial</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="logging_in.html">Logging in</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ssh_keygen_config.html">SSH keys and config file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transfer_data.html">Transferring data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pbs-torque.html">PBS/TORQUE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pbs_scripts2.html">Example PBS Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="submitting_jobs.html">Submitting jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="checking_on_running_jobs.html">Checking on running jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="module_management.html">Managing software models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Intro_to_slurm.html">Slurm Workload Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pbs2slurm.html">Conversion of PBS script to Slurm script</a></li>
+<li class="toctree-l1"><a class="reference internal" href="slurm_accounting.html">Introduction to Slurm Accounting at CARC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="running_matlab_jobs.html">Running MATLAB Jobs at CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html">Parallel MATLAB Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html#how-matlab-parallel-works-behind-the-scenes">How MATLAB Parallel Works Behind the Scenes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html#setting-your-ip-address">Setting your IP Address</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html#monitoring-matlab-jobs">Monitoring MATLAB Jobs</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Conda_JupyterHub.html">Using Custom Conda Python Environments in JupyterHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="julia_with_jupyterhub.html">Julia with Jupyter Hub</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="anaconda_general_intro.html">Anaconda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="anaconda_intro.html">Anaconda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="anaconda_pip_channels.html">Installing with pip and adding channels</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="R_usage.html">R Programming in HPC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Tensorflow_documentation.html">Introduction to Tensorflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html">Setting Up PyTorch using Xena</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html#navigate-to-the-pytorch1-9-k40-compatible-directory">Navigate to the PyTorch1.9-K40-Compatible directory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html#activate-the-conda-environment">Activate the Conda Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html#pip-installation">Pip installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="GATK_QuickByte.html">Parallel genomic variant calling with Genome Analysis Toolkit (GATK)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genome_evaluation.html">Reference genome evaluation with QUAST and BUSCO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="psmc_quickbyte.html">Pairwise Sequentially Markovian Coalescent (PSMC)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Stacks_quickbyte.html">Running Stacks on CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Metabarcoding.html">Metabarcoding Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Beast_at_CARC.html">BEAST at CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="msprime_quickbyte.html">Running Population Genetic Simulations with MSPrime</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="orca_wheeler_taos.html">Using Orca on Wheeler and Taos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alphafold.html">Alphafold</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alphafold.html#alphafold-w-localcolabfold">Alphafold w/ LocalColabFold:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alphafold.html#alphafold-w-singularity-image">Alphafold w/ Singularity Image:</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html">Download the SimCov Source Code from GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html#build-simcov-from-source">Build SimCov from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html#configure-simcov">Configure SimCov</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html#submit-a-simcov-job">Submit a SimCov Job</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mpiCASA.html">Using CASA on CARC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="paraview.html">How to: Remote Visualization using ParaView in parallel.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Paraview_Hopper.html">Remote Visualization using ParaView in parallel.</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="singularity-markdown-version.html">Docker and Singularity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singularity-markdown-version.html#singularity">Singularity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singularity-markdown-version.html#version-issues">Version Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="haskell.html">Haskell at CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X11_forwarding.html">X11 Forwarding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spark.html">Spark</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CARC QuickBytes</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Checking on running jobs</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/check_jobs.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="checking-on-running-jobs">
+<h1>Checking on running jobs<a class="headerlink" href="#checking-on-running-jobs" title="Link to this heading"></a></h1>
+<section id="checking-on-the-status-of-your-job">
+<h2>Checking on the status of your Job:<a class="headerlink" href="#checking-on-the-status-of-your-job" title="Link to this heading"></a></h2>
+<p>If you would like to check the status of your job, you can use the <code class="docutils literal notranslate"><span class="pre">qstat</span></code> command to do so. Typing <code class="docutils literal notranslate"><span class="pre">qstat</span></code> without any options will output all currently running or queued jobs to your terminal window, but there are many options to help display relevant information. To find more of these options type <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">qstat</span></code> when logged in to a CARC machine. To see which jobs are running and queued in the standard output type the following in a terminal window:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>qstat
+Job<span class="w"> </span>ID<span class="w">                    </span>Name<span class="w">             </span>User<span class="w">            </span>Time<span class="w"> </span>Use<span class="w"> </span>S<span class="w"> </span>Queue
+-------------------------<span class="w"> </span>----------------<span class="w"> </span>---------------<span class="w"> </span>--------<span class="w"> </span>-<span class="w"> </span>-----
+<span class="m">127506</span>.wheeler-sn.alliance.un<span class="w"> </span>pebble30_80<span class="w">      </span>user<span class="w">        </span><span class="m">288</span>:43:2<span class="w"> </span>R<span class="w"> </span>default
+<span class="m">127508</span>.wheeler-sn.alliance.un<span class="w"> </span>pebble30_90<span class="w">      </span>user<span class="w">        </span><span class="m">279</span>:41:4<span class="w"> </span>R<span class="w"> </span>default
+<span class="m">127509</span>.wheeler-sn.alliance.un<span class="w"> </span>pebble30_70<span class="w">      </span>user<span class="w">        </span><span class="m">323</span>:06:0<span class="w"> </span>R<span class="w"> </span>default
+<span class="m">128012</span>.wheeler-sn.alliance.un<span class="w"> </span>canu_wheeler.sh<span class="w">  </span>user<span class="w">               </span><span class="m">0</span><span class="w"> </span>Q<span class="w"> </span>default
+</pre></div>
+</div>
+<p>The output of <code class="docutils literal notranslate"><span class="pre">qstat</span></code> give you the Job ID, the name of the Job, which user owns that Job, CPU time, the status of the Job, either queued (Q), running (R), and sometimes on hold (H), and lastly, which queue the Job is in. To look at a specific job without seeing everything running you can use the Job ID by typing <code class="docutils literal notranslate"><span class="pre">qstat</span> <span class="pre">Job</span> <span class="pre">ID</span></code>, or by using the <code class="docutils literal notranslate"><span class="pre">-u</span></code> flag followed by the username, <code class="docutils literal notranslate"><span class="pre">qstat</span> <span class="pre">-u</span> <span class="pre">user</span></code>.<br />
+For example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>qstat<span class="w"> </span><span class="m">127506</span>
+Job<span class="w"> </span>ID<span class="w">                    </span>Name<span class="w">             </span>User<span class="w">            </span>Time<span class="w"> </span>Use<span class="w"> </span>S<span class="w"> </span>Queue
+-------------------------<span class="w"> </span>----------------<span class="w"> </span>---------------<span class="w"> </span>--------<span class="w"> </span>-<span class="w"> </span>-----
+<span class="m">127506</span>.wheeler-sn.alliance.un<span class="w"> </span>pebble30_80<span class="w">      </span>user<span class="w">        </span><span class="m">289</span>:04:1<span class="w"> </span>R<span class="w"> </span>default
+</pre></div>
+</div>
+<p>A useful option is the <code class="docutils literal notranslate"><span class="pre">-a</span></code> flag which shows more information about jobs than <code class="docutils literal notranslate"><span class="pre">qstat</span></code> alone. As well as the information above, the <code class="docutils literal notranslate"><span class="pre">-a</span></code> option also outputs requested nodes, processors, memory, wall time, and actual runtime instead of CPU time.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>Job<span class="w"> </span>ID<span class="w">                  </span>Username<span class="w">    </span>Queue<span class="w">    </span>Jobname<span class="w">          </span>SessID<span class="w">  </span>NDS<span class="w">   </span>TSK<span class="w">   </span>Memory<span class="w">      </span>Time<span class="w">    </span>S<span class="w">   </span>Time
+-----------------------<span class="w"> </span>-----------<span class="w"> </span>--------<span class="w"> </span>----------------<span class="w"> </span>------<span class="w"> </span>-----<span class="w"> </span>------<span class="w"> </span>---------<span class="w"> </span>---------<span class="w"> </span>-<span class="w"> </span>---------
+<span class="m">127506</span>.wheeler-sn.alli<span class="w">  </span>user<span class="w">        </span>default<span class="w">  </span>pebble30_80<span class="w">        </span><span class="m">8739</span><span class="w">     </span><span class="m">1</span><span class="w">      </span><span class="m">8</span><span class="w">       </span>--<span class="w">  </span><span class="m">240</span>:00:00<span class="w"> </span>R<span class="w"> </span><span class="m">229</span>:13:18
+<span class="m">127508</span>.wheeler-sn.alli<span class="w">  </span>user<span class="w">        </span>default<span class="w">  </span>pebble30_90<span class="w">       </span><span class="m">25507</span><span class="w">     </span><span class="m">1</span><span class="w">      </span><span class="m">8</span><span class="w">       </span>--<span class="w">  </span><span class="m">240</span>:00:00<span class="w"> </span>R<span class="w"> </span><span class="m">229</span>:09:10
+<span class="m">127509</span>.wheeler-sn.alli<span class="w">  </span>user<span class="w">        </span>default<span class="w">  </span>pebble30_70<span class="w">       </span><span class="m">20372</span><span class="w">     </span><span class="m">1</span><span class="w">      </span><span class="m">8</span><span class="w">       </span>--<span class="w">  </span><span class="m">240</span>:00:00<span class="w"> </span>R<span class="w"> </span><span class="m">229</span>:08:46
+<span class="m">128012</span>.wheeler-sn.alli<span class="w">  </span>user<span class="w">        </span>default<span class="w">  </span>canu_wheeler.sh<span class="w">     </span>--<span class="w">      </span><span class="m">1</span><span class="w">      </span><span class="m">8</span><span class="w">      </span>64gb<span class="w">  </span><span class="m">24</span>:00:00<span class="w"> </span>Q
+</pre></div>
+</div>
+</section>
+<section id="determining-which-nodes-your-job-is-using">
+<h2>Determining which nodes your Job is using:<a class="headerlink" href="#determining-which-nodes-your-job-is-using" title="Link to this heading"></a></h2>
+<p>If you would like to check which nodes your job is using, you can pass the <code class="docutils literal notranslate"><span class="pre">-n</span></code> option to qstat. When your job is finished, your processes on each node will be killed by the system, and the node will be released back into the available resource pool.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>qstat<span class="w"> </span>-an
+wheeler-sn.alliance.unm.edu:<span class="w">                                                                                                                            </span>
+Job<span class="w"> </span>ID<span class="w">                           </span>Username<span class="w">  </span>Queue<span class="w">      </span>Jobname<span class="w">     </span>SessID<span class="w">   </span>NDS<span class="w">  </span>TSK<span class="w">  </span>Memory<span class="w">   </span>Time<span class="w">        </span>S<span class="w">  </span>Time
+---------------------------<span class="w">  </span>------------<span class="w">  </span>--------<span class="w">   </span>----------<span class="w">  </span>-------<span class="w">  </span>---<span class="w">  </span>---<span class="w">  </span>------<span class="w">  </span>--------<span class="w">    </span>--<span class="w">  </span>--------
+<span class="m">55811</span>.wheeler-sn.alliance.u<span class="w">        </span>user<span class="w">    </span>default<span class="w">    </span>B19F_re5e4<span class="w">        </span><span class="m">0</span><span class="w">    </span><span class="m">4</span><span class="w">   </span><span class="m">32</span><span class="w">     </span>-<span class="w"> </span>-<span class="w">  </span><span class="m">48</span>:00:00<span class="w">     </span>R<span class="w">  </span><span class="m">47</span>:30:42
+<span class="w">      </span>wheeler296/0-7+wheeler295/0-7+wheeler282/0-7+wheeler280/0-7
+</pre></div>
+</div>
+<p>Here,  the nodes that this job is running on are wheeler296, wheeler295, wheeler282, and wheeler280, with 8 processors per node.</p>
+</section>
+<section id="viewing-output-and-error-files">
+<h2>Viewing Output and Error Files:<a class="headerlink" href="#viewing-output-and-error-files" title="Link to this heading"></a></h2>
+<p>Once your job has completed, you should see two files, one output file and one error file, in the directory from which you submitted the Job: Jobname.oJobID and Jobname.eJobID (where Jobname refers to the name of the Job returned by <code class="docutils literal notranslate"><span class="pre">qstat</span></code>, and JobID refers to the numerical portion of the job identifier returned by <code class="docutils literal notranslate"><span class="pre">qstat</span></code>).<br />
+For the example job above, these two files would be named <code class="docutils literal notranslate"><span class="pre">B19F_re5E4.o55811</span></code> and <code class="docutils literal notranslate"><span class="pre">B19F_re5E4.e55811</span></code> respectively.<br />
+Any output from the job sent to “standard output” will be written to the output file, and any output sent to “standard error” will be written to the error file. The amount of information in the output and error files varies depending on the program being run and how the PBS batch script was set up.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

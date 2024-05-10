@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Managing software models &mdash; CARC QuickBytes 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=2709fde1"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Slurm Workload Manager" href="Intro_to_slurm.html" />
+    <link rel="prev" title="Checking on running jobs" href="checking_on_running_jobs.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CARC QuickBytes
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="linux_intro.html">Linux Tutorial</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="logging_in.html">Logging in</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ssh_keygen_config.html">SSH keys and config file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transfer_data.html">Transferring data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pbs-torque.html">PBS/TORQUE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pbs_scripts2.html">Example PBS Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="submitting_jobs.html">Submitting jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="checking_on_running_jobs.html">Checking on running jobs</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Managing software models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#modules">Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-modules-for-setting-application-environments">Using modules for setting application environments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Intro_to_slurm.html">Slurm Workload Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pbs2slurm.html">Conversion of PBS script to Slurm script</a></li>
+<li class="toctree-l1"><a class="reference internal" href="slurm_accounting.html">Introduction to Slurm Accounting at CARC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="running_matlab_jobs.html">Running MATLAB Jobs at CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html">Parallel MATLAB Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html#how-matlab-parallel-works-behind-the-scenes">How MATLAB Parallel Works Behind the Scenes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html#setting-your-ip-address">Setting your IP Address</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html#monitoring-matlab-jobs">Monitoring MATLAB Jobs</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Conda_JupyterHub.html">Using Custom Conda Python Environments in JupyterHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="julia_with_jupyterhub.html">Julia with Jupyter Hub</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="anaconda_general_intro.html">Anaconda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="anaconda_intro.html">Anaconda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="anaconda_pip_channels.html">Installing with pip and adding channels</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="R_usage.html">R Programming in HPC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Tensorflow_documentation.html">Introduction to Tensorflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html">Setting Up PyTorch using Xena</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html#navigate-to-the-pytorch1-9-k40-compatible-directory">Navigate to the PyTorch1.9-K40-Compatible directory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html#activate-the-conda-environment">Activate the Conda Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html#pip-installation">Pip installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="GATK_QuickByte.html">Parallel genomic variant calling with Genome Analysis Toolkit (GATK)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genome_evaluation.html">Reference genome evaluation with QUAST and BUSCO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="psmc_quickbyte.html">Pairwise Sequentially Markovian Coalescent (PSMC)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Stacks_quickbyte.html">Running Stacks on CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Metabarcoding.html">Metabarcoding Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Beast_at_CARC.html">BEAST at CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="msprime_quickbyte.html">Running Population Genetic Simulations with MSPrime</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="orca_wheeler_taos.html">Using Orca on Wheeler and Taos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alphafold.html">Alphafold</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alphafold.html#alphafold-w-localcolabfold">Alphafold w/ LocalColabFold:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alphafold.html#alphafold-w-singularity-image">Alphafold w/ Singularity Image:</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html">Download the SimCov Source Code from GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html#build-simcov-from-source">Build SimCov from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html#configure-simcov">Configure SimCov</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html#submit-a-simcov-job">Submit a SimCov Job</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mpiCASA.html">Using CASA on CARC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="paraview.html">How to: Remote Visualization using ParaView in parallel.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Paraview_Hopper.html">Remote Visualization using ParaView in parallel.</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="singularity-markdown-version.html">Docker and Singularity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singularity-markdown-version.html#singularity">Singularity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singularity-markdown-version.html#version-issues">Version Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="haskell.html">Haskell at CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X11_forwarding.html">X11 Forwarding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spark.html">Spark</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CARC QuickBytes</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Managing software models</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/module_management.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="managing-software-models">
+<h1>Managing software models<a class="headerlink" href="#managing-software-models" title="Link to this heading"></a></h1>
+<section id="modules">
+<h2>Modules<a class="headerlink" href="#modules" title="Link to this heading"></a></h2>
+<p>There are many software packages installed on CARC systems, as well as standard built-in functions native to Unix. In order to manage these additional software packages, the CARC systems use modules. These modules set the appropriate environment variables and dependencies for software optimization and to avoid conflicts with other software.<br />
+For more information, visit <a class="reference external" href="https://lmod.readthedocs.io/en/latest/010_user.html">this page</a>, or use the command <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">man</span></code>.</p>
+</section>
+<section id="using-modules-for-setting-application-environments">
+<h2>Using modules for setting application environments<a class="headerlink" href="#using-modules-for-setting-application-environments" title="Link to this heading"></a></h2>
+<p>Modules are used to set environment variables and dependencies for the purpose of managing access to applications and libraries on CARC systems. The command <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">avail</span></code> lists all the modules available on the system you are logged in to. To load a module, use the <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span></code> command. For example, to load the module for the Intel compiler, use the command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>intel
+</pre></div>
+</div>
+<p>Another useful command related to module management is <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">spider</span></code>. For example, if we issue the command <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">spider</span> <span class="pre">intel</span></code> you will see the output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>----------------------------------------------------------------------------------------------------------------------------------------------------------
+<span class="w">  </span>intel:
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+<span class="w">    </span>Description:
+<span class="w">      </span>Intel<span class="w"> </span>Compiler<span class="w"> </span>Family<span class="w"> </span><span class="o">(</span>C/C++/Fortran<span class="w"> </span><span class="k">for</span><span class="w"> </span>x86_64<span class="o">)</span>
+
+<span class="w">     </span>Versions:
+<span class="w">        </span>intel/17.0.3.191
+<span class="w">        </span>intel/17.0.4.196
+<span class="w">        </span>intel/17.0.5.239
+<span class="w">        </span>intel/18.0.0.128
+<span class="w">        </span>intel/18.0.1.163
+<span class="w">        </span>intel/18.0.2.199
+<span class="w">     </span>Other<span class="w"> </span>possible<span class="w"> </span>modules<span class="w"> </span>matches:
+<span class="w">        </span>abinit-8.2.2-intel-17.0.4-impi-mkl-xz32k53<span class="w">  </span>abinit-8.2.2-intel-18.0.0-impi-mkl-lck65q7<span class="w">  </span>abyss-2.0.2-intel-17.0.4-openmpi-pf2axsd<span class="w">  </span>abyss-2.0.2-intel-17.0.4-pf2axsd<span class="w">  </span>...
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+<span class="w">  </span>To<span class="w"> </span>find<span class="w"> </span>other<span class="w"> </span>possible<span class="w"> </span>module<span class="w"> </span>matches<span class="w"> </span>execute:
+
+<span class="w">      </span>$<span class="w"> </span>module<span class="w"> </span>-r<span class="w"> </span>spider<span class="w"> </span><span class="s1">&#39;.*intel.*&#39;</span>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+<span class="w">  </span>For<span class="w"> </span>detailed<span class="w"> </span>information<span class="w"> </span>about<span class="w"> </span>a<span class="w"> </span>specific<span class="w"> </span><span class="s2">&quot;intel&quot;</span><span class="w"> </span>module<span class="w"> </span><span class="o">(</span>including<span class="w"> </span>how<span class="w"> </span>to<span class="w"> </span>load<span class="w"> </span>the<span class="w"> </span>modules<span class="o">)</span><span class="w"> </span>use<span class="w"> </span>the<span class="w"> </span>module<span class="err">&#39;</span>s<span class="w"> </span>full<span class="w"> </span>name.
+<span class="w">  </span>For<span class="w"> </span>example:
+
+<span class="w">     </span>$<span class="w"> </span>module<span class="w"> </span>spider<span class="w"> </span>intel/18.0.2.199
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+</pre></div>
+</div>
+<p>This command returns much more detailed information on a module of interest. You can see that there are actually multiple versions of the Intel compilers available for use, as is the case for most software installed on CARC systems.</p>
+<p>To see all currently loaded modules use the command <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">list</span></code>. As an example, lets load the software module for the genome assembler Abyss, and then use <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">list</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>module<span class="w"> </span>load<span class="w"> </span>abyss-2.0.2-intel-18.0.2-openmpi-mag4oti
+module<span class="w"> </span>list
+
+Currently<span class="w"> </span>Loaded<span class="w"> </span>Modules:
+<span class="w">  </span><span class="m">1</span><span class="o">)</span><span class="w"> </span>ncurses-6.0-intel-18.0.2-crfixrx<span class="w">     </span><span class="m">5</span><span class="o">)</span><span class="w"> </span>libpciaccess-0.13.5-intel-18.0.2-etjmw6m<span class="w">   </span><span class="m">9</span><span class="o">)</span><span class="w"> </span>sparsehash-2.0.3-intel-18.0.2-wkrpmec
+<span class="w">  </span><span class="m">2</span><span class="o">)</span><span class="w"> </span>readline-7.0-intel-18.0.2-v73wsy6<span class="w">    </span><span class="m">6</span><span class="o">)</span><span class="w"> </span>hwloc-1.11.8-intel-18.0.2-fjspqwm<span class="w">         </span><span class="m">10</span><span class="o">)</span><span class="w"> </span>bzip2-1.0.6-intel-18.0.2-fsqwhjw
+<span class="w">  </span><span class="m">3</span><span class="o">)</span><span class="w"> </span>sqlite-3.21.0-intel-18.0.2-c66lylp<span class="w">   </span><span class="m">7</span><span class="o">)</span><span class="w"> </span>openmpi-3.0.0-intel-18.0.2-7ejspct<span class="w">        </span><span class="m">11</span><span class="o">)</span><span class="w"> </span>boost-1.66.0-intel-18.0.2-eoio7oh
+<span class="w">  </span><span class="m">4</span><span class="o">)</span><span class="w"> </span>libxml2-2.9.4-intel-18.0.2-gyxifwh<span class="w">   </span><span class="m">8</span><span class="o">)</span><span class="w"> </span>libtool-2.4.6-intel-18.0.2-h4zy3we<span class="w">        </span><span class="m">12</span><span class="o">)</span><span class="w"> </span>abyss-2.0.2-intel-18.0.2-openmpi-mag4oti
+</pre></div>
+</div>
+<p>As you can see there are many more modules loaded than just Abyss. These are the libraries and applications that are dependencies of Abyss.</p>
+<p>Usually, modules are loaded as part of PBS script and subsequently unloaded automatically after the completion of that Job, so <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">avail</span></code> and <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span></code> are the main commands you will be using. However, if you are working on a node interactively you may need to unload modules manually. The command <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">unload</span> <span class="pre">modulename</span></code> will unload modules one at a time, for example <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">unload</span> <span class="pre">ncurses-6.0-intel-18.0.2-crfixrx</span></code> only unloads ncurses but leaves the rest of the modules still loaded. To unload all modules use the command <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">purge</span></code>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="checking_on_running_jobs.html" class="btn btn-neutral float-left" title="Checking on running jobs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Intro_to_slurm.html" class="btn btn-neutral float-right" title="Slurm Workload Manager" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

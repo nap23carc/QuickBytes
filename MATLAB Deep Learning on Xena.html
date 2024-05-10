@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MATLAB Deep Learning on Xena &mdash; CARC QuickBytes 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=2709fde1"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CARC QuickBytes
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="linux_intro.html">Linux Tutorial</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="logging_in.html">Logging in</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ssh_keygen_config.html">SSH keys and config file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transfer_data.html">Transferring data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pbs-torque.html">PBS/TORQUE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pbs_scripts2.html">Example PBS Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="submitting_jobs.html">Submitting jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="checking_on_running_jobs.html">Checking on running jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="module_management.html">Managing software models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Intro_to_slurm.html">Slurm Workload Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pbs2slurm.html">Conversion of PBS script to Slurm script</a></li>
+<li class="toctree-l1"><a class="reference internal" href="slurm_accounting.html">Introduction to Slurm Accounting at CARC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="running_matlab_jobs.html">Running MATLAB Jobs at CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html">Parallel MATLAB Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html#how-matlab-parallel-works-behind-the-scenes">How MATLAB Parallel Works Behind the Scenes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html#setting-your-ip-address">Setting your IP Address</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html#monitoring-matlab-jobs">Monitoring MATLAB Jobs</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Conda_JupyterHub.html">Using Custom Conda Python Environments in JupyterHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="julia_with_jupyterhub.html">Julia with Jupyter Hub</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="anaconda_general_intro.html">Anaconda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="anaconda_intro.html">Anaconda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="anaconda_pip_channels.html">Installing with pip and adding channels</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="R_usage.html">R Programming in HPC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Tensorflow_documentation.html">Introduction to Tensorflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html">Setting Up PyTorch using Xena</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html#navigate-to-the-pytorch1-9-k40-compatible-directory">Navigate to the PyTorch1.9-K40-Compatible directory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html#activate-the-conda-environment">Activate the Conda Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html#pip-installation">Pip installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="GATK_QuickByte.html">Parallel genomic variant calling with Genome Analysis Toolkit (GATK)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genome_evaluation.html">Reference genome evaluation with QUAST and BUSCO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="psmc_quickbyte.html">Pairwise Sequentially Markovian Coalescent (PSMC)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Stacks_quickbyte.html">Running Stacks on CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Metabarcoding.html">Metabarcoding Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Beast_at_CARC.html">BEAST at CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="msprime_quickbyte.html">Running Population Genetic Simulations with MSPrime</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="orca_wheeler_taos.html">Using Orca on Wheeler and Taos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alphafold.html">Alphafold</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alphafold.html#alphafold-w-localcolabfold">Alphafold w/ LocalColabFold:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alphafold.html#alphafold-w-singularity-image">Alphafold w/ Singularity Image:</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html">Download the SimCov Source Code from GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html#build-simcov-from-source">Build SimCov from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html#configure-simcov">Configure SimCov</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html#submit-a-simcov-job">Submit a SimCov Job</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mpiCASA.html">Using CASA on CARC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="paraview.html">How to: Remote Visualization using ParaView in parallel.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Paraview_Hopper.html">Remote Visualization using ParaView in parallel.</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="singularity-markdown-version.html">Docker and Singularity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singularity-markdown-version.html#singularity">Singularity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singularity-markdown-version.html#version-issues">Version Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="haskell.html">Haskell at CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X11_forwarding.html">X11 Forwarding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spark.html">Spark</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CARC QuickBytes</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">MATLAB Deep Learning on Xena</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/MATLAB Deep Learning on Xena.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="matlab-deep-learning-on-xena">
+<h1>MATLAB Deep Learning on Xena<a class="headerlink" href="#matlab-deep-learning-on-xena" title="Link to this heading"></a></h1>
+<p>MATLAB has great tools for deep learning and convolutional neural networks (CNNs).
+These tools can make use of GPUs, which are available for use on the Xena cluster.
+This Quickbytes tutorial will mimic the official Mathworks tutorial on using deep learning for JPEG Image Deblocking.
+To see that tutorial, follow this <a class="reference external" href="https://www.mathworks.com/help/images/jpeg-image-deblocking-using-deep-learning.html#JPEGImageDeblockingUsingDeepLearningExample-2" title="MathWorks Deep Learning Tutorial">link.</a></p>
+<p>Before we begin, create a directory named ‘deepLearningExample’ from within your home directory.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>xena:~$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~
+xena:~$<span class="w"> </span>mkdir<span class="w"> </span>deepLearningExample
+</pre></div>
+</div>
+<section id="table-of-contents">
+<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#1"><span class="xref myst">Train CNN Interactively</span></a></p>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#1.1"><span class="xref myst">Open MATLAB</span></a></p></li>
+<li><p><a class="reference internal" href="#1.2"><span class="xref myst">Get Required Example Functions</span></a></p>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#1.2.1"><span class="xref myst">Locate them interactively in MATLAB GUI</span></a></p></li>
+<li><p><a class="reference internal" href="#1.2.2"><span class="xref myst">Locate them using the terminal</span></a></p></li>
+</ol>
+</li>
+<li><p><a class="reference internal" href="#1.3"><span class="xref myst">Create MATLAB script</span></a></p>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#1.3.1"><span class="xref myst">Subsequent uses of this Script</span></a></p></li>
+</ol>
+</li>
+<li><p><a class="reference internal" href="#1.4"><span class="xref myst">Train Interactively</span></a></p></li>
+</ol>
+</li>
+<li><p><a class="reference internal" href="#2"><span class="xref myst">Train CNN via Scheduled Job</span></a></p>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#2.1"><span class="xref myst">Slurm Scripts</span></a></p>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#2.1.1"><span class="xref myst">Single GPU</span></a></p></li>
+<li><p><a class="reference internal" href="#2.1.2"><span class="xref myst">Dual GPU</span></a></p></li>
+</ol>
+</li>
+<li><p><a class="reference internal" href="#2.2"><span class="xref myst">Submit Script</span></a></p></li>
+<li><p><a class="reference internal" href="#2.3"><span class="xref myst">View Results</span></a></p></li>
+</ol>
+</li>
+<li><p><a class="reference internal" href="#3"><span class="xref myst">Test Model</span></a></p>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#3.1"><span class="xref myst">MATLAB Script</span></a></p></li>
+<li><p><a class="reference internal" href="#3.2"><span class="xref myst">Changes you can make to the test_model.m script</span></a></p>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#3.2.1"><span class="xref myst">Different test image</span></a></p></li>
+<li><p><a class="reference internal" href="#3.2.2"><span class="xref myst">Zoom in on specific ROI</span></a></p></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</section>
+<section id="train-cnn-interactively">
+<h2>Train CNN Interactively <a name="1"></a><a class="headerlink" href="#train-cnn-interactively" title="Link to this heading"></a></h2>
+<p>It is possible to train the the example CNN in an interactive MATLAB session and track the progress.
+This requires X11 fowarding.
+For a full guide on how to do that, please view our <a class="reference external" href="https://www.youtube.com/watch?v=-5ic9JWHuqI&amp;amp;t=224s&amp;amp;ab_channel=UNMCARC" title="Quickbytes X11 Forwarding Tutorial">Quickbytes youtube tutorial.</a>.
+Please note that you should not fully train a CNN interactively as the plotting requires large amounts of memory.
+It is alright to use the interactive plotting to verify that a model is training.
+In order to fully train a model, please schedule a job using a slurm script and disable the plotting.</p>
+<section id="open-matlab">
+<h3>Open MATLAB <a name="1.1"></a><a class="headerlink" href="#open-matlab" title="Link to this heading"></a></h3>
+<p>It is highly reccommended to use the dualGPU partition and request two GPUs.
+The commands below will show you how to use both the single and dual GPU partitions.</p>
+<p>Once logged into Xena with X11 fowarding, you can begin an interactive job on a compute node.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>xena:~$<span class="w"> </span>srun<span class="w"> </span>--partition<span class="w"> </span>singleGPU<span class="w"> </span>--x11<span class="w"> </span>--mem<span class="w"> </span><span class="m">0</span><span class="w"> </span>--ntasks<span class="w"> </span><span class="m">1</span><span class="w"> </span>--cpus-per-task<span class="w"> </span><span class="m">16</span><span class="w"> </span>-G<span class="w"> </span><span class="m">1</span><span class="w"> </span>--pty<span class="w"> </span>bash
+</pre></div>
+</div>
+<p>This requests a single node and gpu with X11 forwarding.</p>
+<p>To use a machine with two gpus, use this command instead:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>xena:~$<span class="w"> </span>srun<span class="w"> </span>--partition<span class="w"> </span>dualGPU<span class="w"> </span>--x11<span class="w"> </span>--mem<span class="w"> </span><span class="m">0</span><span class="w"> </span>--ntasks<span class="w"> </span><span class="m">1</span><span class="w"> </span>--cpus-per-task<span class="w"> </span><span class="m">16</span><span class="w"> </span>-G<span class="w"> </span><span class="m">2</span><span class="w"> </span>--pty<span class="w"> </span>bash
+</pre></div>
+</div>
+<p>Once you are assigned a compute node, cd into our new directory, then start an interactive session of MATLAB:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>xena-01:~$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>deepLearningExample/
+xena-01:~$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>matlab
+xena-01:~$<span class="w"> </span>matlab
+</pre></div>
+</div>
+<p>This should bring up the MATLAB graphical user interface (GUI).</p>
+<p>Use the file brower on the left side of the window to move into your ‘deepLearningExample’ directory within MATLAB.</p>
+</section>
+<section id="get-required-example-functions">
+<h3>Get Required Example Functions <a name="1.2"></a><a class="headerlink" href="#get-required-example-functions" title="Link to this heading"></a></h3>
+<p>Before continuing, you must move the given MathWorks MATLAB functions (.m files) into yourly created ‘deepLearningExample` directory.
+There are two ways to locate these files.</p>
+<ol class="arabic simple">
+<li><p>Locate them interactively in MATLAB GUI.</p></li>
+<li><p>Locate them using the terminal.</p></li>
+</ol>
+<section id="locate-them-interactively-in-matlab-gui">
+<h4>Locate them interactively in MATLAB GUI <a name="1.2.1"></a><a class="headerlink" href="#locate-them-interactively-in-matlab-gui" title="Link to this heading"></a></h4>
+<p>Follow these steps to locate the files from with the MATLAB GUI opened in the above step.</p>
+<ol class="arabic simple">
+<li><p>Attempt to use an example function with blank arguments in the MATLAB Command Window.</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt;&gt;<span class="w"> </span>downloadIAPRTC12Data<span class="o">(</span><span class="s1">&#39;&#39;</span>,<span class="s1">&#39;&#39;</span><span class="o">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>That will cause an error and provide links to the examples MATLAB thinks you are using. Click on the <code class="docutils literal notranslate"><span class="pre">JPEG</span> <span class="pre">Image</span> <span class="pre">Deblocking</span> <span class="pre">Using</span> <span class="pre">Deep</span> <span class="pre">Learning</span></code> link.</p></li>
+<li><p>This will move MATLAB’s current wortking directory to that of the Example code.</p></li>
+<li><p>In the file browser on the left side of the window, select all of the files in the current directory.</p></li>
+<li><p>Right click the selected files and hit ‘copy’.</p></li>
+<li><p>Use the file brower on the left side to navigate back to your ‘deepLearningExample’ directory.</p></li>
+<li><p>Right click in the file brower and select paste to place all the files in this directory.</p></li>
+</ol>
+</section>
+<section id="locate-them-using-the-terminal">
+<h4>Locate them using the terminal <a name="1.2.2"></a><a class="headerlink" href="#locate-them-using-the-terminal" title="Link to this heading"></a></h4>
+<p>Follow these steps to copy the required example code into your new directory.</p>
+<ol class="arabic simple">
+<li><p>Ssh into the compute node assigned to you (make sure the MATLAB module is loaded).</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>xena:~$<span class="w"> </span>ssh<span class="w"> </span>xena-01
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Move into the MATLAB Examples directory.</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>xena-01:~$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/tmp/Examples/R2021a/deeplearning_shared/JPEGImageDeblockingDeepLearningExample
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Copy all the needed files.</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>xena-01:~$<span class="w"> </span>cp<span class="w"> </span>*.m<span class="w"> </span>~/deepLearningExample
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>(Optional) Copy the pretrained example CNN.</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>xena-01:~$<span class="w"> </span>cp<span class="w"> </span>pretrianedJPEGDnCNN.mat<span class="w"> </span>~/deepLearningExample
+</pre></div>
+</div>
+</section>
+</section>
+<section id="create-matlab-script">
+<h3>Create MATLAB script <a name="1.3"></a><a class="headerlink" href="#create-matlab-script" title="Link to this heading"></a></h3>
+<p>Now, create the following MATLAB script with the name ‘deep_learning_example.m’ and ensure it lives within the directory created above (‘~/deepLearningExample/’).</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">dataDir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;~/deepLearningExample/data&#39;</span><span class="p">;</span>
+
+%<span class="w"> </span>Ensure<span class="w"> </span>the<span class="w"> </span>data<span class="w"> </span>is<span class="w"> </span>downloaded<span class="w"> </span>first
+<span class="nv">isDownloaded</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>false<span class="p">;</span>
+<span class="k">if</span><span class="w"> </span>~isDownloaded
+<span class="w">    </span>downloadIAPRTC12Data<span class="o">(</span><span class="s1">&#39;http://www-i6.informatik.rwth-aachen.de/imageclef/resources/iaprtc12.tgz&#39;</span>,dataDir<span class="o">)</span><span class="p">;</span>
+end
+
+%<span class="w"> </span>Grab<span class="w"> </span>Subset<span class="w"> </span>of<span class="w"> </span>data<span class="w"> </span><span class="k">for</span><span class="w"> </span>training
+<span class="nv">trainImagesDir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>fullfile<span class="o">(</span>dataDir,<span class="w"> </span><span class="s2">&quot;iaprtc12&quot;</span>,<span class="s2">&quot;images&quot;</span>,<span class="s2">&quot;00&quot;</span><span class="o">)</span><span class="p">;</span>
+<span class="nv">exts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="s2">&quot;.jpg&quot;</span>,<span class="s2">&quot;.bmp&quot;</span>,<span class="s2">&quot;.png&quot;</span><span class="o">]</span><span class="p">;</span>
+<span class="nv">imdsPristine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>imageDatastore<span class="o">(</span>trainImagesDir,FileExtensions<span class="o">=</span>exts<span class="o">)</span><span class="p">;</span>
+
+%<span class="w"> </span>Prepare<span class="w"> </span>Training<span class="w"> </span>Data<span class="w"> </span>by<span class="w"> </span>compressing<span class="w"> </span>at<span class="w"> </span>various<span class="w"> </span>levels<span class="w"> </span>of<span class="w"> </span>quality
+
+<span class="nv">JPEGQuality</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="m">5</span>:5:40<span class="w"> </span><span class="m">50</span><span class="w"> </span><span class="m">60</span><span class="w"> </span><span class="m">70</span><span class="w"> </span><span class="m">80</span><span class="o">]</span><span class="p">;</span>
+
+<span class="nv">isCompressed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>false<span class="p">;</span>
+
+<span class="k">if</span><span class="w"> </span>~isCompressed
+<span class="w">    </span><span class="o">[</span>compressedDirName,residualDirName<span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>createJPEGDeblockingTrainingSet<span class="o">(</span>imdsPristine,JPEGQuality<span class="o">)</span><span class="p">;</span>
+<span class="k">else</span>
+<span class="w">    </span><span class="nv">compressedDirName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>fullfile<span class="o">(</span>dataDir,<span class="s2">&quot;iaprtc12&quot;</span>,<span class="s2">&quot;images&quot;</span>,<span class="s2">&quot;00&quot;</span>,<span class="s2">&quot;compressedImages&quot;</span><span class="o">)</span><span class="p">;</span>
+<span class="w">    </span><span class="nv">residualDirName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>fullfile<span class="o">(</span>dataDir,<span class="s2">&quot;iaprtc12&quot;</span>,<span class="s2">&quot;images&quot;</span>,<span class="s2">&quot;00&quot;</span>,<span class="s2">&quot;residualImages&quot;</span><span class="o">)</span><span class="p">;</span>
+end
+
+%<span class="w"> </span>Create<span class="w"> </span>Random<span class="w"> </span>Patch<span class="w"> </span>Extraction<span class="w"> </span>Datastore<span class="w"> </span><span class="k">for</span><span class="w"> </span>Training
+
+<span class="nv">imdsCompressed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>imageDatastore<span class="o">(</span>compressedDirName,FileExtensions<span class="o">=</span><span class="s2">&quot;.mat&quot;</span>,ReadFcn<span class="o">=</span>@matRead<span class="o">)</span><span class="p">;</span>
+<span class="nv">imdsResidual</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>imageDatastore<span class="o">(</span>residualDirName,FileExtensions<span class="o">=</span><span class="s2">&quot;.mat&quot;</span>,ReadFcn<span class="o">=</span>@matRead<span class="o">)</span><span class="p">;</span>
+
+<span class="nv">augmenter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>imageDataAugmenter<span class="o">(</span>...
+<span class="w">    </span><span class="nv">RandRotation</span><span class="o">=</span>@<span class="o">()</span>randi<span class="o">([</span><span class="m">0</span>,1<span class="o">]</span>,1<span class="o">)</span>*90,...
+<span class="w">    </span><span class="nv">RandXReflection</span><span class="o">=</span><span class="nb">true</span><span class="o">)</span><span class="p">;</span>
+
+
+<span class="nv">patchSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">50</span><span class="p">;</span>
+<span class="nv">patchesPerImage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">128</span><span class="p">;</span>
+
+%<span class="w"> </span>Prepare<span class="w"> </span>dataset<span class="w"> </span>and<span class="w"> </span>setup<span class="w"> </span>CNN<span class="w"> </span>options
+
+<span class="nv">dsTrain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>randomPatchExtractionDatastore<span class="o">(</span>imdsCompressed,imdsResidual,patchSize,<span class="w"> </span>...
+<span class="w">    </span><span class="nv">PatchesPerImage</span><span class="o">=</span>patchesPerImage,<span class="w"> </span>...
+<span class="w">    </span><span class="nv">DataAugmentation</span><span class="o">=</span>augmenter<span class="o">)</span><span class="p">;</span>
+dsTrain.MiniBatchSize<span class="w"> </span><span class="o">=</span><span class="w"> </span>patchesPerImage<span class="p">;</span>
+
+<span class="nv">inputBatch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>preview<span class="o">(</span>dsTrain<span class="o">)</span><span class="p">;</span>
+disp<span class="o">(</span>inputBatch<span class="o">)</span>
+
+<span class="nv">layers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>dnCNNLayers
+
+<span class="nv">maxEpochs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">;</span>
+<span class="nv">initLearningRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>.1<span class="p">;</span>
+<span class="nv">l2reg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>.0001<span class="p">;</span>
+<span class="nv">batchSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">64</span><span class="p">;</span>
+
+<span class="nv">options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>trainingOptions<span class="o">(</span><span class="s2">&quot;sgdm&quot;</span>,<span class="w"> </span>...
+<span class="w">    </span><span class="nv">Momentum</span><span class="o">=</span><span class="m">0</span>.9,<span class="w"> </span>...
+<span class="w">    </span><span class="nv">InitialLearnRate</span><span class="o">=</span>initLearningRate,<span class="w"> </span>...
+<span class="w">    </span><span class="nv">LearnRateSchedule</span><span class="o">=</span><span class="s2">&quot;piecewise&quot;</span>,<span class="w"> </span>...
+<span class="w">    </span><span class="nv">GradientThresholdMethod</span><span class="o">=</span><span class="s2">&quot;absolute-value&quot;</span>,<span class="w"> </span>...
+<span class="w">    </span><span class="nv">GradientThreshold</span><span class="o">=</span><span class="m">0</span>.005,<span class="w"> </span>...
+<span class="w">    </span><span class="nv">L2Regularization</span><span class="o">=</span>l2reg,<span class="w"> </span>...
+<span class="w">    </span><span class="nv">MiniBatchSize</span><span class="o">=</span>batchSize,<span class="w"> </span>...
+<span class="w">    </span><span class="nv">MaxEpochs</span><span class="o">=</span>maxEpochs,<span class="w"> </span>...
+<span class="w">    </span>%<span class="w"> </span>WARNING<span class="w"> </span>-<span class="w"> </span>turning<span class="w"> </span>on<span class="w"> </span>plots<span class="w"> </span>uses<span class="w"> </span>massive<span class="w"> </span>amounts<span class="w"> </span>of<span class="w"> </span>RAM.<span class="w"> </span>Do<span class="w"> </span>not<span class="w"> </span>run<span class="w"> </span><span class="k">for</span><span class="w"> </span>more<span class="w"> </span>than<span class="w"> </span><span class="m">3</span><span class="w"> </span>or<span class="w"> </span><span class="m">4</span><span class="w"> </span>epochs.
+<span class="w">    </span>%Plots<span class="o">=</span><span class="s2">&quot;training-progress&quot;</span>,<span class="w"> </span>...
+<span class="w">    </span><span class="nv">Plots</span><span class="o">=</span><span class="s2">&quot;none&quot;</span>,<span class="w"> </span>...
+<span class="w">    </span><span class="nv">ExecutionEnvironment</span><span class="o">=</span><span class="s1">&#39;multi-gpu&#39;</span>,...
+<span class="w">    </span><span class="nv">Verbose</span><span class="o">=</span><span class="nb">true</span><span class="o">)</span><span class="p">;</span>
+
+%<span class="w"> </span>Train<span class="w"> </span>the<span class="w"> </span>network
+
+<span class="nv">doTraining</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>true<span class="p">;</span>
+
+<span class="k">if</span><span class="w"> </span>doTraining
+<span class="w">    </span><span class="o">[</span>net,info<span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>trainNetwork<span class="o">(</span>dsTrain,layers,options<span class="o">)</span><span class="p">;</span>
+<span class="w">    </span><span class="nv">modelDateTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>string<span class="o">(</span>datetime<span class="o">(</span><span class="s2">&quot;now&quot;</span>,Format<span class="o">=</span><span class="s2">&quot;yyyy-MM-dd-HH-mm-ss&quot;</span><span class="o">))</span><span class="p">;</span>
+<span class="w">    </span>save<span class="o">(</span><span class="s2">&quot;trainedJPEGDnCNN-&quot;</span>+modelDateTime+<span class="s2">&quot;.mat&quot;</span>,<span class="s2">&quot;net&quot;</span><span class="o">)</span><span class="p">;</span>
+end
+
+<span class="k">return</span>
+</pre></div>
+</div>
+<p>If you are using a single GPU machine, change this line:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">ExecutionEnvironment</span><span class="o">=</span><span class="s1">&#39;multi-gpu&#39;</span>
+</pre></div>
+</div>
+<p>into this:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">ExecutionEnvironment</span><span class="o">=</span><span class="s1">&#39;gpu&#39;</span>
+</pre></div>
+</div>
+<section id="subsequent-uses-of-this-script">
+<h4>Subsequent uses of this Script <a name="1.3.1"></a><a class="headerlink" href="#subsequent-uses-of-this-script" title="Link to this heading"></a></h4>
+<p>The script uses the following booleans to allow you to skip various steps.</p>
+<p>Once you have downloaded the data, change this line:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">isDownloaded</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>false<span class="p">;</span>
+</pre></div>
+</div>
+<p>to this:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">isDownloaded</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>true<span class="p">;</span>
+</pre></div>
+</div>
+<p>Once you have compressed the data, change this line:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">isCompressed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>false<span class="p">;</span>
+</pre></div>
+</div>
+<p>to this:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">isCompressed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>true<span class="p">;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="train-interactively">
+<h3>Train Interactively <a name="1.4"></a><a class="headerlink" href="#train-interactively" title="Link to this heading"></a></h3>
+<p>To train the network interactively, run the script from within the interactive MATLAB session’s Command Window</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt;&gt;<span class="w"> </span>deep_learning_example
+</pre></div>
+</div>
+<p>In the MATLAB script, you can change the ‘Plotting’ option to view a plot of the training status in real time.
+However, this uses massive amounts of RAM and should not be run for more than 3 or 4 epochs.
+You can use the plotting as verification that a model is actually training, but you should not attempt to fully train a model with the plotting enabled.</p>
+<p>Downloading and compressing the images can take quite a few minutes.
+Training the model takes up to 9 hours to complete 10 epochs on the dual GPU machines.
+Due to the way MATLAB trains a network with this depth (20 convolutional layers by default), these machines run out memory when training the network past 12 epochs with the rest of the settings left unchanged.
+One way to reduce memory usage and training time is top use fewer compressed images in the training set.
+Another option is to use a different layer setup with fewer hidden layers.</p>
+</section>
+</section>
+<section id="train-cnn-via-scheduled-job">
+<h2>Train CNN via Scheduled Job <a name="2"></a><a class="headerlink" href="#train-cnn-via-scheduled-job" title="Link to this heading"></a></h2>
+<p>Since training this CNN can take many hours, it is a good idea to take advantage of the Slurm scheduler.
+Interactive jobs can be stopped and interrupted due to internet connection issues.
+In the options of the CNN itself we set <code class="docutils literal notranslate"><span class="pre">Verbose=true</span></code>, which will allow us to see the status of the model being trained in an ouput file that is updated in real time.</p>
+<section id="slurm-scripts">
+<h3>Slurm Scripts <a name="2.1"></a><a class="headerlink" href="#slurm-scripts" title="Link to this heading"></a></h3>
+<p>It is reccomended that you use the dual GPU machines.
+When using either of the scripts below, ensure the <code class="docutils literal notranslate"><span class="pre">ExecutionEnvironment</span></code> option in the above MATLAB script matches your choice of machine.</p>
+<section id="single-gpu">
+<h4>Single GPU <a name="2.1.1"></a><a class="headerlink" href="#single-gpu" title="Link to this heading"></a></h4>
+<p>To request a job with a single GPU, create the following script with the name ‘dncnn_single_gpu.sh’:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+
+<span class="c1">#SBATCH --job-name DnCNN_singleGPU</span>
+<span class="c1">#SBATCH --mail-user jmccullough12@unm.edu</span>
+<span class="c1">#SBATCH --mail-type ALL</span>
+<span class="c1">#SBATCH --output dncnn_single_gpu.out</span>
+<span class="c1">#SBATCH --error dncnn_single_gpu.err</span>
+<span class="c1">#SBATCH --time 48:00:00</span>
+<span class="c1">#SBATCH --partition singleGPU</span>
+<span class="c1">#SBATCH --ntasks 1</span>
+<span class="c1">#SBATCH --mem 0</span>
+<span class="c1">#SBATCH --cpus-per-task 16</span>
+<span class="c1">#SBATCH -G 1</span>
+
+<span class="nb">cd</span><span class="w"> </span>~/deepLearningExample
+
+module<span class="w"> </span>load<span class="w"> </span>matlab
+matlab<span class="w"> </span>-nodisplay<span class="w"> </span>-r<span class="w"> </span>deep_learning_example<span class="w"> </span>&gt;<span class="w"> </span>dncnn_single_training.out
+</pre></div>
+</div>
+</section>
+<section id="dual-gpu">
+<h4>Dual GPU <a name="2.1.2"></a><a class="headerlink" href="#dual-gpu" title="Link to this heading"></a></h4>
+<p>To request a job with dual GPUs, create the following script with the name ‘dncnn_dual_gpu.sh’:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+
+<span class="c1">#SBATCH --job-name DnCNN_DualGPU</span>
+<span class="c1">#SBATCH --mail-user &lt;YOUR EMAIL&gt;</span>
+<span class="c1">#SBATCH --mail-type ALL</span>
+<span class="c1">#SBATCH --output dncnn_dual_gpu.out</span>
+<span class="c1">#SBATCH --error dncnn_dual_gpu.err</span>
+<span class="c1">#SBATCH --time 48:00:00</span>
+<span class="c1">#SBATCH --partition dualGPU</span>
+<span class="c1">#SBATCH --ntasks 1</span>
+<span class="c1">#SBATCH --mem 0</span>
+<span class="c1">#SBATCH --cpus-per-task 16</span>
+<span class="c1">#SBATCH -G 2</span>
+
+<span class="nb">cd</span><span class="w"> </span>~/deepLearningExample
+
+module<span class="w"> </span>load<span class="w"> </span>matlab
+matlab<span class="w"> </span>-nodisplay<span class="w"> </span>-r<span class="w"> </span>deep_learning_example<span class="w"> </span>&gt;<span class="w"> </span>dncnn_dual_training.out
+</pre></div>
+</div>
+</section>
+</section>
+<section id="submit-script">
+<h3>Submit Script <a name="2.2"></a><a class="headerlink" href="#submit-script" title="Link to this heading"></a></h3>
+<p>To submit a job request using the single GPU script, use the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>xena:~$<span class="w"> </span>sbatch<span class="w"> </span>dncnn_single_gpu.sh
+</pre></div>
+</div>
+<p>To submit a job request using the dual GPU script, use the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>xena:~$<span class="w"> </span>sbatch<span class="w"> </span>dncnn_dual_gpu.sh
+</pre></div>
+</div>
+</section>
+<section id="view-results">
+<h3>View Results <a name="2.3"></a><a class="headerlink" href="#view-results" title="Link to this heading"></a></h3>
+<p>While a network is being trained, you can see the results in real time with the <code class="docutils literal notranslate"><span class="pre">cat</span></code> command.</p>
+<p>If you used the single GPU slurm script, use this command to view the output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>xena:~$<span class="w"> </span>cat<span class="w"> </span>~/deepLearningExamples/dncnn_single_training.out
+</pre></div>
+</div>
+<p>If you used the dual GPU slurm script, use this command to view the output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>xena:~$<span class="w"> </span>cat<span class="w"> </span>~/deepLearningExamples/dncnn_dual_training.out
+</pre></div>
+</div>
+</section>
+</section>
+<section id="test-the-model">
+<h2>Test the Model <a name="3"></a><a class="headerlink" href="#test-the-model" title="Link to this heading"></a></h2>
+<p>Once a model has finished training, it will be saved to a .mat file with a name like: <code class="docutils literal notranslate"><span class="pre">trainedJPEGDnCNNyyyy-MM-dd-HH-mm-ss.mat</span></code>
+You can also use the pretrained example model (see the above instructions to get the example MATALB function files).</p>
+<section id="matlab-script">
+<h3>MATLAB Script <a name="3.1"></a><a class="headerlink" href="#matlab-script" title="Link to this heading"></a></h3>
+<p>Use the following MATLAB Script to the results of a trianed model.
+To specify which model to use, replace the <code class="docutils literal notranslate"><span class="pre">&lt;MODEL</span> <span class="pre">FILE&gt;</span></code> with the name of your model.</p>
+<p>If the script is run interactively with X11 fowarding (see above instructions), an image will appear that shows the predictions made on a test image,.
+The resulting comparisons are also saved to an imaged titled ‘results.tif’ which can be viewed with your preferred image viewer.</p>
+<p>Create the following script with the name ‘test_model.m’ and ensure it lives in the ‘deepLearningExample’ directory.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>%<span class="w"> </span>Open<span class="w"> </span>and<span class="w"> </span><span class="nb">test</span><span class="w"> </span>results<span class="w"> </span>of<span class="w"> </span>trained<span class="w"> </span>CNN<span class="w"> </span>model<span class="w"> </span><span class="k">for</span><span class="w"> </span>JPEG<span class="w"> </span>Denoising
+
+%<span class="w"> </span>Load<span class="w"> </span>the<span class="w"> </span>model<span class="w"> </span>from<span class="w"> </span>file
+
+load<span class="o">(</span><span class="s2">&quot;trainedJPEGDnCNN-2022-05-23-00-37-23.mat&quot;</span><span class="o">)</span><span class="p">;</span>
+
+%<span class="w"> </span>Open<span class="w"> </span><span class="nb">test</span><span class="w"> </span>images
+
+<span class="nv">fileNames</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="s2">&quot;sherlock.jpg&quot;</span>,<span class="s2">&quot;peacock.jpg&quot;</span>,<span class="s2">&quot;fabric.png&quot;</span>,<span class="s2">&quot;greens.jpg&quot;</span>,<span class="w"> </span>...
+<span class="w">    </span><span class="s2">&quot;hands1.jpg&quot;</span>,<span class="s2">&quot;kobi.png&quot;</span>,<span class="s2">&quot;lighthouse.png&quot;</span>,<span class="s2">&quot;office_4.jpg&quot;</span>,<span class="w"> </span>...
+<span class="w">    </span><span class="s2">&quot;onion.png&quot;</span>,<span class="s2">&quot;pears.png&quot;</span>,<span class="s2">&quot;yellowlily.jpg&quot;</span>,<span class="s2">&quot;indiancorn.jpg&quot;</span>,<span class="w"> </span>...
+<span class="w">    </span><span class="s2">&quot;flamingos.jpg&quot;</span>,<span class="s2">&quot;sevilla.jpg&quot;</span>,<span class="s2">&quot;llama.jpg&quot;</span>,<span class="s2">&quot;parkavenue.jpg&quot;</span>,<span class="w"> </span>...
+<span class="w">    </span><span class="s2">&quot;strawberries.jpg&quot;</span>,<span class="s2">&quot;trailer.jpg&quot;</span>,<span class="s2">&quot;wagon.jpg&quot;</span>,<span class="s2">&quot;football.jpg&quot;</span><span class="o">]</span><span class="p">;</span>
+<span class="nv">filePath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>fullfile<span class="o">(</span>matlabroot,<span class="s2">&quot;toolbox&quot;</span>,<span class="s2">&quot;images&quot;</span>,<span class="s2">&quot;imdata&quot;</span><span class="o">)</span>+filesep<span class="p">;</span>
+<span class="nv">filePathNames</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>strcat<span class="o">(</span>filePath,fileNames<span class="o">)</span><span class="p">;</span>
+<span class="nv">testImages</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>imageDatastore<span class="o">(</span>filePathNames<span class="o">)</span><span class="p">;</span>
+
+
+%<span class="w"> </span>Select<span class="w"> </span>an<span class="w"> </span>image<span class="w"> </span>to<span class="w"> </span>view<span class="w"> </span>-<span class="w"> </span>choose<span class="w"> </span>an<span class="w"> </span>image<span class="w"> </span>name<span class="w"> </span>from<span class="w"> </span>the<span class="w"> </span>above<span class="w"> </span>list.
+
+<span class="nv">testImage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;lighthouse.png&quot;</span><span class="p">;</span>
+<span class="nv">Ireference</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>imread<span class="o">(</span>testImage<span class="o">)</span><span class="p">;</span>
+
+%<span class="w"> </span>Compress<span class="w"> </span>the<span class="w"> </span><span class="nb">test</span><span class="w"> </span>image<span class="w"> </span><span class="k">in</span><span class="w"> </span>three<span class="w"> </span>different<span class="w"> </span>levels<span class="w"> </span>of<span class="w"> </span>quality
+
+imwrite<span class="o">(</span>Ireference,fullfile<span class="o">(</span>tempdir,<span class="s2">&quot;testQuality10.jpg&quot;</span><span class="o">)</span>,<span class="s2">&quot;Quality&quot;</span>,10<span class="o">)</span><span class="p">;</span>
+imwrite<span class="o">(</span>Ireference,fullfile<span class="o">(</span>tempdir,<span class="s2">&quot;testQuality20.jpg&quot;</span><span class="o">)</span>,<span class="s2">&quot;Quality&quot;</span>,20<span class="o">)</span><span class="p">;</span>
+imwrite<span class="o">(</span>Ireference,fullfile<span class="o">(</span>tempdir,<span class="s2">&quot;testQuality50.jpg&quot;</span><span class="o">)</span>,<span class="s2">&quot;Quality&quot;</span>,50<span class="o">)</span><span class="p">;</span>
+
+<span class="nv">I10</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>imread<span class="o">(</span>fullfile<span class="o">(</span>tempdir,<span class="s2">&quot;testQuality10.jpg&quot;</span><span class="o">))</span><span class="p">;</span>
+<span class="nv">I20</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>imread<span class="o">(</span>fullfile<span class="o">(</span>tempdir,<span class="s2">&quot;testQuality20.jpg&quot;</span><span class="o">))</span><span class="p">;</span>
+<span class="nv">I50</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>imread<span class="o">(</span>fullfile<span class="o">(</span>tempdir,<span class="s2">&quot;testQuality50.jpg&quot;</span><span class="o">))</span><span class="p">;</span>
+
+<span class="nv">I10ycbcr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>rgb2ycbcr<span class="o">(</span>I10<span class="o">)</span><span class="p">;</span>
+<span class="nv">I20ycbcr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>rgb2ycbcr<span class="o">(</span>I20<span class="o">)</span><span class="p">;</span>
+<span class="nv">I50ycbcr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>rgb2ycbcr<span class="o">(</span>I50<span class="o">)</span><span class="p">;</span>
+
+%<span class="w"> </span>Apply<span class="w"> </span>network<span class="w"> </span>to<span class="w"> </span>compressed<span class="w"> </span><span class="nb">test</span><span class="w"> </span>images
+
+<span class="nv">I10y_predicted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>denoiseImage<span class="o">(</span>I10ycbcr<span class="o">(</span>:,:,1<span class="o">)</span>,net<span class="o">)</span><span class="p">;</span>
+<span class="nv">I20y_predicted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>denoiseImage<span class="o">(</span>I20ycbcr<span class="o">(</span>:,:,1<span class="o">)</span>,net<span class="o">)</span><span class="p">;</span>
+<span class="nv">I50y_predicted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>denoiseImage<span class="o">(</span>I50ycbcr<span class="o">(</span>:,:,1<span class="o">)</span>,net<span class="o">)</span><span class="p">;</span>
+
+<span class="nv">I10ycbcr_predicted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>cat<span class="o">(</span><span class="m">3</span>,I10y_predicted,I10ycbcr<span class="o">(</span>:,:,2:3<span class="o">))</span><span class="p">;</span>
+<span class="nv">I20ycbcr_predicted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>cat<span class="o">(</span><span class="m">3</span>,I20y_predicted,I20ycbcr<span class="o">(</span>:,:,2:3<span class="o">))</span><span class="p">;</span>
+<span class="nv">I50ycbcr_predicted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>cat<span class="o">(</span><span class="m">3</span>,I50y_predicted,I50ycbcr<span class="o">(</span>:,:,2:3<span class="o">))</span><span class="p">;</span>
+
+<span class="nv">I10_predicted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>ycbcr2rgb<span class="o">(</span>I10ycbcr_predicted<span class="o">)</span><span class="p">;</span>
+<span class="nv">I20_predicted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>ycbcr2rgb<span class="o">(</span>I20ycbcr_predicted<span class="o">)</span><span class="p">;</span>
+<span class="nv">I50_predicted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>ycbcr2rgb<span class="o">(</span>I50ycbcr_predicted<span class="o">)</span><span class="p">;</span>
+
+%<span class="w"> </span>View<span class="w"> </span>and<span class="w"> </span>save<span class="w"> </span>results
+
+montage<span class="o">({</span>I50,I20,I10,I50_predicted,I20_predicted,I10_predicted<span class="o">}</span>,Size<span class="o">=[</span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="o">])</span>
+title<span class="o">(</span><span class="s2">&quot;Compressed Images (above) Compared to Deblocked Images (below) with Quality Factor 50, 20 and 10 (Left to Right)&quot;</span><span class="o">)</span>
+
+imwrite<span class="o">(</span>getframe<span class="o">(</span>gca<span class="o">)</span>.cdata,<span class="s1">&#39;results.tif&#39;</span>,<span class="s1">&#39;tif&#39;</span><span class="o">)</span><span class="p">;</span>
+
+%<span class="w"> </span>Change<span class="w"> </span>the<span class="w"> </span>following<span class="w"> </span>boolean<span class="w"> </span>to<span class="w"> </span>look<span class="w"> </span>closer<span class="w"> </span>at<span class="w"> </span>a<span class="w"> </span>specific<span class="w"> </span>region<span class="w"> </span>of
+%<span class="w"> </span>interes<span class="w"> </span><span class="k">in</span><span class="w"> </span>the<span class="w"> </span><span class="nb">test</span><span class="w"> </span>image
+
+<span class="nv">doROI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>false<span class="p">;</span>
+
+<span class="k">if</span><span class="w"> </span>doROI
+<span class="w">    </span><span class="nv">roi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="m">30</span><span class="w"> </span><span class="m">440</span><span class="w"> </span><span class="m">100</span><span class="w"> </span><span class="m">80</span><span class="o">]</span><span class="p">;</span>
+<span class="w">    </span><span class="nv">i10</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>imcrop<span class="o">(</span>I10,roi<span class="o">)</span><span class="p">;</span>
+<span class="w">    </span><span class="nv">i20</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>imcrop<span class="o">(</span>I20,roi<span class="o">)</span><span class="p">;</span>
+<span class="w">    </span><span class="nv">i50</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>imcrop<span class="o">(</span>I50,roi<span class="o">)</span><span class="p">;</span>
+<span class="w">    </span><span class="nv">i10predicted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>imcrop<span class="o">(</span>I10_predicted,roi<span class="o">)</span><span class="p">;</span>
+<span class="w">    </span><span class="nv">i20predicted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>imcrop<span class="o">(</span>I20_predicted,roi<span class="o">)</span><span class="p">;</span>
+<span class="w">    </span><span class="nv">i50predicted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>imcrop<span class="o">(</span>I50_predicted,roi<span class="o">)</span><span class="p">;</span>
+<span class="w">    </span>montage<span class="o">({</span>i50,i20,i10,i50predicted,i20predicted,i10predicted<span class="o">}</span>,Size<span class="o">=[</span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="o">])</span>
+<span class="w">    </span>title<span class="o">(</span><span class="s2">&quot;Compressed Images ROI (above) Compared to Deblocked Images ROI (below) with Quality Factor 50, 20 and 10 (Left to Right)&quot;</span><span class="o">)</span>
+<span class="w">    </span>imwrite<span class="o">(</span>getframe<span class="o">(</span>gca<span class="o">)</span>.cdata,<span class="s1">&#39;results_roi.tif&#39;</span>,<span class="s1">&#39;tif&#39;</span><span class="o">)</span><span class="p">;</span>
+end
+</pre></div>
+</div>
+</section>
+<section id="changes-you-can-make-to-the-test-model-m-script">
+<h3>Changes you can make to the test_model.m script <a name="3.2"></a><a class="headerlink" href="#changes-you-can-make-to-the-test-model-m-script" title="Link to this heading"></a></h3>
+<p>The above script can be modified for two different kinds of functionality:</p>
+<ol class="arabic simple">
+<li><p>Use a different test image</p></li>
+<li><p>Zoom in on a specific region of interest (ROI)</p></li>
+</ol>
+<section id="different-test-image">
+<h4>Different test image <a name="3.2.1"></a><a class="headerlink" href="#different-test-image" title="Link to this heading"></a></h4>
+<p>You can change the test image by changing the line:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">testImage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;lighthouse.png&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>to any of the images in the list of filenames, directly above in the script.</p>
+</section>
+<section id="zoom-in-on-specific-roi">
+<h4>Zoom in on specific ROI <a name="3.2.2"></a><a class="headerlink" href="#zoom-in-on-specific-roi" title="Link to this heading"></a></h4>
+<p>To zoom in on a specific region of interest, change the following line:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">doROI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>false<span class="p">;</span>
+</pre></div>
+</div>
+<p>to</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">doROI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>true<span class="p">;</span>
+</pre></div>
+</div>
+<p>Then ROI can be changed by modifying this line:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">roi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="m">30</span><span class="w"> </span><span class="m">440</span><span class="w"> </span><span class="m">100</span><span class="w"> </span><span class="m">80</span><span class="o">]</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>This region works well when using <code class="docutils literal notranslate"><span class="pre">lighthouse.png</span></code> as your test image.</p>
+<p>Running the script with the boolean changed will display and save a image of the results zoomed in on the ROI.
+If you are using X11 forwarding, the image should appear on your display.
+The results are also saved to an image (‘results_roi.tif’) that can be viewed in your choice of image viewer.</p>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>R Programming in HPC &mdash; CARC QuickBytes 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=2709fde1"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Introduction to Tensorflow" href="Tensorflow_documentation.html" />
+    <link rel="prev" title="Installing with pip and adding channels" href="anaconda_pip_channels.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CARC QuickBytes
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="linux_intro.html">Linux Tutorial</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="logging_in.html">Logging in</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ssh_keygen_config.html">SSH keys and config file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transfer_data.html">Transferring data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pbs-torque.html">PBS/TORQUE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pbs_scripts2.html">Example PBS Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="submitting_jobs.html">Submitting jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="checking_on_running_jobs.html">Checking on running jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="module_management.html">Managing software models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Intro_to_slurm.html">Slurm Workload Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pbs2slurm.html">Conversion of PBS script to Slurm script</a></li>
+<li class="toctree-l1"><a class="reference internal" href="slurm_accounting.html">Introduction to Slurm Accounting at CARC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="running_matlab_jobs.html">Running MATLAB Jobs at CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html">Parallel MATLAB Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html#how-matlab-parallel-works-behind-the-scenes">How MATLAB Parallel Works Behind the Scenes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html#setting-your-ip-address">Setting your IP Address</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html#monitoring-matlab-jobs">Monitoring MATLAB Jobs</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Conda_JupyterHub.html">Using Custom Conda Python Environments in JupyterHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="julia_with_jupyterhub.html">Julia with Jupyter Hub</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="anaconda_general_intro.html">Anaconda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="anaconda_intro.html">Anaconda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="anaconda_pip_channels.html">Installing with pip and adding channels</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">R Programming in HPC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-r">What is R?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-run-r">How to run R?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#running-a-sample-script-example-r">Running a sample script example.R</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Tensorflow_documentation.html">Introduction to Tensorflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html">Setting Up PyTorch using Xena</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html#navigate-to-the-pytorch1-9-k40-compatible-directory">Navigate to the PyTorch1.9-K40-Compatible directory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html#activate-the-conda-environment">Activate the Conda Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html#pip-installation">Pip installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="GATK_QuickByte.html">Parallel genomic variant calling with Genome Analysis Toolkit (GATK)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genome_evaluation.html">Reference genome evaluation with QUAST and BUSCO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="psmc_quickbyte.html">Pairwise Sequentially Markovian Coalescent (PSMC)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Stacks_quickbyte.html">Running Stacks on CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Metabarcoding.html">Metabarcoding Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Beast_at_CARC.html">BEAST at CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="msprime_quickbyte.html">Running Population Genetic Simulations with MSPrime</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="orca_wheeler_taos.html">Using Orca on Wheeler and Taos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alphafold.html">Alphafold</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alphafold.html#alphafold-w-localcolabfold">Alphafold w/ LocalColabFold:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alphafold.html#alphafold-w-singularity-image">Alphafold w/ Singularity Image:</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html">Download the SimCov Source Code from GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html#build-simcov-from-source">Build SimCov from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html#configure-simcov">Configure SimCov</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html#submit-a-simcov-job">Submit a SimCov Job</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mpiCASA.html">Using CASA on CARC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="paraview.html">How to: Remote Visualization using ParaView in parallel.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Paraview_Hopper.html">Remote Visualization using ParaView in parallel.</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="singularity-markdown-version.html">Docker and Singularity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singularity-markdown-version.html#singularity">Singularity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singularity-markdown-version.html#version-issues">Version Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="haskell.html">Haskell at CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X11_forwarding.html">X11 Forwarding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spark.html">Spark</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CARC QuickBytes</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">R Programming in HPC</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/R_usage.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="r-programming-in-hpc">
+<h1>R Programming in HPC<a class="headerlink" href="#r-programming-in-hpc" title="Link to this heading"></a></h1>
+<section id="what-is-r">
+<h2>What is R?<a class="headerlink" href="#what-is-r" title="Link to this heading"></a></h2>
+<p>R is a programming language and a software environment for statistical computing and graphics techniques. This is widely used now a days by statisticians and data miners for developing software tools required for data analysis. The R language is primarily derived from the S language developed at Bell Laboratories in 1975. R provides various tools and techniques for linear and nonlinear modelling, statistical tests, time series analysis, classification, clustering etc. More history and documentation of R are available at this <a class="reference external" href="https://cran.r-project.org/manuals.html">link</a></p>
+</section>
+<section id="how-to-run-r">
+<h2>How to run R?<a class="headerlink" href="#how-to-run-r" title="Link to this heading"></a></h2>
+<p>First login to one of the CARC machines via SSH.</p>
+<p><code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">-X</span> <span class="pre">user&#64;machine_name.alliance.unm.edu</span></code></p>
+<p>Once logged into the machine, you have to load the module which has R program files.</p>
+<p><code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">r-3.5.0-gcc-4.8.5-python2-khqxja7</span></code></p>
+<p>After loading the R module, begin R programming by typing</p>
+<p><code class="docutils literal notranslate"><span class="pre">R</span></code></p>
+<p>This will shows</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>R<span class="w"> </span>version<span class="w"> </span><span class="m">3</span>.5.0<span class="w"> </span><span class="o">(</span><span class="m">2018</span>-04-23<span class="o">)</span><span class="w"> </span>--<span class="w"> </span><span class="s2">&quot;Joy in Playing&quot;</span>
+Copyright<span class="w"> </span><span class="o">(</span>C<span class="o">)</span><span class="w"> </span><span class="m">2018</span><span class="w"> </span>The<span class="w"> </span>R<span class="w"> </span>Foundation<span class="w"> </span><span class="k">for</span><span class="w"> </span>Statistical
+Computing
+Platform:<span class="w"> </span>x86_64-pc-linux-gnu<span class="w"> </span><span class="o">(</span><span class="m">64</span>-bit<span class="o">)</span>
+
+R<span class="w"> </span>is<span class="w"> </span>free<span class="w"> </span>software<span class="w"> </span>and<span class="w"> </span>comes<span class="w"> </span>with<span class="w"> </span>ABSOLUTELY<span class="w"> </span>NO<span class="w"> </span>WARRANTY.
+You<span class="w"> </span>are<span class="w"> </span>welcome<span class="w"> </span>to<span class="w"> </span>redistribute<span class="w"> </span>it<span class="w"> </span>under<span class="w"> </span>certain<span class="w"> </span>conditions.
+Type<span class="w"> </span><span class="s1">&#39;license()&#39;</span><span class="w"> </span>or<span class="w"> </span><span class="s1">&#39;licence()&#39;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>distribution<span class="w"> </span>details.
+
+<span class="w">  </span>Natural<span class="w"> </span>language<span class="w"> </span>support<span class="w"> </span>but<span class="w"> </span>running<span class="w"> </span><span class="k">in</span><span class="w"> </span>an<span class="w"> </span>English<span class="w"> </span>locale
+
+R<span class="w"> </span>is<span class="w"> </span>a<span class="w"> </span>collaborative<span class="w"> </span>project<span class="w"> </span>with<span class="w"> </span>many<span class="w"> </span>contributors.
+Type<span class="w"> </span><span class="s1">&#39;contributors()&#39;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>more<span class="w"> </span>information<span class="w"> </span>and
+<span class="s1">&#39;citation()&#39;</span><span class="w"> </span>on<span class="w"> </span>how<span class="w"> </span>to<span class="w"> </span>cite<span class="w"> </span>R<span class="w"> </span>or<span class="w"> </span>R<span class="w"> </span>packages<span class="w"> </span><span class="k">in</span><span class="w"> </span>publications.
+
+Type<span class="w"> </span><span class="s1">&#39;demo()&#39;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>some<span class="w"> </span>demos,<span class="w"> </span><span class="s1">&#39;help()&#39;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>on-line<span class="w"> </span>help,<span class="w"> </span>or
+<span class="s1">&#39;help.start()&#39;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>an<span class="w"> </span>HTML<span class="w"> </span>browser<span class="w"> </span>interface<span class="w"> </span>to<span class="w"> </span>help.
+Type<span class="w"> </span><span class="s1">&#39;q()&#39;</span><span class="w"> </span>to<span class="w"> </span>quit<span class="w"> </span>R.
+</pre></div>
+</div>
+<p>This means the R module is loaded and you are ready to use R for your research</p>
+</section>
+<section id="running-a-sample-script-example-r">
+<h2>Running a sample script example.R<a class="headerlink" href="#running-a-sample-script-example-r" title="Link to this heading"></a></h2>
+<p>Let us look a sample script, example.R which will print “Hello World”
+The script looks like</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Program to print Hello World</span>
+
+print<span class="o">(</span><span class="s1">&#39;Hello World&#39;</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>In order to execute this script, type</p>
+<p><code class="docutils literal notranslate"><span class="pre">Rscript</span> <span class="pre">example.R</span></code></p>
+<p>This will give an output of</p>
+<p><code class="docutils literal notranslate"><span class="pre">[1]</span> <span class="pre">&quot;Hello</span> <span class="pre">World&quot;</span></code></p>
+<p>If you want to generate samples from a normal distribution, you can use the <code class="docutils literal notranslate"><span class="pre">rnorm()</span></code> function. Let’s make some change to the example.R script.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Program to print Hello World and to generate normal random numbers</span>
+
+print<span class="o">(</span><span class="s1">&#39;Hello World&#39;</span><span class="o">)</span>
+
+<span class="c1">#Calling the rnorm() function to generate three random numbers from a </span>
+normal<span class="w"> </span>distribution<span class="w"> </span>with<span class="w"> </span>mean<span class="w"> </span><span class="m">5</span><span class="w"> </span>and<span class="w"> </span>a<span class="w"> </span>standard<span class="w">  </span>deviation<span class="w"> </span>of<span class="w"> </span><span class="m">5</span>
+
+rnorm<span class="o">(</span><span class="m">3</span>,mean<span class="o">=</span><span class="m">5</span>,sd<span class="o">=</span><span class="m">5</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>Execute the script again and the look at the new output.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span><span class="m">1</span><span class="o">]</span><span class="w"> </span><span class="s2">&quot;Hello World&quot;</span>
+<span class="o">[</span><span class="m">1</span><span class="o">]</span><span class="w"> </span><span class="m">3</span>.744463<span class="w"> </span><span class="m">7</span>.954163<span class="w"> </span><span class="m">3</span>.363275
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="anaconda_pip_channels.html" class="btn btn-neutral float-left" title="Installing with pip and adding channels" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Tensorflow_documentation.html" class="btn btn-neutral float-right" title="Introduction to Tensorflow" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

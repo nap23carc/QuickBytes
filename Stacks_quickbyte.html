@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Running Stacks on CARC &mdash; CARC QuickBytes 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=2709fde1"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Metabarcoding Tutorial" href="Metabarcoding.html" />
+    <link rel="prev" title="Pairwise Sequentially Markovian Coalescent (PSMC)" href="psmc_quickbyte.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CARC QuickBytes
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="linux_intro.html">Linux Tutorial</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="logging_in.html">Logging in</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ssh_keygen_config.html">SSH keys and config file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transfer_data.html">Transferring data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pbs-torque.html">PBS/TORQUE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pbs_scripts2.html">Example PBS Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="submitting_jobs.html">Submitting jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="checking_on_running_jobs.html">Checking on running jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="module_management.html">Managing software models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Intro_to_slurm.html">Slurm Workload Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pbs2slurm.html">Conversion of PBS script to Slurm script</a></li>
+<li class="toctree-l1"><a class="reference internal" href="slurm_accounting.html">Introduction to Slurm Accounting at CARC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="running_matlab_jobs.html">Running MATLAB Jobs at CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html">Parallel MATLAB Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html#how-matlab-parallel-works-behind-the-scenes">How MATLAB Parallel Works Behind the Scenes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html#setting-your-ip-address">Setting your IP Address</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html#monitoring-matlab-jobs">Monitoring MATLAB Jobs</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Conda_JupyterHub.html">Using Custom Conda Python Environments in JupyterHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="julia_with_jupyterhub.html">Julia with Jupyter Hub</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="anaconda_general_intro.html">Anaconda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="anaconda_intro.html">Anaconda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="anaconda_pip_channels.html">Installing with pip and adding channels</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="R_usage.html">R Programming in HPC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Tensorflow_documentation.html">Introduction to Tensorflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html">Setting Up PyTorch using Xena</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html#navigate-to-the-pytorch1-9-k40-compatible-directory">Navigate to the PyTorch1.9-K40-Compatible directory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html#activate-the-conda-environment">Activate the Conda Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html#pip-installation">Pip installation</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="GATK_QuickByte.html">Parallel genomic variant calling with Genome Analysis Toolkit (GATK)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genome_evaluation.html">Reference genome evaluation with QUAST and BUSCO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="psmc_quickbyte.html">Pairwise Sequentially Markovian Coalescent (PSMC)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Running Stacks on CARC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#preliminaries">Preliminaries</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sample-list-and-population-maps">Sample list and Population maps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#demultiplexing-with-process-radtags">Demultiplexing with process_radtags</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#reference-based-assembly">Reference Based Assembly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#denovo-assembly">DeNovo Assembly</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Metabarcoding.html">Metabarcoding Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Beast_at_CARC.html">BEAST at CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="msprime_quickbyte.html">Running Population Genetic Simulations with MSPrime</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="orca_wheeler_taos.html">Using Orca on Wheeler and Taos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alphafold.html">Alphafold</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alphafold.html#alphafold-w-localcolabfold">Alphafold w/ LocalColabFold:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alphafold.html#alphafold-w-singularity-image">Alphafold w/ Singularity Image:</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html">Download the SimCov Source Code from GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html#build-simcov-from-source">Build SimCov from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html#configure-simcov">Configure SimCov</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html#submit-a-simcov-job">Submit a SimCov Job</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mpiCASA.html">Using CASA on CARC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="paraview.html">How to: Remote Visualization using ParaView in parallel.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Paraview_Hopper.html">Remote Visualization using ParaView in parallel.</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="singularity-markdown-version.html">Docker and Singularity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singularity-markdown-version.html#singularity">Singularity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singularity-markdown-version.html#version-issues">Version Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="haskell.html">Haskell at CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X11_forwarding.html">X11 Forwarding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spark.html">Spark</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CARC QuickBytes</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Running Stacks on CARC</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/Stacks_quickbyte.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="running-stacks-on-carc">
+<h1>Running Stacks on CARC<a class="headerlink" href="#running-stacks-on-carc" title="Link to this heading"></a></h1>
+<p>Stacks is a common and <a class="reference external" href="https://catchenlab.life.illinois.edu/stacks/">well documented</a> pipeline for processing RADseq data. RADseq data is a method of reduced representation genomic sequencing, where genomic DNA is cut up with restriction enzymes, which are then targeted by sequencing adapters. This allows a researcher to get thousands of loci randomly scattered across the genome, which can be sequenced at moderate depths for low prices. This is sufficient for many population genomic analyses, such as tests of population structure, phylogenetics, gene flow, and even coarse attempts to locate regions of the genome that are under selection. Stacks can be run with or without a reference genome, but using a reference genome is reccomended for improved accuracy.</p>
+<p>Stacks can easily be run on Wheeler with installed modules, and here we outline how with some simple “quality of life” adjustments and tips. We’ll be focused on the reference based method, as the non-reference-based is sufficiently run through a driver script provided by the developers of Stacks (denovo_map.pl). We’ll quickly mention it at the end. This can often be run on a single node on Wheeler, as the only intense step tends to be alignment, which is quick due to the small size of RADseq data. For example, a dataset of ~90 bird individuals with an average of 1 million reads/sample took four hours on one node. Organisms with larger genomes will take more time and memory.</p>
+<section id="preliminaries">
+<h2>Preliminaries<a class="headerlink" href="#preliminaries" title="Link to this heading"></a></h2>
+<section id="sample-list-and-population-maps">
+<h3>Sample list and Population maps<a class="headerlink" href="#sample-list-and-population-maps" title="Link to this heading"></a></h3>
+<p>Before you get started, you’ll need a list of sample names to run bwa conveniently. This is a file we’ll call “sample_list”, and an example is below. For this and similar files, the first line describes what goes in each column and where tabs go, and the following lines give an example of what that looks like. For sample list, note that an empty newline should be at the end of the list.:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;SAMPLE NAME&gt;
+M_americana_Florida_MSBBIRD49539
+M_americana_NM_MSBBIRD39487
+......
+</pre></div>
+</div>
+<p>Then, key to many pieces of population genetics software, Stacks needs a population map (popmap) for calculating metrics like F<sub>st</sub> and genetic dviersity. It will also allow the creation of certain imput files. It is simply a tab delimited file with one line per individual, with the first column representing the sample name and the second its population. Note that reduced versions of the popmaps can be made for running <em>gstacks</em> and <em>populations</em> for only a subset of your dataset.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;SAMPLE NAME&gt;\t&lt;SAMPLE POPULATION&gt;
+M_americana_Florida_MSBBIRD49539	EastBlackScoter
+M_americana_NewMexico_MSBBIRD39487	WestBlackScoter
+..................................	.....
+</pre></div>
+</div>
+</section>
+<section id="demultiplexing-with-process-radtags">
+<h3>Demultiplexing with process_radtags<a class="headerlink" href="#demultiplexing-with-process-radtags" title="Link to this heading"></a></h3>
+<p>Demultiplexing with Stacks is comparatively easy. You just need a file of barcode information (we’ll call it BARCODES.file) and your raw, multiplexed reads. The barcode information file can be paired or unapired, and should look like:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;BARCODE1&gt;\t&lt;BARCODE2&gt;\t&lt;SAMPLE NAME&gt;
+ATGCAT	GTACGT	M_americana_Florida_MSBBIRD49539
+ACGTAT	CTAGAT	M_americana_NewMexico_MSBBIRD39487
+......	......	......
+</pre></div>
+</div>
+<p>Here is how to run it, assuming you are dealing with paired end reads, gzipped fastq files, and used a single enzyme (ndeI) for your restriction digest. Note the the “raw_reads” directory is the one that you’ll use for the aligning step at the start of the reference-based assembly:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>process_radtags -p /path/to/MULTIPLEXED_READS/ -b /path/to/BARCODES.file -o /path/to/raw_reads/ \
+	-i gzfastq -e ndeI -c -q -r -E phred33 
+</pre></div>
+</div>
+<p>The command is different for single end reads. You must specify each fastq input indiviually with the -f flag, as shown below. The rest is the same:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>process_radtags -f /path/to/MULTIPLEXED_READS/RAW_READS_01.fastq.gz -b /path/to/BARCODES.file -o /path/to/raw_reads/ \
+	-i gzfastq -e ndeI -c -q -r -E phred33
+process_radtags -f /path/to/MULTIPLEXED_READS/RAW_READS_02.fastq.gz -b /path/to/BARCODES.file -o /path/to/raw_reads/ \
+	-i gzfastq -e ndeI -c -q -r -E phred33
+.......
+</pre></div>
+</div>
+<p>You can find full details on process_radtags <a class="reference external" href="https://catchenlab.life.illinois.edu/stacks/comp/process_radtags.php">here</a>.</p>
+</section>
+</section>
+<section id="reference-based-assembly">
+<h2>Reference Based Assembly<a class="headerlink" href="#reference-based-assembly" title="Link to this heading"></a></h2>
+<p>We’ll assume you demultiplex your reads before running the pipeline described below. The contents of this and the following section should all be put in a PBS/Slurm script, just make sure your directory names are correct. This method has several intermediate files, so we’ll make directories to keep them separate (do this outside of script):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mkdir raw_reads
+mkdir sam_files
+mkdir bam_files
+mkdir stacks_out
+mkdir populations_out
+</pre></div>
+</div>
+<p>The modules you need are stacks, bwa, and samtools. All are availible on Conda, but you will almost certainly be running this on Wheeler (low resource use), which has recent versions of all three installed:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>module load stacks-2.41-gcc-7.4.0-7r6auk7
+module load bwa-0.7.17-intel-18.0.2-7jvpfu2
+module load samtools-1.10-gcc-9.3.0-python3-ikifznw
+</pre></div>
+</div>
+<p>We’ll also set some variables for refering to paths to stuff. We assume that the reference names (ReferenceBaseName):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>src=$PBS_O_WORKDIR
+bwa_ref=$src/ReferenceBaseName
+threads=[number of threads]
+</pre></div>
+</div>
+<p>Next, we need to index our reference:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>bwa index -p $bwa_ref $bwa_ref.fa
+</pre></div>
+</div>
+<p>This is the big step, which uses the Burroughs-Wheeler Aligner to align our reads to our reference. Note that this should be able to be done using pipes, but I’ve had issues with that, so we just remove the files at the end of each loop.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>while read indiv
+do
+	# echo is only to help you keep track of where the pipeline is
+	echo ${indiv}
+	# align reads to reference genome
+	bwa mem -t $threads $bwa_ref $src/raw_reads/${indiv}.fq.gz &gt; $src/sam_files/${indiv}.sam
+	# covert sam file to bam file (makes it much smaller and easier to work with)
+	samtools view -bS $src/sam_files/${indiv}.sam &gt; $src/bam_files/${indiv}_unsort.bam
+	# sorts bam file, which is needed for next analyses
+	samtools sort $src/bam_files/${indiv}_unsort.bam -o $src/bam_files/${indiv}.bam
+	rm $src/sam_files/${indiv}.sam
+	rm $src/bam_files/${indiv}_unsort.bam
+done &lt; sample_list
+</pre></div>
+</div>
+<p>The next step is to run gstacks, which runs these “traditional” genomics files into something Stacks can work with to make output files:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>gstacks -I $src/bam_files/ -M $src/popmap -O $src/stacks_out/ -t $threads
+</pre></div>
+</div>
+<p>Finally, we run populations! This specific command will give us a 75% complete matrix of SNPs, one random SNP per locus, F<sub>st</sub> values, PLINK .bed and .map files, and use kernel smoothing for specific statistics. We also output a Variant Call Format (VCF) file, which can be used to generate inputs for most programs:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>populations -P $src/stacks_out/ -M $src/popmap -O $src/populations_out/ \
+	--vcf -R .75 --write-random-snp --fstats --plink --smooth -t $threads
+</pre></div>
+</div>
+<p>A quick note, if you want input for RAxML or similar phylogenetic programs, you can get a interleaved phylip file by making a popmap file with each individual having its own population and specifying you want a phylip output. Please note that this is strict phylip format, meaning you want a maximum of 9 letters in your “population” column of the popmap (10 works, but will cause errors when input to certain programs). Also, this assumes you have a directory “populations_individual”:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>populations -P $src/stacks_out/ -M $src/popmap_individual -O $src/popualtions_individual/ \
+	-R .75 --phylip-var-all -t $threads
+</pre></div>
+</div>
+<p>Learn more about the outputs and options for populations <a class="reference external" href="https://catchenlab.life.illinois.edu/stacks/comp/populations.php">on the Stacks website</a>. Also, as mentioned above, you can easily subset your data by changing the popmap used in gstacks and populations, as each sample has alignments performed separately.</p>
+</section>
+<section id="denovo-assembly">
+<h2>DeNovo Assembly<a class="headerlink" href="#denovo-assembly" title="Link to this heading"></a></h2>
+<p>This is a lot simpler, but is generally considered less robust than a reference-based approach. It is described in full <a class="reference external" href="https://catchenlab.life.illinois.edu/stacks/comp/denovo_map.php">here</a>. There is a lot to think about for parameters when building loci, and we use default ones here, <a class="reference external" href="https://catchenlab.life.illinois.edu/stacks/param_tut.php">read up on the Stacks website about them</a>.</p>
+<p>First, you only need the Stacks module and one new directory (assumes reads are in “raw_reads”).</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mkdir stacks_denovo
+module load stacks-2.41-gcc-7.4.0-7r6auk7
+src=$PBS_O_WORKDIR
+threads=[number of threads]
+</pre></div>
+</div>
+<p>Then you just run a single line!</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>denovo_map.pl -T $threads -o $src/stacks_denovo/ --popmap $src/popmap --samples $src/raw_reads/ \
+	-X &quot;&lt;Extra parameters for populations here&gt;&quot;
+</pre></div>
+</div>
+<p>As I mentioned above, I mostly included this to demystify DeNovo Stacks, please read more on it before running anything! There are many parameters to optimize.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="psmc_quickbyte.html" class="btn btn-neutral float-left" title="Pairwise Sequentially Markovian Coalescent (PSMC)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Metabarcoding.html" class="btn btn-neutral float-right" title="Metabarcoding Tutorial" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

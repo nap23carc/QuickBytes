@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parallelization with JupyterHub using MPI &mdash; CARC QuickBytes 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=2709fde1"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CARC QuickBytes
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="linux_intro.html">Linux Tutorial</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="logging_in.html">Logging in</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ssh_keygen_config.html">SSH keys and config file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transfer_data.html">Transferring data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pbs-torque.html">PBS/TORQUE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pbs_scripts2.html">Example PBS Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="submitting_jobs.html">Submitting jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="checking_on_running_jobs.html">Checking on running jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="module_management.html">Managing software models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Intro_to_slurm.html">Slurm Workload Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pbs2slurm.html">Conversion of PBS script to Slurm script</a></li>
+<li class="toctree-l1"><a class="reference internal" href="slurm_accounting.html">Introduction to Slurm Accounting at CARC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="running_matlab_jobs.html">Running MATLAB Jobs at CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html">Parallel MATLAB Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html#how-matlab-parallel-works-behind-the-scenes">How MATLAB Parallel Works Behind the Scenes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html#setting-your-ip-address">Setting your IP Address</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html#monitoring-matlab-jobs">Monitoring MATLAB Jobs</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Conda_JupyterHub.html">Using Custom Conda Python Environments in JupyterHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="julia_with_jupyterhub.html">Julia with Jupyter Hub</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="anaconda_general_intro.html">Anaconda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="anaconda_intro.html">Anaconda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="anaconda_pip_channels.html">Installing with pip and adding channels</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="R_usage.html">R Programming in HPC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Tensorflow_documentation.html">Introduction to Tensorflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html">Setting Up PyTorch using Xena</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html#navigate-to-the-pytorch1-9-k40-compatible-directory">Navigate to the PyTorch1.9-K40-Compatible directory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html#activate-the-conda-environment">Activate the Conda Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html#pip-installation">Pip installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="GATK_QuickByte.html">Parallel genomic variant calling with Genome Analysis Toolkit (GATK)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genome_evaluation.html">Reference genome evaluation with QUAST and BUSCO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="psmc_quickbyte.html">Pairwise Sequentially Markovian Coalescent (PSMC)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Stacks_quickbyte.html">Running Stacks on CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Metabarcoding.html">Metabarcoding Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Beast_at_CARC.html">BEAST at CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="msprime_quickbyte.html">Running Population Genetic Simulations with MSPrime</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="orca_wheeler_taos.html">Using Orca on Wheeler and Taos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alphafold.html">Alphafold</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alphafold.html#alphafold-w-localcolabfold">Alphafold w/ LocalColabFold:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alphafold.html#alphafold-w-singularity-image">Alphafold w/ Singularity Image:</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html">Download the SimCov Source Code from GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html#build-simcov-from-source">Build SimCov from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html#configure-simcov">Configure SimCov</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html#submit-a-simcov-job">Submit a SimCov Job</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mpiCASA.html">Using CASA on CARC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="paraview.html">How to: Remote Visualization using ParaView in parallel.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Paraview_Hopper.html">Remote Visualization using ParaView in parallel.</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="singularity-markdown-version.html">Docker and Singularity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singularity-markdown-version.html#singularity">Singularity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singularity-markdown-version.html#version-issues">Version Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="haskell.html">Haskell at CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X11_forwarding.html">X11 Forwarding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spark.html">Spark</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CARC QuickBytes</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Parallelization with JupyterHub using MPI</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/parallelization_with Jupyterhub_using_mpi.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="parallelization-with-jupyterhub-using-mpi">
+<h1>Parallelization with JupyterHub using MPI<a class="headerlink" href="#parallelization-with-jupyterhub-using-mpi" title="Link to this heading"></a></h1>
+<p>The following steps will show you the steps to use MPI through ipython’s ipyparallel interface.</p>
+<section id="create-a-pbs-profile-on-carc">
+<h2>Create a PBS profile on CARC<a class="headerlink" href="#create-a-pbs-profile-on-carc" title="Link to this heading"></a></h2>
+<p>Once you are logged in at carc run these steps:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cd /projects/systems/shared/ipython_cluster_profiles</span>
+<span class="go">cp -r profile_pbs ~/.ipython/</span>
+</pre></div>
+</div>
+<p>Then check the files copied.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cd ~/.ipython/profile_pbs</span>
+</pre></div>
+</div>
+<p>Now on JupyterHub go to the IPython Clusters tab (refresh if already open) and you should see a pbs profile now available to you. Click the JupyterHub icon in the upper left of your screen if you can’t see the clusters tab.</p>
+<p>You can start a job by setting number of engine in the ‘pbs’ cluster profile and clicking start under actions. For this example we will request 8 ipython compute engines.</p>
+<p>[Optional] Since ipython’s ipyparallel system is requesting compute nodes through the torque PBS system you will have to wait until the nodes are running before you can run
+code on them. Check that the job is running in terminal with</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">watch qstat -tn -u &lt;username&gt;</span>
+
+
+<span class="go">You should see something like the following:</span>
+
+<span class="go">Every 2.0s: qstat -t -n -u $USER     Wed Oct 23 09:15:14 2019                                                                                      </span>
+<span class="go">wheeler-sn.alliance.unm.edu:</span>
+<span class="go">                                                                                  Req&#39;d       Req&#39;d	  Elap</span>
+<span class="go">Job ID                  Username    Queue    Jobname          SessID  NDS   TSK   Memory      Time    S   Time</span>
+<span class="go">----------------------- ----------- -------- ---------------- ------ ----- ------ --------- --------- - ---------</span>
+<span class="go">258370.wheeler-sn.alli  mfricke     default  jupyterhub        21730     1	1	--   08:00:00 R  00:06:45</span>
+<span class="go">   wheeler291/1</span>
+<span class="go">258371.wheeler-sn.alli  mfricke     default  ipython_controll  22553     1	1	--   01:00:00 R  00:06:11</span>
+<span class="go">   wheeler291/2</span>
+<span class="go">258372.wheeler-sn.alli  mfricke     default  ipython_engine	3213     2     16	--   01:00:00 R  00:06:11</span>
+<span class="go">   wheeler176/0-7+wheeler175/0-7</span>
+</pre></div>
+</div>
+<p>Notice the ipython engines are running with status ‘R’. You can also check to see whether the compute engines are ready in your python notebook (see below).</p>
+<p>To exit the watch command use control-C</p>
+<p>To change the walltime of your profile, in the ~/.ipython/profile_pbs directory edit the pbs.engine.template and the pbs.controller.template to fit the requirments for your job. By editing these files you can also change from the default to debug queue as you are testing your program.</p>
+<p>Now you can open a Jupyter notebook and follow the remainder of this tutorial.</p>
+</section>
+</section>
+<section id="creating-an-example-function-that-uses-mpi">
+<h1>Creating an example function that uses MPI<a class="headerlink" href="#creating-an-example-function-that-uses-mpi" title="Link to this heading"></a></h1>
+<p>Create a new file in your home directory and name it psum.py. Enter the following into psum.py and save the file.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mpi4py</span> <span class="kn">import</span> <span class="n">MPI</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="k">def</span> <span class="nf">psum</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+    <span class="n">locsum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="n">rcvBuf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">)</span>
+    <span class="n">MPI</span><span class="o">.</span><span class="n">COMM_WORLD</span><span class="o">.</span><span class="n">Allreduce</span><span class="p">([</span><span class="n">locsum</span><span class="p">,</span> <span class="n">MPI</span><span class="o">.</span><span class="n">DOUBLE</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">rcvBuf</span><span class="p">,</span> <span class="n">MPI</span><span class="o">.</span><span class="n">DOUBLE</span><span class="p">],</span>
+        <span class="n">op</span><span class="o">=</span><span class="n">MPI</span><span class="o">.</span><span class="n">SUM</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">rcvBuf</span>
+</pre></div>
+</div>
+<p>This function performs a distributed sum over all the nodes on the MPI communications group.</p>
+</section>
+<section id="create-a-jupyter-notebook-to-call-our-mpi-function">
+<h1>Create a Jupyter Notebook to Call Our MPI Function<a class="headerlink" href="#create-a-jupyter-notebook-to-call-our-mpi-function" title="Link to this heading"></a></h1>
+<p>Create a new Python 3 notebook in Jupyterhub and name it mpi_test.ipynb. Enter the following into cells of your notebook. Many of the commands are run on the MPI cluster and so are asynchronous. To check whether an operation has completed we check the status with “.wait_interactive()”. When the status reports “done” you can move on to the next step.</p>
+</section>
+<section id="load-required-packages-for-ipyparallel-and-mpi">
+<h1>Load required packages for ipyparallel and MPI<a class="headerlink" href="#load-required-packages-for-ipyparallel-and-mpi" title="Link to this heading"></a></h1>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ipyparallel</span> <span class="k">as</span> <span class="nn">ipp</span>
+<span class="kn">from</span> <span class="nn">mpi4py</span> <span class="kn">import</span> <span class="n">MPI</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</section>
+<section id="create-a-cluster-to-use-the-cpus-allocated-thrugh-pbs">
+<h1>Create a cluster to use the CPUs allocated thrugh PBS<a class="headerlink" href="#create-a-cluster-to-use-the-cpus-allocated-thrugh-pbs" title="Link to this heading"></a></h1>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cluster</span> <span class="o">=</span> <span class="n">ipp</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="n">profile</span><span class="o">=</span><span class="s1">&#39;pbs&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="check-if-the-cluster-is-ready-we-are-looking-for-8-ids-since-we-asked-for-8-engines">
+<h1>Check if the cluster is ready. We are looking for 8 ids since we asked for 8 engines.<a class="headerlink" href="#check-if-the-cluster-is-ready-we-are-looking-for-8-ids-since-we-asked-for-8-engines" title="Link to this heading"></a></h1>
+<p>Engines in ipparallel parlence are the same as processes or workers in other parallel systems.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cluster</span><span class="o">.</span><span class="n">ids</span>
+</pre></div>
+</div>
+<p>[0, 1, 2, 3, 4, 5, 6, 7]</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">cluster</span><span class="p">[:])</span>
+</pre></div>
+</div>
+<p>8</p>
+</section>
+<section id="assign-the-engines-to-a-variable-named-view-to-allow-us-to-interact-with-them">
+<h1>Assign the engines to a variable named “view” to allow us to interact with them<a class="headerlink" href="#assign-the-engines-to-a-variable-named-view-to-allow-us-to-interact-with-them" title="Link to this heading"></a></h1>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">view</span> <span class="o">=</span> <span class="n">cluster</span><span class="p">[:]</span>
+</pre></div>
+</div>
+<p>Enable ipython `magics´. These are ipython helper functions such as %</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">view</span><span class="o">.</span><span class="n">activate</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="check-to-see-if-the-mpi-communication-world-is-of-the-expected-size-it-should-be-size-8-since-we-have-8-engines">
+<h1>Check to see if the MPI communication world is of the expected size. It should be size 8 since we have 8 engines.<a class="headerlink" href="#check-to-see-if-the-mpi-communication-world-is-of-the-expected-size-it-should-be-size-8-since-we-have-8-engines" title="Link to this heading"></a></h1>
+<p>Note we are running the Get_size command on each engine to make sure they all see the same MPI comm world. %px simply executes the code following it on each compute engine in parallel.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">status_mpi_size</span><span class="o">=%</span><span class="n">px</span> <span class="n">size</span> <span class="o">=</span> <span class="n">MPI</span><span class="o">.</span><span class="n">COMM_WORLD</span><span class="o">.</span><span class="n">Get_size</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">status_mpi_size</span><span class="o">.</span><span class="n">wait_interactive</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>done</p>
+<p>The output of viewing the size variable should be an array with the same number of entries as engines, and each entry should be the number of engines requested.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">view</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>[8, 8, 8, 8, 8, 8, 8, 8]</p>
+</section>
+<section id="run-the-external-python-code-in-psum-py-on-all-the-engines">
+<h1>Run the external python code in ´psum.py´ on all the engines.<a class="headerlink" href="#run-the-external-python-code-in-psum-py-on-all-the-engines" title="Link to this heading"></a></h1>
+<p>Recall that psum.py just loads the MPI libraries and defines the distributed sum function, psum. We are not actually calling the psum function yet.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">status_psum_run</span><span class="o">=</span><span class="n">view</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s1">&#39;psum.py&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">status_psum_run</span><span class="o">.</span><span class="n">wait_interactive</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>done</p>
+</section>
+<section id="send-data-to-all-nodes-to-by-summed">
+<h1>Send data to all nodes to by summed<a class="headerlink" href="#send-data-to-all-nodes-to-by-summed" title="Link to this heading"></a></h1>
+<p>The scatter command sends 32 values from 0 to 31 to the 8 compute engines. Each compute engine gets 32/8=4 values. This is the ipyparallel scatter command, not an MPI scatter command.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">status_scatter</span><span class="o">=</span><span class="n">view</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>done</p>
+<p>We can view the variable ‘a’ on all the compute engines. The value of ‘a’ for each compute engine is an element of the return array. In this case each value is itself an array.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">view</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>[array([0., 1., 2., 3.]),
+array([4., 5., 6., 7.]),
+array([ 8.,  9., 10., 11.]),
+array([12., 13., 14., 15.]),
+array([16., 17., 18., 19.]),
+array([20., 21., 22., 23.]),
+array([24., 25., 26., 27.]),
+array([28., 29., 30., 31.])]</p>
+</section>
+<section id="execute-the-psum-function-on-all-the-compute-engines-and-store-the-result-in-totalsum">
+<h1>Execute the psum function on all the compute engines and store the result in totalsum<a class="headerlink" href="#execute-the-psum-function-on-all-the-compute-engines-and-store-the-result-in-totalsum" title="Link to this heading"></a></h1>
+<p>MPI code has to be executed on each compute engine so they can each perform the MPI reduce. This is accomplished by running calling the psum function on all the compute engines simultaniosly. MPI will allow them to communicate with each other to calculate the sum.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">status_psum_call</span><span class="o">=%</span><span class="n">px</span> <span class="n">totalsum</span> <span class="o">=</span> <span class="n">psum</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">status_psum_call</span><span class="o">.</span><span class="n">wait_interactive</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>done</p>
+</section>
+<section id="check-the-value-of-totalsum-on-each-node">
+<h1>Check the value of totalsum on each node<a class="headerlink" href="#check-the-value-of-totalsum-on-each-node" title="Link to this heading"></a></h1>
+<p>Total should be equal to 31(31+1)/2=496</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">view</span><span class="p">[</span><span class="s1">&#39;totalsum&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>[array(496.),
+array(496.),
+array(496.),
+array(496.),
+array(496.),
+array(496.),
+array(496.),
+array(496.)]</p>
+<p>Each compute engine calculated the sum of all the values. Since we ran this MPI function on all the compute engines they report the same value.</p>
+</section>
+<section id="defining-functions-in-the-notebook">
+<h1>Defining functions in the notebook<a class="headerlink" href="#defining-functions-in-the-notebook" title="Link to this heading"></a></h1>
+<p>Rather than loading psum from file we can define it in the notebook using the ipython function decorator ‘&#64;’.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@view</span><span class="o">.</span><span class="n">remote</span><span class="p">(</span><span class="n">block</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">inlinesum</span><span class="p">():</span>
+    <span class="kn">from</span> <span class="nn">mpi4py</span> <span class="kn">import</span> <span class="n">MPI</span>
+    <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+    <span class="n">locsum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="n">rcvBuf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">)</span>
+    <span class="n">MPI</span><span class="o">.</span><span class="n">COMM_WORLD</span><span class="o">.</span><span class="n">Allreduce</span><span class="p">([</span><span class="n">locsum</span><span class="p">,</span> <span class="n">MPI</span><span class="o">.</span><span class="n">DOUBLE</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">rcvBuf</span><span class="p">,</span> <span class="n">MPI</span><span class="o">.</span><span class="n">DOUBLE</span><span class="p">],</span>
+        <span class="n">op</span><span class="o">=</span><span class="n">MPI</span><span class="o">.</span><span class="n">SUM</span><span class="p">)</span>    
+    <span class="k">return</span> <span class="n">rcvBuf</span>
+</pre></div>
+</div>
+<p>Now we can call inlinesum and it is automatically run on every compute engine. The call is through ipyparallels but the computation is still using MPI.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">inlinesum</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>[array(496.),
+array(496.),
+array(496.),
+array(496.),
+array(496.),
+array(496.),
+array(496.),
+array(496.),
+array(496.),
+array(496.),
+array(496.),
+array(496.),
+array(496.),
+array(496.),
+array(496.),
+array(496.)]</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

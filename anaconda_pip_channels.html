@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Installing with pip and adding channels &mdash; CARC QuickBytes 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=2709fde1"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="R Programming in HPC" href="R_usage.html" />
+    <link rel="prev" title="Anaconda" href="anaconda_intro.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CARC QuickBytes
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="linux_intro.html">Linux Tutorial</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="logging_in.html">Logging in</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ssh_keygen_config.html">SSH keys and config file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transfer_data.html">Transferring data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pbs-torque.html">PBS/TORQUE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pbs_scripts2.html">Example PBS Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="submitting_jobs.html">Submitting jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="checking_on_running_jobs.html">Checking on running jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="module_management.html">Managing software models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Intro_to_slurm.html">Slurm Workload Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pbs2slurm.html">Conversion of PBS script to Slurm script</a></li>
+<li class="toctree-l1"><a class="reference internal" href="slurm_accounting.html">Introduction to Slurm Accounting at CARC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="running_matlab_jobs.html">Running MATLAB Jobs at CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html">Parallel MATLAB Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html#how-matlab-parallel-works-behind-the-scenes">How MATLAB Parallel Works Behind the Scenes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html#setting-your-ip-address">Setting your IP Address</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html#monitoring-matlab-jobs">Monitoring MATLAB Jobs</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Conda_JupyterHub.html">Using Custom Conda Python Environments in JupyterHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="julia_with_jupyterhub.html">Julia with Jupyter Hub</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="anaconda_general_intro.html">Anaconda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="anaconda_intro.html">Anaconda</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installing with pip and adding channels</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installing-packages-with-pip">Installing packages with pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#performance-with-conda-versus-pip">Performance with Conda versus Pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adding-package-repositories-channels">Adding package repositories (channels)</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="R_usage.html">R Programming in HPC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Tensorflow_documentation.html">Introduction to Tensorflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html">Setting Up PyTorch using Xena</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html#navigate-to-the-pytorch1-9-k40-compatible-directory">Navigate to the PyTorch1.9-K40-Compatible directory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html#activate-the-conda-environment">Activate the Conda Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch_1.9_Xena.html#pip-installation">Pip installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="GATK_QuickByte.html">Parallel genomic variant calling with Genome Analysis Toolkit (GATK)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genome_evaluation.html">Reference genome evaluation with QUAST and BUSCO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="psmc_quickbyte.html">Pairwise Sequentially Markovian Coalescent (PSMC)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Stacks_quickbyte.html">Running Stacks on CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Metabarcoding.html">Metabarcoding Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Beast_at_CARC.html">BEAST at CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="msprime_quickbyte.html">Running Population Genetic Simulations with MSPrime</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="orca_wheeler_taos.html">Using Orca on Wheeler and Taos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alphafold.html">Alphafold</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alphafold.html#alphafold-w-localcolabfold">Alphafold w/ LocalColabFold:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alphafold.html#alphafold-w-singularity-image">Alphafold w/ Singularity Image:</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html">Download the SimCov Source Code from GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html#build-simcov-from-source">Build SimCov from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html#configure-simcov">Configure SimCov</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html#submit-a-simcov-job">Submit a SimCov Job</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mpiCASA.html">Using CASA on CARC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="paraview.html">How to: Remote Visualization using ParaView in parallel.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Paraview_Hopper.html">Remote Visualization using ParaView in parallel.</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="singularity-markdown-version.html">Docker and Singularity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singularity-markdown-version.html#singularity">Singularity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singularity-markdown-version.html#version-issues">Version Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="haskell.html">Haskell at CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X11_forwarding.html">X11 Forwarding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spark.html">Spark</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CARC QuickBytes</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Installing with pip and adding channels</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/anaconda_pip_channels.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="installing-with-pip-and-adding-channels">
+<h1>Installing with pip and adding channels<a class="headerlink" href="#installing-with-pip-and-adding-channels" title="Link to this heading"></a></h1>
+<section id="installing-packages-with-pip">
+<h2>Installing packages with pip<a class="headerlink" href="#installing-packages-with-pip" title="Link to this heading"></a></h2>
+<p>Not all versions of all software have Conda packages available however, especially for some python libraries. Pip, the python package manager, is automatically installed by default in all environments created by Conda, and can install packages alongside those installed by Conda without conflict.<br />
+For example, say you need the library psutil, but you specifically need version 5.3.0. When you search for psutil using <code class="docutils literal notranslate"><span class="pre">conda</span></code> you get the following:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>conda<span class="w"> </span>search<span class="w"> </span><span class="nv">psutil</span><span class="o">=</span><span class="m">5</span>.3
+Loading<span class="w"> </span>channels:<span class="w"> </span><span class="k">done</span>
+<span class="c1"># Name                  Version           Build  Channel</span>
+psutil<span class="w">                    </span><span class="m">5</span>.3.1<span class="w">          </span>py27_0<span class="w">  </span>conda-forge
+psutil<span class="w">                    </span><span class="m">5</span>.3.1<span class="w">  </span>py27h4c169b4_0<span class="w">  </span>pkgs/main
+psutil<span class="w">                    </span><span class="m">5</span>.3.1<span class="w">          </span>py35_0<span class="w">  </span>conda-forge
+psutil<span class="w">                    </span><span class="m">5</span>.3.1<span class="w">  </span>py35h6e9e629_0<span class="w">  </span>pkgs/main
+psutil<span class="w">                    </span><span class="m">5</span>.3.1<span class="w">          </span>py36_0<span class="w">  </span>conda-forge
+psutil<span class="w">                    </span><span class="m">5</span>.3.1<span class="w">  </span>py36h0e357b8_0<span class="w">  </span>pkgs/main
+</pre></div>
+</div>
+<p>Unfortunately there are no packages built for psutil version 5.3.0. We can use pip to install the version we want however.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">source</span><span class="w"> </span>activate<span class="w"> </span>py-2.7
+
+<span class="o">(</span>py-2.7<span class="o">)</span>$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span><span class="nv">psutil</span><span class="o">==</span><span class="m">5</span>.3.0
+Collecting<span class="w"> </span><span class="nv">psutil</span><span class="o">==</span><span class="m">5</span>.3.0
+<span class="w">  </span>Downloading<span class="w"> </span>https://files.pythonhosted.org/packages/1c/da/555e3ad3cad30f30bcf0d539cdeae5c8e7ef9e2a6078af645c70aa81e418/psutil-5.3.0.tar.gz<span class="w"> </span><span class="o">(</span>397kB<span class="o">)</span>
+<span class="w">    </span><span class="m">100</span>%<span class="w"> </span><span class="p">|</span>████████████████████████████████<span class="p">|</span><span class="w"> </span>399kB<span class="w"> </span><span class="m">1</span>.3MB/s
+Building<span class="w"> </span>wheels<span class="w"> </span><span class="k">for</span><span class="w"> </span>collected<span class="w"> </span>packages:<span class="w"> </span>psutil
+<span class="w">  </span>Running<span class="w"> </span>setup.py<span class="w"> </span>bdist_wheel<span class="w"> </span><span class="k">for</span><span class="w"> </span>psutil<span class="w"> </span>...<span class="w"> </span><span class="k">done</span>
+<span class="w">  </span>Stored<span class="w"> </span><span class="k">in</span><span class="w"> </span>directory:<span class="w"> </span>/users/yourusername/.cache/pip/wheels/ff/c5/4f/1ee2208203f1cfeda16e91fccd8bfce5f4840b683671729d57
+Successfully<span class="w"> </span>built<span class="w"> </span>psutil
+
+<span class="o">(</span>py-2.7<span class="o">)</span>$<span class="w"> </span>conda<span class="w"> </span>list
+
+<span class="c1"># packages in environment at /users/yourusername/.Conda/envs/py-2.7:</span>
+<span class="c1">#</span>
+<span class="c1"># Name                    Version                   Build</span>
+ca-certificates<span class="w">           </span><span class="m">2018</span>.03.07<span class="w">                    </span><span class="m">0</span>
+certifi<span class="w">                   </span><span class="m">2018</span>.8.24<span class="w">                </span>py27_1
+libedit<span class="w">                   </span><span class="m">3</span>.1.20170329<span class="w">         </span>h6b74fdf_2
+libffi<span class="w">                    </span><span class="m">3</span>.2.1<span class="w">                </span>hd88cf55_4
+libgcc-ng<span class="w">                 </span><span class="m">8</span>.2.0<span class="w">                </span>hdf63c60_1
+libstdcxx-ng<span class="w">              </span><span class="m">8</span>.2.0<span class="w">                </span>hdf63c60_1
+ncurses<span class="w">                   </span><span class="m">6</span>.1<span class="w">                  </span>hf484d3e_0
+openssl<span class="w">                   </span><span class="m">1</span>.0.2p<span class="w">               </span>h14c3975_0
+pip<span class="w">                       </span><span class="m">10</span>.0.1<span class="w">                   </span>py27_0
+**psutil<span class="w">                  </span><span class="m">5</span>.3.0<span class="w">                     </span>&lt;pip&gt;
+python<span class="w">                    </span><span class="m">2</span>.7.15<span class="w">               </span>h1571d57_0
+readline<span class="w">                  </span><span class="m">7</span>.0<span class="w">                  </span>h7b6447c_5
+setuptools<span class="w">                </span><span class="m">40</span>.2.0<span class="w">                   </span>py27_0
+sqlite<span class="w">                    </span><span class="m">3</span>.24.0<span class="w">               </span>h84994c4_0
+tk<span class="w">                        </span><span class="m">8</span>.6.8<span class="w">                </span>hbc83047_0
+wheel<span class="w">                     </span><span class="m">0</span>.31.1<span class="w">                   </span>py27_0
+zlib<span class="w">                      </span><span class="m">1</span>.2.11<span class="w">               </span>ha838bed_2
+</pre></div>
+</div>
+<p>When installing packages using <code class="docutils literal notranslate"><span class="pre">pip</span></code> it is important to first activate the Conda environment that you want to install the package in since pip is strictly a package manager and cannot modify Conda environments from outside that environment. You can see that our psutil package, marked with a double asterisk, is version 5.3.0, just like we wanted. Under the ‘build’ column however you will see that <code class="docutils literal notranslate"><span class="pre">conda</span></code> is not sure which build it is since it was installed with <code class="docutils literal notranslate"><span class="pre">pip</span></code>, as indicated by the <code class="docutils literal notranslate"><span class="pre">&lt;pip&gt;</span></code> designator.</p>
+</section>
+<section id="performance-with-conda-versus-pip">
+<h2>Performance with Conda versus Pip<a class="headerlink" href="#performance-with-conda-versus-pip" title="Link to this heading"></a></h2>
+<p>One thing to note when installing packages is that it is always preferable to first install necessary packages with <code class="docutils literal notranslate"><span class="pre">conda</span></code> first, only then use <code class="docutils literal notranslate"><span class="pre">pip</span></code> to install only those packages that were not available through Anaconda repositories.
+It is usually best practice to install needed packages and dependencies with <code class="docutils literal notranslate"><span class="pre">conda</span></code> and use <code class="docutils literal notranslate"><span class="pre">pip</span></code> to install any remaining packages that were not available instead of vice versa.</p>
+</section>
+<section id="adding-package-repositories-channels">
+<h2>Adding package repositories (channels)<a class="headerlink" href="#adding-package-repositories-channels" title="Link to this heading"></a></h2>
+<p>Sometimes the default repositories, or channels for Conda, do not have the package you are looking for, but that does not mean that it is necessarily unavailable entirely. Say you are working with some Illumina sequence data and need the Burrows-Wheeler Aligner (bwa) in your pipeline, so you activate your bioinformatics environment and type <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">bwa</span></code> which prints the following:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Solving<span class="w"> </span>environment:<span class="w"> </span>failed
+
+PackagesNotFoundError:<span class="w"> </span>The<span class="w"> </span>following<span class="w"> </span>packages<span class="w"> </span>are<span class="w"> </span>not<span class="w"> </span>available<span class="w"> </span>from<span class="w"> </span>current<span class="w"> </span>channels:
+
+<span class="w">  </span>-<span class="w"> </span>bwa
+
+Current<span class="w"> </span>channels:
+
+<span class="w">  </span>-<span class="w"> </span>https://repo.anaconda.com/pkgs/main/linux-64
+<span class="w">  </span>-<span class="w"> </span>https://repo.anaconda.com/pkgs/main/noarch
+<span class="w">  </span>-<span class="w"> </span>https://repo.anaconda.com/pkgs/free/linux-64
+<span class="w">  </span>-<span class="w"> </span>https://repo.anaconda.com/pkgs/free/noarch
+<span class="w">  </span>-<span class="w"> </span>https://repo.anaconda.com/pkgs/r/linux-64
+<span class="w">  </span>-<span class="w"> </span>https://repo.anaconda.com/pkgs/r/noarch
+<span class="w">  </span>-<span class="w"> </span>https://repo.anaconda.com/pkgs/pro/linux-64
+<span class="w">  </span>-<span class="w"> </span>https://repo.anaconda.com/pkgs/pro/noarch
+
+To<span class="w"> </span>search<span class="w"> </span><span class="k">for</span><span class="w"> </span>alternate<span class="w"> </span>channels<span class="w"> </span>that<span class="w"> </span>may<span class="w"> </span>provide<span class="w"> </span>the<span class="w"> </span>conda<span class="w"> </span>package<span class="w"> </span>you<span class="err">&#39;</span>re
+looking<span class="w"> </span><span class="k">for</span>,<span class="w"> </span>navigate<span class="w"> </span>to
+
+<span class="w">    </span>https://anaconda.org
+
+and<span class="w"> </span>use<span class="w"> </span>the<span class="w"> </span>search<span class="w"> </span>bar<span class="w"> </span>at<span class="w"> </span>the<span class="w"> </span>top<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>page.
+</pre></div>
+</div>
+<p>We can search other channels that may have the package we are interested in with the <code class="docutils literal notranslate"><span class="pre">-c</span></code> flag. For example, BioConda is a large repository that hosts several thousand bioinformatics packages. We can search for our bwa package by specifying that channel.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>conda<span class="w"> </span>search<span class="w"> </span>-c<span class="w"> </span>bioConda<span class="w"> </span>bwa
+</pre></div>
+</div>
+<p>Which yields better results:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Loading<span class="w"> </span>channels:<span class="w"> </span><span class="k">done</span>
+<span class="c1"># Name                  Version           Build  Channel</span>
+bwa<span class="w">                       </span><span class="m">0</span>.5.9<span class="w">               </span><span class="m">0</span><span class="w">  </span>bioConda
+bwa<span class="w">                       </span><span class="m">0</span>.5.9<span class="w">               </span><span class="m">1</span><span class="w">  </span>bioConda
+bwa<span class="w">                       </span><span class="m">0</span>.6.2<span class="w">               </span><span class="m">0</span><span class="w">  </span>bioConda
+bwa<span class="w">                       </span><span class="m">0</span>.6.2<span class="w">               </span><span class="m">1</span><span class="w">  </span>bioConda
+bwa<span class="w">                      </span><span class="m">0</span>.7.3a<span class="w">               </span><span class="m">0</span><span class="w">  </span>bioConda
+bwa<span class="w">                      </span><span class="m">0</span>.7.3a<span class="w">               </span><span class="m">1</span><span class="w">  </span>bioConda
+bwa<span class="w">                      </span><span class="m">0</span>.7.3a<span class="w">      </span>ha92aebf_2<span class="w">  </span>bioConda
+bwa<span class="w">                       </span><span class="m">0</span>.7.4<span class="w">      </span>ha92aebf_0<span class="w">  </span>bioConda
+bwa<span class="w">                       </span><span class="m">0</span>.7.8<span class="w">               </span><span class="m">0</span><span class="w">  </span>bioConda
+bwa<span class="w">                       </span><span class="m">0</span>.7.8<span class="w">               </span><span class="m">1</span><span class="w">  </span>bioConda
+bwa<span class="w">                       </span><span class="m">0</span>.7.8<span class="w">      </span>ha92aebf_2<span class="w">  </span>bioConda
+bwa<span class="w">                      </span><span class="m">0</span>.7.12<span class="w">               </span><span class="m">0</span><span class="w">  </span>bioConda
+bwa<span class="w">                      </span><span class="m">0</span>.7.12<span class="w">               </span><span class="m">1</span><span class="w">  </span>bioConda
+bwa<span class="w">                      </span><span class="m">0</span>.7.13<span class="w">               </span><span class="m">0</span><span class="w">  </span>bioConda
+bwa<span class="w">                      </span><span class="m">0</span>.7.13<span class="w">               </span><span class="m">1</span><span class="w">  </span>bioConda
+bwa<span class="w">                      </span><span class="m">0</span>.7.15<span class="w">               </span><span class="m">0</span><span class="w">  </span>bioConda
+bwa<span class="w">                      </span><span class="m">0</span>.7.15<span class="w">               </span><span class="m">1</span><span class="w">  </span>bioConda
+bwa<span class="w">                      </span><span class="m">0</span>.7.16<span class="w">      </span>pl5.22.0_0<span class="w">  </span>bioConda
+bwa<span class="w">                      </span><span class="m">0</span>.7.17<span class="w">      </span>ha92aebf_3<span class="w">  </span>bioConda
+bwa<span class="w">                      </span><span class="m">0</span>.7.17<span class="w">      </span>pl5.22.0_0<span class="w">  </span>bioConda
+bwa<span class="w">                      </span><span class="m">0</span>.7.17<span class="w">      </span>pl5.22.0_1<span class="w">  </span>bioConda
+bwa<span class="w">                      </span><span class="m">0</span>.7.17<span class="w">      </span>pl5.22.0_2<span class="w">  </span>bioConda
+</pre></div>
+</div>
+<p>We can then install our bwa package using <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">bioConda</span> <span class="pre">bwa</span></code> and continue with our analyses. You can permanently add channels by appending your <code class="docutils literal notranslate"><span class="pre">.condarc</span></code> file either directly in a text editor, or with <code class="docutils literal notranslate"><span class="pre">conda</span></code> by using the <code class="docutils literal notranslate"><span class="pre">config</span></code> command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>conda<span class="w"> </span>config<span class="w"> </span>--append<span class="w"> </span>channels<span class="w"> </span>bioconda
+</pre></div>
+</div>
+<p>This will permanently add the BioConda channel to your configuration file meaning Conda will automatically search BioConda as well as the default channels when looking for packages.</p>
+<p>For more information on managing channels and installing with pip please refer to the Conda support documentation at this <a class="reference external" href="https://conda.io/docs/user-guide/tasks/manage-channels.html">link</a>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="anaconda_intro.html" class="btn btn-neutral float-left" title="Anaconda" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="R_usage.html" class="btn btn-neutral float-right" title="R Programming in HPC" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

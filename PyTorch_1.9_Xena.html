@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Setting Up PyTorch using Xena &mdash; CARC QuickBytes 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=2709fde1"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Parallel genomic variant calling with Genome Analysis Toolkit (GATK)" href="GATK_QuickByte.html" />
+    <link rel="prev" title="Introduction to Tensorflow" href="Tensorflow_documentation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CARC QuickBytes
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="linux_intro.html">Linux Tutorial</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="logging_in.html">Logging in</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ssh_keygen_config.html">SSH keys and config file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transfer_data.html">Transferring data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pbs-torque.html">PBS/TORQUE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pbs_scripts2.html">Example PBS Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="submitting_jobs.html">Submitting jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="checking_on_running_jobs.html">Checking on running jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="module_management.html">Managing software models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Intro_to_slurm.html">Slurm Workload Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pbs2slurm.html">Conversion of PBS script to Slurm script</a></li>
+<li class="toctree-l1"><a class="reference internal" href="slurm_accounting.html">Introduction to Slurm Accounting at CARC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="running_matlab_jobs.html">Running MATLAB Jobs at CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html">Parallel MATLAB Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html#how-matlab-parallel-works-behind-the-scenes">How MATLAB Parallel Works Behind the Scenes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html#setting-your-ip-address">Setting your IP Address</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParallelMatlabServer.html#monitoring-matlab-jobs">Monitoring MATLAB Jobs</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Conda_JupyterHub.html">Using Custom Conda Python Environments in JupyterHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="julia_with_jupyterhub.html">Julia with Jupyter Hub</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="anaconda_general_intro.html">Anaconda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="anaconda_intro.html">Anaconda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="anaconda_pip_channels.html">Installing with pip and adding channels</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="R_usage.html">R Programming in HPC</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Tensorflow_documentation.html">Introduction to Tensorflow</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Setting Up PyTorch using Xena</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ssh-in-to-xena">SSH in to Xena</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-the-condarc-file">Create the Condarc File</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#navigate-to-the-pytorch1-9-k40-compatible-directory">Navigate to the PyTorch1.9-K40-Compatible directory</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#create-the-conda-environment">Create the Conda Environment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#activate-the-conda-environment">Activate the Conda Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#pip-installation">Pip installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="GATK_QuickByte.html">Parallel genomic variant calling with Genome Analysis Toolkit (GATK)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genome_evaluation.html">Reference genome evaluation with QUAST and BUSCO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="psmc_quickbyte.html">Pairwise Sequentially Markovian Coalescent (PSMC)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Stacks_quickbyte.html">Running Stacks on CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Metabarcoding.html">Metabarcoding Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Beast_at_CARC.html">BEAST at CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="msprime_quickbyte.html">Running Population Genetic Simulations with MSPrime</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="orca_wheeler_taos.html">Using Orca on Wheeler and Taos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alphafold.html">Alphafold</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alphafold.html#alphafold-w-localcolabfold">Alphafold w/ LocalColabFold:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alphafold.html#alphafold-w-singularity-image">Alphafold w/ Singularity Image:</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html">Download the SimCov Source Code from GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html#build-simcov-from-source">Build SimCov from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html#configure-simcov">Configure SimCov</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SimCov.html#submit-a-simcov-job">Submit a SimCov Job</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mpiCASA.html">Using CASA on CARC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="paraview.html">How to: Remote Visualization using ParaView in parallel.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Paraview_Hopper.html">Remote Visualization using ParaView in parallel.</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="singularity-markdown-version.html">Docker and Singularity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singularity-markdown-version.html#singularity">Singularity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singularity-markdown-version.html#version-issues">Version Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="haskell.html">Haskell at CARC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X11_forwarding.html">X11 Forwarding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spark.html">Spark</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CARC QuickBytes</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Setting Up PyTorch using Xena</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/PyTorch_1.9_Xena.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="setting-up-pytorch-using-xena">
+<h1>Setting Up PyTorch using Xena<a class="headerlink" href="#setting-up-pytorch-using-xena" title="Link to this heading"></a></h1>
+<section id="ssh-in-to-xena">
+<h2>SSH in to Xena<a class="headerlink" href="#ssh-in-to-xena" title="Link to this heading"></a></h2>
+<p>To connect to the Xena machine, you will need to use the secure shell command below with your username in place of $USERNAME. This will prompt you for your password. When typing your password, you will not get any visual feedback. If you have issues with connecting to the machine, please reach out to the CARC helpdesk.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>ssh $USERNAME@xena.alliance.unm.edu
+</pre></div>
+</div>
+</section>
+<section id="create-the-condarc-file">
+<h2>Create the Condarc File<a class="headerlink" href="#create-the-condarc-file" title="Link to this heading"></a></h2>
+<p>To create the Condarc file that you will need, use your favorite text editor to create an empty file ‘.condarc’. For this tutorial I will use nano, which is an easy beginning text editor.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nano</span> <span class="o">.</span><span class="n">condarc</span>
+</pre></div>
+</div>
+<p>The above code creates a blank file using the nano text editor.</p>
+<p>In the condarc file you just created, paste the following then change the $USERNAME prompt to your username.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>auto_activate_base: false
+channels:
+  - conda-forge
+  - defaults
+envs_dirs:
+  - /users/$USERNAME/.conda/envs
+pkgs_dirs:
+  - /users/$USERNAME/.conda/pkgs
+</pre></div>
+</div>
+<p>If you are using nano, notice that at the bottom of the screen below, it lists options for how users can interact with the open file.</p>
+<img width="719" alt="Screenshot 2023-08-29 at 11 01 54 PM" src="https://github.com/UNM-CARC/QuickBytes/assets/130007104/c647a39d-c6d8-437f-917d-f9e1cee8d7e5">
+<p>To save the lines of code you just pasted into the file, hold down the control key and press ‘O’. This “writes out” or saves the text. You can then exit the text editor by holding down the control key and pressing ‘X’.</p>
+<p>To confirm that the file has been edited and contains the correct code, run the command.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">.</span><span class="n">condarc</span> 
+</pre></div>
+</div>
+<p>The following text should appear under your command line.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">auto_activate_base</span><span class="p">:</span> <span class="n">false</span>
+<span class="n">channels</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+  <span class="o">-</span> <span class="n">defaults</span>
+<span class="n">envs_dirs</span><span class="p">:</span>
+  <span class="o">-</span> <span class="o">/</span><span class="n">users</span><span class="o">/</span><span class="p">{</span><span class="n">YOUR</span> <span class="n">USERNAME</span> <span class="n">HERE</span><span class="p">}</span><span class="o">/.</span><span class="n">conda</span><span class="o">/</span><span class="n">envs</span>
+<span class="n">pkgs_dirs</span><span class="p">:</span>
+  <span class="o">-</span> <span class="o">/</span><span class="n">users</span><span class="o">/</span><span class="p">{</span><span class="n">YOUR</span> <span class="n">USERNAME</span> <span class="n">HERE</span><span class="p">}</span><span class="o">/.</span><span class="n">conda</span><span class="o">/</span><span class="n">pkgs</span>
+</pre></div>
+</div>
+<p>If you do not see this text appear, walk through the creation of the condarc file again.</p>
+</section>
+</section>
+<section id="navigate-to-the-pytorch1-9-k40-compatible-directory">
+<h1>Navigate to the PyTorch1.9-K40-Compatible directory<a class="headerlink" href="#navigate-to-the-pytorch1-9-k40-compatible-directory" title="Link to this heading"></a></h1>
+<p>Run the following code to change directories into the PyTorch1.9-K40-Compatible directory.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">shared</span><span class="o">/</span><span class="n">pytorch</span><span class="o">/</span><span class="n">PyTorch1</span><span class="mf">.9</span><span class="o">-</span><span class="n">K40</span><span class="o">-</span><span class="n">Compatible</span>
+
+</pre></div>
+</div>
+<p>Assuming you have a default command line prompt, this will change your command prompt to reflect the updated directory. If you are not in the PyTorch1.9-K40-Compatible directory, you will run into issues in later steps. To confirm that you are in the correct directory, print your working directory with the following command.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pwd</span>
+
+</pre></div>
+</div>
+<section id="create-the-conda-environment">
+<h2>Create the Conda Environment<a class="headerlink" href="#create-the-conda-environment" title="Link to this heading"></a></h2>
+<p>Now that you are in the correct directory, you’ll create your python environment. To create a python environment, you first need to load the miniconda3 module with the following command: (No output should print from this command)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="n">load</span> <span class="n">miniconda3</span>
+</pre></div>
+</div>
+<p>You can then create the python environment by running the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">env</span> <span class="n">create</span> <span class="o">-</span><span class="n">f</span> <span class="n">torch</span><span class="o">-</span><span class="mf">1.9.0</span><span class="o">+</span><span class="n">cu11</span><span class="mf">.1</span><span class="o">-</span><span class="n">K40</span><span class="o">.</span><span class="n">yml</span> 
+</pre></div>
+</div>
+<p>When asked to proceed, enter “y”</p>
+</section>
+</section>
+<section id="activate-the-conda-environment">
+<h1>Activate the Conda Environment<a class="headerlink" href="#activate-the-conda-environment" title="Link to this heading"></a></h1>
+<p>Once the environment is created, you will need to activate it before you start the pytorch installation. Activate the environment by running the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">activate</span> <span class="n">pytorch</span><span class="o">-</span><span class="mf">1.9</span><span class="o">-</span><span class="n">cuda</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="n">K40</span>
+</pre></div>
+</div>
+<p>This command will add a prefix to your command prompt that indicates which environment you are in. Your command line prompt should take the form of:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(pytorch-1.9-cuda-11-K40)[(username)@(hostname) PyTorch1.9-K40-Compatible]$
+</pre></div>
+</div>
+</section>
+<section id="pip-installation">
+<h1>Pip installation<a class="headerlink" href="#pip-installation" title="Link to this heading"></a></h1>
+<p>To install pytorch, run the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip3</span> <span class="n">install</span> <span class="o">--</span><span class="n">user</span> <span class="n">torch</span><span class="o">-</span><span class="mf">1.9.0</span><span class="o">+</span><span class="n">cu11</span><span class="mf">.1</span><span class="o">-</span><span class="n">cp39</span><span class="o">-</span><span class="n">cp39</span><span class="o">-</span><span class="n">linux_x86_64</span><span class="o">.</span><span class="n">whl</span>
+</pre></div>
+</div>
+<p>After the installation is complete, we can confirm that the torch install was sucessful in JupyterHub. Follow the link below to the CARC website.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">carc</span><span class="o">.</span><span class="n">unm</span><span class="o">.</span><span class="n">edu</span>
+<span class="n">Navigate</span> <span class="n">to</span> <span class="n">Systems</span> <span class="o">&gt;</span> <span class="n">JupyterHub</span> <span class="n">Cluster</span> <span class="n">Links</span> <span class="o">&gt;</span> <span class="n">Xena</span>
+</pre></div>
+</div>
+<img width="1265" alt="Screenshot 2023-09-05 at 9 36 45 PM" src="https://github.com/UNM-CARC/QuickBytes/assets/130007104/eaeb6530-4627-4927-99c2-63b6cb34686f">
+<p>Next, log in to JupyterHub with your CARC username and password. If you are logged in without being prompted to select a server, click on the control panel button in the upper right corner. Then select “Stop My Server”, then select “Start Server”</p>
+<p>You will be prompted to choose a server. For this tutorial, I will choose a Xena server with 2 GPU’s.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Example</span><span class="p">:</span>
+<span class="n">Xena</span> <span class="mi">1</span> <span class="n">hour</span><span class="p">,</span> <span class="mi">2</span> <span class="n">GPUs</span><span class="p">,</span> <span class="mi">16</span> <span class="n">cores</span><span class="p">,</span> <span class="mi">60</span> <span class="n">GB</span> <span class="n">RAM</span>
+</pre></div>
+</div>
+<p>Create a new notebook by selecting new &gt; Python [conda env:.conda-pytorch-1.9-cuda-11-K40]</p>
+<img width="1184" alt="Screenshot 2023-09-05 at 9 41 11 PM" src="https://github.com/UNM-CARC/QuickBytes/assets/130007104/1e1505a7-a610-4ed4-a13a-e77d0a922738">
+<p>To test that the installation was successful, run the following code.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
+<span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">device_count</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>With 2 GPUs, you should get an output of 2.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Tensorflow_documentation.html" class="btn btn-neutral float-left" title="Introduction to Tensorflow" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="GATK_QuickByte.html" class="btn btn-neutral float-right" title="Parallel genomic variant calling with Genome Analysis Toolkit (GATK)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
