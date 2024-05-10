@@ -10,7 +10,6 @@ Linux introduction
 ------------------
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
 
    linux_intro.md
 
@@ -18,7 +17,6 @@ Running jobs
 ------------
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
 
    logging_in.md
    ssh_keygen_config.md
@@ -37,13 +35,11 @@ Applications software
 ---------------------
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
 
 MATLAB
 ^^^^^^
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
 
    running_matlab_jobs.md
    ParallelMatlabServer.md
@@ -55,7 +51,6 @@ JupyterHub
 ^^^^^^^^^^
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
 
    parallelization_with%20Jupyterhub_using_mpi.md
    Conda_JupyterHub.md
@@ -65,7 +60,6 @@ Conda
 ^^^^^
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
 
    anaconda_general_intro.md
    anaconda_intro.md
@@ -75,7 +69,6 @@ R
 ^
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
 
    R_usage.md
    R_at_CARC)
@@ -86,7 +79,6 @@ Machine Learning
 ^^^^^^^^^^^^^^^^
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
 
    Tensorflow_documentation.md
    PyTorch_1.9_Xena.md
@@ -98,7 +90,6 @@ Bioinformatics
 ^^^^^^^^^^^^^^
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
 
    GATK_QuickByte.md
    genome_evaluation.md
@@ -112,7 +103,6 @@ Computational Chemistry
 ^^^^^^^^^^^^^^^^^^^^^^^
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
 
    orca_wheeler_taos.md
    alphafold.md
@@ -121,7 +111,6 @@ Computational Immunology
 ^^^^^^^^^^^^^^^^^^^^^^^^
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
 
    SimCov.md
 
@@ -129,7 +118,6 @@ Astronomy
 ^^^^^^^^^
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
 
    mpiCASA.md
 
@@ -137,7 +125,6 @@ Paraview
 ^^^^^^^^
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
 
    paraview.md
    Paraview_Hopper.md
