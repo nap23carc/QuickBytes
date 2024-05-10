@@ -6,9 +6,9 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'Example'
-copyright = 'workshop participant'
-author = 'workshop participant'
+project = 'CARC QuickBytes'
+copyright = '2024'
+author = 'CARC@UNM'
 release = '0.1'
 
 
