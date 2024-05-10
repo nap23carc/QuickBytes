@@ -9,14 +9,14 @@ Welcome to CARC's QuickBytes!
 Linux introduction
 ------------------
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    linux_intro.md
 
 Running jobs
 ------------
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    logging_in.md
    ssh_keygen_config.md
@@ -34,12 +34,12 @@ Running jobs
 Applications software
 ---------------------
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
 MATLAB
 ^^^^^^
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    running_matlab_jobs.md
    ParallelMatlabServer.md
@@ -50,7 +50,7 @@ MATLAB
 JupyterHub
 ^^^^^^^^^^
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    parallelization_with%20Jupyterhub_using_mpi.md
    Conda_JupyterHub.md
@@ -59,7 +59,7 @@ JupyterHub
 Conda
 ^^^^^
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    anaconda_general_intro.md
    anaconda_intro.md
@@ -68,7 +68,7 @@ Conda
 R
 ^
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    R_usage.md
    R_at_CARC)
@@ -78,7 +78,7 @@ R
 Machine Learning
 ^^^^^^^^^^^^^^^^
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    Tensorflow_documentation.md
    PyTorch_1.9_Xena.md
@@ -89,7 +89,7 @@ Machine Learning
 Bioinformatics
 ^^^^^^^^^^^^^^
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    GATK_QuickByte.md
    genome_evaluation.md
@@ -102,7 +102,7 @@ Bioinformatics
 Computational Chemistry
 ^^^^^^^^^^^^^^^^^^^^^^^
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    orca_wheeler_taos.md
    alphafold.md
@@ -110,21 +110,21 @@ Computational Chemistry
 Computational Immunology
 ^^^^^^^^^^^^^^^^^^^^^^^^
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    SimCov.md
 
 Astronomy
 ^^^^^^^^^
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    mpiCASA.md
 
 Paraview
 ^^^^^^^^
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    paraview.md
    Paraview_Hopper.md
