@@ -17,7 +17,7 @@ release = '0.1'
 
 extensions = [
     'myst_parser',
-    'nbsphinx',
+    'myst_nb',
 ]
 
 
