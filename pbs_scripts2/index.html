@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Example PBS Scripts - CARC QuickBytes</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Example PBS Scripts";
+        var mkdocs_page_input_path = "pbs_scripts2.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> CARC QuickBytes
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../workshop_slides/">Workshop Slides</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Linux & HPC Introduction</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../linux_intro/">Linux Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../logging_in/">Logging in</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ssh_keygen_config/">SSH keys and Config file</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../transfer_data/">Transferring data</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Intro_to_slurm/">Intro to Slurm</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../pbs2slurm/">Converting PBS to Slurm</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../checking_on_running_jobs/">Check running jobs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../module_management/">Managing modules</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../slurm_accounting/">Intro to Slurm accounting at CARC</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../GNU_Parallel/">GNU Parallel</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../X11_forwarding/">X11 Forwarding</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Applications Tutorials</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >MATLAB</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../running_matlab_jobs/">Running MATLAB jobs at CARC</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ParallelMatlabServer/">Parallel MATLAB Server</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Parallel_MATLAB_profile_setup_and_batch_submission/">Parallel MATLAB batch submission</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Using_GPUs_on_Xena_with_MATLAB/">Using GPUs with MATLAB</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../MATLAB_Deep_Learning_on_Xena/">MATLAB Deep Learning on Xena</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >JupyterHub</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../parallelization_with_Jupyterhub_using_mpi/">JupyterHub Parallel Processing with MPI</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Conda_JupyterHub/">Conda python environments for JupyterHub</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../julia_with_jupyterhub/">Using Julia in JupyterHub</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Conda</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../anaconda_general_intro/">General intro to Conda</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../anaconda_intro/">Intro to Conda with example</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../anaconda_pip_channels/">Anaconda pip channels</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >R</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../R_usage/">R Programming in HPC</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="https://github.com/UNM-CARC/QuickBytes/tree/master/R_at_CARC">R at CARC</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Parallel_R_with_Future.ipynb">Running R in Parallel with Future</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Gurobi_optimizer_with_R/">Gurobi optimizer with R</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Machine Learning</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../Tensorflow_documentation/">Tensorflow</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../PyTorch_1.9_Xena/">Installing PyTorch on Xena</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../PyTorch_Classifier_Xena.ipynb">Example PyTorch Image Classification on Xena</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../multiGPU_tensorflow_tutorial.ipynb">Tensorflow with multiple GPUs</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../parallel_jupyterhub_with_dask_and_scikit-learn/">Parallelization with JupyterHub using Dask and SciKit-learn</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Bioinformatics</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../GATK_QuickByte/">Genomic variant calling with GATK</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../genome_evaluation/">Genome evaluation with QUAST and BUSCO</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../psmc_quickbyte/">Single genome demographic history with PSMC</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Stacks_quickbyte/">Stacks for RAD-Seq Data</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Metabarcoding/">Metabarcoding with QIIME2, Mothur, and USEARCH</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Beast_at_CARC/">BEAST at CARC</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../msprime_quickbyte/">Population genetic simulations with msprime (backwards time</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Computational Chemistry</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../orca_wheeler_taos/">Orca on Wheeler and Taos</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../alphafold/">Alphafold</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Computational Immunology</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../SimCov/">SimCov on Wheeler</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Astronomy</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../mpiCASA/">CASA Radio Astronomy</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Paraview</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../paraview/">Paraview Wheeler</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Paraview_Hopper/">Paraview Hopper</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../singularity-markdown-version/">Docker and Singularity</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../haskell/">Haskell at CARC</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../spark/">Spark</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../install_perl_libraries/">Installing Perl Libraries to Your Home Directory</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">CARC QuickBytes</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Example PBS Scripts</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="example-pbs-scripts">Example PBS Scripts</h1>
+<h3 id="pbs-hello-world">PBS Hello World:</h3>
+<p>This example uses the "Bash” shell to print a simple “Hello World”
+message. Note that it specifies the shell with the <code>-S</code> option. If you
+do not specify a shell using the <code>-S</code> option (either inside the PBS
+script or as an argument to <code>qsub</code>), then your default shell will be used.
+Since this script uses built-in Bash commands no software modules are
+loaded. That will be introduced in the next PBS script.</p>
+<pre><code class="language-bash">#!/bin/bash
+## Introduction for writing a PBS script
+## The next lines specify what resources you are requesting.
+## Starting with 1 node, 8 processors per node, and 2 hours of walltime. 
+## Setup your qsub flags
+#PBS -l walltime=2:00:00
+#PBS -l nodes=1:ppn=8
+#PBS -N my_job
+#PBS -M myemailaddress@unm.edu
+#PBS -m bae
+## All other instructions to TORQUE are here as well and are preceded by a single #, note that normal comments can also be preceded by a single #
+## Specify the shell to be bash
+#PBS -S /bin/bash
+## Change to directory the PBS script was submitted from
+cd $PBS_O_WORKDIR
+## Print out a hello message indicating the host this is running on
+export THIS_HOST=$(hostname)
+echo Hello World from host $THIS_HOST
+####################################################
+</code></pre>
+<p>Note that the <code>ppn</code> (processors per node) value must always be less than
+or equal to the number of physical cores available on each node of the
+system on which you are running and is machine specific. For example, on
+Wheeler, <code>ppn</code> should be &lt;=8, however, we recommend you always request
+the maximum number of processors per node to avoid multiple jobs on one
+node that have to share memory. For more information see CARC systems
+information.</p>
+<h3 id="multi-processor-example-script">Multi-processor example script:</h3>
+<pre><code class="language-bash">#!/bin/bash
+## Introductory Example
+## Copyright (c) 2018
+## The Center for Advanced Research Computing
+## at The University of New Mexico
+####################################################
+## Setup your qsub flags
+#PBS -l walltime=2:00:00
+#PBS -l nodes=1:ppn=8
+#PBS -N my_job
+#PBS -M myemailaddress@unm.edu
+#PBS -m bae
+# load the environment module to use OpenMPI built with the Intel compilers
+module load openmpi-3.1.1-intel-18.0.2-hlc45mq 
+# Change to the directory where the PBS script was submitted from
+cd $PBS_O_WORKDIR
+# run the command &quot;hostname&quot; on ever CPU. Hostname prints the name of the computer is it running on.
+# $PBS_NP is the total number of CPUs requested. In this case 1 nodes x 8 CPUS per node = 8
+mpirun -np $PBS_NP hostname
+####################################################
+</code></pre>
+<h3 id="multi-node-example-script">Multi-node example script:</h3>
+<pre><code class="language-bash">#!/bin/bash
+## Introductory Example 
+## Copyright (c) 2018
+## The Center for Advanced Research Computing
+## at The University of New Mexico
+####################################################
+## Setup your qsub flags
+#PBS -l walltime=2:00:00
+#PBS -l nodes=4:ppn=8
+#PBS -N my_job
+#PBS -M myemailaddress@unm.edu
+#PBS -m bae
+# Change to directory the PBS script was submitted from
+cd $PBS_O_WORKDIR
+# load the environment module to use OpenMPI built with the Intel compilers
+module load openmpi-3.1.1-intel-18.0.2-hlc45mq 
+# print out a hello message from each of the processors on this host
+# run the command &quot;hostname&quot; on ever CPU. Hostname prints the name of the computer is it running on.
+# $PBS_NP is the total number of CPUs requested. In this case 4 nodes x 8 CPUS per node = 32
+# Since we are running on multiple nodes (computers) we have to tell mpirun the names of the nodes we were assigned. Those names are in $PBS_NODEFILE.
+mpirun -np $PBS_NP -machinefile $PBS_NODEFILE hostname
+###################################################
+</code></pre>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

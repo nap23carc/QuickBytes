@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Tensorflow - CARC QuickBytes</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Tensorflow";
+        var mkdocs_page_input_path = "Tensorflow_documentation.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> CARC QuickBytes
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../workshop_slides/">Workshop Slides</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Linux & HPC Introduction</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../linux_intro/">Linux Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../logging_in/">Logging in</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ssh_keygen_config/">SSH keys and Config file</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../transfer_data/">Transferring data</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Intro_to_slurm/">Intro to Slurm</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../pbs2slurm/">Converting PBS to Slurm</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../checking_on_running_jobs/">Check running jobs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../module_management/">Managing modules</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../slurm_accounting/">Intro to Slurm accounting at CARC</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../GNU_Parallel/">GNU Parallel</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../X11_forwarding/">X11 Forwarding</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Applications Tutorials</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >MATLAB</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../running_matlab_jobs/">Running MATLAB jobs at CARC</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ParallelMatlabServer/">Parallel MATLAB Server</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Parallel_MATLAB_profile_setup_and_batch_submission/">Parallel MATLAB batch submission</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Using_GPUs_on_Xena_with_MATLAB/">Using GPUs with MATLAB</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../MATLAB_Deep_Learning_on_Xena/">MATLAB Deep Learning on Xena</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >JupyterHub</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../parallelization_with_Jupyterhub_using_mpi/">JupyterHub Parallel Processing with MPI</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Conda_JupyterHub/">Conda python environments for JupyterHub</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../julia_with_jupyterhub/">Using Julia in JupyterHub</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Conda</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../anaconda_general_intro/">General intro to Conda</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../anaconda_intro/">Intro to Conda with example</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../anaconda_pip_channels/">Anaconda pip channels</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >R</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../R_usage/">R Programming in HPC</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="https://github.com/UNM-CARC/QuickBytes/tree/master/R_at_CARC">R at CARC</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Parallel_R_with_Future.ipynb">Running R in Parallel with Future</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Gurobi_optimizer_with_R/">Gurobi optimizer with R</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Machine Learning</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Tensorflow</a>
+    <ul class="current">
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../PyTorch_1.9_Xena/">Installing PyTorch on Xena</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../PyTorch_Classifier_Xena.ipynb">Example PyTorch Image Classification on Xena</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../multiGPU_tensorflow_tutorial.ipynb">Tensorflow with multiple GPUs</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../parallel_jupyterhub_with_dask_and_scikit-learn/">Parallelization with JupyterHub using Dask and SciKit-learn</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Bioinformatics</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../GATK_QuickByte/">Genomic variant calling with GATK</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../genome_evaluation/">Genome evaluation with QUAST and BUSCO</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../psmc_quickbyte/">Single genome demographic history with PSMC</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Stacks_quickbyte/">Stacks for RAD-Seq Data</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Metabarcoding/">Metabarcoding with QIIME2, Mothur, and USEARCH</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Beast_at_CARC/">BEAST at CARC</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../msprime_quickbyte/">Population genetic simulations with msprime (backwards time</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Computational Chemistry</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../orca_wheeler_taos/">Orca on Wheeler and Taos</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../alphafold/">Alphafold</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Computational Immunology</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../SimCov/">SimCov on Wheeler</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Astronomy</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../mpiCASA/">CASA Radio Astronomy</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Paraview</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../paraview/">Paraview Wheeler</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Paraview_Hopper/">Paraview Hopper</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../singularity-markdown-version/">Docker and Singularity</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../haskell/">Haskell at CARC</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../spark/">Spark</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../install_perl_libraries/">Installing Perl Libraries to Your Home Directory</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">CARC QuickBytes</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Applications Tutorials</li>
+          <li class="breadcrumb-item">Machine Learning</li>
+      <li class="breadcrumb-item active">Tensorflow</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="introduction-to-tensorflow">Introduction to Tensorflow</h1>
+<p>The relatively recent mainstream availability of complex algorithms and computationally efficient hardware is creating a platform for new innovations never before available to the scientific computing world. Since the development of computer systems, computing times have been drastically reduced, making more complex computations feasible. The continuous cycle of improvements in computation speeds and hardware leading to ever more complex computations can be seen in the scaling of hardware to meet these more complex computation goals. A resolution to this cycle can be found in the utilization of GPU's in high-performance computing for Machine learning and deep learning algorithms.
+Most of the complex computing strategies can be simplified into basic linear algebra operations such as addition, multiplication, subtraction, inversion and such. Out of the listed operations, matrix multiplication and inversion are the most computationally expensive operations.</p>
+<p>Most matrix operations are performed sequentially on the CPU resulting in computation time that scales with the size of the matrix as a factor &theta;(n<sup>3</sup>). Hence, computation cycles and duration of time to be allocated towards computation is proportional to the size of matrices under the constrained hardware with limited cache memory and RAM. The same problem still exists with multicore systems or distributed systems due to the threshold on the resources mentioned. On the other hand, a GPU is composed of several thousand cores, combining to provide the user with several GBs of computational memory compared to the MBs provided by CPU cache memory. The distributed computing this configuration provides enables parallelism across GPU cores and allows a super fast flow of data resulting from incredibly high bandwidth. This distribution across multiple cores amounts to massively reduced computation time as the device is able to scale its performance with data size.</p>
+<p>The enormous gains in computation time should give researchers a valid reason to switch from CPUs to GPUs for computationally heavy operations where the CPU-based operations do not scale with the data at a constant rate. Utilization of this methodology will provide enormous benefits for the computationally heavy domains such as machine learning, deep learning, linear algebra, optimization, data structures, etc. To illustrate this statement, we've included some benchmarks run on the Xena system at CARC using intensive linear algebra operations, i.e., matrix multiplication and matrix-inversion, on a CPU only compared to CPU utilizing the GPU as well.</p>
+<p>The CPU version was deployed on a multicore processor with 16 cores and 64GB of RAM with using numpy arrays in python. The GPU Version was deployed on NVIDIA Tesla K40 with 11GB of GPU memory using Tensorflow.  Here the CPU implementations were carried with two different types of numpy compilations. mkl_mul stands for multiplication operation carried with numpy compiled with math kernel library. Nomkl_mul stands for the numpy without math kernel library. mkl based numpy was installed in an anaconda enviroment using conda to install numpy whereas the numpy installed with pip doesn't integrate math kernel library. Xena has nodes with single GPU and dual GPU. Dual GPU node offers users 2x11GB of computational GPU memory which allows the use of a larger batch size and double the number of cores for faster implementation of highly complex models with a large number of parameters. The GPU_mul corresponds to multiplication operations utilizing single GPU node and dualgpu_mul corresonds to the one utilizing a dual GPU node. Another interesting benchmark was performed for inversion operations similar to those done for multiplication</p>
+<p><img alt="" src="https://raw.githubusercontent.com/ceodspspectrum/CARC_WORK/master/download2.png" /></p>
+<p>Fig 1. Time for Matrix Inversion vs size of Matrix N</p>
+<p><img alt="" src="https://raw.githubusercontent.com/ceodspspectrum/CARC_WORK/master/download1.png" /></p>
+<p>Fig 2. Time for Matrix Multiplication vs size of Matrix N</p>
+<p>The implementations can be found <a href="https://github.com/ceodspspectrum/CARC_WORK/tree/master/master">here.</a></p>
+<p>Tensorflow is an open source deep learning library provided by Google. It provides primitives for functions definitions on tensor and a mechanism to compute their derivatives automatically. It uses a tensor to represent any multidimensional array of numbers.</p>
+<p><strong>Comparision between Numpy and Tensorflow</strong></p>
+<p>TensorFlow's computational housing is a tensor, similar to Numpy's housing of data in Ndarray's making both of them N-d array libraries.</p>
+<p>However, Numpy does not offer a method to create tensor functions and automatically compute derivatives, nor does it support GPU implementation. Thus, for processing data of higher dimensions,Tensorflow outperforms Numpy arrays due largely to its GPU implementations.</p>
+<p><strong>Numpy vs Tensorflow Implementations</strong></p>
+<p><strong><em>Numpy Implementation of Matrix Addition</em></strong></p>
+<pre><code>    import numpy as np
+    a=np.zeros((2,2))
+    b=np.zeros((2,2))
+    np.sum(b,axis=0)
+    a.shape
+    np.reshape(b,(1,3))
+</code></pre>
+<p><strong><em>Tensorflow Implementation of Matrix Addition</em></strong></p>
+<pre><code>    import tensorflow as tf
+    tf.InteractiveSession()
+    a=tf.zeros((2,2))
+    b=tf.ones((2,2))
+    tf.reduce_sum(b,reduction_indices=1).eval()
+    a.get_shape()
+    tf.reshape(b,(1,3)).eval()
+</code></pre>
+<p>It is important to note that tensorflow requires explicit evaluation, i.e, tensorflow computation defines a computational graph which only gets initialized with values after a session has been evaluated.</p>
+<p>Numpy for example</p>
+<pre><code>    a=np.zeros((2,2)) ; print(a)
+</code></pre>
+<p>will immediately give the value of "a".</p>
+<p>However, for tensorflow:</p>
+<pre><code>    a=tf.zeros((2,2))
+    print(a)
+</code></pre>
+<p>will not return the value of "a" until it is evaluated with</p>
+<pre><code>           print(ta.eval())
+</code></pre>
+<p>So It is important to understand how tensorflow works and initializes the environment.</p>
+<p>Tensorflow uses a "session object" which encapsulates the environment in which the tensors are evaluated.</p>
+<p>A  Tensorflow (tf) session for performing multiplication is demonstrated below:</p>
+<pre><code>    a= tf.constant(9999999)
+    b=tf.constant(111111111)
+    c=a*b
+    with tf.Session() as sess:
+         print(sess.run(c))
+         print(c.eval())
+</code></pre>
+<p>Tensorflow firstly structures the program, creates a graph integrating the variables, and uses session to exectute the process.</p>
+<p>*** Tensorflow Variables ***
+Similar to other programming language variables, tensorflow uses a variable object to store and update the parameters. They are stored in memory buffers that contain tensors. TensorFlow variables must be initialized before they have values! This is in contrast with constant tensors:</p>
+<pre><code>    W=tf.Variable(tf.zeros((2,2)), name="weights")
+    R=tf.Variable(tf.random_normal((2,2)), name="Random_weights")
+
+    with tf.Session() as sess:
+            sess.run(tf.initialize_all_variables())
+        print(sess.run(W))
+        print(sess.run(R))
+</code></pre>
+<p>Converting numpy data to tensor:</p>
+<pre><code>    a=np.zeros((3,3))
+    t_a=tf.convert_to_tensor(a)
+    with tf.Session() as sess:
+        print(sess.run(t_a))
+</code></pre>
+<p>For scalable variables for performing operations we can use <code>tf.placeholder</code> which defines a placeholder and provides entry points for the data to be viewed in a computational graph.  <code>feed_dict</code> is used in the below example to map from <code>tf.placeholder</code> variables to data (np arrays, list, etc).</p>
+<pre><code>    input1= tf.placeholder(tf.float32)
+    input2 = tf.placeholder(tf.float32)
+    output = tf.multiply(input1, input2)
+    with tf.Session() as sess:
+        print(sess.run([output], feed_dict={input1:[7.], input2:[2.]}))
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../Gurobi_optimizer_with_R/" class="btn btn-neutral float-left" title="Gurobi optimizer with R"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../PyTorch_1.9_Xena/" class="btn btn-neutral float-right" title="Installing PyTorch on Xena">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../Gurobi_optimizer_with_R/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../PyTorch_1.9_Xena/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

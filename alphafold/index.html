@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Alphafold - CARC QuickBytes</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Alphafold";
+        var mkdocs_page_input_path = "alphafold.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> CARC QuickBytes
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../workshop_slides/">Workshop Slides</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Linux & HPC Introduction</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../linux_intro/">Linux Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../logging_in/">Logging in</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ssh_keygen_config/">SSH keys and Config file</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../transfer_data/">Transferring data</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Intro_to_slurm/">Intro to Slurm</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../pbs2slurm/">Converting PBS to Slurm</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../checking_on_running_jobs/">Check running jobs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../module_management/">Managing modules</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../slurm_accounting/">Intro to Slurm accounting at CARC</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../GNU_Parallel/">GNU Parallel</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../X11_forwarding/">X11 Forwarding</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Applications Tutorials</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >MATLAB</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../running_matlab_jobs/">Running MATLAB jobs at CARC</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ParallelMatlabServer/">Parallel MATLAB Server</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Parallel_MATLAB_profile_setup_and_batch_submission/">Parallel MATLAB batch submission</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Using_GPUs_on_Xena_with_MATLAB/">Using GPUs with MATLAB</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../MATLAB_Deep_Learning_on_Xena/">MATLAB Deep Learning on Xena</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >JupyterHub</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../parallelization_with_Jupyterhub_using_mpi/">JupyterHub Parallel Processing with MPI</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Conda_JupyterHub/">Conda python environments for JupyterHub</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../julia_with_jupyterhub/">Using Julia in JupyterHub</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Conda</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../anaconda_general_intro/">General intro to Conda</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../anaconda_intro/">Intro to Conda with example</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../anaconda_pip_channels/">Anaconda pip channels</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >R</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../R_usage/">R Programming in HPC</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="https://github.com/UNM-CARC/QuickBytes/tree/master/R_at_CARC">R at CARC</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Parallel_R_with_Future.ipynb">Running R in Parallel with Future</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Gurobi_optimizer_with_R/">Gurobi optimizer with R</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Machine Learning</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../Tensorflow_documentation/">Tensorflow</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../PyTorch_1.9_Xena/">Installing PyTorch on Xena</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../PyTorch_Classifier_Xena.ipynb">Example PyTorch Image Classification on Xena</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../multiGPU_tensorflow_tutorial.ipynb">Tensorflow with multiple GPUs</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../parallel_jupyterhub_with_dask_and_scikit-learn/">Parallelization with JupyterHub using Dask and SciKit-learn</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Bioinformatics</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../GATK_QuickByte/">Genomic variant calling with GATK</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../genome_evaluation/">Genome evaluation with QUAST and BUSCO</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../psmc_quickbyte/">Single genome demographic history with PSMC</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Stacks_quickbyte/">Stacks for RAD-Seq Data</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Metabarcoding/">Metabarcoding with QIIME2, Mothur, and USEARCH</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Beast_at_CARC/">BEAST at CARC</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../msprime_quickbyte/">Population genetic simulations with msprime (backwards time</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Computational Chemistry</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../orca_wheeler_taos/">Orca on Wheeler and Taos</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Alphafold</a>
+    <ul class="current">
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Computational Immunology</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../SimCov/">SimCov on Wheeler</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Astronomy</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../mpiCASA/">CASA Radio Astronomy</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Paraview</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../paraview/">Paraview Wheeler</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Paraview_Hopper/">Paraview Hopper</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../singularity-markdown-version/">Docker and Singularity</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../haskell/">Haskell at CARC</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../spark/">Spark</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../install_perl_libraries/">Installing Perl Libraries to Your Home Directory</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">CARC QuickBytes</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Applications Tutorials</li>
+          <li class="breadcrumb-item">Computational Chemistry</li>
+      <li class="breadcrumb-item active">Alphafold</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="alphafold">Alphafold #</h1>
+<p>Alphafold predicts the 3D structure of proteins from their amino acid sequence. A deep learning system that uses a combination of sequence alignment, evolutionary information, and physical principles to generate its predictions.
+Primarily written in python, the first version of alphafold was released in 2016, and has been updated as recently as 2022. There are two ways to run alphafold here at CARC. Option 1 is to use <a href="https://github.com/YoshitakaMo/localcolabfold">localcolabfold.</a> You may find that Localcolabfold is easier to get running, however it will come with tradeoffs in certain areas, For Example, localcolabfold uses the pdb70 database, and there is not a great way to choose a different database to use. If you are unsure which version is best for you, we recommend you review the readme &amp; issues for localcolabfold to determine if there are any features you may need. </p>
+<h1 id="alphafold-w-localcolabfold">Alphafold w/ LocalColabFold:</h1>
+<p>Localcolabfold is set up as part of our module system at CARC. As with anything as part of the module system, you can use <code>module spider localcolabfold</code> to get more information about the module. This will also list other dependencies, if any, such as a different compiler. </p>
+<p>localColabFold runs with the command <code>colabfold_batch</code>. The only other thing you will need to provide is the input fasta file. Below is an example of a slurm script to run using localcolabfold on Hopper. </p>
+<pre><code> #!/bin/bash
+ #SBATCH --job-name alphafold
+ #SBATCH --mail-user=&lt;your_email&gt;
+ #SBATCH --partition general
+ #SBATCH --Nodes 1
+ #SBATCH --ntasks 1
+ #SBATCH --cpus-per-task 64
+ #SBATCH --time 1:00:00
+
+ module load localcolabfold
+
+ INPUT_FILE_PATH=/path/to/input.fasta
+ now=$(date +"%m_%d_%H_%M_%S")
+ OUTPUTDIR=$SLURM_SUBMIT_DIR/$SLURM_JOB_NAME-$now
+
+ mkdir -p $OUTPUTDIR
+
+ cd $SLURM_SUBMIT_DIR
+
+ srun colabfold_batch $INPUT_FILE_PATH $OUTPUTDIR
+</code></pre>
+<p>Reference the <a href="https://github.com/YoshitakaMo/localcolabfold?tab=readme-ov-file#flags">localcolabfold documentation</a> for flags you may find useful.</p>
+<h1 id="alphafold-w-singularity-image">Alphafold w/ Singularity Image:</h1>
+<h2 id="choose-your-alphafold-version">Choose your alphafold version ##</h2>
+<p>There are multiple versions of alphafold installed using singularity images. You can view each of the versions installed with the command:</p>
+<pre><code> ls /projects/shared/singularity/alphafold*
+</code></pre>
+<p>and hit tab. You'll see below we currently have version 2.0 and 2.3.1 installed. For this tutorial we will be using version 2.0. 
+For this tutorial we will be using version 2.0. </p>
+<p>Now we can create a new directory with</p>
+<pre><code>mkdir alphafold
+</code></pre>
+<p>and move into that directory with</p>
+<pre><code>cd alphafold
+</code></pre>
+<h2 id="running-alphafold">Running Alphafold</h2>
+<p>Inside the alphafold directory, you will be able to run the program using the slurm script, this script will differ based on the machine you are using. Xena is the machine at CARC that has GPU resources, so you will need to use xena if you hope to run using the gpus. </p>
+<p>Choose one of the scripts below, in this case we will be using Hopper. Create a new file using your favorite editor. For example, </p>
+<pre><code>vim alphafold.sh
+</code></pre>
+<p>then hit <code>i</code> to go into insert mode, and past the contents from the below script into this file. You can then add your email to get alerts about the run. When you are finished editing this file, type <code>ESC</code> to exit insert mode, followed by <code>:wq</code> to write &amp; quite the file, this will save your changes. </p>
+<h3 id="xena-script">Xena Script</h3>
+<p>Here, we are passing two additional flags when running the script, the first is <code>--partition=singleGPU</code> which will make sure we are assigned a node that only has a single gpu. The second is <code>-G 1</code> which is what tells the program to use the gpu. 
+While optimizing, you might find that switching to one of the nodes with multiple gpus will increase your speed. You can achieve this by instead adding the <code>--partition=dualGPU</code> as well as <code>-G 2</code>.</p>
+<pre><code>#SBATCH --job-name alphafold
+#SBATCH --time=08:00:00
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=8
+#SBATCH --mem=20G
+#SBATCH --partition=singleGPU
+#SBATCH --output alphafold.out
+#SBATCH --error alphafold.err
+#SBATCH -G 1
+
+#SBATCH --mail-user &lt; your email &gt; 
+#SBATCH --mail-type all
+
+module load singularity
+
+# Specify input/output paths
+SINGULARITY_IMAGE_PATH=/projects/shared/singularity/
+ALPHAFOLD_DATA_PATH=/carc/scratch/shared/alphafold/data/70
+ALPHAFOLD_MODELS=$ALPHAFOLD_DATA_PATH/params
+ALPHAFOLD_INPUT_FASTA=$SLURM_SUBMIT_DIR/input_test.fasta
+NOW=$(date +"%Y_%m_%d_%H_%M_%S")
+ALPHAFOLD_OUTPUT_DIR=$SLURM_SUBMIT_DIR/alphafold_output-$NOW
+
+mkdir -p $ALPHAFOLD_OUTPUT_DIR
+
+#Run the command
+singularity run  --nv \
+ --bind $ALPHAFOLD_DATA_PATH:/data \
+ --bind $ALPHAFOLD_MODELS \
+ --bind $ALPHAFOLD_OUTPUT_DIR:/alphafold_output \
+ --bind $ALPHAFOLD_INPUT_FASTA:/input.fasta \
+ --bind .:/etc \
+ --pwd  /app/alphafold $SINGULARITY_IMAGE_PATH/alphafold-2.0.sif \
+ --fasta_paths=/input.fasta  \
+ --uniref90_database_path=/data/uniref90/uniref90.fasta  \
+ --data_dir=/data \
+ --mgnify_database_path=/data/mgnify/mgy_clusters.fa   \
+ --bfd_database_path=/data/bfd/bfd_metaclust_clu_complete_id30_c90_final_seq.sorted_opt \
+ --uniclust30_database_path=/data/uniclust30/uniclust30_2018_08/uniclust30_2018_08 \
+ --pdb70_database_path=/data/pdb70/pdb70  \
+ --template_mmcif_dir=/data/pdb_mmcif/mmcif_files  \
+ --obsolete_pdbs_path=/data/pdb_mmcif/obsolete.dat \
+ --max_template_date=2020-05-14   \
+ --output_dir=/alphafold_output  \
+ --model_names='model_1' \
+ --preset=casp14
+</code></pre>
+<h3 id="hopper-script">Hopper Script</h3>
+<pre><code>#!/bin/bash
+#SBATCH --job-name alphafold
+#SBATCH --time=08:00:00
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=32
+#SBATCH --mem=0G
+#SBATCH --partition=general
+#SBATCH --output alphafold.out
+#SBATCH --error alphafold.err
+
+#SBATCH --mail-user &lt; your email &gt; 
+#SBATCH --mail-type all
+
+module load singularity
+
+# Specify input/output paths
+SINGULARITY_IMAGE_PATH=/projects/shared/singularity/
+ALPHAFOLD_DATA_PATH=/carc/scratch/shared/alphafold/data/70
+ALPHAFOLD_MODELS=$ALPHAFOLD_DATA_PATH/params
+ALPHAFOLD_INPUT_FASTA=$SLURM_SUBMIT_DIR/input_test.fasta
+NOW=$(date +"%Y_%m_%d_%H_%M_%S")
+ALPHAFOLD_OUTPUT_DIR=$SLURM_SUBMIT_DIR/alphafold_output-$NOW
+
+mkdir -p $ALPHAFOLD_OUTPUT_DIR
+
+#Run the command
+singularity run --nv \
+ --bind $ALPHAFOLD_DATA_PATH:/data \
+ --bind $ALPHAFOLD_MODELS \
+ --bind $ALPHAFOLD_OUTPUT_DIR:/alphafold_output \
+ --bind $ALPHAFOLD_INPUT_FASTA:/input.fasta \
+ --bind .:/etc \
+ --pwd  /app/alphafold $SINGULARITY_IMAGE_PATH/alphafold-2.0.sif \
+ --fasta_paths=/input.fasta  \
+ --uniref90_database_path=/data/uniref90/uniref90.fasta  \
+ --data_dir=/data \
+ --mgnify_database_path=/data/mgnify/mgy_clusters.fa   \
+ --bfd_database_path=/data/bfd/bfd_metaclust_clu_complete_id30_c90_final_seq.sorted_opt \
+ --uniclust30_database_path=/data/uniclust30/uniclust30_2018_08/uniclust30_2018_08 \
+ --pdb70_database_path=/data/pdb70/pdb70  \
+ --template_mmcif_dir=/data/pdb_mmcif/mmcif_files  \
+ --obsolete_pdbs_path=/data/pdb_mmcif/obsolete.dat \
+ --max_template_date=2020-05-14   \
+ --output_dir=/alphafold_output  \
+ --model_names='model_1' \
+ --preset=casp14
+</code></pre>
+<h4 id="input-file">Input File</h4>
+<p>These scripts expect you to have a file named <code>input_test.fasta</code> where you will give your input sequence. This should be in the format:</p>
+<p>(alphafold/input_test.fasta)</p>
+<pre><code>&gt; 350 residue example sequence   
+MTANHLESPNCDWKNNRMAIVHMVNVTPLRMMEEPRAAVEAAFEGIMEPAVVGDMVEYWNKMISTCCNYYQMGSSRSHLEEKAQMVDRFWFCPCIYYASGKWRNMFLNILHVWGHHHYPRNDLKPCSYLSCKLPDLRIFFNHMQTCCHFVTLLFLTEWPTYMIYNSVDLCPMTIPRRNTCRTMTEVSSWCEPAIPEWWQATVKGGWMSTHTKFCWYPVLDPHHEYAESKMDTYGQCKKGGMVRCYKHKQQVWGNNHNESKAPCDDQPTYLCPPGEVYKGDHISKREAENMTNAWLGEDTHNFMEIMHCTAKMASTHFGSTTIYWAWGGHVRPAATWRVYPMIQEGSHCQC
+</code></pre>
+<h4 id="localtime">localtime</h4>
+<p>Your job will fail within the first few moments if the input file is not formatted properly. It will also require you to have a <code>localtime</code> file in the directory in which you are running, which you can create with </p>
+<pre><code>touch localtime
+</code></pre>
+<p>This file does not directly impact the simulation in any way, but is used to track the time to make your tests reproducible. If this file is empty, it will default to using the current time in UTC, but you could also place the correct time in:</p>
+<p>(alphafold/localtime)</p>
+<pre><code>2022-10-28T16:15:29
+</code></pre>
+<h2 id="run">Run</h2>
+<p>You can now run your alphafold sequence with the command </p>
+<pre><code>sbatch alphafold.sh
+</code></pre>
+<p>This will hand your script you made above to the slurm scheduler. If you added your email to the script, you will receive an email that it has been added to the queue, once it starts, and once it ends. It will also email if it fails before a successful completion. If your run fails, more information can be found in the <code>alphafold.out</code> &amp; <code>alphafold.err</code> files which will be generated as each run begins.</p>
+<p>You can check if your run is still running with </p>
+<pre><code>squeue --me
+</code></pre>
+<p>This will list all jobs you currently have both queued &amp; running. On the general partitions your time will be <a href="https://github.com/UNM-CARC/webinfo/blob/main/resource_limits.md">limited to between 4 and 48 hours</a> of runtime.</p>
+<h2 id="output">Output</h2>
+<p>After a successful job, you will notice multiple output files. They will be placed in the <code>./alphafold_output-&lt;Timestamp&gt;/input/*</code> Where you will have the resulting .pdb, .pkl, and .json files. </p>
+<p>Now that it is on your local computer, you can now view this file on your computer if you have the proper software to view a pdb file. </p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../orca_wheeler_taos/" class="btn btn-neutral float-left" title="Orca on Wheeler and Taos"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../SimCov/" class="btn btn-neutral float-right" title="SimCov on Wheeler">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../orca_wheeler_taos/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../SimCov/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

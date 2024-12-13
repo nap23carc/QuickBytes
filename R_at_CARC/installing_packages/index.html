@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Installing R packages - CARC QuickBytes</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Installing R packages";
+        var mkdocs_page_input_path = "R_at_CARC/installing_packages.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> CARC QuickBytes
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../workshop_slides/">Workshop Slides</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Linux & HPC Introduction</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../linux_intro/">Linux Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../logging_in/">Logging in</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ssh_keygen_config/">SSH keys and Config file</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../transfer_data/">Transferring data</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Intro_to_slurm/">Intro to Slurm</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../pbs2slurm/">Converting PBS to Slurm</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../checking_on_running_jobs/">Check running jobs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../module_management/">Managing modules</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../slurm_accounting/">Intro to Slurm accounting at CARC</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../GNU_Parallel/">GNU Parallel</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../X11_forwarding/">X11 Forwarding</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Applications Tutorials</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >MATLAB</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../running_matlab_jobs/">Running MATLAB jobs at CARC</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ParallelMatlabServer/">Parallel MATLAB Server</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Parallel_MATLAB_profile_setup_and_batch_submission/">Parallel MATLAB batch submission</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Using_GPUs_on_Xena_with_MATLAB/">Using GPUs with MATLAB</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../MATLAB_Deep_Learning_on_Xena/">MATLAB Deep Learning on Xena</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >JupyterHub</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../parallelization_with_Jupyterhub_using_mpi/">JupyterHub Parallel Processing with MPI</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Conda_JupyterHub/">Conda python environments for JupyterHub</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../julia_with_jupyterhub/">Using Julia in JupyterHub</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Conda</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../anaconda_general_intro/">General intro to Conda</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../anaconda_intro/">Intro to Conda with example</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../anaconda_pip_channels/">Anaconda pip channels</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >R</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../R_usage/">R Programming in HPC</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="https://github.com/UNM-CARC/QuickBytes/tree/master/R_at_CARC">R at CARC</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Parallel_R_with_Future.ipynb">Running R in Parallel with Future</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Gurobi_optimizer_with_R/">Gurobi optimizer with R</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Machine Learning</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Tensorflow_documentation/">Tensorflow</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../PyTorch_1.9_Xena/">Installing PyTorch on Xena</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../PyTorch_Classifier_Xena.ipynb">Example PyTorch Image Classification on Xena</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../multiGPU_tensorflow_tutorial.ipynb">Tensorflow with multiple GPUs</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../parallel_jupyterhub_with_dask_and_scikit-learn/">Parallelization with JupyterHub using Dask and SciKit-learn</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Bioinformatics</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../GATK_QuickByte/">Genomic variant calling with GATK</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../genome_evaluation/">Genome evaluation with QUAST and BUSCO</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../psmc_quickbyte/">Single genome demographic history with PSMC</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Stacks_quickbyte/">Stacks for RAD-Seq Data</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Metabarcoding/">Metabarcoding with QIIME2, Mothur, and USEARCH</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Beast_at_CARC/">BEAST at CARC</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../msprime_quickbyte/">Population genetic simulations with msprime (backwards time</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Computational Chemistry</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../orca_wheeler_taos/">Orca on Wheeler and Taos</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../alphafold/">Alphafold</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Computational Immunology</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../SimCov/">SimCov on Wheeler</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Astronomy</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../mpiCASA/">CASA Radio Astronomy</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Paraview</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../paraview/">Paraview Wheeler</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Paraview_Hopper/">Paraview Hopper</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../singularity-markdown-version/">Docker and Singularity</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../haskell/">Haskell at CARC</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../spark/">Spark</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../install_perl_libraries/">Installing Perl Libraries to Your Home Directory</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">CARC QuickBytes</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Installing R packages</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="installing-r-packages">Installing R packages</h1>
+<h2 id="installing-interactively">Installing interactively</h2>
+<p>This is the way that most of us are probably comfortable with installing packages with R since it is exactly the same way you install packages on your laptop. However, because the head node of CARC systems is a shared resource it is best practice to not compile binaries for R for an extended period of time because it can result in overhead on the head node. To avoid this we can request a compute node for interactive use, or even better, one of our debug nodes. The actual call to Torque, our job scheduler, will be explained in more depth later, but for now to request an interactive node type the following at the command prompt on Wheeler:</p>
+<pre><code>yourusername@wheeler-sn$ qsub -I -l walltime=01:00:00 -l nodes=1:ppn=8
+qsub: waiting for job 201775.wheeler-sn.alliance.unm.edu to start
+qsub: job 201775.wheeler-sn.alliance.unm.edu ready
+
+Wheeler Portable Batch System Prologue
+Job Id: 201775.wheeler-sn.alliance.unm.edu
+Username: liphardt
+Job 201775.wheeler-sn.alliance.unm.edu running on nodes:
+wheeler272 
+
+prologue running on host: wheeler272
+</code></pre>
+<p>Which will request a compute node and log you in once it is ready. Load a R software module with your preferred method and start a R session. If this is your first time installing a R package for one of the major versions you will be prompted to use a personal library.</p>
+<pre><code>R version 3.6.0 (2019-04-26) -- &quot;Planting of a Tree&quot;
+Copyright (C) 2019 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+
+&gt; install.packages(&quot;ape&quot;, dependencies=T, repos=&quot;http://cran.r-project.org&quot;)
+Warning in install.packages(&quot;ape&quot;, dependencies = T, repos = &quot;http://cran.r-project.org&quot;,  :
+  'lib = &quot;/opt/spack/opt/spack/linux-centos7-x86_64/gcc-7.3.0/r-3.6.0-7akol5ts7ebhhvoqz2tf6ghmc32hng7g/rlib/R/library&quot;' is not writable
+Would you like to use a personal library instead? (yes/No/cancel) 
+yes
+Would you like to create a personal library
+'~/R/x86_64-pc-linux-gnu-library/3.6'
+to install packages into? (yes/No/cancel)
+yes
+</code></pre>
+<p>Go ahead and say <code>yes</code> to both questions and install packages normally. You only need to specify a personal library the first time you use a new major version. </p>
+<h2 id="installing-packages-using-a-script">Installing packages using a script</h2>
+<p>Installing packages in a script is a little more complicated so it might be easier to just do it interactively. However, it is possible. </p>
+<p>If you haven't created a personal library yet either interactively or through a script you first need to do that. The following commands in an R script will take care of this for you:</p>
+<pre><code># First create the directory, .libPaths() will not append your library list unless the directory exists. 
+dir.create(Sys.getenv(&quot;R_LIBS_USER&quot;, recursive=T, mode=&quot;0777&quot;))
+
+#Now append your library path with your newly created local library
+.libPaths(c(Sys.getenv(&quot;R_LIBS_USER&quot;), .libPaths()))
+
+#The above steps are only necessary the first time you are installing packages. Remove or comment out if you have already created a persional library.
+
+#Now install packages normally
+&gt; install.packages(&quot;ape&quot;, dependencies=T, lib=Sys.getenv(&quot;R_LIBS_USER&quot;), repos=&quot;http://cran.r-project.org&quot;)
+</code></pre>
+<p>The first two lines are only necessary when you have not created a personal library for that major version of R yet, otherwise you just need to specify the repos you are downloading packages from and specify your personal library as the install location. You shouldn't need to specify the library since you have appended your library path, but it doesn't hurt to be explicit.</p>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

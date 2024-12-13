@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Parallel MATLAB Server - CARC QuickBytes</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Parallel MATLAB Server";
+        var mkdocs_page_input_path = "ParallelMatlabServer.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> CARC QuickBytes
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../workshop_slides/">Workshop Slides</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Linux & HPC Introduction</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../linux_intro/">Linux Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../logging_in/">Logging in</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ssh_keygen_config/">SSH keys and Config file</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../transfer_data/">Transferring data</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Intro_to_slurm/">Intro to Slurm</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../pbs2slurm/">Converting PBS to Slurm</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../checking_on_running_jobs/">Check running jobs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../module_management/">Managing modules</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../slurm_accounting/">Intro to Slurm accounting at CARC</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../GNU_Parallel/">GNU Parallel</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../X11_forwarding/">X11 Forwarding</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Applications Tutorials</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" >MATLAB</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../running_matlab_jobs/">Running MATLAB jobs at CARC</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Parallel MATLAB Server</a>
+    <ul class="current">
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Parallel_MATLAB_profile_setup_and_batch_submission/">Parallel MATLAB batch submission</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Using_GPUs_on_Xena_with_MATLAB/">Using GPUs with MATLAB</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../MATLAB_Deep_Learning_on_Xena/">MATLAB Deep Learning on Xena</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >JupyterHub</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../parallelization_with_Jupyterhub_using_mpi/">JupyterHub Parallel Processing with MPI</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Conda_JupyterHub/">Conda python environments for JupyterHub</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../julia_with_jupyterhub/">Using Julia in JupyterHub</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Conda</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../anaconda_general_intro/">General intro to Conda</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../anaconda_intro/">Intro to Conda with example</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../anaconda_pip_channels/">Anaconda pip channels</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >R</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../R_usage/">R Programming in HPC</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="https://github.com/UNM-CARC/QuickBytes/tree/master/R_at_CARC">R at CARC</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Parallel_R_with_Future.ipynb">Running R in Parallel with Future</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Gurobi_optimizer_with_R/">Gurobi optimizer with R</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Machine Learning</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../Tensorflow_documentation/">Tensorflow</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../PyTorch_1.9_Xena/">Installing PyTorch on Xena</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../PyTorch_Classifier_Xena.ipynb">Example PyTorch Image Classification on Xena</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../multiGPU_tensorflow_tutorial.ipynb">Tensorflow with multiple GPUs</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../parallel_jupyterhub_with_dask_and_scikit-learn/">Parallelization with JupyterHub using Dask and SciKit-learn</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Bioinformatics</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../GATK_QuickByte/">Genomic variant calling with GATK</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../genome_evaluation/">Genome evaluation with QUAST and BUSCO</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../psmc_quickbyte/">Single genome demographic history with PSMC</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Stacks_quickbyte/">Stacks for RAD-Seq Data</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Metabarcoding/">Metabarcoding with QIIME2, Mothur, and USEARCH</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Beast_at_CARC/">BEAST at CARC</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../msprime_quickbyte/">Population genetic simulations with msprime (backwards time</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Computational Chemistry</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../orca_wheeler_taos/">Orca on Wheeler and Taos</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../alphafold/">Alphafold</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Computational Immunology</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../SimCov/">SimCov on Wheeler</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Astronomy</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../mpiCASA/">CASA Radio Astronomy</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Paraview</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../paraview/">Paraview Wheeler</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Paraview_Hopper/">Paraview Hopper</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../singularity-markdown-version/">Docker and Singularity</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../haskell/">Haskell at CARC</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../spark/">Spark</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../install_perl_libraries/">Installing Perl Libraries to Your Home Directory</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">CARC QuickBytes</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Applications Tutorials</li>
+          <li class="breadcrumb-item">MATLAB</li>
+      <li class="breadcrumb-item active">Parallel MATLAB Server</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="parallel-matlab-server">Parallel MATLAB Server</h2>
+<p>MATLAB supports parallelization on desktop computers which can be used to increase the speed of analysis drastically. MATLAB also provides the MATLAB Parallel Server (previously the MATLAB Distributed Computing Server) which allows you to write MATLAB code on your local desktop or laptop computer and perform the computation using the CARC high-performance clusters. This QuickByte leads you through the steps needed to set this up. If you run into problems please send an email to help@carc.unm.edu and we will be happy to help.</p>
+<p>Please ensure you have the MATLAB Parallel Toolbox installed on your local comnputer.</p>
+<h2 id="how-matlab-parallel-works-behind-the-scenes">How MATLAB Parallel Works Behind the Scenes</h2>
+<p>MATLAB parallel allows the MATLAB session you interact with on your local computer, also known as the MATLAB client, with the PBS scheduler at CARC to create jobs that run on a core, also known as the MATLAB worker. The PBS (Portable BAtch system) scheduler allocates resources requested to users. One of the advantages of using MATLAB at CARC is the ability to scale up, or use many nodes for data intensive and/or computationally complex computations. To do this, you will request more workers from the PBS scheduler by following the tutorial bellow (Workers window). If you request multiple workers, it is important to keep in mind that one worker will be running the batch script you have sent from your MATLAB client. This worker is sending your scripts to the other workers that will perform your computations. You can think about this lead MATLAB worker as a mirror of your MATLAB client that communicates with the PBS scheduler and your scripts to accomplish your job. For more help on how to alter your scripts to take advantage of the scaleing up abilities at CARC please visit the Mathworks <a href="https://www.mathworks.com/help/parallel-computing/what-is-parallel-computing.html">tutorials</a>.</p>
+<h3 id="matlab-parallel-server-client-configuration">MATLAB Parallel Server Client Configuration</h3>
+<p>Once MATLAB is installed on your local machine (the MATLAB version on your local machine must match the version on the CARC cluster) click "add-ons" to open Add-on explorer. Search for PBS. </p>
+<p>Click on the link "Parallel Computing Toolbox plugin for MATLAB Parallel Server with PBS" (there is a plugin for slurm as well).</p>
+<p>Click the "install" button and the plugin will install and a wizard is started.</p>
+<p><img alt="Install" src="https://github.com/UNM-CARC/QuickBytes/blob/master/ParallelMatlabInstall.png" /></p>
+<p><img alt="Wizard1" src="https://github.com/UNM-CARC/QuickBytes/blob/master/ParallelMatlabWizard1.png" />
+Choose UNIX in the cluster type</p>
+<p><img alt="Wizard2" src="https://github.com/UNM-CARC/QuickBytes/blob/master/ParallelMatlabWizard2.png" /></p>
+<p>Select no for shared job location.</p>
+<p><img alt="Wizard3" src="https://github.com/UNM-CARC/QuickBytes/blob/master/ParallelMatlabWizard3.png" /></p>
+<p>Enter the address of the cluster you would like to use: for example, wheeler.alliance.unm.edu or xena.alliance.unm.edu.</p>
+<p>Enter </users/> for the path to the PBS scripts (remote job storage location) that MATLAB will create on the cluster.</p>
+<p>Select unique subfolders.</p>
+<p><img alt="Wizard4" src="https://github.com/UNM-CARC/QuickBytes/blob/master/ParallelMatlabWizard4.png" /></p>
+<p>Select the number of workers and number of threads per worker. This may depend on the program you are running but in general you should have one worker per core on the cluster. For set up and validation leave the number of workers at 1. Leave the threads per worker at 1 unless your software requires more threads.</p>
+<p>Specify the path to the matlab installation on the compute nodes: /opt/local/MATLAB/R2019a (or 2020a) for the Xena cluster, and /opt/local/MATLAB/R2019a for the Wheeler cluster. It is important that you are running the same version of MATLAB as you are 
+running on the wheeler cluster. </p>
+<p><img alt="Wizard6" src="https://github.com/UNM-CARC/QuickBytes/blob/master/ParallelMatlabWizard6.png" /></p>
+<p>Choose flexnet for the license</p>
+<p><img alt="Wizard7" src="https://github.com/UNM-CARC/QuickBytes/blob/master/ParallelMatlabWizard7.png" /></p>
+<p>Name your profile. For example "R2019a_Wheeler_PBS"</p>
+<p><img alt="Wizard8" src="https://github.com/UNM-CARC/QuickBytes/blob/master/ParallelMatlabWizard8.png" /></p>
+<p>Review your profile settings and create the profile.</p>
+<p><img alt="Wizard10" src="https://github.com/UNM-CARC/QuickBytes/blob/master/ParallelMatlabWizard10.png" /></p>
+<p>You can create multiple profiles for different CARC clusters and numbers of workers.</p>
+<p>parallel.cluster.generic.runProfileWizard()</p>
+<h2 id="setting-your-ip-address">Setting your IP Address</h2>
+<p>In the next steps MATLAB will need to know your local IP address to allow incoming/outgoing connections on your computer.</p>
+<p>You will likely have to tell the system the IP address or hostname of your local machine. This is so the CARC cluster can communicate with your laptop or desktop. You will set the hostname with pctconfig (Parallel Config Toolbox). You can either type the hostname in directly or attempt to have MATLAB find it for you with the following commands:</p>
+<p>OS X</p>
+<pre><code>[~,name]=system('ipconfig getifaddr en0');
+pctconfig('hostname',name);
+</code></pre>
+<p>Linux</p>
+<pre><code>%%
+[~,name]=system('hostname -i');
+pctconfig('hostname',name);
+</code></pre>
+<p>Windows 10</p>
+<p>Look up your computers IP address and enter:</p>
+<pre><code>%%
+pctconfig('hostname',&quot;&lt;your IP address&gt;&quot;);
+</code></pre>
+<h3 id="validating-the-configuration">Validating the Configuration</h3>
+<p>Select "parallel" then create/manage clusters. </p>
+<p>Choose the profile you just created. In this example, the profile name is "R2019a_Wheeler_PBS"</p>
+<p><img alt="Validating1" src="https://github.com/UNM-CARC/QuickBytes/blob/master/ParallelMatlabValidate1.png" /></p>
+<p>Select the profile you just created and select the validation tab. Press the validate button.</p>
+<p><img alt="Validating2" src="https://github.com/UNM-CARC/QuickBytes/blob/master/ParallelMatlabValidate2.png" /></p>
+<p>It will ask for your CARC username, and here you can also select your ssh keyfile if you use one (cmd+shift+. to reveal hidden directories so you can see you ~/.ssh folder and select your private key), or just enter your password.</p>
+<p>MATLAB will now validate your setup. If you run into trouble please contact CARC support at help@carc.unm.edu.</p>
+<p>This completes the install and configuration.</p>
+<p>We have found it best to restart MATLAB at this point, otherwise setting the hostname in the next step may not work.</p>
+<h3 id="writing-parallel-matlab-code">Writing Parallel Matlab Code</h3>
+<p>Once you have set the hostname you can run your parallel MATLAB code. Mathworks provides extensive documentation on using parallelism in MATLAB: <a href="https://www.mathworks.com/help/parallel-computing/getting-started-with-parallel-computing-toolbox.html">Mathworks Docs</a></p>
+<p>The very simple program that follows demonstrates how to run parallel code using MATLAB. The code uses parfor, which can often be used to replace a for loop in serial MATLAB code, to distibute the work across 10 parallel workers.</p>
+<pre><code>n_workers = 10;                  % We will request 10 workers to run in parallel
+p = parpool('R2019a_Wheeler_PBS', n_workers); % Create the pool of workers using the profile created earlier with 10 workers.
+parfor i = 1:100                % Define a parallel loop that will be distributed accross the 10 workers.
+i                               % Print the value of i for this iteration.
+end                   
+delete(p);                      % Clean up the worker pool
+</code></pre>
+<h2 id="monitoring-matlab-jobs">Monitoring MATLAB Jobs</h2>
+<p>To check that your jobs are indeed running at CARC, you can log in (ssh) to the cluster you have submitted your job to and check your job status. The command bellow shows only your jobs. </p>
+<pre><code>ssh username@wheeler.alliance.unm.edu 
+
+qstat -u &lt;username&gt;
+</code></pre>
+<p>If you are testing small scripts, they may run before you can type qstat. To watch your jobs, you can type watch before the qstat (or anyother) command and it will re-run the command every 2sec. This is a good way to watch progress. </p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../running_matlab_jobs/" class="btn btn-neutral float-left" title="Running MATLAB jobs at CARC"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Parallel_MATLAB_profile_setup_and_batch_submission/" class="btn btn-neutral float-right" title="Parallel MATLAB batch submission">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../running_matlab_jobs/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../Parallel_MATLAB_profile_setup_and_batch_submission/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

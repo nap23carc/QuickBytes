@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Converting PBS to Slurm - CARC QuickBytes</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Converting PBS to Slurm";
+        var mkdocs_page_input_path = "pbs2slurm.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> CARC QuickBytes
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../workshop_slides/">Workshop Slides</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Linux & HPC Introduction</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../linux_intro/">Linux Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../logging_in/">Logging in</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ssh_keygen_config/">SSH keys and Config file</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../transfer_data/">Transferring data</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Intro_to_slurm/">Intro to Slurm</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Converting PBS to Slurm</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#conversion-of-pbs-to-slurm">Conversion of PBS to Slurm</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../checking_on_running_jobs/">Check running jobs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../module_management/">Managing modules</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../slurm_accounting/">Intro to Slurm accounting at CARC</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../GNU_Parallel/">GNU Parallel</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../X11_forwarding/">X11 Forwarding</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Applications Tutorials</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >MATLAB</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../running_matlab_jobs/">Running MATLAB jobs at CARC</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ParallelMatlabServer/">Parallel MATLAB Server</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Parallel_MATLAB_profile_setup_and_batch_submission/">Parallel MATLAB batch submission</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Using_GPUs_on_Xena_with_MATLAB/">Using GPUs with MATLAB</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../MATLAB_Deep_Learning_on_Xena/">MATLAB Deep Learning on Xena</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >JupyterHub</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../parallelization_with_Jupyterhub_using_mpi/">JupyterHub Parallel Processing with MPI</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Conda_JupyterHub/">Conda python environments for JupyterHub</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../julia_with_jupyterhub/">Using Julia in JupyterHub</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Conda</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../anaconda_general_intro/">General intro to Conda</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../anaconda_intro/">Intro to Conda with example</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../anaconda_pip_channels/">Anaconda pip channels</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >R</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../R_usage/">R Programming in HPC</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="https://github.com/UNM-CARC/QuickBytes/tree/master/R_at_CARC">R at CARC</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Parallel_R_with_Future.ipynb">Running R in Parallel with Future</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Gurobi_optimizer_with_R/">Gurobi optimizer with R</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Machine Learning</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../Tensorflow_documentation/">Tensorflow</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../PyTorch_1.9_Xena/">Installing PyTorch on Xena</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../PyTorch_Classifier_Xena.ipynb">Example PyTorch Image Classification on Xena</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../multiGPU_tensorflow_tutorial.ipynb">Tensorflow with multiple GPUs</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../parallel_jupyterhub_with_dask_and_scikit-learn/">Parallelization with JupyterHub using Dask and SciKit-learn</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Bioinformatics</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../GATK_QuickByte/">Genomic variant calling with GATK</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../genome_evaluation/">Genome evaluation with QUAST and BUSCO</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../psmc_quickbyte/">Single genome demographic history with PSMC</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Stacks_quickbyte/">Stacks for RAD-Seq Data</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Metabarcoding/">Metabarcoding with QIIME2, Mothur, and USEARCH</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Beast_at_CARC/">BEAST at CARC</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../msprime_quickbyte/">Population genetic simulations with msprime (backwards time</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Computational Chemistry</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../orca_wheeler_taos/">Orca on Wheeler and Taos</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../alphafold/">Alphafold</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Computational Immunology</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../SimCov/">SimCov on Wheeler</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Astronomy</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../mpiCASA/">CASA Radio Astronomy</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Paraview</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../paraview/">Paraview Wheeler</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Paraview_Hopper/">Paraview Hopper</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../singularity-markdown-version/">Docker and Singularity</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../haskell/">Haskell at CARC</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../spark/">Spark</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../install_perl_libraries/">Installing Perl Libraries to Your Home Directory</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">CARC QuickBytes</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Linux & HPC Introduction</li>
+      <li class="breadcrumb-item active">Converting PBS to Slurm</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="conversion-of-pbs-script-to-slurm-script">Conversion of PBS script to Slurm script</h1>
+<p>Most of the machines at CARC uses PBS/TORQUE for scheduling jobs in HPC. However, Taos uses the Simple Linux Utility for Resource Management, or SLURM, for scheduling jobs. Slurm is a little different from PBS in terms of syntax, commands used for resource allocation, job submission and monitoring, and setting of environment variables. Detailed documentation of Slurm can be found in this <a href="https://slurm.schedmd.com/documentation.html">link</a>. For submitting a job on Taos, you have to submit a Slurm script. If you already have a PBS script, it can be easily converted to Slurm without worrying about the technical details of Slurm. More details of submitting a <a href="http://carc.unm.edu/user-support-2/using-carc-systems1/running-jobs/submitting-jobs.html">PBS</a> and <a href="https://github.com/UNM-CARC/QuickBytes/blob/master/Intro_to_slurm.md">Slurm</a> can be found in their quickbytes links.</p>
+<h2 id="conversion-of-pbs-to-slurm">Conversion of PBS to Slurm</h2>
+<p>For this purpose, we can use the cheet sheet tables below. The first table lists the most commonly used commands in PBS for submitting and monitoring jobs.</p>
+<table>
+<thead>
+<tr>
+<th>PBS Command</th>
+<th>Slurm Command</th>
+<th>Command definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>qsub \<job_script.pbs></td>
+<td>sbatch \<job_script.slurm></td>
+<td>Submit \<job-script>  to the queue</td>
+</tr>
+<tr>
+<td>qsub -I \<options></td>
+<td>salloc \<options></td>
+<td>Requesting interactive job</td>
+</tr>
+<tr>
+<td>qstat -u \<user></td>
+<td>squeue -u \<user></td>
+<td>Status of jobs submitted by \<user></td>
+</tr>
+<tr>
+<td>qstat -f \<job-id></td>
+<td>scontrol show job \&lt;job-id&gt;</td>
+<td>Display details of \<job-id></td>
+</tr>
+<tr>
+<td>qdel \<job-id></td>
+<td>scancel \<job-id></td>
+<td>Delete the listed \<job-id></td>
+</tr>
+<tr>
+<td>pbsnodes \<options></td>
+<td>sinfo</td>
+<td>Display all nodes with their information</td>
+</tr>
+</tbody>
+</table>
+<p>Now let's take a look at the commands used for resource allocation which goes into the PBS/SLURM script. In both cases, the script has to be initialized by the shell interpreter. Bash shell can be initialized in both PBS and SLURM by <code>#!/bin/bash/</code>
+The resource allocation in PBS is precceded by <code>#PBS</code>
+ and <code>#SBATCH</code> in SLURM. Let's look at various commands used for allocating resources.</p>
+<table>
+<thead>
+<tr>
+<th>PBS Command</th>
+<th>Slurm Command</th>
+<th>Command definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-N <name></td>
+<td>--job-name= \<name></td>
+<td>Name of the job to submit</td>
+</tr>
+<tr>
+<td>-l procs= \<N></td>
+<td>--ntasks= \<N></td>
+<td>N processes to run</td>
+</tr>
+<tr>
+<td>-l nodes=a:ppn=b</td>
+<td>--ntasks= \<product of a and b></td>
+<td>a*b processes to run</td>
+</tr>
+<tr>
+<td>-l walltime=\<HH:MM:SS></td>
+<td>--time=\<HH:MM:SS></td>
+<td>Maximum time required to finish the job</td>
+</tr>
+<tr>
+<td>-l mem=\<Memory></td>
+<td>--mem = \<Memory></td>
+<td>Memory required per node</td>
+</tr>
+<tr>
+<td>-l M \<email></td>
+<td>--mail-user=\<email></td>
+<td>Email ID for sending the job alerts to the user</td>
+</tr>
+<tr>
+<td>-l m \&lt;a,b,e&gt;</td>
+<td>--mail-type=\<BEGIN,END,FAIL,REQUEUE,ALL></td>
+<td>Sending email alerts at different situations</td>
+</tr>
+<tr>
+<td>-o \<out_file></td>
+<td>--output=\<out_file></td>
+<td>Name of the output file</td>
+</tr>
+<tr>
+<td>-e \<error_file></td>
+<td>--error=\<error_file></td>
+<td>Name of the file to write out the error/warning during execution</td>
+</tr>
+<tr>
+<td>-j oe</td>
+<td>Default in Slurm</td>
+<td>Merge output and error files</td>
+</tr>
+</tbody>
+</table>
+<p>Let's look at different ways to set environment variable within the PBS/Slurm job.</p>
+<table>
+<thead>
+<tr>
+<th>PBS Variable</th>
+<th>Slurm Variable</th>
+<th>Variable definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$PBS_O_HOST</td>
+<td>$SLURM_SUBMIT_HOST</td>
+<td>Hostname from which job was submitted</td>
+</tr>
+<tr>
+<td>$PBS_JOBID</td>
+<td>$SLURM_JOB_ID</td>
+<td>ID of the job sumitted</td>
+</tr>
+<tr>
+<td>$PBS_O_WORKDIR</td>
+<td>$SLURM_SUBMIT_DIR</td>
+<td>Name of the directory from which job was submited</td>
+</tr>
+<tr>
+<td>cat $PBS_NODEFILE</td>
+<td>$SLURM_JOB_NODELIST</td>
+<td>In PBS, a file containing allocated nodes/hostnames. In Slurm, a variable containing allocated nodes/hostnames.</td>
+</tr>
+</tbody>
+</table>
+<p>Now using the commands in the above tables,  we can easily convert a PBS script to a Slurm script. First let us look at a sample PBS script to run a python script test.py.</p>
+<pre><code class="language-bash">#!/bin/bash
+
+#PBS -l nodes=1:ppn=1
+#PBS -l walltime=01:00:00
+#PBS -N test
+#PBS -o test_out
+#PBS -e test_error
+#PBS -m bae
+#PBS -M user@unm.edu
+
+cd $PBS_O_WORKDIR/
+python test.py
+
+</code></pre>
+<p>The corresponding Slurm script for the above PBS script can be written as</p>
+<pre><code class="language-bash">#!/bin/bash
+
+#SBATCH --ntasks=1
+#SBATCH --time=01:00:00
+#SBATCH --job-name=test
+#SBATCH --output=test.out
+#SBATCH --error=test.err
+#SBATCH --mail-type=BEGIN,FAIL,END
+#SBATCH --mail-user=user@unm.edu
+
+cd $SLURM_SUBMIT_DIR/
+python test.py
+
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../Intro_to_slurm/" class="btn btn-neutral float-left" title="Intro to Slurm"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../checking_on_running_jobs/" class="btn btn-neutral float-right" title="Check running jobs">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../Intro_to_slurm/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../checking_on_running_jobs/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

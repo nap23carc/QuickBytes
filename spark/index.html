@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Spark - CARC QuickBytes</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Spark";
+        var mkdocs_page_input_path = "spark.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> CARC QuickBytes
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../workshop_slides/">Workshop Slides</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Linux & HPC Introduction</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../linux_intro/">Linux Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../logging_in/">Logging in</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ssh_keygen_config/">SSH keys and Config file</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../transfer_data/">Transferring data</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Intro_to_slurm/">Intro to Slurm</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../pbs2slurm/">Converting PBS to Slurm</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../checking_on_running_jobs/">Check running jobs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../module_management/">Managing modules</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../slurm_accounting/">Intro to Slurm accounting at CARC</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../GNU_Parallel/">GNU Parallel</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../X11_forwarding/">X11 Forwarding</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Applications Tutorials</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >MATLAB</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../running_matlab_jobs/">Running MATLAB jobs at CARC</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ParallelMatlabServer/">Parallel MATLAB Server</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Parallel_MATLAB_profile_setup_and_batch_submission/">Parallel MATLAB batch submission</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Using_GPUs_on_Xena_with_MATLAB/">Using GPUs with MATLAB</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../MATLAB_Deep_Learning_on_Xena/">MATLAB Deep Learning on Xena</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >JupyterHub</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../parallelization_with_Jupyterhub_using_mpi/">JupyterHub Parallel Processing with MPI</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Conda_JupyterHub/">Conda python environments for JupyterHub</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../julia_with_jupyterhub/">Using Julia in JupyterHub</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Conda</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../anaconda_general_intro/">General intro to Conda</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../anaconda_intro/">Intro to Conda with example</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../anaconda_pip_channels/">Anaconda pip channels</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >R</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../R_usage/">R Programming in HPC</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="https://github.com/UNM-CARC/QuickBytes/tree/master/R_at_CARC">R at CARC</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Parallel_R_with_Future.ipynb">Running R in Parallel with Future</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Gurobi_optimizer_with_R/">Gurobi optimizer with R</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Machine Learning</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../Tensorflow_documentation/">Tensorflow</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../PyTorch_1.9_Xena/">Installing PyTorch on Xena</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../PyTorch_Classifier_Xena.ipynb">Example PyTorch Image Classification on Xena</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../multiGPU_tensorflow_tutorial.ipynb">Tensorflow with multiple GPUs</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../parallel_jupyterhub_with_dask_and_scikit-learn/">Parallelization with JupyterHub using Dask and SciKit-learn</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Bioinformatics</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../GATK_QuickByte/">Genomic variant calling with GATK</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../genome_evaluation/">Genome evaluation with QUAST and BUSCO</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../psmc_quickbyte/">Single genome demographic history with PSMC</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Stacks_quickbyte/">Stacks for RAD-Seq Data</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Metabarcoding/">Metabarcoding with QIIME2, Mothur, and USEARCH</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Beast_at_CARC/">BEAST at CARC</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../msprime_quickbyte/">Population genetic simulations with msprime (backwards time</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Computational Chemistry</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../orca_wheeler_taos/">Orca on Wheeler and Taos</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../alphafold/">Alphafold</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Computational Immunology</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../SimCov/">SimCov on Wheeler</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Astronomy</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../mpiCASA/">CASA Radio Astronomy</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Paraview</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../paraview/">Paraview Wheeler</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Paraview_Hopper/">Paraview Hopper</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../singularity-markdown-version/">Docker and Singularity</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../haskell/">Haskell at CARC</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Spark</a>
+    <ul class="current">
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../install_perl_libraries/">Installing Perl Libraries to Your Home Directory</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">CARC QuickBytes</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Applications Tutorials</li>
+      <li class="breadcrumb-item active">Spark</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="spark">Spark</h2>
+<p>Apache Spark is a parallel/distributed computing environment designed for processing large, complex data sets. Compared to other large-scale parallel programming environments (e.g. MPI), it’s generally easier to program, especially for data-centric workloads. You basically write a Java, Scala, or Python program that coordinates parallel data processing by a large number of worker processes. In addition, Spark has extensions analyzing streaming data sets (Spark Streaming) and using machine learning techniques for analyzing data (Spark ML), making it ideal for many modern data-oriented research questions.
+In this tutorial, we discuss how to run Spark on the UNM CARC cluster systems, using a Python-oriented example of analyzing Chicago crime data drawn from an excellent series of Spark Python examples provided by datascienceplus.com. Once you understand the basic Spark model, the main complications for running these examples on CARC are starting your personal Spark instance on which to run and then using that. The remainder of this page discusses on these issues, and shows how to set up a full-featured Spark environment on CARC systems using anaconda to run some of the examples from the tutorial linked above.</p>
+<p>All of the files from this tutorial are available at https://lobogit.unm.edu/CARC/tutorials/-/tree/master/spark.</p>
+<h2 id="the-basic-spark-model">The Basic Spark Model</h2>
+<p>Spark is what is referred to as a Single-Program-Multiple-Data (SPMD) parallel programming model. You write a single Spark program in the language of your choice that runs on a single master node (we’ll be using Python in this example), and that master orchestrates multiple parallel workers, each of which work on a subset of the overall data. Key to this is understanding and managing which (and how much) data resides on the master and which data is split across the workers in what Spark refers to as Resilient Distributed Datasets (RDDs). Note that while RDDs are the main abstraction Spark uses under the covers to manage distributed data, you will more likely use and manipulate Spark DataFrames, a higher-level version of RDDs akin to a large distributed table or spreadsheet.</p>
+<p>The first thing to understand is that RDDs and DataFrames are spread among the parallel nodes and workers and they don’t change. Instead, you create a sequence of transformations that Spark executes when necessary to generate new DataFrames and RDDs from existing data (e.g. files) and RDDs/DataFrames, and you execute actions on RDDs to extract data from the workers back to your master program. It is important to remember that transformations are run in parallel across the Spark cluster, while actions generate data housed only on the master! As a result, actions that generate large amounts of data can cause your program to run out of memory, and activities that work on the results of actions do not happen in parallel!</p>
+<h2 id="the-canonical-simple-example-word-count-in-python">The Canonical Simple Example: Word count in Python</h2>
+<p>```# Create my Spark connection in Python
+spark = SparkSession.builder.appName("WordCount").getOrCreate()</p>
+<h1 id="create-an-rdd-from-a-text-file">Create an RDD from a text file</h1>
+<p>lines = spark.read.text(sys.argv[1]).rdd.map(lambda r: r[0])</p>
+<h1 id="generate-a-new-rdd-via-the-map-transformations-run-in-parallel-on-workers-that-splits-the-lines-into-words">Generate a new RDD (via the map transformations run in parallel on workers) that splits the lines into words</h1>
+<p>words = lines.flatMap(lambda x: x.split(' '))</p>
+<h1 id="and-then-another-transformation-that-counts-up-the-number-of-times-each-word-appears">And then another transformation that counts up the number of times each word appears</h1>
+<p>counts = words.map(lambda x: (x, 1)).reduceByKey(add)</p>
+<h1 id="execute-an-action-that-puts-the-resulting-list-of-counts-in-an-array-of-wordcount-pairs-in-the-master-program">Execute an action that puts the resulting list of counts in an array of (word,count) pairs in the master program</h1>
+<p>output = counts.collect()</p>
+<h1 id="run-serially-on-the-master-only-since-this-isnt-spark-operations-code-to-generate-output">Run (serially on the master only, since this isn’t Spark operations!) code to generate output.</h1>
+<p>for (word, count) in output:
+        print("%s: %i" % (word, count))</p>
+<pre><code>## Running Spark at CARC
+When you read Spark tutorials, you’ll see that it is generally run on dedicated per-user spark clusters, with the “spark-submit” script or “pyspark” commands used to talk to your cluster. You can do the same thing at CARC, but you’ll need to do a few things first:
+
+Have a CARC project/account, for which you can find directions on the CARC website:
+Log into a CARC shared cluster (we’ll be using wheeler.carc.unm.edu) using ssh or a similar tool (XXX This should link to our documentation on how to do that)
+
+Use the PBS queueing system to request a set of nodes for your use (XXX This should link to our PBS information)
+Run pbs-spark-submit on those nodes to start your personal spark instance (see below)
+
+Talk to the spark workers using pyspark or spark-submit
+
+Basically, pbs-submit-spark starts your personal Spark cluster (and optionally one job) using batch queueing information from PBS queueing system, and after that’s done you can use pyspark to talk to interactively or submit-spark to submit new Spark jobs to it. pbs-spark-submit is available at https://lobogit.unm.edu/CARC/tutorials/-/blob/master/spark/pbs-spark-submit.
+
+## Simple CARC Spark Examples
+1. Create an interactive 4-node cluster on Wheeler for 1 hour
+
+```bridges@wheeler-sn[519]&gt; ls big.txt  conf/  pbs-spark-submit*  small.txt
+bridges@wheeler-sn[520]&gt; cd
+bridges@wheeler-sn[521]&gt; qsub -I -l nodes=4:ppn=8 -l walltime=01:00:00
+qsub: waiting for job 14319.wheeler-sn.alliance.unm.edu to start
+qsub: job 14319.wheeler-sn.alliance.unm.edu ready
+Job 14319.wheeler-sn.alliance.unm.edu running on nodes:
+wheeler240 wheeler235 wheeler234 wheeler233
+Wheeler Portable Batch System Prologue
+Job Id: 14319.wheeler-sn.alliance.unm.edu
+Username: bridges
+Job 14319.wheeler-sn.alliance.unm.edu running on nodes:
+wheeler240 wheeler235 wheeler234 wheeler233
+prologue running on host: wheeler240
+</code></pre>
+<ol>
+<li>Start the Spark cluster on your wheeler nodes</li>
+</ol>
+<p>```bridges@wheeler240[500]&gt; cd /wheeler/scratch/bridges/spark
+bridges@wheeler240[501]&gt; module load spark-2.1.0-gcc-4.8.5-lifnga6
+bridges@wheeler240[502]&gt; export SPARK_HOME=$SPARK_DIR
+bridges@wheeler240[503]&gt; ./pbs-spark-submit
+SPARK_MASTER_HOST=wheeler240
+SPARK_MASTER_PORT=7077
+bridges@wheeler240[504]&gt; pyspark --master spark://wheeler240:7077</p>
+<pre><code>
+ 3. Run Spark interactively
+
+```&gt;&gt;&gt; rddread = sc.textFile(&quot;small.txt&quot;)
+&gt;&gt;&gt; rddread.takeSample(False, 10, 2)
+[u'a savage place as holy and enchanted ', u'huge fragments vaulted like rebounding hail ', u'   floated midway on the waves ', u'and all should cry beware beware ', u'and from this chasm with ceaseless turmoil seething ', u'enfolding sunny spots of greenery ', u'as if this earth in fast thick pants were breathing ', u'and drunk the milk of paradise', u'five miles meandering with a mazy motion ', u'where blossomed many an incensebearing tree ']
+&gt;&gt;&gt; exit()
+bridges@wheeler240[505]&gt; exit
+qsub: job 14319.wheeler-sn.alliance.unm.edu completed
+</code></pre>
+<ol>
+<li>Spark jobs can be run in batch as well – The following PBS batch script would run the simple wordcount example from above, using the Wheeler scratch file system to store the data while it is being processed:</li>
+</ol>
+<p>```# wordcount.pbs</p>
+<h1 id="pbs-n-wordcount">PBS -N wordcount</h1>
+<h1 id="pbs-l-nodes2ppn8">PBS -l nodes=2:ppn=8</h1>
+<h1 id="pbs-l-walltime000500">PBS -l walltime=00:05:00</h1>
+<p>SCRATCHDIR=/wheeler/scratch/$USER/spark
+module load spark-2.1.0-gcc-4.8.5-lifnga6
+export SPARK_HOME=$SPARK_DIR
+cd $PBS_O_WORKDIR
+cp wordcount.py $SCRATCHDIR
+cp big.txt $SCRATCHDIR
+cp -r conf $SCRATCHDIR
+cd $SCRATCHDIR
+$PBS_O_WORKDIR/pbs-spark-submit wordcount.py     <br />
+$SCRATCHDIR/big.txt &gt; wordcount.log
+cp wordcount.log $PBS_O_WORKDIR</p>
+<pre><code>## A More Involved Example
+To make the most of Spark, most programmers will want to do two things: use the DataFrames API and construct a more full-features Python programming environment in which to work and analyze data. While RDDs are the core Spark abstraction, the DataFrame API (available since Spark 2.0) is much more programmer friendly. In particular, DataFrames have columns and column operations, can import CSV and JSON data files, while still being distributed across the memory of all of the nodes in your Spark cluster. 16 Wheeler nodes can, for example, handle a 200GB table! Similarly, setting up a full-featured programming environment by using Anaconda will allow you to analyze and visualize your data much more effectively.
+
+## Setting up a Full Python/Spark environment using Anaconda
+As mentioned above and on other CARC web pages, we suggest that users use Anaconda to manage their python environments. This applies to Python+Spark as well with one exception – you want to get spark (and pyspark) from the Spark package so that it matches the version of Spark on your system instead of from Anaconda. To create this environment, simply run the following two commands:
+
+```wheeler-sn&gt; module load anaconda3-4.4.0-gcc-4.8.5-ubgzkkv
+wheeler-sn&gt; conda create –n spark python=27 numpy scipy pandas matplotlib
+</code></pre>
+<p><img alt="SparkLogo" src="https://github.com/UNM-CARC/QuickBytes/blob/master/apache_spark_logo.jpeg" /> </p>
+<p>Once this is done, we just activate that environment and can add new things to it as needed after we launch our Spark cluster, to interactively look at a lot of data. First, we bring up Spark with this customized environment:</p>
+<p>```wheeler-sn&gt; qsub –I –l nodes=1:ppn=8 -l walltime=01:00:00
+wheeler263&gt; module load anaconda3-4.4.0-gcc-4.8.5-ubgzkkv
+wheeler263&gt; source activate spark
+(spark) wheeler263&gt; module load spark spark-2.1.0-gcc-4.8.5-lifnga6
+(spark) wheeler263&gt; export SPARK_HOME=$(SPARK_DIR)
+(spark) wheeler263&gt; ./pbs-spark-submit
+(spark) wheeler263&gt; pyspark –-master spark://wheeler263:7077</p>
+<pre><code>
+Once we have this running, we can simply load and analyze our data, first converting it into Spark Parquet format so that we can load and save it more quickly later:
+
+```&gt;&gt;&gt; crimes_schema = ... # available in source code files
+&gt;&gt;&gt; format = &quot;MM/dd/yyyy hh:mm:ss a&quot;
+&gt;&gt;&gt; crimes = spark.read.format(&quot;csv&quot;).options(header = 'true',dateFormat = format,timestampFormat = format).load(&quot;crimes.csv&quot;, schema = crimes_schema)
+&gt;&gt;&gt; count = crimes.count()
+&gt;&gt;&gt; print(&quot;Imported CSV with {} crime records.&quot;.format(count))
+Imported CSV with 6614877 crime records
+
+&gt;&gt;&gt; crimes.write.parquet(&quot;crimes.parquet&quot;)
+</code></pre>
+<p>From there, you can basically think of the resulting DataFrame as a SQL database or Excel sheet, turning the full power of Python and SQL loose on it, including computings averages, sorting or grouping it, adding columns, and doing proper SQL operations on it (selects, joins, pivots, etc.). For example, if you wanted to normalize the Latitudes in the table loaded above, you could the the following:</p>
+<p>```&gt;&gt;&gt; lat_mean = crimes.agg({"Latitude" : "mean"}).collect()[0][0]</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>print("The mean latitude values is {}".format(lat_mean))
+The mean latitude values is 41.8419399743</p>
+<p>df = crimes.withColumn("Lat(Norm)",lat_mean - crimes["Latitude"])
+df.select(["Latitude", "Lat(Norm)"]).show(3)
++------------+--------------------+
+|    Latitude|    Lat(Norm)|
++------------+--------------------+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>|41.987319201|-0.14537922670000114|
+|41.868473957|-0.02653398270000...|
+|41.742667249| 0.09927272529999698|</p>
+<p>+------------+--------------------+</p>
+<pre><code>
+## Visualization of Data from Python
+You can also use Pandas and Matplotlib and everything else on processed data, for example the following code generates a file which graphs Chicago crimes by month:
+
+```import matplotlib as mpl
+mpl.use('PDF’) # Live rendering over X11 requires ssh tunneling
+import matplotlib.pyplot as plt
+import pandas as pd
+# And then do things like compute domestic crimes by month
+from pyspark.sql.functions import month
+monthdf = df.withColumn(&quot;Month&quot;,month(&quot;Date&quot;))
+monthCounts = monthdf.select(&quot;Month&quot;).groupBy(&quot;Month&quot;).count().collect()
+months = [item[0] for item in monthCounts]
+count = [item[1] for item in monthCounts]
+crimes_per_month = pd.DataFrame({&quot;month&quot;:months, &quot;crime_count&quot;:
+crimes_per_month = crimes_per_month.sort_values(by = &quot;month&quot;)
+crimes_per_month.plot(figsize = (20,10), kind = &quot;line&quot;, x = &quot;month&quot;, y = &quot;crime_count&quot;, color = &quot;red&quot;, linewidth = 8, legend = False)
+plt.xlabel(&quot;Month&quot;, fontsize = 18)
+plt.ylabel(&quot;Number of Crimes&quot;, fontsize = 18)
+plt.title(&quot;Number of Crimes Per Month&quot;, fontsize = 28)
+plt.xticks(size = 18)
+plt.yticks(size = 18)
+plt.savefig(&quot;crimes-by-month.pdf&quot;)
+</code></pre>
+<p><img alt="Crimes" src="https://github.com/UNM-CARC/QuickBytes/blob/master/spark-image1.jpg" /> </p>
+<p>Similarly, this code generates a file which charts Chicago crime by location type:</p>
+<p><code>crime_location  = crimes.groupBy("LocationDescription").count().collect()
+location = [item[0] for item in crime_location]
+count = [item[1] for item in crime_location]
+crime_location = {"location" : location, "count": count}
+crime_location = pd.DataFrame(crime_location)
+crime_location = crime_location.sort_values(by = "count", ascending  = False)
+crime_location = crime_location.iloc[:20]
+myplot = crime_location.plot(figsize =(20,20), kind="barh", color="#b35900", width = 0.8, x = "location", y = "count", legend = False)
+myplot.invert_yaxis()
+plt.xlabel("Number of crimes", fontsize = 28)
+plt.ylabel("Crime Location", fontsize = 28)
+plt.title("Number of Crimes By Location", fontsize = 36)
+plt.xticks(size = 24)
+plt.yticks(size = 24)
+plt.savefig("crimes-by-location.pdf")</code>
+<img alt="Crimes" src="https://github.com/UNM-CARC/QuickBytes/blob/master/spark-image2.jpg" /> </p>
+<h2 id="more-information">More Information</h2>
+<p>In addition to all of this, there are a wide range of other things you can do with Spark.</p>
+<p>Spark Streaming (add link) augments RDDs with Dstreams, data batched into N second chunks with one RDD per batch. Spark can automatically monitor data dumped into files or directories or message queues and fill them into Dstreams. Twitter sentiment analysis is a common use case (e.g. combined with a Kafka queue that Spark Streaming pulls from)
+Spark ML (add link) provides a wide range of scalable regression, inference, clustering, and learning algorithms from Spark.
+Finally, we’re working on an array of additional improvements on this at CARC in the long term, including making this accessible from Jupyter notebooks, and making it easier to interactively render data to your desktop (as opposed to into files like was done above).  Keep an eye out on the CARC website for additional information as these features develop.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../haskell/" class="btn btn-neutral float-left" title="Haskell at CARC"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../install_perl_libraries/" class="btn btn-neutral float-right" title="Installing Perl Libraries to Your Home Directory">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../haskell/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../install_perl_libraries/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

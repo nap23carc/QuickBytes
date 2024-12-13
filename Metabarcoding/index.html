@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Metabarcoding with QIIME2, Mothur, and USEARCH - CARC QuickBytes</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Metabarcoding with QIIME2, Mothur, and USEARCH";
+        var mkdocs_page_input_path = "Metabarcoding.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> CARC QuickBytes
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../workshop_slides/">Workshop Slides</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Linux & HPC Introduction</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../linux_intro/">Linux Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../logging_in/">Logging in</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ssh_keygen_config/">SSH keys and Config file</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../transfer_data/">Transferring data</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Intro_to_slurm/">Intro to Slurm</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../pbs2slurm/">Converting PBS to Slurm</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../checking_on_running_jobs/">Check running jobs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../module_management/">Managing modules</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../slurm_accounting/">Intro to Slurm accounting at CARC</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../GNU_Parallel/">GNU Parallel</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../X11_forwarding/">X11 Forwarding</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Applications Tutorials</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >MATLAB</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../running_matlab_jobs/">Running MATLAB jobs at CARC</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ParallelMatlabServer/">Parallel MATLAB Server</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Parallel_MATLAB_profile_setup_and_batch_submission/">Parallel MATLAB batch submission</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Using_GPUs_on_Xena_with_MATLAB/">Using GPUs with MATLAB</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../MATLAB_Deep_Learning_on_Xena/">MATLAB Deep Learning on Xena</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >JupyterHub</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../parallelization_with_Jupyterhub_using_mpi/">JupyterHub Parallel Processing with MPI</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Conda_JupyterHub/">Conda python environments for JupyterHub</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../julia_with_jupyterhub/">Using Julia in JupyterHub</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Conda</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../anaconda_general_intro/">General intro to Conda</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../anaconda_intro/">Intro to Conda with example</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../anaconda_pip_channels/">Anaconda pip channels</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >R</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../R_usage/">R Programming in HPC</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="https://github.com/UNM-CARC/QuickBytes/tree/master/R_at_CARC">R at CARC</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Parallel_R_with_Future.ipynb">Running R in Parallel with Future</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Gurobi_optimizer_with_R/">Gurobi optimizer with R</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Machine Learning</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../Tensorflow_documentation/">Tensorflow</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../PyTorch_1.9_Xena/">Installing PyTorch on Xena</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../PyTorch_Classifier_Xena.ipynb">Example PyTorch Image Classification on Xena</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../multiGPU_tensorflow_tutorial.ipynb">Tensorflow with multiple GPUs</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../parallel_jupyterhub_with_dask_and_scikit-learn/">Parallelization with JupyterHub using Dask and SciKit-learn</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Bioinformatics</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../GATK_QuickByte/">Genomic variant calling with GATK</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../genome_evaluation/">Genome evaluation with QUAST and BUSCO</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../psmc_quickbyte/">Single genome demographic history with PSMC</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Stacks_quickbyte/">Stacks for RAD-Seq Data</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Metabarcoding with QIIME2, Mothur, and USEARCH</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#different-pipelines">Different pipelines</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#steps-for-each-pipeline">Steps for each pipeline</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#data-for-tutorial">Data for tutorial</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#create-folder-structure">create folder structure</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#qiime2-using-dada2-pipeline">QIIME2 (using DADA2) pipeline</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#install">install</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#join-forward-and-reverse-reads">join forward and reverse reads</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#filter-reads-remove-chimeras-and-create-asvs">filter reads (remove chimeras) and create ASVs</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#creation-of-asv-table">Creation of ASV table</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#mothur-pipeline">Mothur pipeline</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#install_1">install</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#join-forward-and-reverse-reads_1">join forward and reverse reads</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#filter-reads-remove-primer-region-and-remove-chimeras">filter reads, remove primer region, and remove chimeras</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#create-otus">create OTUs</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#usearch">USEARCH</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#install_2">install</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#create-otus_1">Create OTUs ####</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#create-otu-table">create OTU table</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Beast_at_CARC/">BEAST at CARC</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../msprime_quickbyte/">Population genetic simulations with msprime (backwards time</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Computational Chemistry</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../orca_wheeler_taos/">Orca on Wheeler and Taos</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../alphafold/">Alphafold</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Computational Immunology</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../SimCov/">SimCov on Wheeler</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Astronomy</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../mpiCASA/">CASA Radio Astronomy</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Paraview</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../paraview/">Paraview Wheeler</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Paraview_Hopper/">Paraview Hopper</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../singularity-markdown-version/">Docker and Singularity</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../haskell/">Haskell at CARC</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../spark/">Spark</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../install_perl_libraries/">Installing Perl Libraries to Your Home Directory</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">CARC QuickBytes</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Applications Tutorials</li>
+          <li class="breadcrumb-item">Bioinformatics</li>
+      <li class="breadcrumb-item active">Metabarcoding with QIIME2, Mothur, and USEARCH</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="metabarcoding-tutorial">Metabarcoding Tutorial</h1>
+<p>Metabarcoding is the process of using next-generation sequencing platforms (Illumina, PacBio, or Oxford Nanopore) to sequence amplicons and determine the ecological community that is present. The most common applications are microbiome analyses to study the community of bacteria or fungi. Given that metabarcoding relies upon PCR, biases do occur (e.g. primer biases, variation in loci copy number, incomplete lineage sorting, etc.). However, other techniques such as metagenomic sequencing cannot fully assemble larger genomes such as fungal genomes and fail to capture all of the species present in high diversity samples. Thus, metabarcoding remains the best option to characterize microbial communities. </p>
+<p>This tutorial is designed to give you an example of how to take the sequences you get from the sequencing facility and generate:</p>
+<ol>
+<li>a fasta file of all of the unique sequences known as the representative sequence file (abbreviated to rep-seq) </li>
+<li>a table with the abundance of each of the representative sequences for every sample. Often referred to as an OTU/ASV table.  </li>
+</ol>
+<p>One point of contention for metabarcoding projects is how to define which sequences are unique. The traditional view was to  cluster any sequences that diverged by less than 3% of sequence similarity into a species known as an OTU (operational taxon unit). However, other people reject the clustering step as being arbitrary and define any divergence as noteworthy. This approach is known as ASVs, (amplicon sequence variants). While the debate between clustering to OTUs or using ASVs remains contentious, for most community analyses, each will give you the same biological answer. The right choice will depend on your question and your system. For example, fungal metabarcoding studies use a highly variable region called the internal transcribed spacer (ITS) which is known to diverge by 3% within an individual (they have many copies of the ITS region) and among members of the same species. Thus, clustering to OTUs is more logical for fungal taxa to avoid oversplitting species. However, if you were using a conserved gene such as the 18S, ASV's might give you a better approximation of species.</p>
+<p>Final note: make sure you are runing the commands in a pbs script or on an interactive node!</p>
+<h3 id="different-pipelines">Different pipelines</h3>
+<p>There are many different pipelines to process metabarcoding samples. For this tutorial we will focus on the three main ones:
+1. QIIME2 (using DADA2)
+2. Mothur
+3. USEARCH</p>
+<h3 id="steps-for-each-pipeline">Steps for each pipeline</h3>
+<p>For eachof them, they will follow these key steps:
+1. install
+      * how to set up the environments. 
+3. join forward and reverse reads
+      * Illumina sequencing produces forward and reverse reads for every sequence.
+5. filter reads (remove chimeras)
+      * The merged reads will need to be trimmed of extraneous sequence, poor quality sequences will need be removed, and chimera, the generation of DNA sequences           from disparate organisms due to errors in the PCR process, will also need to be removed. 
+7. create OTUs/ASVs
+      * The unique sequences will be determined based on the chosen algorithm. 
+9. Creation of OTU/ASV table
+      * The abundances of the OTUs or ASVs will be tabulated per sample to create the table. 
+11. determine Taxonomy for OTUs/ASVs
+      * The taxonomy of each of the OTUs/ASVs will be inferred by comparing the sequences against commonly used databases.</p>
+<h2 id="data-for-tutorial">Data for tutorial</h2>
+<p>For each of the pipelines we will use 16S bacterial of the V4 region provided by the Mothur pipeline. </p>
+<h3 id="create-folder-structure">create folder structure</h3>
+<pre><code>mkdir metabarcoding
+cd metabarcoding
+src=~/metabarcoding
+
+mkdir data
+cd data
+
+# dataset is called miseqsopdata
+wget https://mothur.s3.us-east-2.amazonaws.com/wiki/miseqsopdata.zip
+unzip miseqsopdata.zip
+
+cd miseqsopdata
+# gzip all fastq files to save space.
+gzip *fa
+
+# move back to main folder
+cd $src
+</code></pre>
+<h2 id="qiime2-using-dada2-pipeline">QIIME2 (using DADA2) pipeline</h2>
+<p>For QIIME2, every file created is either uses a .qsv or .qsa extension. the .qsv is a zip file that contains data and the metadata. The .qsv are visualizations that can be viewed by uploading the file to https://view.qiime2.org/. QIIME2 prefers to create ASVs using the DADA2 method, so this tutorial will do that.</p>
+<h3 id="install">install</h3>
+<p>We will create a conda environment called qiime2-2021.4. </p>
+<pre><code>   # To install QIIME2 on the Wheeler, Xena, or Hopper clusters, use the following command:
+   module load miniconda3
+
+   # To do a similar installation on the Taos cluster, use the following command instead:
+   module load miniconda3-4.10.3-gcc-10.2.0-gu6ytpa
+
+   #download the yml
+   wget https://data.qiime2.org/distro/core/qiime2-2021.4-py38-linux-conda.yml
+
+   # create conda environment called qiime2-2020.8
+   conda env create -n qiime2-2021.4 --file qiime2-2021.4-py38-linux-conda.yml
+
+   # delete yml
+   rm qiime2-2020.8-py36-linux-conda.yml
+
+</code></pre>
+<h3 id="join-forward-and-reverse-reads">join forward and reverse reads</h3>
+<pre><code>conda activate qiime2-2021.4
+cd $scr
+
+mkdir qiime2_tutorial
+cd qiime2_tutorial
+
+# merge reads
+qiime tools import \
+--type 'SampleData[PairedEndSequencesWithQuality]' \
+--input-path $src/data/MiSeq_SOP/fastqs/ \
+--input-format CasavaOneEightSingleLanePerSampleDirFmt \
+--output-path $src/qiime2_tutorial/demux-paired-end.qza
+
+# summary figures online
+# open visual at this link: https://view.qiime2.org/
+qiime demux summarize \
+  --i-data  $src/qiime2_tutorial/demux-paired-end.qza \
+  --o-visualization $src/qiime2_tutorial/demux.qzv
+</code></pre>
+<h3 id="filter-reads-remove-chimeras-and-create-asvs">filter reads (remove chimeras) and create ASVs</h3>
+<p>This step does all of the filtering and creation of ASVs at once. </p>
+<pre><code># following what we see in the visualization we will trim the reads and denoise the reads. 
+# this will also create the rep seq qiime file wiht the ASVs. 
+# This method denoises paired-end sequences, dereplicates them, and filters chimeras.
+qiime dada2 denoise-paired \
+  --i-demultiplexed-seqs  $src/qiime2_tutorial/demux-paired-end.qza \
+  --p-trunc-len-f 240 \
+  --p-trunc-len-r 160 \
+  --o-representative-sequences $src/qiime2_tutorial/rep-seqs-dada2.qza \
+  --o-table  $src/qiime2_tutorial/table-dada2.qza \
+  --o-denoising-stats  $src/qiime2_tutorial/stats-dada2.qza \
+  --p-n-threads 0 # use all available cores
+
+# create rep-seq file.
+qiime feature-table tabulate-seqs \
+  --i-data $src/qiime2_tutorial/rep-seqs-dada2.qza \
+  --o-visualization $src/qiime2_tutorial/rep-seqs.qzv
+
+# create summary table 
+qiime feature-table summarize \
+  --i-table $src/qiime2_tutorial/table-dada2.qza \
+  --o-visualization $src/qiime2_tutorial/table.qzv 
+
+</code></pre>
+<h3 id="creation-of-asv-table">Creation of ASV table</h3>
+<pre><code>  # export rep seq sequences.
+  # it is exported in the rep-seqs wiht 
+ qiime tools export \
+  --input-path $src/qiime2_tutorial/rep-seqs-dada2.qza \
+  --output-path $src/qiime2_tutorial/rep-seqs
+
+# creates OTU table
+qiime tools export \
+  --input-path $src/qiime2_tutorial/table-dada2.qza \
+   --output-path $src/qiime2_tutorial/exported-feature-table
+</code></pre>
+<h2 id="mothur-pipeline">Mothur pipeline</h2>
+<p>Mothur uses a unique syntax in which each command begins is structured liek this: mothur "#command here(parameters_here=X)". Mothur can do ASVs but the preference of the its creator is to use OTUS so we will do that here. </p>
+<h3 id="install_1">install</h3>
+<pre><code> # load miniconda
+ module load miniconda3-4.7.12.1-gcc-4.8.5-lmtvtik
+
+
+conda env create -n mothur
+conda install -n mothur -c bioconda mothur
+
+
+
+</code></pre>
+<h3 id="join-forward-and-reverse-reads_1">join forward and reverse reads</h3>
+<pre><code>conda activate mothur
+cd $src
+mkdir mothur_tutorial 
+
+cd mothur_tutorial
+# copy files into mothur folder
+scp $src/data/MiSeq_SOP/fastqs/*gz .
+
+# create a list of the files
+# output
+#     1. stability.files
+mothur &quot;#make.file(inputdir=., type=gz, prefix=stability)&quot;
+
+
+# join forward and reverse reads. Gives you a count of reads of how many reads are assembled for each sample
+# output
+#     1. stability.trim.contigs.fasta
+#     2. stability.scrap.contigs.fasta
+#     3. stability.contigs.report
+#     4. stability.contigs.groups
+mothur &quot;#make.contigs(file=stability.files, processors=8)&quot;
+
+# summary stats on the merged reads
+mothur &quot;#summary.seqs(fasta=stability.trim.contigs.fasta)&quot;
+
+</code></pre>
+<h3 id="filter-reads-remove-primer-region-and-remove-chimeras">filter reads, remove primer region, and remove chimeras</h3>
+<pre><code># removes reads that are longer than 275 bases. Likely to be errors
+# output files
+#        1. stability.contigs.pick.groups
+#        2. stability.trim.contigs.good.fasta
+#        3. stability.trim.contigs.bad.accnos
+#        4. stability.contigs.good.groups
+mothur &quot;#screen.seqs(fasta=stability.trim.contigs.fasta, group=stability.contigs.groups, maxambig=0, maxlength=275)&quot;
+
+
+
+# find unique sequences in dataset. This is to reduce the size of the dataset and reduce redundancies. 
+# output files
+#        1.stability.trim.contigs.good.names
+         2. stability.trim.contigs.good.unique.fasta
+mothur &quot;#unique.seqs(fasta=stability.trim.contigs.good.fasta)&quot;
+
+
+# count up how many reads are match the good names. 
+# output file
+#        1. stability.trim.contigs.good.count_table
+mothur &quot;#count.seqs(name=stability.trim.contigs.good.names, group=stability.contigs.good.groups)&quot;
+
+
+# now going to trim unique reads to silva dataset. 
+
+# download reference database to trim reads
+wget https://mothur.s3.us-east-2.amazonaws.com/wiki/silva.bacteria.zip
+unzip silva.bacteria.zip
+
+
+# trim to the V4 variable region of the silva bacteria dataset. This is the reigon we sequenced
+# output file
+#        1. silva.bacteria/silva.bacteria.pcr.fasta
+mothur &quot;#pcr.seqs(fasta=silva.bacteria/silva.bacteria.fasta, start=11894, end=25319, keepdots=F, processors=8)&quot;
+
+# align unique reads to Silva reference
+# output files. 
+#        1. stability.trim.contigs.good.unique.align
+#        2. stability.trim.contigs.good.unique.align.report
+mothur &quot;#align.seqs(fasta=stability.trim.contigs.good.unique.fasta, reference=silva.bacteria/silva.bacteria.pcr.fasta)&quot;
+
+
+# summary of where the sequences align
+# output file
+#        1. stability.trim.contigs.good.unique.summary
+mothur &quot;#summary.seqs(fasta=stability.trim.contigs.good.unique.align, count=stability.trim.contigs.good.count_table)&quot;
+
+# trim sequences that extend beyond the Silva alignment (overhangs) and remove gap only columns. 
+# output file
+#        1. stability.filter
+#        2. stability.trim.contigs.good.unique.filter.fasta
+mothur &quot;#filter.seqs(fasta=stability.trim.contigs.good.unique.align, vertical=T, trump=.)&quot;
+
+
+# find all unique sequences again in case there are some sequences that are now identical.
+# creates:
+#     1. stability.trim.contigs.good.unique.filter.count_table
+#     2. stability.trim.contigs.good.unique.filter.unique.fasta
+mothur &quot;#unique.seqs(fasta=stability.trim.contigs.good.unique.filter.fasta, count=stability.trim.contigs.good.count_table)&quot;
+
+
+
+# pre-clustering to clean up sequencing errors. Differences of two nucleotides will be clustered. 
+# creates an output file for each sample so it can create a lot of files.
+# output files
+#        1. stability.trim.contigs.good.unique.filter.unique.precluster.fasta
+#        2. stability.trim.contigs.good.unique.filter.unique.precluster.count_table
+#        3. stability.trim.contigs.good.unique.filter.unique.precluster.F3D0.map
+#        4. stability.trim.contigs.good.unique.filter.unique.precluster.F3D1.map
+#        5. stability.trim.contigs.good.unique.filter.unique.precluster.F3D141.map
+#        6. stability.trim.contigs.good.unique.filter.unique.precluster.F3D142.map
+#        7. stability.trim.contigs.good.unique.filter.unique.precluster.F3D143.map
+#        8. stability.trim.contigs.good.unique.filter.unique.precluster.F3D144.map
+#        9. stability.trim.contigs.good.unique.filter.unique.precluster.F3D145.map
+#        10. stability.trim.contigs.good.unique.filter.unique.precluster.F3D146.map
+#        11. stability.trim.contigs.good.unique.filter.unique.precluster.F3D147.map
+#        12. stability.trim.contigs.good.unique.filter.unique.precluster.F3D148.map
+#        13. stability.trim.contigs.good.unique.filter.unique.precluster.F3D149.map
+#        14. stability.trim.contigs.good.unique.filter.unique.precluster.F3D150.map
+#        15. stability.trim.contigs.good.unique.filter.unique.precluster.F3D2.map
+#        16. stability.trim.contigs.good.unique.filter.unique.precluster.F3D3.map
+#        17. stability.trim.contigs.good.unique.filter.unique.precluster.F3D5.map
+#        18. stability.trim.contigs.good.unique.filter.unique.precluster.F3D6.map
+#        19. stability.trim.contigs.good.unique.filter.unique.precluster.F3D7.map
+#        20. stability.trim.contigs.good.unique.filter.unique.precluster.F3D8.map
+#        21. stability.trim.contigs.good.unique.filter.unique.precluster.F3D9.map
+#        22. stability.trim.contigs.good.unique.filter.unique.precluster.Mock.map
+mothur &quot;#pre.cluster(fasta=stability.trim.contigs.good.unique.filter.unique.fasta, count=stability.trim.contigs.good.unique.filter.count_table, diffs=2)&quot;
+
+
+
+# remove chimeras
+Output files:
+#     1. stability.trim.contigs.good.unique.filter.unique.precluster.denovo.vsearch.pick.count_table
+#     2. stability.trim.contigs.good.unique.filter.unique.precluster.denovo.vsearch.chimeras
+#     3. stability.trim.contigs.good.unique.filter.unique.precluster.denovo.vsearch.accnos
+mothur &quot;#chimera.vsearch(fasta=stability.trim.contigs.good.unique.filter.unique.precluster.fasta, count=stability.trim.contigs.good.unique.filter.unique.precluster.count_table, dereplicate=t)&quot;
+
+# remove chimeras from fasta
+# output file
+# 1. stability.trim.contigs.good.unique.filter.unique.precluster.pick.fasta
+mothur &quot;#remove.seqs(fasta=stability.trim.contigs.good.unique.filter.unique.precluster.fasta, accnos=stability.trim.contigs.good.unique.filter.unique.precluster.denovo.vsearch.accnos)&quot;
+
+
+# downloading files to classifiy sequences and remove non-bacterial reads
+wget https://mothur.s3.us-east-2.amazonaws.com/wiki/trainset18_062020.pds.tgz
+tar zxvf  trainset18_062020.pds.tgz
+
+
+# remove sequences that are not bacteria. 
+# output
+#     1. stability.trim.contigs.good.unique.filter.unique.precluster.pick.pds.wang.taxonomy
+#     2. stability.trim.contigs.good.unique.filter.unique.precluster.pick.pds.wang.tax.summary
+mothur &quot;#classify.seqs(fasta=stability.trim.contigs.good.unique.filter.unique.precluster.pick.fasta, count=stability.trim.contigs.good.unique.filter.unique.precluster.denovo.vsearch.pick.count_table, reference=trainset18_062020.pds/trainset18_062020.pds.fasta, taxonomy=trainset18_062020.pds/trainset18_062020.pds.tax, cutoff=80)&quot;
+
+
+# removing lineages here
+# output
+#     1. stability.trim.contigs.good.unique.filter.unique.precluster.pick.pds.wang.pick.taxonomy
+#     2. stability.trim.contigs.good.unique.filter.unique.precluster.pick.pds.wang.accnos
+#     3. stability.trim.contigs.good.unique.filter.unique.precluster.denovo.vsearch.pick.pick.count_table
+#     4. stability.trim.contigs.good.unique.filter.unique.precluster.pick.pick.fasta
+mothur &quot;#remove.lineage(fasta=stability.trim.contigs.good.unique.filter.unique.precluster.pick.fasta, count=stability.trim.contigs.good.unique.filter.unique.precluster.denovo.vsearch.pick.count_table, taxonomy=stability.trim.contigs.good.unique.filter.unique.precluster.pick.pds.wang.taxonomy, taxon=Chloroplast-Mitochondria-unknown-Archaea-Eukaryota)&quot;
+
+# get summary of taxonomy by counts
+mothur &quot;#summary.tax(taxonomy=stability.trim.contigs.good.unique.filter.unique.precluster.pick.pds.wang.pick.taxonomy, count=stability.trim.contigs.good.unique.filter.unique.precluster.denovo.vsearch.pick.pick.count_table)&quot;
+
+
+</code></pre>
+<h3 id="create-otus">create OTUs</h3>
+<pre><code>
+# create file of distances between potential OTUs
+# output
+#     1. stability.trim.contigs.good.unique.filter.unique.precluster.pick.pick.dist
+mothur &quot;#dist.seqs(fasta=stability.trim.contigs.good.unique.filter.unique.precluster.pick.pick.fasta, cutoff=0.03)&quot;
+
+# create OTUs at 97% similarity.
+# output 
+#     1. stability.trim.contigs.good.unique.filter.unique.precluster.pick.pick.opti_mcc.list
+#     2. stability.trim.contigs.good.unique.filter.unique.precluster.pick.pick.opti_mcc.steps
+#     3. stability.trim.contigs.good.unique.filter.unique.precluster.pick.pick.opti_mcc.sensspec
+mothur &quot;#cluster(column=stability.trim.contigs.good.unique.filter.unique.precluster.pick.pick.dist, count=stability.trim.contigs.good.unique.filter.unique.precluster.denovo.vsearch.pick.pick.count_table)&quot;
+
+# Creates OTU table with only OTUs
+# output
+#     1.  stability.trim.contigs.good.unique.filter.unique.precluster.pick.pick.opti_mcc.shared
+mothur &quot;#make.shared(list=stability.trim.contigs.good.unique.filter.unique.precluster.pick.pick.opti_mcc.list, count=stability.trim.contigs.good.unique.filter.unique.precluster.denovo.vsearch.pick.pick.count_table, label=0.03)&quot;
+
+# create taxonomy for each OTU
+#     1. stability.trim.contigs.good.unique.filter.unique.precluster.pick.pick.opti_mcc.0.03.cons.taxonomy
+#     2. stability.trim.contigs.good.unique.filter.unique.precluster.pick.pick.opti_mcc.0.03.cons.tax.summary
+mothur &quot;#classify.otu(list=stability.trim.contigs.good.unique.filter.unique.precluster.pick.pick.opti_mcc.list, count=stability.trim.contigs.good.unique.filter.unique.precluster.denovo.vsearch.pick.pick.count_table, taxonomy=stability.trim.contigs.good.unique.filter.unique.precluster.pick.pds.wang.pick.taxonomy, label=0.03)&quot;
+
+# get representative sequences files
+# output 
+#     1. stability.trim.contigs.good.unique.filter.unique.precluster.pick.pick.opti_mcc.0.03.rep.names
+#     2. stability.trim.contigs.good.unique.filter.unique.precluster.pick.pick.opti_mcc.0.03.rep.fasta
+mothur &quot;#get.oturep(column=stability.trim.contigs.good.unique.filter.unique.precluster.pick.pick.dist, list=stability.trim.contigs.good.unique.filter.unique.precluster.pick.pick.opti_mcc.list, name=stability.trim.contigs.good.names,  fasta=stability.trim.contigs.good.unique.filter.unique.precluster.pick.fasta)&quot;
+</code></pre>
+<h2 id="usearch">USEARCH</h2>
+<p>USEARCH is a proprietary software developed by Robert Edgar. For this tutorial, we will use the free, 32-bit version. However, if you have multiple sequencing runs, you will likely need to upgrade to the paid, 64-bit version. USEARCH can do OTUs or ASVs. For this example I stuck with OTUs. Many of the commands can easily be changed to VSEARCH, an alternative that is open-source.</p>
+<h3 id="install_2">install</h3>
+<pre><code>cd $src
+
+mkdir usearch_tutorial
+cd usearch_tutorial
+
+
+# download the program
+wget https://www.drive5.com/downloads/usearch11.0.667_i86linux32.gz
+
+gunzip usearch11.0.667_i86linux32
+
+# change permissions so you can run it
+chmod +x usearch11.0.667_i86linux32
+
+# rename so its shorter
+ mv usearch11.0.667_i86linux32 usearch11.0.667
+
+ ```
+
+
+ ### join forward and reverse reads ###
+ ```
+# need to unzip all the files first
+cd $src/data/MiSeq_SOP/fastqs
+gunzip *gz
+
+cd $src/usearch_tutorial
+
+# merges forward and reverse reads. 
+./usearch11.0.667 -fastq_mergepairs $src/data/MiSeq_SOP/fastqs/*R1*.fastq -fastqout merged.fq -relabel @
+
+
+
+ # we can use this step to guide how we will filter the reads. 
+ # this will tell us the size of the reads and the error rate. 
+ # given the error rate is well below 0.5 and most reaads are above 250 bp, i will use that and 250 as the shortest size for length. 
+  ./usearch11.0.667 -fastx_info merged.fq -secs 5 -output reads_info.txt
+
+
+
+ # filter reads based off the suggestions above. This creates a fasta file which can be used for clustering
+ ./usearch11.0.667 -fastq_filter merged.fq -fastaout reads.fasta -fastq_maxee 0.5 -fastq_minlen 250
+</code></pre>
+<h3 id="create-otus_1">Create OTUs ####</h3>
+<pre><code># dereplicate sequences so we only have unique reads. 
+# creates file with uniques.fasta which each read relabeled as uniq
+./usearch11.0.667 -fastx_uniques reads.fasta -fastaout uniques.fasta -sizeout -relabel Uniq
+
+# creates otus at 97% and removes chimeras via UPARSE
+# warning: this will throw out singletons so change -minsize to 1. 
+# creates uparse.txt - log of how the clustering went for each unique read.
+# creates otus.fasta - representative OTUs. 
+./usearch11.0.667 -cluster_otus uniques.fasta -otus otus.fasta -uparseout uparse.txt -relabel Otu -minsize 2
+
+
+</code></pre>
+<h3 id="create-otu-table">create OTU table</h3>
+<p>```</p>
+<h1 id="map-back-reads-and-create-otu-table">map back reads and create OTU table</h1>
+<h1 id="the-otutabtxt-is-the-otu-table">the otutab.txt is the OTU table</h1>
+<h1 id="the-maptxt-shows-you-how-each-read-is-mapped-to-what-otu">the map.txt shows you how each read is mapped to what OTU</h1>
+<p>./usearch11.0.667 -otutab merged.fq -otus otus.fasta -otutabout otutab.txt -mapout map.txt</p>
+<pre><code>
+
+### determine Taxonomy for OTUs ###
+</code></pre>
+<h1 id="downloaad-rdp-database">downloaad rdp database</h1>
+<p>wget https://drive5.com/sintax/rdp_16s_v16.fa.gz
+gunzip rdp_16s_v16.fa.gz</p>
+<h1 id="creates-taxonomy-file-with-otu-and-the-taxonomy-in-the-readssintax-file">Creates taxonomy file with OTU and the taxonomy in the reads.sintax file</h1>
+<p>./usearch11.0.667 -sintax otus.fasta -db rdp_16s_v16.fa -tabbedout reads.sintax -strand both -sintax_cutoff 0.8
+```</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../Stacks_quickbyte/" class="btn btn-neutral float-left" title="Stacks for RAD-Seq Data"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Beast_at_CARC/" class="btn btn-neutral float-right" title="BEAST at CARC">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../Stacks_quickbyte/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../Beast_at_CARC/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

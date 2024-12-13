@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Genomic variant calling with GATK - CARC QuickBytes</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Genomic variant calling with GATK";
+        var mkdocs_page_input_path = "GATK_QuickByte.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> CARC QuickBytes
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../workshop_slides/">Workshop Slides</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Linux & HPC Introduction</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../linux_intro/">Linux Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../logging_in/">Logging in</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ssh_keygen_config/">SSH keys and Config file</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../transfer_data/">Transferring data</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Intro_to_slurm/">Intro to Slurm</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../pbs2slurm/">Converting PBS to Slurm</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../checking_on_running_jobs/">Check running jobs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../module_management/">Managing modules</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../slurm_accounting/">Intro to Slurm accounting at CARC</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../GNU_Parallel/">GNU Parallel</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../X11_forwarding/">X11 Forwarding</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Applications Tutorials</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >MATLAB</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../running_matlab_jobs/">Running MATLAB jobs at CARC</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ParallelMatlabServer/">Parallel MATLAB Server</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Parallel_MATLAB_profile_setup_and_batch_submission/">Parallel MATLAB batch submission</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Using_GPUs_on_Xena_with_MATLAB/">Using GPUs with MATLAB</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../MATLAB_Deep_Learning_on_Xena/">MATLAB Deep Learning on Xena</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >JupyterHub</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../parallelization_with_Jupyterhub_using_mpi/">JupyterHub Parallel Processing with MPI</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Conda_JupyterHub/">Conda python environments for JupyterHub</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../julia_with_jupyterhub/">Using Julia in JupyterHub</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Conda</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../anaconda_general_intro/">General intro to Conda</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../anaconda_intro/">Intro to Conda with example</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../anaconda_pip_channels/">Anaconda pip channels</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >R</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../R_usage/">R Programming in HPC</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="https://github.com/UNM-CARC/QuickBytes/tree/master/R_at_CARC">R at CARC</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Parallel_R_with_Future.ipynb">Running R in Parallel with Future</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Gurobi_optimizer_with_R/">Gurobi optimizer with R</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Machine Learning</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../Tensorflow_documentation/">Tensorflow</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../PyTorch_1.9_Xena/">Installing PyTorch on Xena</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../PyTorch_Classifier_Xena.ipynb">Example PyTorch Image Classification on Xena</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../multiGPU_tensorflow_tutorial.ipynb">Tensorflow with multiple GPUs</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../parallel_jupyterhub_with_dask_and_scikit-learn/">Parallelization with JupyterHub using Dask and SciKit-learn</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Bioinformatics</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Genomic variant calling with GATK</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#table-of-contents">Table of Contents</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#preliminary-stuff">Preliminary stuff</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#module-and-directories">Module and directories</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#sample-names">Sample Names</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#demultiplexing">Demultiplexing</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-pipeline">The Pipeline</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#trimming-reads">Trimming Reads</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#alignment-and-pre-processing">Alignment and Pre-processing</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#collect-alignment-and-summary-statistics-optional">Collect alignment and summary statistics (optional)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#calling-variants-with-haplotypecaller">Calling variants with HaplotypeCaller</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#consolidating-and-genotyping">Consolidating and Genotyping</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#selecting-and-filtering-variants">Selecting and filtering variants</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#scatter-gather-parallel">Scatter-gather Parallel</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#sample-pbs-script">Sample PBS Script</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#troubleshooting">Troubleshooting</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#citations">Citations</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../genome_evaluation/">Genome evaluation with QUAST and BUSCO</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../psmc_quickbyte/">Single genome demographic history with PSMC</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Stacks_quickbyte/">Stacks for RAD-Seq Data</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Metabarcoding/">Metabarcoding with QIIME2, Mothur, and USEARCH</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Beast_at_CARC/">BEAST at CARC</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../msprime_quickbyte/">Population genetic simulations with msprime (backwards time</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Computational Chemistry</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../orca_wheeler_taos/">Orca on Wheeler and Taos</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../alphafold/">Alphafold</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Computational Immunology</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../SimCov/">SimCov on Wheeler</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Astronomy</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../mpiCASA/">CASA Radio Astronomy</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Paraview</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../paraview/">Paraview Wheeler</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Paraview_Hopper/">Paraview Hopper</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../singularity-markdown-version/">Docker and Singularity</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../haskell/">Haskell at CARC</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../spark/">Spark</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../install_perl_libraries/">Installing Perl Libraries to Your Home Directory</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">CARC QuickBytes</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Applications Tutorials</li>
+          <li class="breadcrumb-item">Bioinformatics</li>
+      <li class="breadcrumb-item active">Genomic variant calling with GATK</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="parallel-genomic-variant-calling-with-genome-analysis-toolkit-gatk">Parallel genomic variant calling with Genome Analysis Toolkit (GATK)</h1>
+<p>This QuickByte outlines how to run a pipeline based on Genome Analysis Toolkit v4 (GATK4) best practices, a common pipeline for processing genomic data from Illumina platforms. Major modifications from “true” best practices are done to facilitate using this pipeline for both model and non-model organisms. Additionally, we show how to best parallelize these steps on CARC. Here we outline the steps for a single sample without parallelization, then with parallelization for specific steps, and finally provide an example of a fully parallelized script. Extensive documentation (including other Best Practices pipelines) can be found <a href="https://gatk.broadinstitute.org/hc/en-us/sections/360007226651-Best-Practices-Workflows">here</a>. Specifically, the Best Practices informing this pipeline are the <a href="https://gatk.broadinstitute.org/hc/en-us/articles/360035535912-Data-pre-processing-for-variant-discovery">data pre-processing workflow</a> and the <a href="https://gatk.broadinstitute.org/hc/en-us/articles/360035535932-Germline-short-variant-discovery-SNPs-Indels-">germline short variant discovery workflow</a>. We aim to give you sample commands to emulate these scripts workflows, which will also allow you to easily modify the pipeline.</p>
+<p>The goal of this pipeline is to output Single Nucleotide Polymorphisms (SNPs) and optionally indels for a given dataset. This same pipeline can be used for humans, model organisms, and non-model organisms. Spots that can leverage information from model organisms are noted, but those steps can be bypassed. Because sample size and depth of coverage are often lower in non-model organisms, filtering recommendations and memory requirements will vary. Note that this assumes you are using paired-end data and will differ slightly if you use unpaired.</p>
+<p>The basic steps are aligning and processing raw reads into binary alignment map (BAM) files, optionally getting descriptive metrics about the samples’ sequencing and alignment, calling variants to produce genomic variant call format (GVCF) files, genotyping those GVCFs to produce VCFs, and filtering those variants for analysis.</p>
+<p>For CARC users, we have provided some test data to run this on from a paper on <a href="https://academic.oup.com/gbe/article/11/7/2023/5499175">the conservation genomics of sagegrouse</a>. It is two sets of gzipped fastq files per species (i.e. eight total, 4 read and 4 read 2), a file with adapter sequences to trim, and a reference genome. They are located at /projects/shared/tutorials/GATK/. Copy them into your space like "cp /projects/shared/tutorials/quickbytes/GATK/* ~/path/to/directory". A .pbs script for running the pipeline (seen below) is also included, but you may learn more by running each step individually. The whole process with the script with 4 nodes on wheeler takes about 5.5 hours. If you run this script, note that it should output a filtered VCF file that's ~350 Mb.</p>
+<p>Please note that you must cite any program you use in a paper. At the end of this, we have provided citations you would include for the programs we ran here.</p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li>
+<p><a href="#prelim">Preliminaries</a></p>
+</li>
+<li>
+<p><a href="#pipeline">The Pipeline</a></p>
+</li>
+<li>
+<p><a href="#trimming">Trimming reads</a></p>
+</li>
+<li>
+<p><a href="#align">Alignment and pre-processing</a></p>
+</li>
+<li>
+<p><a href="#sumstat">Summary statistics</a></p>
+</li>
+<li>
+<p><a href="#haplo">Calling Variants</a></p>
+</li>
+<li>
+<p><a href="#geno">Consolidating and genotyping</a></p>
+</li>
+<li>
+<p><a href="#select">Selecting variants</a></p>
+</li>
+<li>
+<p><a href="#parallel">Scatter-gather parallel</a></p>
+</li>
+<li>
+<p><a href="#script">Sample Scatter-gather PBS script</a></p>
+</li>
+<li>
+<p><a href="#tshoot">Trobuleshooting</a></p>
+</li>
+<li>
+<p><a href="#cite">Citations</a>    </p>
+</li>
+</ul>
+<p><a name="prelim"/></p>
+<h2 id="preliminary-stuff">Preliminary stuff</h2>
+<h3 id="module-and-directories">Module and directories</h3>
+<p>We will be using conda to make an environment to load within our PBS script. First, if you haven’t already, set up conda as follows:</p>
+<pre><code>module load miniconda3-4.7.12.1-gcc-4.8.5-lmtvtik
+# can also use other conda modules
+conda init bash
+&lt;exit and re-log or restart shell&gt;
+</code></pre>
+<p>This following line will create an environment and install the most recent versions of what we need. We assume you run this before starting up your job.</p>
+<pre><code>conda create -n gatk-env -c bioconda -c conda-forge gatk4 bwa samtools picard trimmomatic
+</code></pre>
+<p>Alternatively, you can load these as modules if you are on Wheeler (Xena only has Samtools now), but they may not be the most recent versions:</p>
+<pre><code>module load bwa-0.7.17-intel-18.0.2-7jvpfu2
+module load samtools-1.9-gcc-7.3.0-tnzvvzt
+module load picard-2.20.8-gcc-4.8.5-3yh2dzv
+module load gatk-4.1.4.1-gcc-4.8.5-python3-fqiavji
+module load trimmomatic-0.36-gcc-4.8.5-q3gx4rj
+</code></pre>
+<p>If you are parallelizing (see “Scatter-gather Parallel” and sample PBS script), you'll need this:</p>
+<pre><code>module load parallel-20170322-gcc-4.8.5-2ycpx7e
+source $(which env_parallel.bash)
+</code></pre>
+<p>The directories we will need (other than the home directory) are a raw_reads directory for the demultiplexed reads and the following for various intermediate files to go into. Alternatively, if you don’t want to move around all your reads, just replace the path in the BWA call with that path. Note that a few of these are only used with scatter-gather parallelization (reccomended for larger datasets).</p>
+<pre><code>mkdir clean_reads
+mkdir alignments
+# next three are only if you get optional metrics
+mkdir alignments/alignment_summary
+mkdir alignments/insert_metrics
+mkdir alignments/depth
+mkdir alignments/dedup_temp
+mkdir bams
+mkdir gvcfs
+mkdir combined_vcfs
+mkdir analysis_vcfs
+# scatter-gather only
+mkdir combined_vcfs/intervals
+mkdir gvcfs/combined_intervals
+</code></pre>
+<p>We will be using a few variables throughout this that we can set now. These are shortcuts for the path to our working directory and reference.</p>
+<pre><code>src=$PBS_O_WORKDIR
+reference=$src/reference
+</code></pre>
+<h3 id="sample-names">Sample Names</h3>
+<p>To keep our script short, and outputs easy to understand, we will use consistent sample names for each step, and keep the sample names in a file. We assume this file is named “sample_list”. The file should have one sample name per line. with a single blank line at the end. The one for the tutorial dataset looks like:</p>
+<pre><code>GRSG_JHWY140
+GRSG_JHWY142
+GUSG_GGS1
+GUSG_GGS2
+</code></pre>
+<p>We will use this sample list in two ways. The first way is loops, and second is GNU parallel. You can see some examples in the PBS script at the end of the document. Here's a basic demonstration of how to us the list in a loop:</p>
+<pre><code>while read sample; do
+    RunTask -input ${sample}
+done &lt; $src/sample_list
+</code></pre>
+<p>And this is what GNU parallel looks like (note it's different for BWA, as we need to specify a specific number of jobs). Remember, we need to use env_parallel if we are using conda.</p>
+<pre><code>cat $src/sample_list | env_parallel --sshloginfile $PBS_NODEFILE \
+    'RunTask -input {}.file'
+</code></pre>
+<p>For clarity, in most cases the commands are written as they would be for a for loop (i.e. with $sample instead of {}).</p>
+<h3 id="demultiplexing">Demultiplexing</h3>
+<p>Because it is not covered by best practices, and is often done by the sequencing center, we will not go into the details of demultiplexing here. We recommend you use Illumina’s software <a href="https://support.illumina.com/sequencing/sequencing_software/bcl2fastq-conversion-software.html">bcl2fastq</a> if you have the data in .bcl format, and <a href="https://github.com/najoshi/sabre">saber</a> if it has already been converted to fastq format and it does not have dual combinatorial barcodes. <strong>We'll assume these reads will be in the raw_reads folder with the name SAMPLE_1.fastq.gz (or 2 for read 2).</strong></p>
+<p><a name="pipeline"/></p>
+<h2 id="the-pipeline">The Pipeline</h2>
+<p><a name="trimming"/></p>
+<h3 id="trimming-reads">Trimming Reads</h3>
+<p>Although not a part of GATK's best practices, it is common practice to trim your reads before using them in analyses. We'll use trimmomatic for this. Trimmomatic performs very poorly with its internal thread command, so we'll use GNU parallel to run it in the final script. Note that trimmomatic doesn't have many command line flags, so we'll name variables ahead of time to keep them straight:</p>
+<pre><code># note this assumes the provided fasta file is in your working directory.
+adapters=$src/TruSeq3-PE.fa
+
+read1=$src/raw_reads/${sample}_1.fastq.gz
+read2=$src/raw_reads/${sample}_2.fastq.gz
+paired_r1=$src/clean_reads/${sample}_paired_R1.fastq.gz
+paired_r2=$src/clean_reads/${sample}_paired_R2.fastq.gz
+unpaired_r1=$src/clean_reads/${sample}_unpaired_R1.fastq.gz
+unpaired_r2=$src/clean_reads/${sample}_unpaired_R2.fastq.gz
+# the minimum read length accepted, we do the liberal 30bp here
+min_length=30
+trimmomatic PE -threads 1 \
+    $read1 $read2 $paired_r1 $unpaired_r1 $paired_r2 $unpaired_r2 \
+    ILLUMINACLIP:${adapters}:2:30:10:2:True \
+    LEADING:3 TRAILING:3 MINLEN:${min_length}
+</code></pre>
+<p>If you don't have access to the CARC directory with the adapters file, it can be found in the conda install/spack package. The exact path will vary, but they'll be something like this:</p>
+<pre><code># spack
+adapters=/opt/spack/opt/spack/linux-centos7-x86_64/gcc-4.8.5/trimmomatic-0.36-q3gx4rjeruluf75uhcdfkjoaujqnjhzf/bin/TruSeq3-SE.fa
+# conda
+adapters=~/.conda/pkgs/trimmomatic-0.39-1/share/trimmomatic-0.39-1/adapters/TruSeq3-PE.fa
+</code></pre>
+<p>If you're using the spack module, you call trimmomatic using java:</p>
+<pre><code>java -jar /opt/spack/opt/spack/linux-centos7-x86_64/gcc-4.8.5/trimmomatic-0.36-q3gx4rjeruluf75uhcdfkjoaujqnjhzf/bin/trimmomatic-0.36.jar PE ...
+</code></pre>
+<p><a name="align"/></p>
+<h3 id="alignment-and-pre-processing">Alignment and Pre-processing</h3>
+<p>This section prepares BAM files for variant calling. First, we need to index our reference and make a sequence dictionary. We'll index two ways, one for bwa and one for GATK:</p>
+<pre><code>bwa index -p $reference ${reference}.fa
+samtools faidx ${reference}.fa -o ${reference}.fa.fai
+picard CreateSequenceDictionary \
+        R=${reference}.fa \
+        O=${reference}.dict
+</code></pre>
+<p>Then, we need to align demultiplexed reads to a reference. For this step, we will use the Burrough-Wheeler Aligner’s (BWA) mem algorithm. Another common option is <a href="http://bowtie-bio.sourceforge.net/bowtie2/index.shtml">Bowtie</a>. One important flag here is the -R flag, which is the read group and sample ID for a given sample. We assume that these samples are in the same read group. We can get a node's worth of parallelization with the -t command (it can't work across nodes). Therefore, in the sample script at the end we will show you how to further parallelize BWA. The base command looks like this:</p>
+<pre><code>bwa mem \
+    -t [# threads] -M \
+    -R "@RG\tID:${sample}\tPL:ILLUMINA\tLB:${sample}\tSM:${sample}" \
+    $reference \
+    $src/clean_reads/${sample}_paired_R1.fastq.gz \
+    $src/clean_reads/${sample}_paired_R2.fastq.gz \
+    &gt; $src/alignments/${sample}.sam
+</code></pre>
+<p>The next step is to mark PCR duplicates to remove bias, sort the file, and convert it to the smaller BAM format for downstream use. GATK’s new MarkDuplicatesSpark performs all these tasks, but needs a temporary directory to store intermediate files. Note that although we aren't formally using Spark for parallelization, the line " --conf 'spark.executor.cores=8'" still speed it up, and makes (change the number of cores if the cores per node are higher than 8):</p>
+<pre><code>gatk MarkDuplicatesSpark \
+    -I $src/alignments/${sample}.sam \
+    -M $src/bams/${sample}_dedup_metrics.txt \
+    --tmp-dir $src/alignments/dedup_temp \
+    -O $src/bams/${sample}_dedup.bam \
+     --conf "spark.executor.cores=8"
+</code></pre>
+<p>We recommend combining these steps per sample for efficiency and smoother troubleshooting. One issue is that we do not want large SAM files piling up. This can either be done by piping BWA output directly to MarkDuplicatesSpark or removing the SAM file after each loop. In case you want to save the SAM files, we did the latter (this isn’t a bad idea if you have the space, in case there is a problem with generating BAM files). If you are doing base recalibration, you can also add “rm ${sample}_debup.bam” to get rid of needless BAM files. Later in the pipeline, we assume you did base recalibration, so will use the {sample}_recal.bam file. If you did not use base recalibration, use {sample}_dedup.bam file in its place.</p>
+<h4 id="base-quality-score-recalibration-model-organisms">Base Quality Score Recalibration (model organisms)</h4>
+<p>An optional step (and one not taken in the tutorial) is to recalibrate base call scores. This applies machine learning to find where quality scores are over or underestimated based on things like read group and cycle number of a given base. This is recommended, but is rarely possible for non-model organisms, as a file of known polymorphisms is needed. Note, however, that it can take a strongly filtered VCF from the end of the pipeline, before running the entire pipeline again (but <a href="https://evodify.com/gatk-in-non-model-organism/">others haven’t found much success with this method</a>). Here is how it looks, with the first line indexing the input VCF file if you haven't already.</p>
+<pre><code>gatk IndexFeatureFile -I $src[name-of-known-sites].vcf
+
+gatk BaseRecalibrator \
+    -I $src/bams/${sample}_dedup.bam \
+    -R ${reference}.fa \
+    --known-sites $src/[name-of-known-sites].vcf \
+    -O $src/bams/${sample}_recal_data.table
+
+gatk ApplyBQSR \
+    -I $src/bams/${sample}_dedup.bam \
+    -R ${reference}.fa \
+    --bqsr-recal-file $src/bams/${sample}_recal_data.table \
+    -O $src/bams/${sample}_recal.bam
+</code></pre>
+<p><a name="sumstat"/></p>
+<h3 id="collect-alignment-and-summary-statistics-optional">Collect alignment and summary statistics (optional)</h3>
+<p>This step is optional, and is not part of GATK’s best practices, but is good to have. It will output important stats for assessing sample quality. Picard’s “CollectAlignmentSummaryMetrics” gives several helpful statistics about the alignment for a given sample. Picard’s “CollectInsertSizeMetrics” gives information about the distribution of insert sizes. Samtools’s “depth” gives information about the read depth of the sample. Note that "depth" has huge output files, so it may be best to skip it until needed.</p>
+<pre><code>picard CollectAlignmentSummaryMetrics \
+    R=${reference}.fa \
+    I=$src/bams/${sample}_recal.bam \
+    O=$src/alignments/alignment_summary/${sample}_alignment_summary.txt
+
+picard CollectInsertSizeMetrics \
+    INPUT=$src/bams/${sample}_recal.bam \
+    OUTPUT=$src/alignments/insert_metrics/${sample}_insert_size.txt \
+    HISTOGRAM_FILE=$src/${sample}_insert_hist.pdf
+
+samtools depth \
+    -a $src/bams/${sample}_recal.bam \
+    &gt; $src/alignments/depth/${sample}_depth.txt
+</code></pre>
+<p><a name="haplo"/></p>
+<h3 id="calling-variants-with-haplotypecaller">Calling variants with HaplotypeCaller</h3>
+<p>The simplest way is individually going through BAM files and calling SNPs on them using HaplotypeCaller in GVCF mode (“-ERC GVCF” flag), resulting in GVCFs as output.</p>
+<pre><code>gatk HaplotypeCaller \
+    -R ${reference}.fa \
+    -I $src/bams/${sample}_recal.bam \
+    -O $src/gvcfs/${sample}_raw.g.vcf.gz \
+    -ERC GVCF
+</code></pre>
+<p>One issue with HaplotypeCaller is that it takes a long time, but is not programmed to be parallelized by default. We can use GNU parallel to solve that problem in two ways. If you have many small inputs and don't want to do scatter-gather parallel, you can run one instance of HaplotypeCaller per core. Note that we restrict the memory such that each job can only max out the core it's on (you'll want to change from 6g based on the machine you're running this on):</p>
+<pre><code>cat $src/sample_list | env_parallel --sshloginfline $PBS_NODEFILE \
+    'gatk --java-options "-Xmx6g" HaplotypeCaller \
+    -R ${reference}.fa \
+    -I $src/bams/{}_recal.bam \
+    -O $src/gvcfs/${}_raw.g.vcf.gz \
+    -ERC GVCF'
+</code></pre>
+<p>If you are dealing with large files, HaplotypeCaller may take longer than your walltime. The Scatter-gather Parallel section will outline how to fix that by breaking the job (and the next section) into multiple intervals.</p>
+<p><a name="geno"/></p>
+<h3 id="consolidating-and-genotyping">Consolidating and Genotyping</h3>
+<p>This next step has two options, GenomicsDBImport and CombineGVCFs. GATK recommends GenomicsDBImport, as it is more efficient for large datasets, but it performs poorly on references with many contigs. CombineGVCFs can take a long time for large datasets, but is easier to use. Note that GenomicsDBImport must have intervals (generally corresponding to contigs or chromosomes) specified. GenomicsDBImport can take a file specifying GVCFs, but because CombineGVCFs cannot take this input, we just make a list of samples to combine programmatically and plug it in. Here is how we generate that command:</p>
+<pre><code>gvcf_names=""
+while read sample; do
+    gvcf_names="${gvcf_names}-V ${src}/gvcfs/${sample}_raw.g.vcf.gz "
+done &lt; $src/sample_list
+</code></pre>
+<p>If you do use GenomicsDBImport, or want to genotype contigs/chromosomes independently, we'll need intervals for it to work with (the same used for scatter-gather parallelization). Also, you'll need to pre-make a temp directory for holding files:</p>
+<pre><code>mkdir gendb_temp
+cut -f 1 ${reference}.fa.fai &gt; $src/intervals.list
+</code></pre>
+<p>For GenomicsDBImport, you'll need to get rid of the directory you use for the database (here genomic_database) if you already made it:</p>
+<pre><code>gatk GenomicsDBImport \
+    ${gvcf_names} \
+    --genomicsdb-workspace-path $src/genomic_database \
+    --tmp-dir $src/gendb_temp \
+    -L $src/intervals.list
+</code></pre>
+<p>And an example for CombineGVCFs is:</p>
+<pre><code>gatk CombineGVCFs \
+    -R ${reference}.fa \
+    ${gvcf_names} \
+    -O $src/combined_vcfs/combined_gvcf.g.vcf.gz
+</code></pre>
+<p>The next step is to genotype the combined (cohort) GVCF file. Here’s a sample command for GenomicsDBImport:</p>
+<pre><code>gatk GenotypeGVCFs \
+    -R ${reference}.fa \
+    -V gendb://$src/genomic_database \
+    -O $src/combined_vcfs/combined_vcf.vcf.gz
+</code></pre>
+<p>And one for CombineGVCFs:</p>
+<pre><code>gatk GenotypeGVCFs \
+    -R ${reference}.fa \
+    -V $src/combined_vcfs/combined_gvcf.g.vcf.gz \
+    -O $src/combined_vcfs/combined_vcf.vcf.gz
+</code></pre>
+<p><a name="select"/></p>
+<h3 id="selecting-and-filtering-variants">Selecting and filtering variants</h3>
+<p>This first step is optional, but here we separate out indels and SNPs. Note that we don’t use indels down the line, but similar filters can be applied.</p>
+<pre><code>gatk SelectVariants \
+    -R ${reference}.fa \
+    -V $src/combined_vcfs/combined_vcf.vcf.gz \
+    -select-yype SNP \
+    -O $src/combined_vcfs/raw_snps.vcf.gz
+
+gatk SelectVariants \
+    -R ${reference}.fa \
+    -V $src/combined_vcfs/combined_vcf.vcf.gz \
+    -select-type INDEL \
+    -O $src/combined_vcfs/raw_indel.vcf.gz
+</code></pre>
+<p>Here are some good sample filters. The “DP_filter” is depth of coverage (you will probably want to change this), “Q_filter” is quality score, “QD_filter” is quality by depth (avoids artificial inflation of calls), "MQ_filter" is a mapping quality filter, and “FS_filter” is a strand bias filter (higher value means higher bias). Note that DP is better for low depth samples, while QD is better for high depth. More info can be found on <a href="https://gatk.broadinstitute.org/hc/en-us/articles/360035890471-Hard-filtering-germline-short-variants">GATK’s website</a>.</p>
+<pre><code>gatk VariantFiltration \
+    -R ${reference}.fa \
+    -V $src/combined_vcfs/raw_snps.vcf.gz \
+    -O $src/analysis_vcfs/filtered_snps.vcf  \
+    -filter "DP &lt; 4" --filter-name "DP_filter" \
+    -filter "QUAL &lt; 30.0" --filter-name "Q_filter" \
+    -filter "QD &lt; 2.0" --filter-name "QD_filter" \
+    -filter "FS &gt; 60.0" --filter-name "FS_filter" \
+    -filter "MQ &lt; 40.0" --filter-name "MQ_filter"
+</code></pre>
+<p>This will give us our final VCF! Note that the filtered SNPs are still included, just with a filter tag. You can use something like SelectVariants' "exclude-filtered" flag or <a href="http://vcftools.sourceforge.net/">VCFtools’</a> “--remove-filtered-all” flag to get rid of them.</p>
+<p><a name="parallel"/></p>
+<h2 id="scatter-gather-parallel">Scatter-gather Parallel</h2>
+<p>Scatter-gather is the process of breaking a job into intervals (i.e. contigs or scaffolds in a reference) and running HaplotypeCaller, CombineGVCFs, and GenotypeGVCFs on each interval in parallel. Then, at the end, all the invervals are gathered together with GatherGVCFs. This results in a massive speed-up due to the parallelization. This is fully implemented in the sample script below, with each step outlined here. The output of GatherVcfs is the same as what comes from GenotypeGVCFs in the non-parallel version. Here is how we run HaplotypeCaller, note that this is only one sample, see the sample script for running this on all samples:</p>
+<pre><code># make our interval list
+cut -f 1 ${reference}.fa.fai &gt; $src/intervals.list
+
+while read sample; do
+    mkdir ${src}/gvcfs/${sample}
+    cat $src/intervals.list | env_parallel --sshloginfile $PBS_NODEFILE \
+        'gatk --java-options "-Xmx6g" HaplotypeCaller \
+        -R ${reference}.fa \
+        -I $src/bams/${sample}_recal.bam \
+        -O $src/gvcfs/${sample}/${sample}_{}_raw.g.vcf.gz \
+        -L {} \
+        -ERC GVCF'
+done &lt; $src/sample_list
+</code></pre>
+<p>You'll run then run CombineGVCFs. For each interval, you'll make a list of GVCF file paths for each sample you're including (the while loop below).</p>
+<pre><code>cat $src/intervals.list | env_parallel --sshloginfile $PBS_NODEFILE \
+    'interval_list=""
+    # loop to generate list of sample-specific intervals to combine
+    while read sample; do
+        interval_list="${interval_list}-V ${src}/gvcfs/${sample}/${sample}_{}_raw.g.vcf.gz "
+    done &lt; $src/sample_list
+    gatk --java-options "-Xmx6g" CombineGVCFs \
+        -R ${reference}.fa \
+        ${interval_list} \
+        -O $src/gvcfs/combined_intervals/{}_raw.g.vcf.gz'
+</code></pre>
+<p>Next, you run GenotypeGVCFs to get VCFs to gather afterwards. No fancy lists needed!</p>
+<pre><code>cat $src/intervals.list | env_parallel --sshloginfile $PBS_NODEFILE \
+    'gatk --java-options "-Xmx6g" GenotypeGVCFs \
+        -R ${reference}.fa \
+        -V $src/gvcfs/combined_intervals/{}_raw.g.vcf.gz \
+        -O $src/combined_vcfs/intervals/{}_genotyped.vcf.gz'
+</code></pre>
+<p>If you have many samples, it may be best to use GenomicsDBImport. It is very similar, with both that step and the genotyping below. Note that the directory for --genomicsdb-workspace-path can't exist (unless you're updating it):</p>
+<pre><code>cat $src/intervals.list | env_parallel --sshloginfile $PBS_NODEFILE \
+    'mkdir $src/gendb_temp/{}
+    interval_list=""
+        # loop to generate list of sample-specific intervals
+    while read sample; do
+        interval_list="${interval_list}-V ${src}/gvcfs/${sample}/${sample}_{}_raw.g.vcf.gz "
+    done &lt; $src/sample_list
+    # run make the genomics databases
+    gatk --java-options "-Xmx6g" GenomicsDBImport \
+         ${interval_list} \
+        --genomicsdb-workspace-path $src/genomics_databases/{} \
+        --tmp-dir $src/gendb_temp/{} \
+        -L {}'
+
+cat $src/intervals.list | env_parallel --sshloginfile $PBS_NODEFILE \
+    'gatk --java-options "-Xmx6g" GenotypeGVCFs \
+    -R ${reference}.fa \
+    -V gendb://$src/genomics_databases/{} \
+    -O $src/combined_vcfs/intervals/{}_genotyped.vcf.gz'
+</code></pre>
+<p>The final (gather) step uses GatherVcfs, for which we'll make a file containing the paths to all input genotyped VCFs (generated in the while loop). Note the first line initializes a blank file for the gather list. After we make the gathered VCF, we need to index it for future analyses.</p>
+<pre><code>&gt; $src/combined_vcfs/gather_list
+while read interval; do
+    echo ${src}/combined_vcfs/intervals/${interval}_genotyped.vcf.gz &gt;&gt; \
+            $src/combined_vcfs/gather_list
+done &lt; $src/chromosomes.list
+
+gatk GatherVcfs \
+        -I $src/combined_vcfs/gather_list \
+        -O combined_vcfs/combined_vcf.vcf.gz
+
+gatk IndexFeatureFile \
+    -I $src/combined_vcfs/raw_snps.vcf.gz
+</code></pre>
+<p><strong>NOTE THAT THIS FILE STILL NEEDS TO HAVE VARIANTS SELECTED AND FILTERED, SEE "Selecting and filtering variants" ABOVE</strong></p>
+<p><a name="script"/></p>
+<h2 id="sample-pbs-script">Sample PBS Script</h2>
+<p>Here is a sample PBS script combining everything we have above, with as much parallelization as possible. One reason to break up steps like we did is for improved checkpointing (without having to write code checking if files are already present). Once you are finished running a block of code, you can just comment it out. Similarly, if you can only get part way through your sample list, you can copy it and remove samples that have already completed a given step.</p>
+<p>To convert this to Slurm, replace $PBS_O_WORKDIR with $SLURM_SUBMIT_DIR and refer to <a href="https://github.com/UNM-CARC/QuickBytes/blob/master/pbs2slurm.md">this conversion guide</a> for the rest.</p>
+<pre><code>#!/bin/bash
+
+#PBS -q default
+#PBS -l nodes=4:ppn=8
+#PBS -l walltime=10:00:00
+#PBS -N gatk_tutorial
+#PBS -m ae
+#PBS -M youremail@school.edu
+
+# the PBS lines are for the default queue, using 4 nodes, and has a conservative 10 hour wall time
+# it is named "gatk_tutorial" and sends an email to "youremail@school.edu" when done
+
+# load your conda environment
+module load miniconda3-4.7.12.1-gcc-4.8.5-lmtvtik
+eval "$(conda shell.bash hook)"
+conda activate gatk-env
+
+# load GNU parallel, get env_parallel
+module load parallel-20170322-gcc-4.8.5-2ycpx7e
+source $(which env_parallel.bash)
+
+src=$PBS_O_WORKDIR
+# this is "sagegrouse_reference" in the tutorial
+reference=${src}/reference
+
+# indexing reference
+bwa index -p $reference ${reference}.fa
+samtools faidx ${reference}.fa -o ${reference}.fa.fai
+picard CreateSequenceDictionary \
+        R=${reference}.fa \
+        O=${reference}.dict
+
+# Trimming section
+adapters=~/.conda/pkgs/trimmomatic-0.39-1/share/trimmomatic-0.39-1/adapters/TruSeq3-PE.fa
+cat $src/sample_list | env_parallel --sshloginfile $PBS_NODEFILE \
+    'read1=$src/raw_reads/{}_1.fastq.gz
+    read2=$src/raw_reads/{}_2.fastq.gz
+    paired_r1=$src/clean_reads/{}_paired_R1.fastq.gz
+    paired_r2=$src/clean_reads/{}_paired_R2.fastq.gz
+    unpaired_r1=$src/clean_reads/{}_unpaired_R1.fastq.gz
+    unpaired_r2=$src/clean_reads/{}_unpaired_R2.fastq.gz
+    # the minimum read length accepted, we do the liberal 30bp here
+    min_length=30
+    trimmomatic PE -threads 1 \
+        $read1 $read2 $paired_r1 $unpaired_r1 $paired_r2 $unpaired_r2 \
+        ILLUMINACLIP:${adapters}:2:30:10:2:True \
+        LEADING:3 TRAILING:3 MINLEN:${min_length}'
+
+# Section for alignment and marking duplicates. 
+# Note we parallelize such that BWA uses exactly one node.
+# Then, we have a number of jobs equal to the number of nodes requested.
+
+cat $src/sample_list | env_parallel -j 1 --sshloginfile $PBS_NODEFILE \
+    'bwa mem \
+        -t 8 -M \
+        -R "@RG\tID:{}\tPL:ILLUMINA\tLB:{}\tSM:{}" \
+        $reference \
+        $src/clean_reads/{}_paired_R1.fastq.gz \
+        $src/clean_reads/{}_paired_R2.fastq.gz \
+        &gt; $src/alignments/{}.sam
+    gatk MarkDuplicatesSpark \
+        -I $src/alignments/{}.sam \
+        -M $src/bams/{}_dedup_metrics.txt \
+        --tmp-dir $src/alignments/dedup_temp \
+        -O $src/bams/{}_dedup.bam \
+         --conf "spark.executor.cores=8"
+    rm $src/alignments/{}.sam'
+
+# Collecting metrics in parallel
+# Remember to change from _recal to _dedup if you can’t do base recalibration.
+# Also, depth will take A LOT of room up, so you may not want to run it until you know what to do with it.
+
+cat $src/sample_list | env_parallel --sshloginfile $PBS_NODEFILE \
+    'picard CollectAlignmentSummaryMetrics \
+        R=${reference}.fa \
+        I=$src/bams/{}_dedup.bam \
+        O=$src/alignments/alignment_summary/{}_alignment_summary.txt
+    picard CollectInsertSizeMetrics \
+        INPUT=$src/bams/{}_dedup.bam \
+        OUTPUT=$src/alignments/insert_metrics/{}_insert_size.txt \
+        HISTOGRAM_FILE=$src/alignments/insert_metrics/{}_insert_hist.pdf
+    samtools depth \
+        -a $src/bams/{}_dedup.bam \
+        &gt; $src/alignments/depth/{}_depth.txt'
+
+# Scatter-gather HaploType Caller, probably the most likely to need checkpoints.
+# This can take a lot of different forms, this one is best for large files.
+# Go to the HaplotypeCaller section for more info.
+
+cut -f 1 ${reference}.fa.fai &gt; $src/intervals.list
+
+while read sample; do
+    mkdir ${src}/gvcfs/${sample}
+    cat $src/intervals.list | env_parallel --sshloginfile $PBS_NODEFILE \
+        'gatk --java-options "-Xmx6g" HaplotypeCaller \
+        -R ${reference}.fa \
+        -I $src/bams/${sample}_dedup.bam \
+        -O $src/gvcfs/${sample}/${sample}_{}_raw.g.vcf.gz \
+        -L {} \
+        -ERC GVCF'
+done &lt; $src/sample_list
+
+# Run CombineGVCFs per interval, each step combines all samples into one interval-specific GVCF
+cat $src/intervals.list | env_parallel --sshloginfile $PBS_NODEFILE \
+    'interval_list=""
+    # loop to generate list of sample-specific intervals to combine
+    while read sample; do
+        interval_list="${interval_list}-V ${src}/gvcfs/${sample}/${sample}_{}_raw.g.vcf.gz "
+    done &lt; $src/sample_list
+    gatk --java-options "-Xmx6g" CombineGVCFs \
+        -R ${reference}.fa \
+        ${interval_list} \
+        -O $src/gvcfs/combined_intervals/{}_raw.g.vcf.gz'
+
+# Run GenotypeGVCFs on each interval GVCF
+cat $src/intervals.list | env_parallel --sshloginfile $PBS_NODEFILE \
+    'gatk --java-options "-Xmx6g" GenotypeGVCFs \
+        -R ${reference}.fa \
+        -V $src/gvcfs/combined_intervals/{}_raw.g.vcf.gz \
+        -O $src/combined_vcfs/intervals/{}_genotyped.vcf.gz'
+
+# Make a file with a list of paths for GatherVcfs to use
+&gt; $src/combined_vcfs/gather_list
+while read interval; do
+    echo ${src}/combined_vcfs/intervals/${interval}_genotyped.vcf.gz &gt;&gt; \
+            $src/combined_vcfs/gather_list
+done &lt; $src/intervals.list
+
+# Run GatherVcfs
+gatk GatherVcfs \
+        -I $src/combined_vcfs/gather_list \
+        -O $src/combined_vcfs/combined_vcf.vcf.gz
+
+# Index the gathered VCF
+gatk IndexFeatureFile \
+    -I $src/combined_vcfs/combined_vcf.vcf.gz
+
+# Select and filter variants
+gatk SelectVariants \
+    -R ${reference}.fa \
+    -V $src/combined_vcfs/combined_vcf.vcf.gz \
+    -select-type SNP \
+    -O $src/combined_vcfs/raw_snps.vcf.gz
+
+gatk SelectVariants \
+    -R ${reference}.fa \
+    -V $src/combined_vcfs/combined_vcf.vcf.gz \
+    -select-type INDEL \
+    -O $src/combined_vcfs/raw_indel.vcf.gz
+
+gatk VariantFiltration \
+    -R ${reference}.fa \
+    -V $src/combined_vcfs/raw_snps.vcf.gz \
+    -O $src/analysis_vcfs/filtered_snps.vcf  \
+    -filter "DP &lt; 4" --filter-name "DP_filter" \
+    -filter "QUAL &lt; 30.0" --filter-name "Q_filter" \
+    -filter "QD &lt; 2.0" --filter-name "QD_filter" \
+    -filter "FS &gt; 60.0" --filter-name "FS_filter" \
+    -filter "MQ &lt; 40.0" --filter-name "MQ_filter"
+</code></pre>
+<p><a name="tshoot"/></p>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<p>If you need help troubleshooting an error, make sure to let us know the size of your dataset (number of individuals and approximate number of reads should suffice, unless coverage varies between individuals), GATK version, node details, and any error messages output.</p>
+<p><a name="cite"/></p>
+<h2 id="citations">Citations</h2>
+<p>Bolger, A. M., Lohse, M., &amp; Usadel, B. (2014). Trimmomatic: a flexible trimmer for Illumina sequence data. Bioinformatics, 30(15), 2114–2120. https://doi.org/10.1093/bioinformatics/btu170</p>
+<p>Li, H., &amp; Durbin, R. (2009). Fast and accurate short read alignment with Burrows-Wheeler transform. Bioinformatics, 25(14), 1754–1760. https://doi.org/10.1093/bioinformatics/btp324</p>
+<p>Li, H., Handsaker, B., Wysoker, A., Fennell, T., Ruan, J., Homer, N., … Durbin, R. (2009). The Sequence Alignment/Map format and SAMtools. Bioinformatics, 25(16), 2078–2079. https://doi.org/10.1093/bioinformatics/btp352</p>
+<p>McKenna, A., Hanna, M., Banks, E., Sivachenko, A., Cibulskis, K., Kernytsky, A., … DePristo, M. A. (2010). The genome analysis toolkit: A MapReduce framework for analyzing next-generation DNA sequencing data. Genome Research, 20(9), 1297–1303. https://doi.org/10.1101/gr.107524.110</p>
+<p>Picard toolkit. (2019). Broad Institute, GitHub Repository. https://doi.org/http://broadinstitute.github.io/picard/</p>
+<p>Tange, O. (2018). GNU Parallel 2018 [Computer software]. https://doi.org/10.5281/zenodo.1146014.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../parallel_jupyterhub_with_dask_and_scikit-learn/" class="btn btn-neutral float-left" title="Parallelization with JupyterHub using Dask and SciKit-learn"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../genome_evaluation/" class="btn btn-neutral float-right" title="Genome evaluation with QUAST and BUSCO">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../parallel_jupyterhub_with_dask_and_scikit-learn/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../genome_evaluation/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

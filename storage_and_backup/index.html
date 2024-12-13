@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Storage and backup - CARC QuickBytes</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Storage and backup";
+        var mkdocs_page_input_path = "storage_and_backup.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> CARC QuickBytes
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../workshop_slides/">Workshop Slides</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Linux & HPC Introduction</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../linux_intro/">Linux Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../logging_in/">Logging in</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ssh_keygen_config/">SSH keys and Config file</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../transfer_data/">Transferring data</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Intro_to_slurm/">Intro to Slurm</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../pbs2slurm/">Converting PBS to Slurm</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../checking_on_running_jobs/">Check running jobs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../module_management/">Managing modules</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../slurm_accounting/">Intro to Slurm accounting at CARC</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../GNU_Parallel/">GNU Parallel</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../X11_forwarding/">X11 Forwarding</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Applications Tutorials</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >MATLAB</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../running_matlab_jobs/">Running MATLAB jobs at CARC</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ParallelMatlabServer/">Parallel MATLAB Server</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Parallel_MATLAB_profile_setup_and_batch_submission/">Parallel MATLAB batch submission</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Using_GPUs_on_Xena_with_MATLAB/">Using GPUs with MATLAB</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../MATLAB_Deep_Learning_on_Xena/">MATLAB Deep Learning on Xena</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >JupyterHub</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../parallelization_with_Jupyterhub_using_mpi/">JupyterHub Parallel Processing with MPI</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Conda_JupyterHub/">Conda python environments for JupyterHub</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../julia_with_jupyterhub/">Using Julia in JupyterHub</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Conda</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../anaconda_general_intro/">General intro to Conda</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../anaconda_intro/">Intro to Conda with example</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../anaconda_pip_channels/">Anaconda pip channels</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >R</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../R_usage/">R Programming in HPC</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="https://github.com/UNM-CARC/QuickBytes/tree/master/R_at_CARC">R at CARC</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Parallel_R_with_Future.ipynb">Running R in Parallel with Future</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Gurobi_optimizer_with_R/">Gurobi optimizer with R</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Machine Learning</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../Tensorflow_documentation/">Tensorflow</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../PyTorch_1.9_Xena/">Installing PyTorch on Xena</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../PyTorch_Classifier_Xena.ipynb">Example PyTorch Image Classification on Xena</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../multiGPU_tensorflow_tutorial.ipynb">Tensorflow with multiple GPUs</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../parallel_jupyterhub_with_dask_and_scikit-learn/">Parallelization with JupyterHub using Dask and SciKit-learn</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Bioinformatics</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../GATK_QuickByte/">Genomic variant calling with GATK</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../genome_evaluation/">Genome evaluation with QUAST and BUSCO</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../psmc_quickbyte/">Single genome demographic history with PSMC</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Stacks_quickbyte/">Stacks for RAD-Seq Data</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Metabarcoding/">Metabarcoding with QIIME2, Mothur, and USEARCH</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Beast_at_CARC/">BEAST at CARC</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../msprime_quickbyte/">Population genetic simulations with msprime (backwards time</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Computational Chemistry</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../orca_wheeler_taos/">Orca on Wheeler and Taos</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../alphafold/">Alphafold</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Computational Immunology</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../SimCov/">SimCov on Wheeler</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Astronomy</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../mpiCASA/">CASA Radio Astronomy</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Paraview</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../paraview/">Paraview Wheeler</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Paraview_Hopper/">Paraview Hopper</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../singularity-markdown-version/">Docker and Singularity</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../haskell/">Haskell at CARC</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../spark/">Spark</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../install_perl_libraries/">Installing Perl Libraries to Your Home Directory</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">CARC QuickBytes</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Storage and backup</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="storage-and-backup">Storage and backup</h1>
+<p>CARC provides home, project, and scratch directories on all compute systems.</p>
+<p>User home directories are subdirectories of /users. User project directories are subdirectories of /project. Scratch directories are subdirectories of the directory /scratch.</p>
+<h2 id="storage-at-carc">Storage at CARC</h2>
+<p>CARC supports a number of different storage devices for users to read, write, and store their data and results on.  The different devices vary in size, I/O speed (Figure 1), distance to the reading/writing process using them, whether they have quotas to limit their use, and whether they are backed up or not. Certain storage devices, like the home directories and machine-scratch’s, are shared resources, and serve multiple users simultaneously. This means that problems caused by poorly chosen storage locations could interrupt the work of other users as well as your own. Don’t hesitate to open a help ticket if you have any questions about, for example, where to store a large dataset, how to read it quickly, how to write a PBS script that first moves data onto the compute node in order to take advantage of the fast I/O, or any other issue related to storage at CARC.</p>
+<p>For storage limits <a href="https://github.com/UNM-CARC/QuickBytes/blob/master/Resource_usage.md">see the resource policy page</a>.</p>
+<h2 id="types-of-storage">Types of Storage</h2>
+<p>At CARC, there are four different types of storage:</p>
+<ul>
+<li>
+<p>Home directory - /users/username - Upon logging into any CARC machine, you will find yourself in your home directory, in /user/username, replacing “username” with your actual username (note, the home directory also goes by “~” and “$HOME”). You may notice that regardless of which machine you login to, the contents of your home directory are identical. This is because they are not part of any specific machine, but rather they are stored on separate computer entirely, and are then mounted by every head and compute node at CARC.</p>
+</li>
+<li>
+<p>Machine-wide scratch disk  - ~/machine-scratch -&gt; /machine/scratch/username - The most common place where data is stored after it is generated by running calculations, and before it is further analyses and then either downloaded, deleted, or moved when a long term data storage or archival plan is implemented. These are not backed up and CARC reserves the right to delete this data without advanced warning.</p>
+</li>
+<li>
+<p>Hard drive (only on the compute nodes) - /tmp - <a href="https://carc.unm.edu/systems/Systems1.html">On the machines that support these</a>, compute nodes have their own hard drives installed and they can be accessed simply by creating a directory in /tmp and then placing data there (see sample PBS script below). Since the hard drive is dedicated to that compute node, this is one of the fastest places for I/O. Files stores here will be cleared at the end of the job.</p>
+</li>
+<li>
+<p>Shared memory (only on the compute nodes) - /dev/shm - This is actually direct access to the machine's memory for use in storage. The directory at /dev/shm appears to the user as a normal read/write accessible directory just like /tmp, but files written or read from any directory within are simply being stored into memory as if they were on a disk. This provides extremely fast I/O speeds, and is very useful if small temporary files are written and read often. Be careful with the amount of data you write here, however, because this competes directly with all processes using the compute nodes RAM, including yours. Like /tmp, /dev/shm is also cleared at the end of a PBS job, so you must move any data you want to keep off the compute node before the end of the calculation or walltime.</p>
+</li>
+</ul>
+<p><img alt="storage_img" src="https://github.com/UNM-CARC/QuickBytes/blob/master/storage_diagram.jpeg" /></p>
+<p>Figure 1. The various storage locations plotted by their relative size and I/O speed.</p>
+<h2 id="choosing-a-storage-type">Choosing a storage type</h2>
+<p>In order to determine which storage type to use, it may be helpful to consider which of the following broad categories your data falls into:</p>
+<ol>
+<li>
+<p>Data that is hard to produce and long-lived - Eg. source code, scripts, documents, results. This data is either used to produce or is the product of other calculations and work</p>
+</li>
+<li>
+<p>Results and temporary data - This is data that is produced by your calculations such as simulation logs and are typically further analyzed or have some data of interest extracted and summarized, perhaps even reported in a publication. This data can be regenerated relatively easily, by rerunning the calculation that produced it, and is often deleted once further processed or at most, at the end of a project.</p>
+</li>
+</ol>
+<p>We recommend that the first type of data be stored in your home directory, which is available from everywhere inside the CARC network, and is backed up each week. The second kind of data is best produced/stored on the machine-scratch drives. In cases of very high I/O, that data can temporarily be moved to the compute node and onto either the hard drive (if the machine in use has an internal hard drive) or onto shared memory (if the files are very small). An obvious benifit to using devices that are very close to the CPU and are typically only used by a single user at a time, is the high read and write speed availible (Figure 1). The cost of this speed is the fact that the data must be moved to the compute node, read in by the calculation, and anything that is intended to be saved must be moved back off the compute node before the end of walltime or before the job ends, when the compute node is returned to the general resource pool.</p>
+<h2 id="example-use-of-a-nodes-hard-drive">Example use of a node's hard drive</h2>
+<p>This PBS script that will first copy an input file to the compute node (large_input_data.dat), perform calculations ("run_my_program"), and then copy all results of the calculation back into the directory where it was first taken:</p>
+<pre><code>#PBS -l nodes=1:ppn=8
+#PBS -l walltime=1:00:00
+#PBS -N Local_storage
+
+# First define a directory location as a variable, create the directory once the job has started, move data there, then cd to it and run  
+TEMP_DIR=/tmp/$USER/$PBS_JOBID
+mkdir -p “$TEMP_DIR”
+cp -r ${PBS_O_WORKDIR}/large_input_data.dat “$TEMP_DIR” 
+cd $TEMP_DIR
+
+# Now run my program
+run_my_program  
+
+# Now job has finished, so mv data back to where it came
+cp -r  $TEMP_DIR/* $PBS_O_WORKDIR
+
+# Finally clean up the temporary directory
+rm -r $TEMP_DIR
+</code></pre>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

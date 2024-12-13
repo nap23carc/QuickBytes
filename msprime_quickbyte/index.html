@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Population genetic simulations with msprime (backwards time - CARC QuickBytes</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Population genetic simulations with msprime (backwards time";
+        var mkdocs_page_input_path = "msprime_quickbyte.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> CARC QuickBytes
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../workshop_slides/">Workshop Slides</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Linux & HPC Introduction</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../linux_intro/">Linux Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../logging_in/">Logging in</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ssh_keygen_config/">SSH keys and Config file</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../transfer_data/">Transferring data</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Intro_to_slurm/">Intro to Slurm</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../pbs2slurm/">Converting PBS to Slurm</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../checking_on_running_jobs/">Check running jobs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../module_management/">Managing modules</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../slurm_accounting/">Intro to Slurm accounting at CARC</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../GNU_Parallel/">GNU Parallel</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../X11_forwarding/">X11 Forwarding</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Applications Tutorials</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >MATLAB</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../running_matlab_jobs/">Running MATLAB jobs at CARC</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ParallelMatlabServer/">Parallel MATLAB Server</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Parallel_MATLAB_profile_setup_and_batch_submission/">Parallel MATLAB batch submission</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Using_GPUs_on_Xena_with_MATLAB/">Using GPUs with MATLAB</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../MATLAB_Deep_Learning_on_Xena/">MATLAB Deep Learning on Xena</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >JupyterHub</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../parallelization_with_Jupyterhub_using_mpi/">JupyterHub Parallel Processing with MPI</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Conda_JupyterHub/">Conda python environments for JupyterHub</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../julia_with_jupyterhub/">Using Julia in JupyterHub</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Conda</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../anaconda_general_intro/">General intro to Conda</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../anaconda_intro/">Intro to Conda with example</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../anaconda_pip_channels/">Anaconda pip channels</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >R</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../R_usage/">R Programming in HPC</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="https://github.com/UNM-CARC/QuickBytes/tree/master/R_at_CARC">R at CARC</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Parallel_R_with_Future.ipynb">Running R in Parallel with Future</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Gurobi_optimizer_with_R/">Gurobi optimizer with R</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Machine Learning</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../Tensorflow_documentation/">Tensorflow</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../PyTorch_1.9_Xena/">Installing PyTorch on Xena</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../PyTorch_Classifier_Xena.ipynb">Example PyTorch Image Classification on Xena</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../multiGPU_tensorflow_tutorial.ipynb">Tensorflow with multiple GPUs</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../parallel_jupyterhub_with_dask_and_scikit-learn/">Parallelization with JupyterHub using Dask and SciKit-learn</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Bioinformatics</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../GATK_QuickByte/">Genomic variant calling with GATK</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../genome_evaluation/">Genome evaluation with QUAST and BUSCO</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../psmc_quickbyte/">Single genome demographic history with PSMC</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Stacks_quickbyte/">Stacks for RAD-Seq Data</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Metabarcoding/">Metabarcoding with QIIME2, Mothur, and USEARCH</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Beast_at_CARC/">BEAST at CARC</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Population genetic simulations with msprime (backwards time</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#how-msprime-works">How msprime Works</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-to-run-msprime">How to run msprime</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#running-msprime-replicates-on-carc">Running MSPrime replicates on CARC</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#case-study-divergence-between-connected-islands">Case study: Divergence between connected islands</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#citation">Citation</a>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Computational Chemistry</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../orca_wheeler_taos/">Orca on Wheeler and Taos</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../alphafold/">Alphafold</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Computational Immunology</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../SimCov/">SimCov on Wheeler</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Astronomy</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../mpiCASA/">CASA Radio Astronomy</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Paraview</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../paraview/">Paraview Wheeler</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Paraview_Hopper/">Paraview Hopper</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../singularity-markdown-version/">Docker and Singularity</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../haskell/">Haskell at CARC</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../spark/">Spark</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../install_perl_libraries/">Installing Perl Libraries to Your Home Directory</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">CARC QuickBytes</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Applications Tutorials</li>
+          <li class="breadcrumb-item">Bioinformatics</li>
+      <li class="breadcrumb-item active">Population genetic simulations with msprime (backwards time</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="running-population-genetic-simulations-with-msprime">Running Population Genetic Simulations with MSPrime</h1>
+<p>Many microevolutionary questions invoke population genetic processes to explain them, from population genetic summary statistics to selection on specific loci of interest. In turn, population genetic simulations are becoming increasingly important to publish in major journals to validate that empirical result are consistent with the processes authors say the findings represent. There are many programs used for these simulations, that fall into two general categories: forward (slow, simulate all individuals in the populations) and backward (fast, work from a number of samples backward to simulate genealogies). Prominent examples of these two are <a href="https://messerlab.org/slim/">SLiM</a> and <a href="https://msprime.readthedocs.io/en/stable/">msprime</a> respectively.</p>
+<p>Here, we'll give a basic introduction to msprime, give a simple example of two diverging populations, and show how to parallelize replicates on CARC. The example is one I used to establish how F<sub>ST</sub>, <a href="https://onlinelibrary.wiley.com/doi/10.1111/j.1558-5646.1984.tb05657.x">an estimate of population divergence</a>, changes over time based on population size. In particular, I used this to test if observed values of F<sub>ST</sub> between islands connected during the Pleistocene became panmictic at those times, or if there was still reduced gene flow between given islands (with the system being one worked on in the past in papers like <a href="https://academic.oup.com/auk/article/124/2/479/5562749">Smith &amp; Filardi 2007</a>).</p>
+<p>This QuickByte describes msprime 1.0, which is a major update from the widely used earlier versions.</p>
+<h2 id="how-msprime-works">How msprime Works</h2>
+<p><a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004842">The paper describing msprime</a> has been cited hundreds of time, but represents an extension of <a href="https://academic.oup.com/bioinformatics/article/18/2/337/225783">the simulation program ms</a>, which has been cited a couple thousand times. The goal of this extension is to scale simulations up to the large sample sizes of individuals and loci used in modern day genomic studies. Msprime's fast speed and ease of analysis is achieved by by adding novel ways of keeping track of geneologies being analyzed through sparse trees and coalescence records, collectively refer to ass tree sequences.</p>
+<h2 id="how-to-run-msprime">How to run msprime</h2>
+<p>Msprime is a python package, with reccomended download via conda. We reccomend you use miniconda for this, as we've had some bugs with installing this through anaconda in the past. We'll make an environment with it and a couple other important modules:</p>
+<pre><code>conda create -n msp1-env -c conda-forge msprime scikit-allel numpy
+</code></pre>
+<p>Then we'll activate the environment with "conda activate", but note that it needs to be "source activate" in a script:</p>
+<pre><code>conda activate msp1-env
+</code></pre>
+<p>In a script or in python command line, we'll import msprime as msp for convenience:</p>
+<pre><code>import msprime as msp
+</code></pre>
+<p>The simulations themselves, at a base level, are very simple. All that's needed is a sample size of individuals "tracked" backwards. Note that these are assumed diploid unless ploidy is specified:</p>
+<pre><code>trees = msp.sim_ancestry(samples=10)
+</code></pre>
+<p>Mutations can be added using sim_mutations, ideally changing the default mutation rate (here to the per-year songbird mutation rate):</p>
+<pre><code>mutations = msp.sim_mutations(trees, rate=2.3e-9)
+</code></pre>
+<p>This is just one locus, but we gain a lot more information by adding sequence length and recombination rates.</p>
+<pre><code>trees = msp.sim_ancestry(samples=10, recombination_rate=1e-8, sequence_length=1e6)
+</code></pre>
+<p>Unlike the older versions of msprime, outside of pre-made demographic scenarios, you need to add things like populations and merge events to a demography object. Migration rates are also set there. First, we'll initialize the demography and add two populations:</p>
+<pre><code>demo = msp.Demography()
+demo.add_population(name="pop1", initial_size=10000)
+demo.add_population(name="pop2", initial_size=20000)
+</code></pre>
+<p>Next, we'll set up an ancestral population and add a population split time (the size is equal to the size before a bottleneck we implement below):</p>
+<pre><code>demo.add_population(name="anc_pop12", initial_size=50000)
+demo.add_population_split(time=5700, derived=["pop1","pop2"], ancestral="anc_pop12")
+</code></pre>
+<p>Finally, we'll add symmetric migration (i.e. gene flow) between the two focal populations:</p>
+<pre><code>demo.set_symmetric_migration_rate(['pop1', 'pop2'], 0.001)
+</code></pre>
+<p>We can have the migration rate change over time too, here we increase the migration rate during the period between the split time (5700 generations ago) and 4000 generations go:</p>
+<pre><code>demo.add_symmetric_migration_rate_change(4000, ['pop1', 'pop2'], 0.01)
+</code></pre>
+<p>The final common demographic event is population size change, which we'll set to have a bottleneck three quarters of the way through the simulation. That is, we set the population size of population 1 to be three times the present population 2500 years:</p>
+<pre><code>demo.add_population_parameters_change(time=2500, initial_size=30000, population="pop1")
+</code></pre>
+<p>Finally, we need to sort these events, as we added them out of order for instructional purposes:</p>
+<pre><code>demo.sort_events()
+</code></pre>
+<p>A really helpful debugging feature is the print function for demography objects, it lists and explains the events and migration matrix!</p>
+<pre><code>print(demo)
+</code></pre>
+<p>Bringing this all together, our simulation will look like:</p>
+<pre><code>trees = msp.sim_ancestry(samples={"pop1":10, "pop2":10},
+                     demography=demo,
+                     recombination_rate=1e-8,
+                     sequence_length=1e7)
+</code></pre>
+<p>And we'll add mutations like this, using a yearly rate of 2.3e-9 and a generation time of 2.55 years (same as the case study):</p>
+<pre><code>mutations = msp.sim_mutations(trees, rate=5.9e-9)
+</code></pre>
+<h2 id="running-msprime-replicates-on-carc">Running MSPrime replicates on CARC</h2>
+<p>It is best practice to run many replicates of any simulation you run to assess the robustness of any estimates you make. You can use <a href="https://github.com/UNM-CARC/QuickBytes/blob/master/GNU%20Parallel.md">GNU Parallel (specifically env_parallel)</a> to run these simulations, and can add these replicates directly to an output file. The following examples your python simulation script takes population size (popsize) and population divergence time (divtime) and have an output file like "$popsize_$divtime.out" that the script writes to. First we'll run 30 replicates. Note that the "echo {}" just to deal with the parallel iterator, so GNU parallel doesn't append it to the end of our python call by default.</p>
+<pre><code>env_parallel --sshloginfile $PBS_NODEFILE \
+    'echo {}; /path/to/python msprime_script.py --popsize 2000 --divtime 10000 \
+    --output ./outputs/1000_10000.out' ::: {1..30}
+</code></pre>
+<p>You could also use GNU parallel to iterate over multiple parameter combinations, here we test multiple population sizes (2000, 3000, and 5000) and divergence times (1000, 5000, and 10000 generations). We'll assume the script has replicates coded into it.</p>
+<pre><code>env_parallel --sshloginfile $PBS_NODEFILE \
+    '/path/to/python msprime_script.py --popsize {1} --divtime {2} \
+    --output ./outputs/{1}_{2}' ::: 2000 3000 5000 ::: 1000 5000 10000
+</code></pre>
+<h2 id="case-study-divergence-between-connected-islands">Case study: Divergence between connected islands</h2>
+<p>Here we look at three islands interconnected at glacial maxima, modeled after Choiseul, Isabel, and Guadalcanal of the Solomon Islands. These islands are arranged from west to east, with Guadalcanal arguably not being fully connected to the rest. Our goal is to assess <a href="https://onlinelibrary.wiley.com/doi/10.1111/j.1558-5646.1984.tb05657.x">F<sub>ST</sub></a> between islands, for which which will use the scikit-allel package. Empirically, we find that F<sub>ST</sub> between Isabel and Choiseul is much higher than between Guadalcanal and Isabel, consistent with the slight break between those two islands. However, F<sub>ST</sub> increases faster after divergence with lower population size, so we want to know what density of birds on Guadalcanal would be required to produce this result given knowledge that a density of 25 birds/km<sup>2</sup> produced the empirical F<sub>ST</sub> between Isabel and Choiseul. We will test 5 densities for Guadalcanal (5, 10, 15, 20, 25, and 30), each with 30 replicates, holding the population density on Isabel as a constant 25 birds/km<sup>2</sup>.</p>
+<p>First, we have to write our python script. We'll use the argparse module to hand our arguments. Note that we'll set Isabel as the first population and Guadalcanal as the second (in a more complete version we can take island names as input and have a function to determine their sizes). It will output the population size of the first (Isabel) and second (Guadalcanal) island along with the F<sub>ST</sub>.</p>
+<pre><code>import os, sys, msprime as msp, numpy as np, allel, re, argparse
+
+def main():
+    # set up argparse
+    parse = argparse.ArgumentParser(description = "Get simulation parameters")
+    # two population densities for generality
+    parse.add_argument("-d1", "--density1", type=float, help="Density of first population")
+    parse.add_argument("-d2", "--density2", type=float, help="Density of second population")
+    parse.add_argument("-o", "--output", type=str, help="Path to output file")
+    args = parse.parse_args()
+
+    # assign argparse values to variables
+    dens1, dens2, outfile = args.density1, args.density2, args.output
+
+    # calculate population sizes, with Isabel and Guadalcanal being 2999 and 5302 km&lt;sup&gt;2&lt;/sup&gt; respectively
+    size1 = dens1 * 2999
+    size2 = dens2 * 5302
+
+    # set up number of samples and demography
+    samples = 30
+    demography = msp.Demography()
+    demography.add_population(name="pop1", initial_size=size1)
+    demography.add_population(name="pop2", initial_size=size2)
+    demography.add_population(name="anc_pop12", initial_size=size1+size2)
+    demography.add_population_split(time=5700, derived=["pop1","pop2"], ancestral="anc_pop12")
+
+    # run simulation for 10 megabases
+    trees = msp.sim_ancestry(samples={"pop1":samples, "pop2":samples},
+        demography=demography,
+        recombination_rate=1e-8,
+        sequence_length=1e7)
+
+    # add mutations with a common estimate of mutation rate in birds
+    mutations = msp.sim_mutations(trees, rate=5.9e-9)
+
+    # get haplotypes from simulation
+        haplotypes = np.array(mutations.genotype_matrix())
+        genotypes = allel.HaplotypeArray(haplotypes).to_genotypes(ploidy=2)
+
+    # calculate fst, assumes even sample size
+        fst = allel.stats.fst.average_weir_cockerham_fst(genotypes,[list(range(0,samples)),list(range(samples,samples*2))],10)[0]
+
+    # write output to file
+    output = open(outfile, "a")
+        output.write(str(int(size1))+"\t"+str(int(size2))+"\t"+str(fst)+"\n")
+        output.close()
+
+if __name__ == '__main__':
+    main()
+</code></pre>
+<p>Now that we have our scripted simulation, we'll write a PBS script to run it in parallel! We assumes you have a directory in your working directory called "output" and named your script "island_msp_twopop.py". We'll name files based on the denisty on Guadalcanal. We don't have it written in the script, but if you already have something in "output", this just appends to those files (i.e. "rm output\/*" beforehand). Note that this script excludes the header.</p>
+<pre><code># prepare GNU parallel
+module load parallel-20170322-gcc-4.8.5-2ycpx7e
+source $(which env_parallel.bash)
+
+# load our environment
+module load miniconda3-4.7.12.1-gcc-4.8.5-lmtvtik
+source activate msp1-env
+
+# make a shortcut for our working directory, where we assume all scripts are located.   
+dir=$PBS_O_WORKDIR
+
+env_parallel --sshloginfile $PBS_NODEFILE \
+    'echo {2}; python $dir/island_msp_twopop.py -d1 25 -d2 {1} -o $dir/output/density_{1}.out' \
+    ::: 3 4 5 10 15 20 25 30 ::: {1..30}
+</code></pre>
+<p>For interpretting these results, the empirical F<sub>ST</sub> value between Guadalcanal and Isabel is 0.077, and the best density match was 4 birds/km<sup>2</sup> (F<sub>ST</sub>=0.79). That means that to get the observed F<sub>ST</sub>, Guadalcanal would have to have 16% of the population density inferred on the other islands. Genetic diversity doesn't support this, suggesting that the gap between them formed an excess of population structure compared to the other islands!</p>
+<h2 id="citation">Citation</h2>
+<p>Below are citations for msprime and GNU parallel. Remember to cite programs you run whenever possible!</p>
+<p>Kelleher, J., Etheridge, A. M., &amp; McVean, G. (2016). Efficient Coalescent Simulation and Genealogical Analysis for Large Sample Sizes. PLoS Computational Biology, 12(5), 1004842. https://doi.org/10.1371/journal.pcbi.1004842</p>
+<p>Tange, O. (2018). GNU Parallel 2018 [Computer software]. https://doi.org/10.5281/zenodo.1146014.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../Beast_at_CARC/" class="btn btn-neutral float-left" title="BEAST at CARC"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../orca_wheeler_taos/" class="btn btn-neutral float-right" title="Orca on Wheeler and Taos">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../Beast_at_CARC/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../orca_wheeler_taos/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

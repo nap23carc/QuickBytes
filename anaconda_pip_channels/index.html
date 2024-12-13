@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Anaconda pip channels - CARC QuickBytes</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Anaconda pip channels";
+        var mkdocs_page_input_path = "anaconda_pip_channels.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> CARC QuickBytes
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../workshop_slides/">Workshop Slides</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Linux & HPC Introduction</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../linux_intro/">Linux Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../logging_in/">Logging in</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ssh_keygen_config/">SSH keys and Config file</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../transfer_data/">Transferring data</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Intro_to_slurm/">Intro to Slurm</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../pbs2slurm/">Converting PBS to Slurm</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../checking_on_running_jobs/">Check running jobs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../module_management/">Managing modules</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../slurm_accounting/">Intro to Slurm accounting at CARC</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../GNU_Parallel/">GNU Parallel</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../X11_forwarding/">X11 Forwarding</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Applications Tutorials</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >MATLAB</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../running_matlab_jobs/">Running MATLAB jobs at CARC</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ParallelMatlabServer/">Parallel MATLAB Server</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Parallel_MATLAB_profile_setup_and_batch_submission/">Parallel MATLAB batch submission</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Using_GPUs_on_Xena_with_MATLAB/">Using GPUs with MATLAB</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../MATLAB_Deep_Learning_on_Xena/">MATLAB Deep Learning on Xena</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >JupyterHub</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../parallelization_with_Jupyterhub_using_mpi/">JupyterHub Parallel Processing with MPI</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Conda_JupyterHub/">Conda python environments for JupyterHub</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../julia_with_jupyterhub/">Using Julia in JupyterHub</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Conda</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../anaconda_general_intro/">General intro to Conda</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../anaconda_intro/">Intro to Conda with example</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Anaconda pip channels</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#installing-packages-with-pip">Installing packages with pip</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#performance-with-conda-versus-pip">Performance with Conda versus Pip</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#adding-package-repositories-channels">Adding package repositories (channels)</a>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >R</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../R_usage/">R Programming in HPC</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="https://github.com/UNM-CARC/QuickBytes/tree/master/R_at_CARC">R at CARC</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Parallel_R_with_Future.ipynb">Running R in Parallel with Future</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Gurobi_optimizer_with_R/">Gurobi optimizer with R</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Machine Learning</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../Tensorflow_documentation/">Tensorflow</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../PyTorch_1.9_Xena/">Installing PyTorch on Xena</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../PyTorch_Classifier_Xena.ipynb">Example PyTorch Image Classification on Xena</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../multiGPU_tensorflow_tutorial.ipynb">Tensorflow with multiple GPUs</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../parallel_jupyterhub_with_dask_and_scikit-learn/">Parallelization with JupyterHub using Dask and SciKit-learn</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Bioinformatics</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../GATK_QuickByte/">Genomic variant calling with GATK</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../genome_evaluation/">Genome evaluation with QUAST and BUSCO</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../psmc_quickbyte/">Single genome demographic history with PSMC</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Stacks_quickbyte/">Stacks for RAD-Seq Data</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Metabarcoding/">Metabarcoding with QIIME2, Mothur, and USEARCH</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Beast_at_CARC/">BEAST at CARC</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../msprime_quickbyte/">Population genetic simulations with msprime (backwards time</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Computational Chemistry</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../orca_wheeler_taos/">Orca on Wheeler and Taos</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../alphafold/">Alphafold</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Computational Immunology</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../SimCov/">SimCov on Wheeler</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Astronomy</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../mpiCASA/">CASA Radio Astronomy</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Paraview</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../paraview/">Paraview Wheeler</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Paraview_Hopper/">Paraview Hopper</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../singularity-markdown-version/">Docker and Singularity</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../haskell/">Haskell at CARC</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../spark/">Spark</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../install_perl_libraries/">Installing Perl Libraries to Your Home Directory</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">CARC QuickBytes</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Applications Tutorials</li>
+          <li class="breadcrumb-item">Conda</li>
+      <li class="breadcrumb-item active">Anaconda pip channels</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="installing-with-pip-and-adding-channels">Installing with pip and adding channels</h1>
+<h4 id="installing-packages-with-pip">Installing packages with pip</h4>
+<p>Not all versions of all software have Conda packages available however, especially for some python libraries. Pip, the python package manager, is automatically installed by default in all environments created by Conda, and can install packages alongside those installed by Conda without conflict.<br />
+For example, say you need the library psutil, but you specifically need version 5.3.0. When you search for psutil using <code>conda</code> you get the following:</p>
+<pre><code class="language-bash">$ conda search psutil=5.3
+Loading channels: done
+# Name                  Version           Build  Channel
+psutil                    5.3.1          py27_0  conda-forge
+psutil                    5.3.1  py27h4c169b4_0  pkgs/main
+psutil                    5.3.1          py35_0  conda-forge
+psutil                    5.3.1  py35h6e9e629_0  pkgs/main
+psutil                    5.3.1          py36_0  conda-forge
+psutil                    5.3.1  py36h0e357b8_0  pkgs/main
+</code></pre>
+<p>Unfortunately there are no packages built for psutil version 5.3.0. We can use pip to install the version we want however.</p>
+<pre><code class="language-bash">$ source activate py-2.7
+
+(py-2.7)$ pip install psutil==5.3.0
+Collecting psutil==5.3.0
+  Downloading https://files.pythonhosted.org/packages/1c/da/555e3ad3cad30f30bcf0d539cdeae5c8e7ef9e2a6078af645c70aa81e418/psutil-5.3.0.tar.gz (397kB)
+    100% |████████████████████████████████| 399kB 1.3MB/s
+Building wheels for collected packages: psutil
+  Running setup.py bdist_wheel for psutil ... done
+  Stored in directory: /users/yourusername/.cache/pip/wheels/ff/c5/4f/1ee2208203f1cfeda16e91fccd8bfce5f4840b683671729d57
+Successfully built psutil
+
+(py-2.7)$ conda list
+
+# packages in environment at /users/yourusername/.Conda/envs/py-2.7:
+#
+# Name                    Version                   Build
+ca-certificates           2018.03.07                    0
+certifi                   2018.8.24                py27_1
+libedit                   3.1.20170329         h6b74fdf_2
+libffi                    3.2.1                hd88cf55_4
+libgcc-ng                 8.2.0                hdf63c60_1
+libstdcxx-ng              8.2.0                hdf63c60_1
+ncurses                   6.1                  hf484d3e_0
+openssl                   1.0.2p               h14c3975_0
+pip                       10.0.1                   py27_0
+**psutil                  5.3.0                     &lt;pip&gt;
+python                    2.7.15               h1571d57_0
+readline                  7.0                  h7b6447c_5
+setuptools                40.2.0                   py27_0
+sqlite                    3.24.0               h84994c4_0
+tk                        8.6.8                hbc83047_0
+wheel                     0.31.1                   py27_0
+zlib                      1.2.11               ha838bed_2
+</code></pre>
+<p>When installing packages using <code>pip</code> it is important to first activate the Conda environment that you want to install the package in since pip is strictly a package manager and cannot modify Conda environments from outside that environment. You can see that our psutil package, marked with a double asterisk, is version 5.3.0, just like we wanted. Under the 'build' column however you will see that <code>conda</code> is not sure which build it is since it was installed with <code>pip</code>, as indicated by the <code>&lt;pip&gt;</code> designator.</p>
+<h4 id="performance-with-conda-versus-pip">Performance with Conda versus Pip</h4>
+<p>One thing to note when installing packages is that it is always preferable to first install necessary packages with <code>conda</code> first, only then use <code>pip</code> to install only those packages that were not available through Anaconda repositories. 
+It is usually best practice to install needed packages and dependencies with <code>conda</code> and use <code>pip</code> to install any remaining packages that were not available instead of vice versa.</p>
+<h4 id="adding-package-repositories-channels">Adding package repositories (channels)</h4>
+<p>Sometimes the default repositories, or channels for Conda, do not have the package you are looking for, but that does not mean that it is necessarily unavailable entirely. Say you are working with some Illumina sequence data and need the Burrows-Wheeler Aligner (bwa) in your pipeline, so you activate your bioinformatics environment and type <code>conda install bwa</code> which prints the following:</p>
+<pre><code class="language-bash">Solving environment: failed
+
+PackagesNotFoundError: The following packages are not available from current channels:
+
+  - bwa
+
+Current channels:
+
+  - https://repo.anaconda.com/pkgs/main/linux-64
+  - https://repo.anaconda.com/pkgs/main/noarch
+  - https://repo.anaconda.com/pkgs/free/linux-64
+  - https://repo.anaconda.com/pkgs/free/noarch
+  - https://repo.anaconda.com/pkgs/r/linux-64
+  - https://repo.anaconda.com/pkgs/r/noarch
+  - https://repo.anaconda.com/pkgs/pro/linux-64
+  - https://repo.anaconda.com/pkgs/pro/noarch
+
+To search for alternate channels that may provide the conda package you're
+looking for, navigate to
+
+    https://anaconda.org
+
+and use the search bar at the top of the page.
+</code></pre>
+<p>We can search other channels that may have the package we are interested in with the <code>-c</code> flag. For example, BioConda is a large repository that hosts several thousand bioinformatics packages. We can search for our bwa package by specifying that channel.</p>
+<pre><code class="language-bash">$ conda search -c bioConda bwa
+</code></pre>
+<p>Which yields better results:</p>
+<pre><code class="language-bash">Loading channels: done
+# Name                  Version           Build  Channel
+bwa                       0.5.9               0  bioConda
+bwa                       0.5.9               1  bioConda
+bwa                       0.6.2               0  bioConda
+bwa                       0.6.2               1  bioConda
+bwa                      0.7.3a               0  bioConda
+bwa                      0.7.3a               1  bioConda
+bwa                      0.7.3a      ha92aebf_2  bioConda
+bwa                       0.7.4      ha92aebf_0  bioConda
+bwa                       0.7.8               0  bioConda
+bwa                       0.7.8               1  bioConda
+bwa                       0.7.8      ha92aebf_2  bioConda
+bwa                      0.7.12               0  bioConda
+bwa                      0.7.12               1  bioConda
+bwa                      0.7.13               0  bioConda
+bwa                      0.7.13               1  bioConda
+bwa                      0.7.15               0  bioConda
+bwa                      0.7.15               1  bioConda
+bwa                      0.7.16      pl5.22.0_0  bioConda
+bwa                      0.7.17      ha92aebf_3  bioConda
+bwa                      0.7.17      pl5.22.0_0  bioConda
+bwa                      0.7.17      pl5.22.0_1  bioConda
+bwa                      0.7.17      pl5.22.0_2  bioConda
+</code></pre>
+<p>We can then install our bwa package using <code>conda install -c bioConda bwa</code> and continue with our analyses. You can permanently add channels by appending your <code>.condarc</code> file either directly in a text editor, or with <code>conda</code> by using the <code>config</code> command:</p>
+<pre><code class="language-bash">$ conda config --append channels bioconda
+</code></pre>
+<p>This will permanently add the BioConda channel to your configuration file meaning Conda will automatically search BioConda as well as the default channels when looking for packages.</p>
+<p>For more information on managing channels and installing with pip please refer to the Conda support documentation at this <a href="https://conda.io/docs/user-guide/tasks/manage-channels.html">link</a>.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../anaconda_intro/" class="btn btn-neutral float-left" title="Intro to Conda with example"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../R_usage/" class="btn btn-neutral float-right" title="R Programming in HPC">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../anaconda_intro/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../R_usage/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

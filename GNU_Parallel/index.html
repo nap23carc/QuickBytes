@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>GNU Parallel - CARC QuickBytes</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "GNU Parallel";
+        var mkdocs_page_input_path = "GNU_Parallel.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> CARC QuickBytes
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../workshop_slides/">Workshop Slides</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Linux & HPC Introduction</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../linux_intro/">Linux Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../logging_in/">Logging in</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ssh_keygen_config/">SSH keys and Config file</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../transfer_data/">Transferring data</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Intro_to_slurm/">Intro to Slurm</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../pbs2slurm/">Converting PBS to Slurm</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../checking_on_running_jobs/">Check running jobs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../module_management/">Managing modules</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../slurm_accounting/">Intro to Slurm accounting at CARC</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">GNU Parallel</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#matlab-implementation-of-gnu-parallel">Matlab Implementation of GNU Parallel</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#example-of-running-embarassingly-parallel-jobs-in-python-with-parallel">Example of running embarassingly parallel jobs in python with parallel</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#code-for-pbs-script">Code for PBS script</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#code-for-matrix_invpy-file">code for matrix_inv.py file</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-contents-of-mat_in-looks-like">The Contents of mat_in looks like</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../X11_forwarding/">X11 Forwarding</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Applications Tutorials</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >MATLAB</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../running_matlab_jobs/">Running MATLAB jobs at CARC</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ParallelMatlabServer/">Parallel MATLAB Server</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Parallel_MATLAB_profile_setup_and_batch_submission/">Parallel MATLAB batch submission</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Using_GPUs_on_Xena_with_MATLAB/">Using GPUs with MATLAB</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../MATLAB_Deep_Learning_on_Xena/">MATLAB Deep Learning on Xena</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >JupyterHub</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../parallelization_with_Jupyterhub_using_mpi/">JupyterHub Parallel Processing with MPI</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Conda_JupyterHub/">Conda python environments for JupyterHub</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../julia_with_jupyterhub/">Using Julia in JupyterHub</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Conda</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../anaconda_general_intro/">General intro to Conda</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../anaconda_intro/">Intro to Conda with example</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../anaconda_pip_channels/">Anaconda pip channels</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >R</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../R_usage/">R Programming in HPC</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="https://github.com/UNM-CARC/QuickBytes/tree/master/R_at_CARC">R at CARC</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Parallel_R_with_Future.ipynb">Running R in Parallel with Future</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Gurobi_optimizer_with_R/">Gurobi optimizer with R</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Machine Learning</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../Tensorflow_documentation/">Tensorflow</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../PyTorch_1.9_Xena/">Installing PyTorch on Xena</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../PyTorch_Classifier_Xena.ipynb">Example PyTorch Image Classification on Xena</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../multiGPU_tensorflow_tutorial.ipynb">Tensorflow with multiple GPUs</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../parallel_jupyterhub_with_dask_and_scikit-learn/">Parallelization with JupyterHub using Dask and SciKit-learn</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Bioinformatics</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../GATK_QuickByte/">Genomic variant calling with GATK</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../genome_evaluation/">Genome evaluation with QUAST and BUSCO</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../psmc_quickbyte/">Single genome demographic history with PSMC</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Stacks_quickbyte/">Stacks for RAD-Seq Data</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Metabarcoding/">Metabarcoding with QIIME2, Mothur, and USEARCH</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Beast_at_CARC/">BEAST at CARC</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../msprime_quickbyte/">Population genetic simulations with msprime (backwards time</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Computational Chemistry</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../orca_wheeler_taos/">Orca on Wheeler and Taos</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../alphafold/">Alphafold</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Computational Immunology</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../SimCov/">SimCov on Wheeler</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Astronomy</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../mpiCASA/">CASA Radio Astronomy</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Paraview</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../paraview/">Paraview Wheeler</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Paraview_Hopper/">Paraview Hopper</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../singularity-markdown-version/">Docker and Singularity</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../haskell/">Haskell at CARC</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../spark/">Spark</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../install_perl_libraries/">Installing Perl Libraries to Your Home Directory</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">CARC QuickBytes</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Linux & HPC Introduction</li>
+      <li class="breadcrumb-item active">GNU Parallel</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="gnu-parallel">GNU Parallel</h1>
+<p>GNU parallel enables us to run as many jobs in parallel instead of sequentially thus saving lots of time. Unlike creating a queue for exectution of processes in a sequential run, GNU parallel tends to maximally parallize the execution over available processors in an embarassingly parallel fashion.</p>
+<p>For example, a parallel command to change formats of all files with csv extension to .txt using gnu-parallel is presented. 
+      module load image-magick-7.0.5-9-gcc-4.8.5-python2-xzyy5cz
+      $find . -name "*csv" | parallel -I% --max-args 1 convert % %.txt</p>
+<p>Here the command finds all the files with .csv extension first and parallely converts them to txt format .</p>
+<p>Similarly, parallel can also used to compressed as many files and decompress them.</p>
+<pre><code> $parallel gzip ::: *.txt
+ $parallel gunzip ::: *.gz
+</code></pre>
+<p>Tha above two commands can be used to zip and unzip image files with .jpg exptesion over given path. </p>
+<h2 id="matlab-implementation-of-gnu-parallel">Matlab Implementation of GNU Parallel</h2>
+<p>GNU Parallel takes many different arguments, but here we will use only two, --arg-file and {}. --arg-file precedes an input file name, “msizes”, and {} is replaced with each line of the input file. A different copy of Matlab is run simultaneously, with each line of the input file replacing {} in each copy. This is Matlab in high-throughput mode (on a single node). Here is the new “parallel matlab” command:</p>
+<pre><code>parallel --arg-file msizes ‘matlab –nojvm –nodisplay –r “msize={};program”' &gt;/dev/null
+</code></pre>
+<p>Single quotes are required around the Matlab portion of the parallel Matlab command. The actual Matlab code is enclosed in double quotes. The contents of the input file, msizes, is:</p>
+<pre><code>1
+2
+3
+4
+</code></pre>
+<p>This creates four files: 1.csv, 2.csv, 3.csv, and 4.csv. The contents of the files are, e.g., 1.csv:</p>
+<pre><code>0.81472
+</code></pre>
+<p>3.csv:</p>
+<pre><code>0.81472,0.91338,0.2785
+0.90579,0.63236,0.54688
+0.12699,0.09754,0.95751
+</code></pre>
+<p>So far, the command has run Matlab in high-throughput mode on only a single node, a node that you are currently logged into. This is not how Matlab should typically be run at CARC, since it is not taking advantage of the Center's large-scale resources. To run Matlab in high-throughput mode on massively-parallel or cluster machines, it is necessary to use a PBS batch script on the head node of a CARC machine, and have the script run Matlab for you. Use of a PBS batch script allows you to run on many nodes at the same time. Before we use a PBS batch script we will need to make some changes to the program.m and parallel Matlab command. The program.m now reads:</p>
+<pre><code>%generate a matrix of random numbers of dimension msize x msize
+rmatrix=rand(msize);
+%create an output file name based on msize and write the random matrix to it
+fname=num2str(msize);
+process=num2str(pid);
+fname=strcat(process,'.',fname,'.csv');
+csvwrite(fname,rmatrix);
+quit
+</code></pre>
+<p>The parent process id is now prepended to the file name. This is helpful because there will now be multiple output files, and they must all have unique names. The command to run Matlab is now:</p>
+<pre><code>parallel -j0 --arg-file msizes 'matlab -nojvm -nodisplay -r "msize={};pid=$PPID;program"' &gt;/dev/null
+</code></pre>
+<p>The $PPID (parent process id#) is input to program.m as the pid variable. The -j0 flag ensures that as many cores as possible on the node are used. Running this command (just as an example, without the PBS batch file) would produce output files: </p>
+<pre><code>    18778.1.csv 18778.2.csv 18778.3.csv 18778.4.csv.
+</code></pre>
+<p>The contents are the same as before. The command (with some PBS specific modifications) can now be inserted into a PBS batch script in order to run on more than one node, i.e. in high throughput mode.
+High-Throughput Mode</p>
+<p>To generalize the command to run on CARC machines and allow the use of multiple nodes on those machines, a PBS batch script is necessary. This will allocate nodes and the cores on each node to execute the parallel Matlab command. A sample PBS script reads:</p>
+<pre><code>#PBS -l nodes=4:ppn=2
+#PBS -l walltime=00:10:00
+#PBS -N matlab_test
+#PBS -S /bin/bash
+cd $PBS_O_WORKDIR
+source /etc/profile.d/modules.sh
+module load matlab
+module load gnu-parallel
+PROCS=$(cat $PBS_NODEFILE | wc -l)
+nname=`hostname -s`
+echo starting Matlab jobs at `date`
+parallel -j0 --sshloginfile $PBS_NODEFILE --workdir $PBS_O_WORKDIR --env PATH --arg-file msizes 'matlab -nojvm -nodisplay -r "msize={};pid=$$;program" &gt;/dev/null'
+echo finished Matlab jobs at `date`
+</code></pre>
+<p>The essential portion for running Matlab in high-throughput mode is embodied in the first line, “nodes=4:ppn=2”. It is very important to remember to allocate the correct number of cores with this line. Use this equation to calculate the number of cores you are allocating: nodes x ppn = number of cores allocated. But since you must also match the number of lines of input in msizes (which determines the number of Matlab processes run) to the number of cores allocated, the equation should really be: nodes x ppn = number of cores allocated = number of lines of input = number of Matlab processes run. If you run more Matlab processes than the number of cores you allocate, the job will run much more slowly, e.g. allocating 8 cores and running 9 Matlab jobs will cause the overall job to take twice as long as when running 8 Matlab jobs. Running fewer Matlab jobs than the number of cores allocated leaves cores unused (and unusable by other users for the duration of your job) and so wastes resources. You always want the number of cores allocated to equal the number of Matlab jobs run (which is the number of lines in the file msizes). The scripts can be modified of course, but this principle should always be kept in mind. Also keep in mind also that the “ppn” in the first line of the PBS script will vary from machine to machine, and you will get an error if it is incorrectly specified, i.e. some machines have more cores per node than others. For a list of CARC resources and information on numbers of processors/node, see Systems. Here are the contents of program.m:</p>
+<pre><code>%generate a matrix of random numbers of dimension msize x msize
+rmatrix=rand(msize);
+%create a unique output name based on the node hostname, process id#,
+%and msize and write the random matrix to it
+[~,hname]=system('hostname');
+fname=num2str(msize);
+process=num2str(pid);
+fname=strcat(hname,'.',process,'.',fname,'.csv');
+csvwrite(fname,rmatrix);
+quit
+</code></pre>
+<p>Here are the contents of msizes:</p>
+<pre><code>1
+2
+3
+4
+5
+6
+7
+8
+</code></pre>
+<p>The PBS script above allocates 8 cores from a machine with 2 cores per node. You’ll notice there have been some changes to the parallel Matlab command now that it is being used in a PBS script. It now reads:</p>
+<pre><code>parallel -j0 --sshloginfile $PBS_NODEFILE --workdir $PBS_O_WORKDIR --env PATH --arg-file msizes 'matlab -nojvm -nodisplay -r "msize={};pid=$$;program" &gt;/dev/null'
+</code></pre>
+<p>You’ll notice that a number of flags have been added. The flag “--sshloginfile $PBS_NODEFILE” gives the parallel command the hostnames of all the nodes that the PBS script has allocated for the job. (The names of the nodes are contained in the PBS environment variable $PBS_NODEFILE.) The flag “--workdir $PBS_O_WORKDIR” uses another PBS environment variable to force Matlab to run in the directory where the PBS script was run. The flag “--env PATH” makes sure all the Matlab processes have the same environment variables as the PBS script has when it is running, e.g. those variables loaded with “module” commands. Notice how this variable does not get a dollar sign ($) in front of it. GNU parallel understands this particular flag without the dollar sign. The rest of the command remains the same.
+Submitting the Job</p>
+<p>To run this job, save the PBS script to a file, e.g. mtest_pbs. Submit the job to the PBS batch scheduler by typing: qsub mtests_pbs. You should get, in this example, 8 output files containing random numbers. Each file will have a matrix of random numbers of size 1x1, 2x2, 3x3, …, and 8x8. There should also be a .o and .e file, e.g. matlab_test.e27704. This will contain the standard output and standard error of your job, including messages from both Matlab and the PBS queuing system. Due to the way the software works, sometimes Matlab’s error output will actually go into the .o file. The error output of PBS will always go to the .e file.</p>
+<h2 id="example-of-running-embarassingly-parallel-jobs-in-python-with-parallel">Example of running embarassingly parallel jobs in python with parallel</h2>
+<p>The usage of gnu-parallel for python tasks is similar to that of matlab. Following are the sample codes showing implementation of gnu-parallel for python tasks. </p>
+<h3 id="code-for-pbs-script">Code for PBS script</h3>
+<pre><code>#!/bin/bash
+#PBS -N Gnu_parallel_test
+#PBS -l nodes=2:ppn=4
+#PBS -l walltime=01:00:00
+
+
+# load GNU-parallel module
+module load parallel-20170322-intel-18.0.2-4pa2ap6
+
+# load anaconda python
+module load anaconda
+
+# activate python environment
+source activate numpy_py3   #you need to have numpy_py3 environment with numpy installed. Refer to Anaconda quickbytes.
+
+# change to directory PBS script was submitted. 
+cd $PBS_O_WORKDIR
+
+# set jobs per node, which is core per node for galles
+JOBSPERNODE=8
+
+/usr/bin/time -o time.log parallel --joblog logfile --wd $PBS_O_WORKDIR -j $JOBSPERNODE --sshloginfile $PBS_NODEFILE --env PATH -a mat_in python matrix_inv.py
+</code></pre>
+<h3 id="code-for-matrix_invpy-file">code for matrix_inv.py file</h3>
+<pre><code># Import Libraries
+import numpy
+from numpy import linspace
+from numpy.random import rand
+from numpy.linalg import inv
+import timeit
+import argparse
+
+
+# define command line inputs
+parser = argparse.ArgumentParser()
+parser.add_argument("matrix", type=int, help='provide single integer for matrix')
+args = parser.parse_args()
+#define our matrix inverse function
+
+def matinv(x):
+        mat = rand(x, x)
+        b = inv(mat)
+        return b
+out = matinv(args.matrix)
+numpy.savetxt("%d.csv" % args.matrix, out, delimiter=",")
+</code></pre>
+<h3 id="the-contents-of-mat_in-looks-like">The Contents of mat_in looks like</h3>
+<pre><code>1000
+2000
+3000
+4000
+5000
+6000
+7000
+8000
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../slurm_accounting/" class="btn btn-neutral float-left" title="Intro to Slurm accounting at CARC"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../X11_forwarding/" class="btn btn-neutral float-right" title="X11 Forwarding">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../slurm_accounting/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../X11_forwarding/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

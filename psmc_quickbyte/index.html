@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Single genome demographic history with PSMC - CARC QuickBytes</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Single genome demographic history with PSMC";
+        var mkdocs_page_input_path = "psmc_quickbyte.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> CARC QuickBytes
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../workshop_slides/">Workshop Slides</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Linux & HPC Introduction</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../linux_intro/">Linux Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../logging_in/">Logging in</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ssh_keygen_config/">SSH keys and Config file</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../transfer_data/">Transferring data</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Intro_to_slurm/">Intro to Slurm</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../pbs2slurm/">Converting PBS to Slurm</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../checking_on_running_jobs/">Check running jobs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../module_management/">Managing modules</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../slurm_accounting/">Intro to Slurm accounting at CARC</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../GNU_Parallel/">GNU Parallel</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../X11_forwarding/">X11 Forwarding</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Applications Tutorials</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >MATLAB</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../running_matlab_jobs/">Running MATLAB jobs at CARC</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ParallelMatlabServer/">Parallel MATLAB Server</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Parallel_MATLAB_profile_setup_and_batch_submission/">Parallel MATLAB batch submission</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Using_GPUs_on_Xena_with_MATLAB/">Using GPUs with MATLAB</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../MATLAB_Deep_Learning_on_Xena/">MATLAB Deep Learning on Xena</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >JupyterHub</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../parallelization_with_Jupyterhub_using_mpi/">JupyterHub Parallel Processing with MPI</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Conda_JupyterHub/">Conda python environments for JupyterHub</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../julia_with_jupyterhub/">Using Julia in JupyterHub</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Conda</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../anaconda_general_intro/">General intro to Conda</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../anaconda_intro/">Intro to Conda with example</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../anaconda_pip_channels/">Anaconda pip channels</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >R</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../R_usage/">R Programming in HPC</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="https://github.com/UNM-CARC/QuickBytes/tree/master/R_at_CARC">R at CARC</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Parallel_R_with_Future.ipynb">Running R in Parallel with Future</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Gurobi_optimizer_with_R/">Gurobi optimizer with R</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Machine Learning</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../Tensorflow_documentation/">Tensorflow</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../PyTorch_1.9_Xena/">Installing PyTorch on Xena</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../PyTorch_Classifier_Xena.ipynb">Example PyTorch Image Classification on Xena</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../multiGPU_tensorflow_tutorial.ipynb">Tensorflow with multiple GPUs</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../parallel_jupyterhub_with_dask_and_scikit-learn/">Parallelization with JupyterHub using Dask and SciKit-learn</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Bioinformatics</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../GATK_QuickByte/">Genomic variant calling with GATK</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../genome_evaluation/">Genome evaluation with QUAST and BUSCO</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Single genome demographic history with PSMC</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#installation-and-setup">Installation and setup</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#generating-input">Generating input</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#running-psmc">Running PSMC</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#optimization">Optimization</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#bootstrapping-and-plotting">Bootstrapping and plotting</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#citations">Citations</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Stacks_quickbyte/">Stacks for RAD-Seq Data</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Metabarcoding/">Metabarcoding with QIIME2, Mothur, and USEARCH</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Beast_at_CARC/">BEAST at CARC</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../msprime_quickbyte/">Population genetic simulations with msprime (backwards time</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Computational Chemistry</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../orca_wheeler_taos/">Orca on Wheeler and Taos</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../alphafold/">Alphafold</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Computational Immunology</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../SimCov/">SimCov on Wheeler</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Astronomy</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../mpiCASA/">CASA Radio Astronomy</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Paraview</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../paraview/">Paraview Wheeler</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Paraview_Hopper/">Paraview Hopper</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../singularity-markdown-version/">Docker and Singularity</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../haskell/">Haskell at CARC</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../spark/">Spark</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../install_perl_libraries/">Installing Perl Libraries to Your Home Directory</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">CARC QuickBytes</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Applications Tutorials</li>
+          <li class="breadcrumb-item">Bioinformatics</li>
+      <li class="breadcrumb-item active">Single genome demographic history with PSMC</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="pairwise-sequentially-markovian-coalescent-psmc">Pairwise Sequentially Markovian Coalescent (PSMC)</h1>
+<p>The <a href="https://www.nature.com/articles/nature10231">pairwise sequentially Markovian coalescent model</a> is a popular method of leveraging single high-quality diploid genomes to infer the demographic history of a lineage over thousands to hundreds of thousands of years. It can be a great exploratory tool for genomic data, and can help you understand and generate biogeographic and evolutionary hypotheses. It leverages heterozygosity information to estimate local times of most recent common ancestor across the genome, which is then used to reconstruct demographic "stairway plots".</p>
+<p>It is implemented <a href="https://github.com/lh3/psmc">by the authors of the original paper on GitHub</a>, but the documentation is difficult to understand and the method of calling variants is a bit outdated. Here I'll outline a simple pipeline for generating a consensus sequence using <a href="https://onlinelibrary.wiley.com/doi/10.1111/mec.13540">high coverage (&gt;18x) reads and sites with a depth of at least 10 reads</a> and a reference genome. Then, I'll go over how to run PSMC and perform bootstrapping. Note that nothing but the bootstrapping can work across different nodes, so if you find bootstrapping takes too long you can run it as a seperate job with more nodes.</p>
+<p>The runtime and resource requirements will vary based on genome, but the only step that can work across nodes is bootstrap generation. Wheeler will work for some samples, but nodes with more cores may be needed for others due to wall time limits.</p>
+<h2 id="installation-and-setup">Installation and setup</h2>
+<p>Due to the inavailibility of PSMC on conda, high number of included utilities, and ease of installing locally, we suggest you install PSMC as shown below. You can install it anywhere, but we'll assume it's in the working directory you're using to run everything:</p>
+<pre><code>git clone https://github.com/lh3/psmc.git
+cd psmc
+make
+cd utils
+make
+cd ../..
+</code></pre>
+<p>Then we'll install some dependencies with conda as below.</p>
+<pre><code>conda create -n psmc-env -c bioconda -c conda-forge picard bcftools samtools bwa
+</code></pre>
+<p>At the top of any scripts used for this, change to your working directory and activate the environment like:</p>
+<pre><code>cd $SLURM_SUBMIT_DIR
+# if using PBS, 'cd $PBS_O_WORKDIR'
+module load miniconda3/4.8.2-pilj
+eval "$(conda shell.bash hook)"
+conda activate psmc-env
+</code></pre>
+<p>Then, we'll make a subdirectory for future bootstraps with "mkdir boot". If you are testing multiple references for consistency, I suggest putting everything for each reference in its own subdirectory.</p>
+<h2 id="generating-input">Generating input</h2>
+<p>Generating input is essentially a simplified version of <a href="https://github.com/UNM-CARC/QuickBytes/blob/master/GATK_QuickByte.md">GATK's widely used pipeline</a> using <a href="http://samtools.github.io/bcftools/bcftools.html">bcftools</a> to leverage its simplicity and ability to generate a consensus FASTA file with heterozygosity. First, reads are alligned to the reference with BWA. Then, bcftools' mpileup and call are used to obtain variant calls, which are filtered using bcftools' view command. Finally, a consensus sequence is generated and converted to a "PSMC FASTA" for use in PSMC itself. Code for running these steps is below, assuming your reference is "reference.fa" and read files are called "sample_R1.fastq.gz" and "sample_R2.fastq.gz".</p>
+<pre><code># Align with BWA
+bwa index -p reference reference.fa
+# assuming you have 8 threads, not that this .sam file will be huge, and we'll remove it at the end
+bwa mem -t 8 reference sample_R1.fastq.gz sample_R2.fastq.gz &gt; bwa_alignment.sam
+# convert .sam to .bam
+samtools view -S -b bwa_alignment.sam &gt; unsorted_alignment.bam
+# sort the .bam file
+picard SortSam I=unsorted_alignment.bam O=sorted_alignment.bam SORT_ORDER=coordinate
+# remove old files, comment out if you want to keep them to troubleshoot
+rm bwa_alignment.sam
+rm unsorted_alignment.bam
+
+# pipeline combining bcftool's mpileup and call (consensus mode) using 8 threads, then samtools's vcfutils.pl
+# the latter filters variants with a depth less than 10 or greater than 50, and those with quality score under 30
+bcftools mpileup -Q 30 -q 30 -Ovu -f reference.fa sorted_alignment.bam --threads 8 | \
+    bcftools call -c --threads 8 | \
+    vcfutils.pl vcf2fq -d 10 -D 50 -Q 30 &gt; variant_consensus.fq
+
+# generate PSMC input
+./psmc/utils/fq2psmcfa variant_consensus.fq &gt; psmc_input.psmcfa
+</code></pre>
+<h2 id="running-psmc">Running PSMC</h2>
+<p>A basic PSMC run is outlined in the GitHub, but optimization is required to avoid overfitting problems. You can start with the default parameters and work from there. The first flag, -N, is the number of iterations to use. The second, -t, is the maximum coalescence time permitted. The third, -r, is the initial theta/rho ratio (effectively the per-base mutation rate divided by the per-base recombination rate). The final, -p, is the most complicated, but effectively delimits the number of time intervals per parameter. Using, say, '-p "25*1"' would mean 25 parameters each spanning one time interval. The example has 28 parameters spanning 64 intervals (one spanning 4, 25 spanning 2, one spanning 4, then one spanning 6). The more recent intervals are on the left side of the expression. You can start with a set-up like below:</p>
+<pre><code>./psmc/psmc -N25 -t15 -r5 -p "4+25*2+4+6" -o sample.psmc sample.psmcfa
+</code></pre>
+<p>However, before we run bootstrapping and plot this, we want to make sure out runs are optimized.</p>
+<h4 id="optimization">Optimization</h4>
+<p>After our first run, we will view the end of the resulting .psmc file, which will look something like the table below (with many lines skipped for brevity). Each line represents a time interval, and the fifth column (i.e. 3651.038295 in the first row) the number of recombinations that occur. You want to make sure this number is at least 20 in all intervals, although the GitHub says 10 is sufficient. An example of a good result is below, keep repeating until you get a sufficient result:</p>
+<pre><code>RS  0   0.000000    1.282590    3651.038295 0.004395    0.002875
+RS  1   0.005884    0.570172    8631.229543 0.010389    0.010062
+RS  2   0.012114    0.786536    6563.160557 0.007900    0.006705
+...
+RS  75  7.181803    0.765618    56.699641   0.000068    0.000064
+RS  76  7.610256    0.765618    34.277873   0.000041    0.000038
+RS  77  8.063918    0.765618    43.762351   0.000053    0.000049
+</code></pre>
+<p>An example of what worked well for me is below, with a notably different maximum coalescent time (biggest difference for me) and free parameters spanning shorter time intervals toward the present:</p>
+<pre><code>./psmc/psmc -N25 -t10 -r5 -p "8*1+30*2+4+6" -o sample.psmc sample.psmcfa
+</code></pre>
+<p>Next, we want to bootstrap our results and plot them.</p>
+<h4 id="bootstrapping-and-plotting">Bootstrapping and plotting</h4>
+<p>Bootstrapping is a step that can fortunately be run in parallel. There's no set number of bootstraps needed, but we'll do 50 here. We'll run this with GNU parallel. First, you'll need to load a parallel module. Then, you'll run what is essentially the same command as before, but with the -b flag:</p>
+<pre><code>module load parallel/20190222-wsvg
+
+parallel '$SLURM_SUBMIT_DIR/psmc/psmc -N25 -t10 -r5 -b -p "8*1+30*2+4+6" \
+    -o $SLURM_SUBMIT_DIR/boot/sample_r{}.psmc $SLURM_SUBMIT_DIR/sample.psmcfa' \
+    ::: $(seq 50)
+cat sample.psmc boot/sample_r*.psmc &gt; sample_combined.psmc
+</code></pre>
+<p>Unfortunately, perl issues make it difficult to plot the output on CARC, so we suggest you transfer the 'sample_combined.psmc' file to your personal computer. Then, install psmc on your computer like above, and run the command as follows. The -g flag specifies your organism's generation time, and -u the per-generation mutation rate (no scientific notation sadly):</p>
+<pre><code>/path/to/psmc/utils/psmc_plot.pl -p -g 2.2 -u 0.00000000506 bootstrapped_plot  sample_combined.psmc
+</code></pre>
+<p>Then you'll get an estimate of your focal population's detailed demographic history!</p>
+<h2 id="citations">Citations</h2>
+<p>Li, H., &amp; Durbin, R. (2009). Fast and accurate short read alignment with Burrows-Wheeler transform. Bioinformatics, 25(14), 1754–1760. https://doi.org/10.1093/bioinformatics/btp324</p>
+<p>Li, H., &amp; Durbin, R. (2011). Inference of human population history from individual whole-genome sequences. Nature, 475(7357), 493–496. https://doi.org/10.1038/nature10231</p>
+<p>Li, H., Handsaker, B., Wysoker, A., Fennell, T., Ruan, J., Homer, N., … Durbin, R. (2009). The Sequence Alignment/Map format and SAMtools. Bioinformatics, 25(16), 2078–2079. https://doi.org/10.1093/bioinformatics/btp352</p>
+<p>Picard toolkit. (2019). Broad Institute, GitHub Repository. https://doi.org/http://broadinstitute.github.io/picard/</p>
+<p>Tange, O. (2018). GNU Parallel 2018. https://doi.org/10.5281/ZENODO.1146014</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../genome_evaluation/" class="btn btn-neutral float-left" title="Genome evaluation with QUAST and BUSCO"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Stacks_quickbyte/" class="btn btn-neutral float-right" title="Stacks for RAD-Seq Data">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../genome_evaluation/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../Stacks_quickbyte/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
