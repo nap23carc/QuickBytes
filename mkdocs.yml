@@ -15,7 +15,7 @@ nav:
     - GNU Parallel:  GNU_Parallel.md 
     - X11 Forwarding:  X11_forwarding.md
 
-  - Applications Tutorials:
+  - Application Tutorials:
     - MATLAB:
       - Running MATLAB jobs at CARC:  running_matlab_jobs.md
       - Parallel MATLAB Server:  ParallelMatlabServer.md
