@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Gurobi optimizer with R - CARC QuickBytes</title>
+    <title>Systems Information - CARC QuickBytes</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Gurobi optimizer with R";
-        var mkdocs_page_input_path = "Gurobi_optimizer_with_R.md";
+        var mkdocs_page_name = "Systems Information";
+        var mkdocs_page_input_path = "systems_information.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -48,8 +48,16 @@
                 </li>
               </ul>
               <p class="caption"><span class="caption-text">Systems</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../systems_information/">Systems Information</a>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Systems Information</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#carc-supercomputer-and-cluster-resources">CARC Supercomputer and Cluster Resources</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#xena-cluster-specs">Xena Cluster Specs</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../resource_limits/">Resource Limits</a>
                   </li>
@@ -82,7 +90,7 @@
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Applications Tutorials</span></p>
-              <ul class="current">
+              <ul>
                   <li class="toctree-l1"><a class="reference internal" >MATLAB</a>
     <ul>
                 <li class="toctree-l2"><a class="reference internal" href="../running_matlab_jobs/">Running MATLAB jobs at CARC</a>
@@ -117,19 +125,15 @@
                 </li>
     </ul>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" >R</a>
-    <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >R</a>
+    <ul>
                 <li class="toctree-l2"><a class="reference internal" href="../R_usage/">R Programming in HPC</a>
                 </li>
                 <li class="toctree-l2"><a class="" href="https://github.com/UNM-CARC/QuickBytes/tree/master/R_at_CARC">R at CARC</a>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../Parallel_R_with_Future.ipynb">Running R in Parallel with Future</a>
                 </li>
-                <li class="toctree-l2 current"><a class="reference internal current" href="#">Gurobi optimizer with R</a>
-    <ul class="current">
-    <li class="toctree-l3"><a class="reference internal" href="#example-of-running-gurobi-optimizer-with-r-at-carc">Example of running Gurobi optimizer with R at CARC</a>
-    </li>
-    </ul>
+                <li class="toctree-l2"><a class="reference internal" href="../Gurobi_optimizer_with_R/">Gurobi optimizer with R</a>
                 </li>
     </ul>
                   </li>
@@ -216,9 +220,8 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Applications Tutorials</li>
-          <li class="breadcrumb-item">R</li>
-      <li class="breadcrumb-item active">Gurobi optimizer with R</li>
+          <li class="breadcrumb-item">Systems</li>
+      <li class="breadcrumb-item active">Systems Information</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -227,56 +230,179 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="gurobi-optimizer-with-r">Gurobi optimizer with R</h1>
-<p><a href="https://www.gurobi.com/products/gurobi-optimizer/">Gurobi optimizer</a> is a problem solving software that can be used within R. It can solve integer, linear, and quadratic
-programming optimizations. These techniques can help to find the answers to complex models. </p>
-<h2 id="example-of-running-gurobi-optimizer-with-r-at-carc">Example of running Gurobi optimizer with R at CARC</h2>
-<p>There are modules for both Gurobi and R on the wheeler cluster. All you need to do is load them, and then start an R
-session. This command is for version 8.1.0, however there are other versions of gurobi available (enter <code>module avail gurobi</code> to see a full list).</p>
-<pre><code>username@wheeler-sn:~$ module load gurobi/8.1.0
-username@wheeler-sn:~$ module load r-3.6.0-gcc-7.3.0-python2-7akol5t
-username@wheeler-sn:~$ R
-</code></pre>
-<p>Once you have started an R session, you can install packages just as you would in R. If you ever run into issues loading 
-packages in R at CARC, you can reach out for assistance by emailling help@carc.unm.edu. One piece of advice if you are using 
-JupyterHub to run an R notebook at CARC is you may need to install packages from ther terminal window on JupyterHub because 
-the notebook will not let you interactiively answer questions installs may need. </p>
-<p>Start by installing the gurobi package:</p>
-<pre><code>&gt; install.packages('/opt/local/gurobi/8.1.0/linux64/R/gurobi_8.1-0_R_3.5.0.tar.gz')
-Installing package into '/users/username/R/x86_64-pc-linux-gnu-library/3.6'
-* installing *binary* package 'gurobi' ...
-* DONE (gurobi)
-</code></pre>
-<p>You should now be able to load the gurobi library in an R session:</p>
-<pre><code>&gt; library(gurobi)
-Loading required package: slam
-</code></pre>
-<p>Note that if you get an error regarding slam, you can install it using the command:</p>
-<pre><code>install.packages(&quot;slam&quot;, repos = &quot;https://cloud.r-project.org&quot;)
-</code></pre>
-<p>Now let's runs a quick model as an example of what Gurobi can do and to see if everything is working properly: </p>
-<pre><code>&gt; model &lt;- list()
-&gt; model$A          &lt;- matrix(c(1,2,3,1,1,0), nrow=2, ncol=3, byrow=T)
-&gt; model$obj        &lt;- c(1,1,2)
-&gt; model$modelsense &lt;- 'max'
-&gt; model$rhs        &lt;- c(4,1)
-&gt; model$sense      &lt;- c('&lt;', '&gt;')
-&gt; model$vtype      &lt;- 'B'
-&gt; params &lt;- list(OutputFlag=0)
-&gt; result &lt;- gurobi(model, params)
-&gt; print('Solution:')
-[1] &quot;Solution:&quot;
-&gt; print(result$objval)
-[1] 3
-&gt; print(result$x)
-[1] 1 0 1
-</code></pre>
+                <h1 id="carc-systems-information">CARC Systems Information</h1>
+<h2 id="carc-supercomputer-and-cluster-resources">CARC Supercomputer and Cluster Resources</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><strong>Machine Name</strong></th>
+<th style="text-align: center;"><strong>Wheeler</strong></th>
+<th style="text-align: center;"><strong>Taos</strong></th>
+<th style="text-align: center;"><strong>Gibbs</strong></th>
+<th style="text-align: center;"><strong>Xena</strong></th>
+<th style="text-align: center;"><strong>Hopper</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Model/Type</strong></td>
+<td style="text-align: center;">SGI AltixXE<br>Xeon X5550<br>2.67 GHz</td>
+<td style="text-align: center;">Dell PowerEdge R630<br>Xeon E5-2698 V4<br>2.20 GHz</td>
+<td style="text-align: center;">Dell PowerEdge R620<br>Intel Xeon E5-2670<br>2.6 GHz</td>
+<td style="text-align: center;">Dell PowerEdge R730<br>Intel Xeon E5-2640<br>2.6 GHz<br>and<br>PowerEdge R930<br>Intel Xeon E7-4809<br>2.0 Ghz</td>
+<td style="text-align: center;">Dell PowerEdge R640<br>Intel Xeon Gold 6226R<br>2.9 GHz<br>and<br>Dell PowerEdge R740<br>Intel Xeon Gold 6242<br>2.8 GHz</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Linux Operating<br>System</strong></td>
+<td style="text-align: center;">CentOS 7</td>
+<td style="text-align: center;">CentOS 7</td>
+<td style="text-align: center;">Scientific Linux</td>
+<td style="text-align: center;">CentOS 7</td>
+<td style="text-align: center;">Rocky Linux</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Interconnect</strong></td>
+<td style="text-align: center;">Mellanox IS5600<br>InfiniScale IV<br>ConnectX-2 IB QDR<br>(MT26428)</td>
+<td style="text-align: center;">Mellanox SX6000<br>ConnectX-3 IB FDR<br>(MT4099)</td>
+<td style="text-align: center;">InfiniBand QDR</td>
+<td style="text-align: center;">InfiniBand FDR</td>
+<td style="text-align: center;">InfiniBand HDR</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Nodes</strong></td>
+<td style="text-align: center;">304</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">24</td>
+<td style="text-align: center;">32</td>
+<td style="text-align: center;">61</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Cores/Node</strong></td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">variable</td>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">16, 32</td>
+<td style="text-align: center;">32</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Total Cores</strong></td>
+<td style="text-align: center;">2432</td>
+<td style="text-align: center;">180</td>
+<td style="text-align: center;">384</td>
+<td style="text-align: center;">576</td>
+<td style="text-align: center;">2176</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>RAM/Core</strong></td>
+<td style="text-align: center;">6GB</td>
+<td style="text-align: center;">variable</td>
+<td style="text-align: center;">4 GB</td>
+<td style="text-align: center;">4 GB, 32 GB, 96 GB</td>
+<td style="text-align: center;">variable</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Local disk/node</strong></td>
+<td style="text-align: center;">Diskless</td>
+<td style="text-align: center;">1 TB</td>
+<td style="text-align: center;">1 TB</td>
+<td style="text-align: center;">1 TB</td>
+<td style="text-align: center;">448 GB</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Peak FLOPS<br>(theoretical),<br>in TFLOPS</strong></td>
+<td style="text-align: center;">25</td>
+<td style="text-align: center;">(TBD)</td>
+<td style="text-align: center;">3.996</td>
+<td style="text-align: center;">18</td>
+<td style="text-align: center;">(TBD)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Processor Architecture</strong></td>
+<td style="text-align: center;">Intel Xeon<br>Nehalem EP</td>
+<td style="text-align: center;">Intel Xeon<br>Broadwell</td>
+<td style="text-align: center;">Intel SandyBridge</td>
+<td style="text-align: center;">Intel Xeon E7-2640<br>Intel Xeon E7-4809<br>(Haswell)</td>
+<td style="text-align: center;">Intel Xeon Gold 6226R<br>Intel Xeon Gold 6242<br>(Cascade Lake)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Local Scratch Space<br>(TB)</strong></td>
+<td style="text-align: center;">40</td>
+<td style="text-align: center;">27</td>
+<td style="text-align: center;">6.3</td>
+<td style="text-align: center;">73</td>
+<td style="text-align: center;">(TBD)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="xena-cluster-specs">Xena Cluster Specs</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><strong>Queue Name</strong></th>
+<th style="text-align: center;">bigmem-1TB</th>
+<th style="text-align: center;">bigmem-3TB</th>
+<th style="text-align: center;">dualGPU</th>
+<th style="text-align: center;">singleGPU</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Nodes</strong></td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">24</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Cores/Node</strong></td>
+<td style="text-align: center;">32</td>
+<td style="text-align: center;">32</td>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">16</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Memory/Node</strong></td>
+<td style="text-align: center;">1 TB</td>
+<td style="text-align: center;">3 TB</td>
+<td style="text-align: center;">64 GB</td>
+<td style="text-align: center;">64 GB</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Total Cores</strong></td>
+<td style="text-align: center;">64</td>
+<td style="text-align: center;">64</td>
+<td style="text-align: center;">64</td>
+<td style="text-align: center;">384</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Processor<br>Architecture</strong></td>
+<td style="text-align: center;">Intel Xeon<br>CPU E7-4809</td>
+<td style="text-align: center;">Intel Xeon<br>CPU E7-4809</td>
+<td style="text-align: center;">Intel Xeon<br>CPU E5-2640</td>
+<td style="text-align: center;">Intel Xeon<br>CPU E5-2640</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>CPU GHz</strong></td>
+<td style="text-align: center;">2.00</td>
+<td style="text-align: center;">2.00</td>
+<td style="text-align: center;">2.60</td>
+<td style="text-align: center;">2.60</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>GPU</strong></td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: center;">2 x Nvidia Tesla<br>K40M per node</td>
+<td style="text-align: center;">1 x Nvidia Tesla<br>K40M per node</td>
+</tr>
+</tbody>
+</table>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../Parallel_R_with_Future.ipynb" class="btn btn-neutral float-left" title="Running R in Parallel with Future"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../Tensorflow_documentation/" class="btn btn-neutral float-right" title="Tensorflow">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../workshop_slides/" class="btn btn-neutral float-left" title="Workshop Slides"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../resource_limits/" class="btn btn-neutral float-right" title="Resource Limits">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -299,10 +425,10 @@ Loading required package: slam
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../Parallel_R_with_Future.ipynb" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../workshop_slides/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../Tensorflow_documentation/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../resource_limits/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

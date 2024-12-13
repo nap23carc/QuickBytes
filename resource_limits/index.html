@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Gurobi optimizer with R - CARC QuickBytes</title>
+    <title>Resource Limits - CARC QuickBytes</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Gurobi optimizer with R";
-        var mkdocs_page_input_path = "Gurobi_optimizer_with_R.md";
+        var mkdocs_page_name = "Resource Limits";
+        var mkdocs_page_input_path = "resource_limits.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -48,10 +48,12 @@
                 </li>
               </ul>
               <p class="caption"><span class="caption-text">Systems</span></p>
-              <ul>
+              <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../systems_information/">Systems Information</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../resource_limits/">Resource Limits</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Resource Limits</a>
+    <ul class="current">
+    </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../export_control/">Export Control</a>
                   </li>
@@ -82,7 +84,7 @@
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Applications Tutorials</span></p>
-              <ul class="current">
+              <ul>
                   <li class="toctree-l1"><a class="reference internal" >MATLAB</a>
     <ul>
                 <li class="toctree-l2"><a class="reference internal" href="../running_matlab_jobs/">Running MATLAB jobs at CARC</a>
@@ -117,19 +119,15 @@
                 </li>
     </ul>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" >R</a>
-    <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >R</a>
+    <ul>
                 <li class="toctree-l2"><a class="reference internal" href="../R_usage/">R Programming in HPC</a>
                 </li>
                 <li class="toctree-l2"><a class="" href="https://github.com/UNM-CARC/QuickBytes/tree/master/R_at_CARC">R at CARC</a>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../Parallel_R_with_Future.ipynb">Running R in Parallel with Future</a>
                 </li>
-                <li class="toctree-l2 current"><a class="reference internal current" href="#">Gurobi optimizer with R</a>
-    <ul class="current">
-    <li class="toctree-l3"><a class="reference internal" href="#example-of-running-gurobi-optimizer-with-r-at-carc">Example of running Gurobi optimizer with R at CARC</a>
-    </li>
-    </ul>
+                <li class="toctree-l2"><a class="reference internal" href="../Gurobi_optimizer_with_R/">Gurobi optimizer with R</a>
                 </li>
     </ul>
                   </li>
@@ -216,9 +214,8 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Applications Tutorials</li>
-          <li class="breadcrumb-item">R</li>
-      <li class="breadcrumb-item active">Gurobi optimizer with R</li>
+          <li class="breadcrumb-item">Systems</li>
+      <li class="breadcrumb-item active">Resource Limits</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -227,56 +224,152 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="gurobi-optimizer-with-r">Gurobi optimizer with R</h1>
-<p><a href="https://www.gurobi.com/products/gurobi-optimizer/">Gurobi optimizer</a> is a problem solving software that can be used within R. It can solve integer, linear, and quadratic
-programming optimizations. These techniques can help to find the answers to complex models. </p>
-<h2 id="example-of-running-gurobi-optimizer-with-r-at-carc">Example of running Gurobi optimizer with R at CARC</h2>
-<p>There are modules for both Gurobi and R on the wheeler cluster. All you need to do is load them, and then start an R
-session. This command is for version 8.1.0, however there are other versions of gurobi available (enter <code>module avail gurobi</code> to see a full list).</p>
-<pre><code>username@wheeler-sn:~$ module load gurobi/8.1.0
-username@wheeler-sn:~$ module load r-3.6.0-gcc-7.3.0-python2-7akol5t
-username@wheeler-sn:~$ R
-</code></pre>
-<p>Once you have started an R session, you can install packages just as you would in R. If you ever run into issues loading 
-packages in R at CARC, you can reach out for assistance by emailling help@carc.unm.edu. One piece of advice if you are using 
-JupyterHub to run an R notebook at CARC is you may need to install packages from ther terminal window on JupyterHub because 
-the notebook will not let you interactiively answer questions installs may need. </p>
-<p>Start by installing the gurobi package:</p>
-<pre><code>&gt; install.packages('/opt/local/gurobi/8.1.0/linux64/R/gurobi_8.1-0_R_3.5.0.tar.gz')
-Installing package into '/users/username/R/x86_64-pc-linux-gnu-library/3.6'
-* installing *binary* package 'gurobi' ...
-* DONE (gurobi)
-</code></pre>
-<p>You should now be able to load the gurobi library in an R session:</p>
-<pre><code>&gt; library(gurobi)
-Loading required package: slam
-</code></pre>
-<p>Note that if you get an error regarding slam, you can install it using the command:</p>
-<pre><code>install.packages(&quot;slam&quot;, repos = &quot;https://cloud.r-project.org&quot;)
-</code></pre>
-<p>Now let's runs a quick model as an example of what Gurobi can do and to see if everything is working properly: </p>
-<pre><code>&gt; model &lt;- list()
-&gt; model$A          &lt;- matrix(c(1,2,3,1,1,0), nrow=2, ncol=3, byrow=T)
-&gt; model$obj        &lt;- c(1,1,2)
-&gt; model$modelsense &lt;- 'max'
-&gt; model$rhs        &lt;- c(4,1)
-&gt; model$sense      &lt;- c('&lt;', '&gt;')
-&gt; model$vtype      &lt;- 'B'
-&gt; params &lt;- list(OutputFlag=0)
-&gt; result &lt;- gurobi(model, params)
-&gt; print('Solution:')
-[1] &quot;Solution:&quot;
-&gt; print(result$objval)
-[1] 3
-&gt; print(result$x)
-[1] 1 0 1
-</code></pre>
+                <h1 id="storage-policy">Storage Policy</h1>
+<p>Home directories have a soft limit of 100GB and a hard limit of 200GB. Once you exceed the soft limit we will ask you to reduce your usage. You will not be able to write data beyond the hard limit. Project space is limited to 250 GB. Scratch storage is limited to 1 TB (2 TB on Xena). Center-wide project scratch space is limited to 1 TB and user scratch is limited to 100G (/carc/scratch). To purchase additional storage please see our <a href="https://carc.unm.edu/research/premium-research-computing-services.html">pricing spreadsheet</a>.</p>
+<p>The 'quotas' command shows your quota usage.</p>
+<h1 id="compute-usage-policy">Compute Usage Policy</h1>
+<p>To ensure that all research and class projects get their fair share of the clusters and to prevent any one group from using a disproportionate amount of resources, we utilize Slurm’s built-in job accounting and fairshare system.
+The cluster is a limited resource and Fairshare allows us to ensure everyone gets a fair opportunity to use it regardless of how big or small the group is.
+Your compute resource allocation is shared among everyone in the slurm account you select. </p>
+<p>For more on slurm accounts see this quickbyte: <a href="https://github.com/UNM-CARC/QuickBytes/blob/master/slurm_accounting.md">https://github.com/UNM-CARC/QuickBytes/blob/master/slurm_accounting.md</a>
+Note that your slurm account is not the same as your CARC login account.</p>
+<p>To see the predicted start time of your job based on your fairshare score, use the following command:
+<code>squeue --start --job &lt;job_id&gt;</code></p>
+<h2 id="xena-configuration">Xena Configuration</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Queue</th>
+<th style="text-align: center;">GPU</th>
+<th style="text-align: center;">Bigmem</th>
+<th style="text-align: center;">Debug</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">Number of Processors</td>
+<td style="text-align: center;">192</td>
+<td style="text-align: center;">128</td>
+<td style="text-align: center;">8</td>
+</tr>
+<tr>
+<td style="text-align: right;">Number of Nodes</td>
+<td style="text-align: center;">12 (singleGPU) <br> 4 (dualGPU)</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td style="text-align: right;">Processors per Node</td>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">32</td>
+<td style="text-align: center;">4</td>
+</tr>
+<tr>
+<td style="text-align: right;">Walltime(H:M:S)</td>
+<td style="text-align: center;">48:00:00</td>
+<td style="text-align: center;">48:00:00</td>
+<td style="text-align: center;">04:00:00</td>
+</tr>
+<tr>
+<td style="text-align: right;">Memory Limit</td>
+<td style="text-align: center;">60 Gb (singleGPU and dualGPU)</td>
+<td style="text-align: center;">1 Tb (bigmem-1TB)<br>3 Tb (bigmem-3TB)</td>
+<td style="text-align: center;">60 Gb</td>
+</tr>
+</tbody>
+</table>
+<h2 id="wheeler-configuration">Wheeler Configuration</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Queue:</th>
+<th style="text-align: center;">Default</th>
+<th style="text-align: center;">Debug</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">Number of Processors</td>
+<td style="text-align: center;">400</td>
+<td style="text-align: center;">32</td>
+</tr>
+<tr>
+<td style="text-align: right;">Number of Nodes</td>
+<td style="text-align: center;">50</td>
+<td style="text-align: center;">4</td>
+</tr>
+<tr>
+<td style="text-align: right;">Processors per Node</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">8</td>
+</tr>
+<tr>
+<td style="text-align: right;">Walltime(H:M:S)</td>
+<td style="text-align: center;">48:00:00</td>
+<td style="text-align: center;">04:00:00</td>
+</tr>
+<tr>
+<td style="text-align: right;">Memory Limit</td>
+<td style="text-align: center;">44 Gb</td>
+<td style="text-align: center;">44 Gb</td>
+</tr>
+</tbody>
+</table>
+<h2 id="hopper-configuration">Hopper Configuration</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Queue:</th>
+<th style="text-align: center;">General</th>
+<th style="text-align: center;">Debug</th>
+<th style="text-align: center;">Condo</th>
+<th style="text-align: center;">Private</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">Number of Processors</td>
+<td style="text-align: center;">64</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">192</td>
+<td style="text-align: center;">Determined by <br> queue owner</td>
+</tr>
+<tr>
+<td style="text-align: right;">Number of Nodes</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: right;">Processors per Node</td>
+<td style="text-align: center;">32</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">32</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: right;">Walltime(H:M:S)</td>
+<td style="text-align: center;">48:00:00</td>
+<td style="text-align: center;">04:00:00</td>
+<td style="text-align: center;">48:00:00</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: right;">Memory Limits</td>
+<td style="text-align: center;">90 Gb</td>
+<td style="text-align: center;">90 Gb</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../Parallel_R_with_Future.ipynb" class="btn btn-neutral float-left" title="Running R in Parallel with Future"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../Tensorflow_documentation/" class="btn btn-neutral float-right" title="Tensorflow">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../systems_information/" class="btn btn-neutral float-left" title="Systems Information"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../export_control/" class="btn btn-neutral float-right" title="Export Control">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -299,10 +392,10 @@ Loading required package: slam
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../Parallel_R_with_Future.ipynb" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../systems_information/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../Tensorflow_documentation/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../export_control/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Gurobi optimizer with R - CARC QuickBytes</title>
+    <title>Export Control - CARC QuickBytes</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Gurobi optimizer with R";
-        var mkdocs_page_input_path = "Gurobi_optimizer_with_R.md";
+        var mkdocs_page_name = "Export Control";
+        var mkdocs_page_input_path = "export_control.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -48,12 +48,24 @@
                 </li>
               </ul>
               <p class="caption"><span class="caption-text">Systems</span></p>
-              <ul>
+              <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../systems_information/">Systems Information</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../resource_limits/">Resource Limits</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../export_control/">Export Control</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Export Control</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#1-overview-of-export-restrictions">1. Overview of Export Restrictions</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2-application-to-software">2. Application to Software</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3-exceptions">3. Exceptions</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#4-installation-of-export-control-software">4. Installation of Export Control Software</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#5-contact-information">5. Contact Information</a>
+    </li>
+    </ul>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Linux & HPC Introduction</span></p>
@@ -82,7 +94,7 @@
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Applications Tutorials</span></p>
-              <ul class="current">
+              <ul>
                   <li class="toctree-l1"><a class="reference internal" >MATLAB</a>
     <ul>
                 <li class="toctree-l2"><a class="reference internal" href="../running_matlab_jobs/">Running MATLAB jobs at CARC</a>
@@ -117,19 +129,15 @@
                 </li>
     </ul>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" >R</a>
-    <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >R</a>
+    <ul>
                 <li class="toctree-l2"><a class="reference internal" href="../R_usage/">R Programming in HPC</a>
                 </li>
                 <li class="toctree-l2"><a class="" href="https://github.com/UNM-CARC/QuickBytes/tree/master/R_at_CARC">R at CARC</a>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../Parallel_R_with_Future.ipynb">Running R in Parallel with Future</a>
                 </li>
-                <li class="toctree-l2 current"><a class="reference internal current" href="#">Gurobi optimizer with R</a>
-    <ul class="current">
-    <li class="toctree-l3"><a class="reference internal" href="#example-of-running-gurobi-optimizer-with-r-at-carc">Example of running Gurobi optimizer with R at CARC</a>
-    </li>
-    </ul>
+                <li class="toctree-l2"><a class="reference internal" href="../Gurobi_optimizer_with_R/">Gurobi optimizer with R</a>
                 </li>
     </ul>
                   </li>
@@ -216,9 +224,8 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Applications Tutorials</li>
-          <li class="breadcrumb-item">R</li>
-      <li class="breadcrumb-item active">Gurobi optimizer with R</li>
+          <li class="breadcrumb-item">Systems</li>
+      <li class="breadcrumb-item active">Export Control</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -227,56 +234,25 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="gurobi-optimizer-with-r">Gurobi optimizer with R</h1>
-<p><a href="https://www.gurobi.com/products/gurobi-optimizer/">Gurobi optimizer</a> is a problem solving software that can be used within R. It can solve integer, linear, and quadratic
-programming optimizations. These techniques can help to find the answers to complex models. </p>
-<h2 id="example-of-running-gurobi-optimizer-with-r-at-carc">Example of running Gurobi optimizer with R at CARC</h2>
-<p>There are modules for both Gurobi and R on the wheeler cluster. All you need to do is load them, and then start an R
-session. This command is for version 8.1.0, however there are other versions of gurobi available (enter <code>module avail gurobi</code> to see a full list).</p>
-<pre><code>username@wheeler-sn:~$ module load gurobi/8.1.0
-username@wheeler-sn:~$ module load r-3.6.0-gcc-7.3.0-python2-7akol5t
-username@wheeler-sn:~$ R
-</code></pre>
-<p>Once you have started an R session, you can install packages just as you would in R. If you ever run into issues loading 
-packages in R at CARC, you can reach out for assistance by emailling help@carc.unm.edu. One piece of advice if you are using 
-JupyterHub to run an R notebook at CARC is you may need to install packages from ther terminal window on JupyterHub because 
-the notebook will not let you interactiively answer questions installs may need. </p>
-<p>Start by installing the gurobi package:</p>
-<pre><code>&gt; install.packages('/opt/local/gurobi/8.1.0/linux64/R/gurobi_8.1-0_R_3.5.0.tar.gz')
-Installing package into '/users/username/R/x86_64-pc-linux-gnu-library/3.6'
-* installing *binary* package 'gurobi' ...
-* DONE (gurobi)
-</code></pre>
-<p>You should now be able to load the gurobi library in an R session:</p>
-<pre><code>&gt; library(gurobi)
-Loading required package: slam
-</code></pre>
-<p>Note that if you get an error regarding slam, you can install it using the command:</p>
-<pre><code>install.packages(&quot;slam&quot;, repos = &quot;https://cloud.r-project.org&quot;)
-</code></pre>
-<p>Now let's runs a quick model as an example of what Gurobi can do and to see if everything is working properly: </p>
-<pre><code>&gt; model &lt;- list()
-&gt; model$A          &lt;- matrix(c(1,2,3,1,1,0), nrow=2, ncol=3, byrow=T)
-&gt; model$obj        &lt;- c(1,1,2)
-&gt; model$modelsense &lt;- 'max'
-&gt; model$rhs        &lt;- c(4,1)
-&gt; model$sense      &lt;- c('&lt;', '&gt;')
-&gt; model$vtype      &lt;- 'B'
-&gt; params &lt;- list(OutputFlag=0)
-&gt; result &lt;- gurobi(model, params)
-&gt; print('Solution:')
-[1] &quot;Solution:&quot;
-&gt; print(result$objval)
-[1] 3
-&gt; print(result$x)
-[1] 1 0 1
-</code></pre>
+                <h1 id="export-control">Export control</h1>
+<h2 id="1-overview-of-export-restrictions">1. Overview of Export Restrictions</h2>
+<p>The U.S. Government controls exports of sensitive equipment, software and technology as a means to promote U.S. national security interests and foreign policy objectives.</p>
+<h2 id="2-application-to-software">2. Application to Software</h2>
+<p>Software is regulated by the U.S. Department of Commerce, Bureau of Industry and Security, under the Export Administration Regulations ("EAR"). A software export under the EAR includes "any release of technology or software subject to the EAR in a foreign country," or any release of "source code subject to the EAR to a foreign national."
+The term "release" is defined very broadly to include inspection by foreign nationals, exchanges of information, or the application of personal knowledge or technical experience acquired in the United States.</p>
+<h2 id="3-exceptions">3. Exceptions</h2>
+<p>EAR excludes publicly-available software, except for some encryption technology. Other exceptions may be available for non-publicly licensed software. To determine if exceptions are available, faculty principal investigators should contact the UNM Main Campus Office of Export Control for guidance prior to requesting EAR-controlled software installations on CARC systems.  A written exception from UNM Export Control will be required.</p>
+<h2 id="4-installation-of-export-control-software">4. Installation of Export Control Software</h2>
+<p>All requests for installation of export-controlled software on CARC systems will require prior written approval or a written exception from UNM Export Control.</p>
+<h2 id="5-contact-information">5. Contact Information</h2>
+<p>Main Campus email: export@unm.edu
+phone: 505-277-2968</p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../Parallel_R_with_Future.ipynb" class="btn btn-neutral float-left" title="Running R in Parallel with Future"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../Tensorflow_documentation/" class="btn btn-neutral float-right" title="Tensorflow">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../resource_limits/" class="btn btn-neutral float-left" title="Resource Limits"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../linux_intro/" class="btn btn-neutral float-right" title="Linux Introduction">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -299,10 +275,10 @@ Loading required package: slam
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../Parallel_R_with_Future.ipynb" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../resource_limits/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../Tensorflow_documentation/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../linux_intro/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
