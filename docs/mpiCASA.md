@@ -6,7 +6,7 @@
 
 ### Getting Some Data to Play With
 
-Going to use the new [Archive](data.nrao.edu). Find something small and have them download it manually, like a few GB at most.
+Going to use the new [Archive](https://data.nrao.edu). Find something small and have them download it manually, like a few GB at most.
 
 ### Getting Set Up
 

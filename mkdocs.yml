@@ -1,0 +1,67 @@
+site_name: CARC QuickBytes
+nav:
+  - Home: index.md
+  - Workshop Slides: workshop_slides.md
+  - Linux & HPC Introduction:
+    - Linux Introduction:  linux_intro.md
+    - Logging in:  logging_in.md
+    - SSH keys and Config file:  ssh_keygen_config.md
+    - Transferring data:  transfer_data.md
+    - Intro to Slurm:  Intro_to_slurm.md
+    - Converting PBS to Slurm:  pbs2slurm.md
+    - Check running jobs:  checking_on_running_jobs.md
+    - Managing modules:  module_management.md
+    - Intro to Slurm accounting at CARC:  slurm_accounting.md
+    - GNU Parallel:  GNU_Parallel.md 
+    - X11 Forwarding:  X11_forwarding.md
+
+  - Applications Tutorials:
+    - MATLAB:
+      - Running MATLAB jobs at CARC:  running_matlab_jobs.md
+      - Parallel MATLAB Server:  ParallelMatlabServer.md
+      - Parallel MATLAB batch submission:  Parallel_MATLAB_profile_setup_and_batch_submission.md
+      - Using GPUs with MATLAB:  Using_GPUs_on_Xena_with_MATLAB.md
+      - MATLAB Deep Learning on Xena:  MATLAB_Deep_Learning_on_Xena.md
+    - JupyterHub:
+      - JupyterHub Parallel Processing with MPI:  parallelization_with_Jupyterhub_using_mpi.md
+      - Conda python environments for JupyterHub:  Conda_JupyterHub.md
+      - Using Julia in JupyterHub:  julia_with_jupyterhub.md
+    - Conda:
+      - General intro to Conda:  anaconda_general_intro.md
+      - Intro to Conda with example:  anaconda_intro.md
+      - Anaconda pip channels:  anaconda_pip_channels.md
+    - R:
+      - R Programming in HPC:  R_usage.md
+      - R at CARC:  https://github.com/UNM-CARC/QuickBytes/tree/master/R_at_CARC
+      - Running R in Parallel with Future:  Parallel_R_with_Future.ipynb
+      - Gurobi optimizer with R:  Gurobi_optimizer_with_R.md
+    - Machine Learning:
+      - Tensorflow:  Tensorflow_documentation.md
+      - Installing PyTorch on Xena:  PyTorch_1.9_Xena.md
+      - Example PyTorch Image Classification on Xena:  PyTorch_Classifier_Xena.ipynb
+      - Tensorflow with multiple GPUs:  multiGPU_tensorflow_tutorial.ipynb
+      - Parallelization with JupyterHub using Dask and SciKit-learn:  parallel_jupyterhub_with_dask_and_scikit-learn.md
+    - Bioinformatics:
+      - Genomic variant calling with GATK:  GATK_QuickByte.md
+      - Genome evaluation with QUAST and BUSCO:  genome_evaluation.md
+      - Single genome demographic history with PSMC:  psmc_quickbyte.md
+      - Stacks for RAD-Seq Data:  Stacks_quickbyte.md
+      - Metabarcoding with QIIME2, Mothur, and USEARCH:  Metabarcoding.md
+      - BEAST at CARC:  Beast_at_CARC.md
+      - Population genetic simulations with msprime (backwards time:  msprime_quickbyte.md
+    - Computational Chemistry:
+      - Orca on Wheeler and Taos:  orca_wheeler_taos.md
+      - Alphafold:  alphafold.md
+    - Computational Immunology:
+      - SimCov on Wheeler:  SimCov.md
+    - Astronomy:
+      - CASA Radio Astronomy:  mpiCASA.md
+    - Paraview:
+      - Paraview Wheeler:  paraview.md
+      - Paraview Hopper:  Paraview_Hopper.md
+    - Docker and Singularity:  singularity-markdown-version.md
+    - Haskell at CARC:  haskell.md
+    - Spark:  spark.md
+    - Installing Perl Libraries to Your Home Directory:  install_perl_libraries.md
+
+theme:  readthedocs
