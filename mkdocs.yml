@@ -64,7 +64,6 @@ nav:
     - Spark:  spark.md
     - Installing Perl Libraries to Your Home Directory:  install_perl_libraries.md
   - Systems:
-    - Systems Information:  systems_information.md
     - Resource Limits:  resource_limits.md
     - Export Control: export_control.md
     - JupyterHub cluster links:
