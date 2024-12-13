@@ -2,7 +2,7 @@
 
 Quickbytes are tutorials specifically designed to assist CARC users in navigating and utilizing our resources effectively. These tutorials aim to provide practical guidance on a variety of topics related to advanced research computing, making it easier for users to enhance their skills and workflows.
 
-In addition to the Quickbytes tutorials, this site also hosts workshop slides and other educational materials from training sessions offered by CARC. These resources are tailored to address common challenges and promote best practices in research computing.
+In addition to the Quickbytes tutorials, this site also hosts [workshop slides](workshop_slides.md) and other educational materials from training sessions offered by CARC. These resources are tailored to address common challenges and promote best practices in research computing.
 
 To explore the materials, please make use of the navigation menu or the search bar to locate a topic of interest. Whether you’re looking for step-by-step instructions, troubleshooting tips, or advanced technical insights, you’ll find valuable resources here.
 
