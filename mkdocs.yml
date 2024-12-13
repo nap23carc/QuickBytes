@@ -2,10 +2,6 @@ site_name: CARC QuickBytes
 nav:
   - Home: index.md
   - Workshop Slides: workshop_slides.md
-  - Systems:
-    - Systems Information:  systems_information.md
-    - Resource Limits:  resource_limits.md
-    - Export Control: export_control.md
   - Linux & HPC Introduction:
     - Linux Introduction:  linux_intro.md
     - Logging in:  logging_in.md
@@ -67,5 +63,13 @@ nav:
     - Haskell at CARC:  haskell.md
     - Spark:  spark.md
     - Installing Perl Libraries to Your Home Directory:  install_perl_libraries.md
-
+  - Systems:
+    - Systems Information:  systems_information.md
+    - Resource Limits:  resource_limits.md
+    - Export Control: export_control.md
+    - JupyterHub cluster links:
+      - Hopper: https://hopper.alliance.unm.edu:8000/
+      - Xena: https://xena.alliance.unm.edu:8000/
+      - Wheeler: https://wheeler.alliance.unm.edu:8000/
+      - Taos: https://taos.alliance.unm.edu:8000/
 theme:  readthedocs
